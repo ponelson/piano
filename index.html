@@ -1015,6 +1015,38 @@
     margin: 0;
   }
 
+  /* Contact */
+  .contact-block { max-width: 720px; }
+  .contact-email {
+    display: inline-block;
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+    padding-bottom: 4px;
+    transition: color 0.3s var(--easing), border-color 0.3s var(--easing);
+  }
+  .contact-email:hover {
+    color: var(--accent-2);
+    border-bottom-color: var(--accent-2);
+  }
+  .contact-links {
+    margin-top: 28px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .contact-links a {
+    color: var(--ink-3);
+    text-decoration: none;
+    transition: color 0.3s var(--easing);
+  }
+  .contact-links a:hover { color: var(--accent); }
+
   footer {
     padding: 64px 28px 80px;
     text-align: center;
@@ -1065,6 +1097,7 @@
       <li><a href="#bychord">By Chord</a></li>
       <li><a href="#stella">Stella</a></li>
       <li><a href="#reference">Reference</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -1999,6 +2032,21 @@ i.e., the bii°7 emerges by just walking up a half step</div>
         </div>
       </details>
 
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== CONTACT ============== -->
+  <section id="contact">
+    <div class="reveal contact-block">
+      <span class="eyebrow">Contact</span>
+      <h2>Say <em>hello.</em></h2>
+      <p class="lede" style="margin-bottom: 32px;">Corrections, additions, a voicing you can't unhear — all welcome.</p>
+      <a class="contact-email" href="mailto:ponelson@gmail.com">ponelson@gmail.com</a>
+      <p class="contact-links">
+        <a href="https://www.linkedin.com/in/ponelson/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
     </div>
   </section>
 
