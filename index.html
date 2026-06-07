@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modes & Movements — A Jazz Piano Library</title>
+<title>Piano: Modes & Movements — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1087,12 +1087,13 @@
 
 <nav class="top">
   <div class="inner">
-    <div class="brand">Modes &amp; Movements<span class="dot">.</span></div>
+    <div class="brand">Piano: Modes &amp; Movements<span class="dot">.</span></div>
     <ul>
       <li><a href="#atlas">Atlas</a></li>
       <li><a href="#pentatonic">Pentatonics</a></li>
-      <li><a href="#triads">Triads</a></li>
       <li><a href="#santangelo">Santangelo</a></li>
+      <li><a href="#mediants">Mediants</a></li>
+      <li><a href="#triads">Triads</a></li>
       <li><a href="#ivi">ii–V–I</a></li>
       <li><a href="#bychord">By Chord</a></li>
       <li><a href="#stella">Stella</a></li>
@@ -1252,13 +1253,9 @@
           <li>Coltrane changes: <code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-2)">i6 VIIalt | iii6 bIIIalt | bvi6 Valt</code></li>
         </ul>
       </div>
-    </div>
 
-    <h3 style="margin-top: 80px; margin-bottom: 32px;" class="reveal">Blues <em>Hexatonic</em></h3>
-
-    <div class="grid-2 reveal">
       <div class="card">
-        <h3>Blues <em>Hexatonic</em></h3>
+        <h3>Blues <em>Hexatonic</em> <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:0.7em;color:var(--ink-3);letter-spacing:0;text-transform:none;">(honorary pentatonic)</span></h3>
         <div class="formula-line">1 · b3 · 4 · b5 · 5 · b7</div>
         <div class="kb-slot" data-kb="blues-hex"></div>
         <p class="desc" style="margin-top:18px">Six-note blues. Minor pentatonic plus the flat fifth — the blue note that does all the work.</p>
@@ -1370,44 +1367,6 @@
 
   <hr class="divider">
 
-  <!-- ============== TRIAD+1 ============== -->
-  <section id="triads">
-    <div class="reveal" style="margin-bottom: 56px;">
-      <span class="eyebrow">Triad + 1</span>
-      <h2>Three notes <em>plus one.</em></h2>
-      <p class="lede">A triad with one added color tone, voiced through every inversion. The simplest melodic device with the deepest grammar.</p>
-    </div>
-
-    <div class="grid-2 reveal">
-
-      <div class="card">
-        <h3>Triad + 1 <em>(C maj + 9)</em></h3>
-        <div class="formula-line">C · D · E · G</div>
-        <div class="kb-slot" data-kb="triad1-cmaj9"></div>
-        <p class="desc" style="margin-top:18px">Take any triad, add one extension — here the 9 — and use every inversion of the four-note shape.</p>
-        <ul class="usage">
-          <li>C D E G · D E G C · E G C D · G C D E</li>
-          <li>Works on any triad with any extension (9, 11, 13, +5, etc.)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Playing Out <em>with Triads</em></h3>
-        <div class="formula-line">C/E + E♭m/B♭ · two inversions, two chords</div>
-        <div class="kb-slot" data-kb="triads-playout"></div>
-        <p class="desc" style="margin-top:18px">Use any two triads — provided they're in <em>two different inversions</em> and from <em>two separate chords</em>.</p>
-        <ul class="usage">
-          <li>e.g., C 1st inversion (E G C) + E♭m 2nd inversion (B♭ E♭ G♭)</li>
-          <li>The inversion mismatch is what makes it sound deliberate, not random</li>
-          <li>Slide either triad chromatically and resolve</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="divider">
-
   <!-- ============== SANTANGELO HEXATONIC ============== -->
   <section id="santangelo">
     <div class="reveal" style="margin-bottom: 56px;">
@@ -1450,12 +1409,98 @@
 
   <hr class="divider">
 
+  <!-- ============== MODAL INTERCHANGE / CHROMATIC MEDIANTS ============== -->
+  <section id="mediants">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Modal Interchange / Chromatic Mediants</span>
+      <h2>Borrow a <em>brighter key.</em></h2>
+      <p class="lede">Reharmonize every chord in a progression — all but the I — into a key a third away. The tonic stays home; everything around it gets relit in a neighboring tonality.</p>
+    </div>
+
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Major 3rd <em>above</em></h3>
+        <div class="formula-line">C &rarr; E</div>
+        <p class="desc" style="margin-top:18px">Reharmonize into the key a natural third up. Bright, lifting.</p>
+      </div>
+      <div class="card">
+        <h3>Major 3rd <em>below</em></h3>
+        <div class="formula-line">C &rarr; A&#9837;</div>
+        <p class="desc" style="margin-top:18px">Down a natural third. Warm, flattening.</p>
+      </div>
+      <div class="card">
+        <h3>Minor 3rd <em>above</em></h3>
+        <div class="formula-line">C &rarr; E&#9837;</div>
+        <p class="desc" style="margin-top:18px">Up a minor third &mdash; relative-major shimmer.</p>
+      </div>
+      <div class="card">
+        <h3>Minor 3rd <em>below</em></h3>
+        <div class="formula-line">C &rarr; A</div>
+        <p class="desc" style="margin-top:18px">Down a minor third &mdash; toward the relative minor's brightness.</p>
+      </div>
+      <div class="card">
+        <h3>Melodic minor <em>m3 below</em></h3>
+        <div class="formula-line">C &rarr; A melodic minor</div>
+        <p class="desc" style="margin-top:18px">A minor third below, but borrowing melodic minor instead of major.</p>
+      </div>
+      <div class="card">
+        <h3>So What <em>interchange</em></h3>
+        <div class="formula-line">Dm7 &rarr; F&#9839;m7 &middot; B&#9837;m7</div>
+        <p class="desc" style="margin-top:18px">Transpose a minor chord up major thirds. The modal-interchange staple &mdash; especially over modal tunes like <em>So What</em>.</p>
+      </div>
+    </div>
+
+    <p class="muted reveal" style="margin-top: 32px; font-size: 14px; line-height: 1.7; max-width: 720px;">
+      The general move: <strong style="color:var(--ink)">slide the key up or down a minor third or major third</strong> across any chord progression, leaving the tonic in place. Each destination recolors the same harmonic function with a different parent scale.
+    </p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== TRIAD+1 ============== -->
+  <section id="triads">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Triad + 1</span>
+      <h2>Three notes <em>plus one.</em></h2>
+      <p class="lede">A triad with one added color tone, voiced through every inversion. The simplest melodic device with the deepest grammar.</p>
+    </div>
+
+    <div class="grid-2 reveal">
+
+      <div class="card">
+        <h3>Triad + 1 <em>(C maj + 9)</em></h3>
+        <div class="formula-line">C · D · E · G</div>
+        <div class="kb-slot" data-kb="triad1-cmaj9"></div>
+        <p class="desc" style="margin-top:18px">Take any triad, add one extension — here the 9 — and use every inversion of the four-note shape.</p>
+        <ul class="usage">
+          <li>C D E G · D E G C · E G C D · G C D E</li>
+          <li>Works on any triad with any extension (9, 11, 13, +5, etc.)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Playing Out <em>with Triads</em></h3>
+        <div class="formula-line">C/E + E♭m/B♭ · two inversions, two chords</div>
+        <div class="kb-slot" data-kb="triads-playout"></div>
+        <p class="desc" style="margin-top:18px">Use any two triads — provided they're in <em>two different inversions</em> and from <em>two separate chords</em>.</p>
+        <ul class="usage">
+          <li>e.g., C 1st inversion (E G C) + E♭m 2nd inversion (B♭ E♭ G♭)</li>
+          <li>The inversion mismatch is what makes it sound deliberate, not random</li>
+          <li>Slide either triad chromatically and resolve</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
   <!-- ============== ii-V-I LAB ============== -->
   <section id="ivi">
     <div class="reveal" style="margin-bottom: 56px;">
       <span class="eyebrow">The ii–V–I Lab</span>
-      <h2>One cadence, <em>nine roads home.</em></h2>
-      <p class="lede">The same three bars — relit nine ways. Each tab is a substitution path with its own pentatonic recipe.</p>
+      <h2>One cadence, <em>ten roads home.</em></h2>
+      <p class="lede">The same three bars — relit ten ways. Each tab is a substitution path with its own pentatonic recipe.</p>
     </div>
 
     <div class="ivi-lab reveal">
@@ -1571,13 +1616,13 @@
       </div>
 
       <div class="scale-card">
-        <div class="scale-name">G Blues <span class="muted">(1 b3 4 #4 5 b7)</span></div>
+        <div class="scale-name">G Blues Min <span class="muted">(1 b3 4 #4 5 b7)</span></div>
         <div class="scale-formula">G · B♭ · C · D♭ · D · F</div>
         <div class="kb-slot" data-kb="dom-blues1"></div>
       </div>
 
       <div class="scale-card">
-        <div class="scale-name">G Blues <span class="muted">(1 2 b3 3 5 6)</span></div>
+        <div class="scale-name">G Blues Maj <span class="muted">(1 2 b3 3 5 6)</span></div>
         <div class="scale-formula">G · A · B♭ · B · D · E</div>
         <div class="kb-slot" data-kb="dom-blues2"></div>
       </div>
@@ -2032,6 +2077,87 @@ i.e., the bii°7 emerges by just walking up a half step</div>
         </div>
       </details>
 
+      <details class="ref">
+        <summary><h3>Substitutions &amp; Passing Chords</h3><span class="chev">+</span></summary>
+        <div class="ref-body">
+
+          <p><strong style="color:var(--ink)">Diatonic substitution.</strong> Chords that share enough tones to stand in for one another:</p>
+          <ul>
+            <li>Rootless I∆7 (3, 5, 7, 9) = iii7 = V6</li>
+            <li>Rootless ii9 (b3, 5, b7, 9) = IV∆7 = vi♭6</li>
+            <li>Rootless V13 (b7, 9, 3, 13) = ii69 = rootless ♭II7#9♭13</li>
+            <li>ii–V becomes Vsus7</li>
+            <li>ii–V becomes IIIsus♭9</li>
+          </ul>
+
+          <p style="margin-top: 22px;"><strong style="color:var(--ink)">♭3-raised substitution</strong> — for all chords except the I:</p>
+          <div class="recipe">ii–V–I  becomes  ii–V of ♭III
+e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
+
+          <p style="margin-top: 22px;"><strong style="color:var(--ink)">Diminished substitutions.</strong></p>
+          <ul>
+            <li>7alt (7♭9 or 7#9) becomes a dim7 a half-step above, dropping the original root — <code>B♭7♭9 → B°7</code></li>
+            <li>A dim7 can replace an altered dom7 (b9/#9) whenever the dim7 root sits a half-step above the dominant's root</li>
+            <li>Scale: whole-half diminished a half-step up from the dominant's root, <em>or</em> half-whole diminished starting on the root</li>
+            <li>VI7alt can be #i°7</li>
+            <li>∆+5 becomes dom7♭13</li>
+          </ul>
+
+          <p style="margin-top: 22px;"><strong style="color:var(--ink)">Tritone substitution.</strong></p>
+          <ul>
+            <li>Any dom7 becomes the dom7 a tritone away — V7 becomes ♭II7</li>
+            <li>Any m7 or m7♭5 becomes a tritone dom7 — especially the ii of a ii–V–i</li>
+            <li>The VI or iv becomes a tritone dom7 — especially the vi of a vi–ii–V–i</li>
+          </ul>
+
+          <p style="margin-top: 22px;"><strong style="color:var(--ink)">Secondary dominant.</strong> Each preceding chord becomes the V7 of the chord that follows:</p>
+          <div class="recipe">iii–vi–ii–V–I  →  V7/vi – V7/ii – V7/V – V7 – I  →  III7 – VI7 – II7 – V7 – I</div>
+          <p>Unaltered dominants resolve to the major; altered dominants resolve to the minor.</p>
+
+          <p style="margin-top: 22px;"><strong style="color:var(--ink)">Modal interchange.</strong></p>
+          <ul>
+            <li>Relative minor ⇄ relative major, and the rest of the borrowed family</li>
+            <li>I∆7 → ♭VII7</li>
+            <li>iii7 can become IIIsus♭9</li>
+          </ul>
+
+          <p style="margin-top: 28px; color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.18em; text-transform:uppercase;">By scale degree</p>
+
+          <p style="margin-top: 14px;"><strong style="color:var(--ink-2)">On the I</strong></p>
+          <ul>
+            <li>Rootless I∆7 (3, 5, 7, 9) = iii7 = V6</li>
+            <li>Rootless ii9 (b3, 5, b7, 9) = IV∆7 = vi♭6</li>
+            <li>I → iii–vi becomes I–IV–iii–vi before a ii–V–I</li>
+            <li>i6 in melodic minor becomes IV7#11</li>
+          </ul>
+
+          <p style="margin-top: 18px;"><strong style="color:var(--ink-2)">On the ii</strong></p>
+          <ul>
+            <li>ii | V becomes #ii–#V | ii–V (a chromatic ii–V approach)</li>
+            <li>ii–V becomes Vsus7</li>
+            <li>The ii of a ii–V becomes ii-maj7</li>
+          </ul>
+
+          <p style="margin-top: 18px;"><strong style="color:var(--ink-2)">On the V</strong></p>
+          <ul>
+            <li>The V of a ii–V becomes V7alt</li>
+            <li>ii–V becomes IIIsus♭9; V7 alone can also become IIIsus♭9</li>
+            <li>ii–V becomes IV7–♭VII7</li>
+            <li>ii–V becomes viiø7–III7</li>
+            <li>V–IV/V–iii (a descending bass line under the dominant)</li>
+            <li>Whole-tone chords function as V chords</li>
+          </ul>
+
+          <p style="margin-top: 18px;"><strong style="color:var(--ink-2)">On the VI7</strong></p>
+          <ul>
+            <li>VI7 becomes #i°</li>
+            <li>VI7 becomes ♭III7</li>
+            <li>A major chord ascending by whole tone becomes a major chord moving to the diminished a half-step above it (the same trick works descending)</li>
+          </ul>
+
+        </div>
+      </details>
+
     </div>
   </section>
 
@@ -2053,7 +2179,7 @@ i.e., the bii°7 emerges by just walking up a half step</div>
 </main>
 
 <footer>
-  Modes &amp; Movements · A Personal Library
+  Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
 </footer>
 
@@ -2588,10 +2714,16 @@ const IVI_CHORD_VOICINGS = [
     [55, 59, 62, 65],   // G7
     [60, 64, 66, 71]    // C∆7#11  C E F# B
   ],
-  // Backdoor V (B∆7#11 — Santangelo)
+  // Screendoor V (B∆7#11 — Santangelo)
   [
     [50, 53, 57, 60],   // Dm7
     [47, 51, 53, 58],   // B∆7#11  B D# E#(=F) A#
+    [60, 64, 67, 71]    // C∆7
+  ],
+  // Backdoor (Fm7 → Bb7 → C∆7)
+  [
+    [53, 56, 60, 63],   // Fm7   F Ab C Eb
+    [58, 62, 65, 68],   // Bb7   Bb D F Ab
     [60, 64, 67, 71]    // C∆7
   ],
   // Outerspace (B∆7)
@@ -2812,9 +2944,9 @@ const IVI_SUBS = [
   {
     name: "Tritone sub",
     ii: { chord: "Dm7", pent: "A min pent" },
-    v:  { chord: "D♭7#11", pent: "E♭ hexatonic" },
+    v:  { chord: "D♭7#11", pent: "E♭ hexatonic maj" },
     i:  { chord: "C∆7", pent: "E min pent" },
-    note: "<em>E♭ hexatonic</em> (Hexatonic Major) over the tritone sub. The b5-of-V move."
+    note: "<em>E♭ hexatonic maj</em> (Hexatonic Major) over the tritone sub. The b5-of-V move."
   },
   {
     name: "Lydian I",
@@ -2824,11 +2956,18 @@ const IVI_SUBS = [
     note: "B minor pent over C∆7 sounds the #11 — the lydian I sound. Holds the maj7th too."
   },
   {
-    name: "Backdoor V (B∆7#11)",
+    name: "Screendoor V (B∆7#11)",
     ii: { chord: "Dm7", pent: "A min pent" },
     v:  { chord: "B∆7♯11", pent: "B♭ min pent" },
     i:  { chord: "C∆7", pent: "E min pent" },
     note: "<em>Santangelo's substitution.</em> III∆7#11 of V is a rootless V7#5#9. B♭ min pent over it brings outer-space color."
+  },
+  {
+    name: "Backdoor",
+    ii: { chord: "Fm7", pent: "F min pent" },
+    v:  { chord: "B♭7", pent: "F min pent" },
+    i:  { chord: "C∆7", pent: "E min pent" },
+    note: "The backdoor dominant — <em>♭VII7 borrowed from the parallel minor</em>, resolving up a whole step to I. F minor pent covers both the iv and the ♭VII7 in one shape."
   },
   {
     name: "Outerspace (B∆7)",
@@ -2846,9 +2985,9 @@ const IVI_SUBS = [
   },
   {
     name: "Hexatonic chain",
-    ii: { chord: "A♭7♯11", pent: "B♭ hexatonic" },
-    v:  { chord: "G7alt", pent: "E♭ hexatonic" },
-    i:  { chord: "Cm∆7", pent: "G hexatonic" },
+    ii: { chord: "A♭7♯11", pent: "B♭ hexatonic maj" },
+    v:  { chord: "G7alt", pent: "E♭ hexatonic maj" },
+    i:  { chord: "Cm∆7", pent: "G hexatonic maj" },
     note: "Tritone sub of ii. Three hexatonic major scales, woven through a minor cadence. <em>Whole step → whole step → minor third.</em>"
   },
   {
