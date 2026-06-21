@@ -1081,6 +1081,39 @@
   .muted { color: var(--ink-3); }
   .accent-text { color: var(--accent); }
 
+  /* Blues 12-bar grid */
+  .blues-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 760px;
+  }
+  .blues-bar {
+    position: relative;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 26px 14px 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: var(--ink);
+    text-align: center;
+    letter-spacing: -0.01em;
+    transition: border-color 0.3s var(--easing);
+  }
+  .blues-bar:hover { border-color: var(--line-strong); }
+  .blues-bar .bn {
+    position: absolute;
+    top: 8px;
+    left: 11px;
+    font-size: 10px;
+    color: var(--ink-4);
+    letter-spacing: 0.12em;
+  }
+  @media (max-width: 640px) {
+    .blues-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
 </style>
 </head>
 <body>
@@ -1092,6 +1125,8 @@
       <li><a href="#atlas">Atlas</a></li>
       <li><a href="#pentatonic">Pentatonics</a></li>
       <li><a href="#santangelo">Santangelo</a></li>
+      <li><a href="#barry">Barry Harris</a></li>
+      <li><a href="#blues">Blues</a></li>
       <li><a href="#mediants">Mediants</a></li>
       <li><a href="#triads">Triads</a></li>
       <li><a href="#ivi">ii–V–I</a></li>
@@ -1405,6 +1440,179 @@
       </tbody>
     </table>
     <p class="muted reveal" style="margin-top: 24px; font-size: 14px; line-height: 1.6; max-width: 720px;">Any of the chords (like dom7#9#5) can work as a substitution. In practice: <strong style="color:var(--ink)">B♭ hex over A♭7#11 → E♭ hex over G7alt → G hex over Cm(maj7)</strong>.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== BARRY HARRIS ============== -->
+  <section id="barry">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">The Barry Harris System</span>
+      <h2>Sixth on the <em>diminished.</em></h2>
+      <p class="lede">One scale that alternates a sixth chord with a diminished seventh — and a way of hearing the whole ii–V as a single dominant. The bebop grammar underneath the notes.</p>
+    </div>
+
+    <h3 class="reveal" style="margin: 0 0 28px; font-style: italic;">The ii–V is <em>one dominant.</em></h3>
+    <div class="reveal" style="max-width: 760px; margin-bottom: 24px;">
+      <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Don't switch scales bar to bar — D Dorian for one measure, G Mixolydian for the next. Play <em>one G-dominant sentence</em> across the whole ii–V, and let the emphasis shift.</p>
+    </div>
+    <div class="grid-2 reveal">
+      <div class="card">
+        <h3>Over Dm7 <em>emphasize</em></h3>
+        <div class="formula-line">D · F · A · C</div>
+        <p class="desc" style="margin-top:18px">Relative to G7 these are the <strong style="color:var(--ink)">5, ♭7, 9, 11</strong> — the upper structure of the dominant.</p>
+      </div>
+      <div class="card">
+        <h3>Over G7 <em>emphasize</em></h3>
+        <div class="formula-line">B · D · F · A</div>
+        <p class="desc" style="margin-top:18px">The <strong style="color:var(--ink)">3, 5, ♭7, 9</strong>. Then resolve: F→E and B→B (or C) into C∆7.</p>
+      </div>
+    </div>
+    <div class="reveal" style="max-width: 760px; margin: 28px 0 14px;">
+      <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">That's why the minor chord is just the dominant's upper structure: <strong style="color:var(--ink)">G7 = Dm6 over G</strong> (D F A B = 5, ♭7, 9, 3 → a G13).</p>
+    </div>
+    <div class="reveal" style="max-width: 520px;">
+      <div class="kb-slot" data-kb="bh-dm6-over-g"></div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The sixth-<em>diminished scales</em></h3>
+    <p class="lede reveal" style="margin-bottom: 36px; max-width: 760px;">Eight notes alternating a sixth chord with a diminished seventh a tone up. Every other note belongs to the 6 chord; the notes between belong to the °7. Harmonize a melody by alternating inversions of the two — inner voices move while the tonic holds.</p>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Major-6 <em>diminished</em></h3>
+        <div class="formula-line">1 · 2 · 3 · 4 · 5 · ♭6 · 6 · 7</div>
+        <div class="kb-slot" data-kb="bh-maj6dim"></div>
+        <p class="desc" style="margin-top:18px">C6 ↔ D°7. The tonic-major color with moving inner voices.</p>
+      </div>
+      <div class="card">
+        <h3>Minor-6 <em>diminished</em></h3>
+        <div class="formula-line">1 · 2 · ♭3 · 4 · 5 · ♭6 · 6 · 7</div>
+        <div class="kb-slot" data-kb="bh-min6dim"></div>
+        <p class="desc" style="margin-top:18px">Cm6 ↔ D°7. Over a minor tonic — Cm6, Cm∆7, minor-blues i.</p>
+      </div>
+      <div class="card">
+        <h3>Dominant-7 <em>diminished</em></h3>
+        <div class="formula-line">1 · 2 · 3 · 4 · 5 · ♭6 · ♭7 · 7</div>
+        <div class="kb-slot" data-kb="bh-dom7dim"></div>
+        <p class="desc" style="margin-top:18px">C7 ↔ D°7. Movement inside a dominant without going fully altered.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="max-width: 760px; margin-top: 40px;">
+      <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;"><strong style="color:var(--ink)">Two different dominant collections — don't conflate them.</strong> The <em>dominant bebop</em> scale (1 2 3 4 5 <strong style="color:var(--ink)">6</strong> ♭7 7, with A natural) is for single-note lines. The <em>dominant-7 diminished</em> scale above (1 2 3 4 5 <strong style="color:var(--ink)">♭6</strong> ♭7 7, with A♭) is for harmonized C7↔D°7 movement and a stronger ♭13 color.</p>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Why the <em>passing tone</em> is there</h3>
+    <p class="lede reveal" style="margin-bottom: 32px; max-width: 760px;">The bebop scale's added note isn't decoration — it's <em>metric alignment</em>. Run C dominant bebop in eighth notes from a chord tone and the chord tones (C, E, G, B♭) land on the downbeats; the passing tones fill the offbeats. That alignment is what makes the line swing instead of drift.</p>
+    <div class="reveal" style="max-width: 560px;">
+      <div class="kb-slot" data-kb="bh-alignment"></div>
+    </div>
+    <p class="muted reveal" style="margin-top: 16px; font-size: 13px; max-width: 760px;">Major-6 dim aligns to a C6 (C–A–G–E on the beats); minor-6 dim to Cm6 (C–A–G–E♭). Same principle: structurally important notes on structurally important beats.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Surrounding &amp; <em>approach</em></h3>
+    <div class="grid-2 reveal">
+      <div class="card">
+        <h3>Surround the <em>target</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Approach a chord tone from a half step above and below before landing. Apply to the tones of the tonic, the dominant 7, the diminished, and the important-minor chord.</p>
+        <div class="recipe" style="margin-top:18px;">Target B over G7:   C – B♭ – B
+Target F over G7:   G – E – F
+Target D over G7:   E – C♯ – D</div>
+      </div>
+      <div class="card">
+        <h3>Diminished over <em>♭9</em></h3>
+        <div class="formula-line">A♭°7 over G7♭9 · A♭ · B · D · F</div>
+        <div class="kb-slot" data-kb="bh-dim-b9"></div>
+        <p class="desc" style="margin-top:18px">A♭ = ♭9, B = 3, D = 5, F = ♭7. Symmetric — start the same arpeggio from any of its four notes for a new contour.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 24px; font-style: italic;">Sixth-chord <em>equivalences</em></h3>
+    <table class="study-table reveal">
+      <thead>
+        <tr><th>Written chord</th><th>Barry-family reading</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="chord">Dm7</td><td class="name">F6 &nbsp;<span class="muted">— D F A C = F A C D</span></td></tr>
+        <tr><td class="chord">Dm9</td><td class="name">F6 with E added</td></tr>
+        <tr><td class="chord">Dm7♭5</td><td class="name">Fm6 &nbsp;<span class="muted">— D F A♭ C</span></td></tr>
+        <tr><td class="chord">G7</td><td class="name">Dm6 over G &nbsp;<span class="muted">— 5 ♭7 9 3</span></td></tr>
+        <tr><td class="chord">G7♭9</td><td class="name">A♭°7 over G</td></tr>
+        <tr><td class="chord">G7♭9♭13</td><td class="name">A♭m6 over G</td></tr>
+        <tr><td class="chord">C∆7 · C∆9</td><td class="name">C6 family + major 7 / 9</td></tr>
+        <tr><td class="chord">Cm∆7 · Cm69</td><td class="name">Cm6 family + major 7 / 9</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== BLUES ============== -->
+  <section id="blues">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">The Blues</span>
+      <h2>Twelve bars, <em>fully lit.</em></h2>
+      <p class="lede">A jazz blues with substitutions, the guide tones that steer it, and the Barry-Harris and diminished language for soloing over it. The blues collections themselves live up in Pentatonics.</p>
+    </div>
+
+    <h3 class="reveal" style="margin: 0 0 28px; font-style: italic;">One jazz blues <em>in C</em></h3>
+    <div class="blues-grid reveal">
+      <div class="blues-bar"><span class="bn">1</span>C7</div>
+      <div class="blues-bar"><span class="bn">2</span>F7</div>
+      <div class="blues-bar"><span class="bn">3</span>C7</div>
+      <div class="blues-bar"><span class="bn">4</span>Gm7 · C7</div>
+      <div class="blues-bar"><span class="bn">5</span>F7</div>
+      <div class="blues-bar"><span class="bn">6</span>F♯°7</div>
+      <div class="blues-bar"><span class="bn">7</span>C7/G · A7alt</div>
+      <div class="blues-bar"><span class="bn">8</span>Dm7 · G7</div>
+      <div class="blues-bar"><span class="bn">9</span>Em7 · A7alt</div>
+      <div class="blues-bar"><span class="bn">10</span>Dm7 · G7alt</div>
+      <div class="blues-bar"><span class="bn">11</span>C7 · A7alt</div>
+      <div class="blues-bar"><span class="bn">12</span>Dm7 · G7</div>
+    </div>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 760px;">Bar 4's Gm7–C7 sets up the IV. Bar 6 is the ♯IV°7 passing chord. Bars 7–12 fold in a iii–VI–ii–V turnaround with secondary dominants.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Guide tones <em>steer it</em></h3>
+    <p class="lede reveal" style="margin-bottom: 32px; max-width: 760px;">The 3rd and ♭7 of each dominant define the changes. Voice-lead them and the blues plays itself: every move is a half step.</p>
+    <div class="grid-2 reveal" style="align-items: start;">
+      <table class="study-table">
+        <thead><tr><th>Chord</th><th>3rd</th><th>♭7</th></tr></thead>
+        <tbody>
+          <tr><td class="chord">C7</td><td class="name">E</td><td class="name">B♭</td></tr>
+          <tr><td class="chord">F7</td><td class="name">A</td><td class="name">E♭</td></tr>
+          <tr><td class="chord">G7</td><td class="name">B</td><td class="name">F</td></tr>
+        </tbody>
+      </table>
+      <div class="card">
+        <h3>C7 → F7 <em>resolution</em></h3>
+        <div class="kb-slot" data-kb="blues-guidetone"></div>
+        <p class="desc" style="margin-top:18px">E → E♭ and B♭ → A, both down a half step. Going back F7 → C7, run it in reverse.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Barry over the <em>embedded ii–V's</em></h3>
+    <div class="reveal" style="max-width: 760px; margin-bottom: 16px;">
+      <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Each little ii–V is one dominant environment (see <a href="#barry" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(212,165,116,0.3);">Barry Harris</a>). The minor chord is just the dominant's upper structure.</p>
+    </div>
+    <div class="recipe reveal">Gm7 – C7   →  play C dominant   (sets up F7)
+Dm7 – G7   →  play G dominant   (sets up C7)
+Em7 – A7   →  play A dominant   (sets up Dm7)</div>
+    <p class="muted reveal" style="margin-top: 16px; font-size: 13px; max-width: 760px;">And run dominant bebop straight over the I, IV, and V — C bebop over C7, F over F7, G over G7. Don't switch on beat 1; anticipate the next dominant on the &amp; of 4, or let the line spill a beat past the bar line (delayed resolution). Both keep it from sounding square.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Diminished &amp; the <em>blue third</em></h3>
+    <div class="grid-2 reveal">
+      <div class="card">
+        <h3>The ♯IV°7 <em>(bar 6)</em></h3>
+        <div class="formula-line">F♯°7 · F♯ · A · C · E♭</div>
+        <div class="kb-slot" data-kb="blues-fsharpdim"></div>
+        <p class="desc" style="margin-top:18px">Resolve F♯→G, E♭→E, and you're back on C7. The same symmetric arpeggio works from any of its four notes.</p>
+      </div>
+      <div class="card">
+        <h3>The ♭3 → 3 <em>crush</em></h3>
+        <div class="formula-line">E♭ slurred into E over C7</div>
+        <div class="kb-slot" data-kb="blues-crush"></div>
+        <p class="desc" style="margin-top:18px">The blue note. Grace it, repeat it, or trill it into the major 3rd. Over F7 the E♭ becomes the chord's ♭7 — let it sit. Back on C7, E natural is the target again.</p>
+      </div>
+    </div>
   </section>
 
   <hr class="divider">
@@ -2512,6 +2720,11 @@ const KB_PRESETS = {
   'scale-hexalt':  { notes: [48, 49, 51, 52, 56, 58, 60], stagger: 80, toMidi: 72 },
   'scale-bebop':   { notes: [48, 50, 52, 53, 55, 57, 58, 59, 60], stagger: 65, toMidi: 72 },
 
+  // BARRY — Ab°7 over G7b9 (b9-3-5-b7): Ab B D F
+  'bh-dim-b9':      { notes: [56, 59, 62, 65], stagger: 90, fromMidi: 53, toMidi: 72 },
+  // BLUES — F#°7 (the #IV°7 in bar 6): F# A C Eb
+  'blues-fsharpdim':{ notes: [54, 57, 60, 63], stagger: 90, fromMidi: 53, toMidi: 72 },
+
   // SANTANGELO C HEXATONIC MAJOR
   'santangelo-c':  { notes: [48, 50, 52, 53, 55, 56], stagger: 90, toMidi: 71 },
 
@@ -2621,6 +2834,30 @@ const VOICING_PRESETS = {
   'newjazz-grip1a': { lh: [], rh: [60, 64, 67, 71], stagger: 22, fromMidi: 48, toMidi: 76, label: 'Play grip 1a' },
   // NEWJAZZ grip 3 (1, b3, 4, 5, b7): RH C Eb F G Bb
   'newjazz-grip3':  { lh: [], rh: [60, 63, 65, 67, 70], stagger: 22, fromMidi: 48, toMidi: 76, label: 'Play grip 3' },
+
+  // BARRY HARRIS — sixth-diminished scales: 6th-chord tones vs diminished-7 tones, alternating
+  // Major-6 dim: C6 (C E G A) ↔ D°7 (D F Ab B)
+  'bh-maj6dim':     { lh: [60, 64, 67, 69], rh: [62, 65, 68, 71], stagger: 70, fromMidi: 59, toMidi: 72, label: 'Play C major-6 dim',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C6</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>D°7</span>' },
+  // Minor-6 dim: Cm6 (C Eb G A) ↔ D°7
+  'bh-min6dim':     { lh: [60, 63, 67, 69], rh: [62, 65, 68, 71], stagger: 70, fromMidi: 59, toMidi: 72, label: 'Play C minor-6 dim',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>Cm6</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>D°7</span>' },
+  // Dominant-7 dim: C7 (C E G Bb) ↔ D°7
+  'bh-dom7dim':     { lh: [60, 64, 67, 70], rh: [62, 65, 68, 71], stagger: 70, fromMidi: 59, toMidi: 72, label: 'Play C dominant-7 dim',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>D°7</span>' },
+  // Dominant bebop downbeat alignment: chord tones (C E G Bb) on the beat; passing (D F A B) on offbeats
+  'bh-alignment':   { lh: [62, 65, 69, 71], rh: [60, 64, 67, 70], stagger: 70, fromMidi: 59, toMidi: 72, label: 'Play C dominant bebop',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>chord tones · on the beat</span><span class="kb-legend-item"><span class="kb-swatch lh"></span>passing tones · offbeats</span>' },
+  // G7 = Dm6 over G: G bass + Dm6 (D F A B) = G13
+  'bh-dm6-over-g':  { lh: [55], rh: [62, 65, 69, 71], stagger: 32, fromMidi: 53, toMidi: 73, label: 'Play Dm6/G = G13',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G (bass)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>Dm6 (upper structure)</span>' },
+
+  // BLUES — C7→F7 guide-tone resolution: 3rd & b7 each fall a half step
+  'blues-guidetone':{ lh: [64, 70], rh: [63, 69], stagger: 40, fromMidi: 59, toMidi: 73, label: 'Play C7 → F7 guide tones',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 — 3 &amp; ♭7 (E, B♭)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>F7 — 3 &amp; ♭7 (A, E♭)</span>' },
+  // BLUES — b3→3 crush over C7: C7 shell in LH, Eb→E crush in RH
+  'blues-crush':    { lh: [48, 55, 58], rh: [63, 64], stagger: 30, fromMidi: 47, toMidi: 72, label: 'Play the ♭3→3 crush',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 shell</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ → E crush</span>' },
 
   // ARPEGGIOS in C
   // C dom13#11: LH Bb C (b7,1), RH D E F# A (9,3,#11,13)
