@@ -837,9 +837,36 @@
     grid-column: 1;
     grid-row: 3;
   }
+  .ivi-slot .pent-alts {
+    grid-column: 1;
+    grid-row: 4;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .ivi-slot .pent-alts .alt-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    display: block;
+    margin-bottom: 7px;
+  }
+  .ivi-slot .pent-alts ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .ivi-slot .pent-alts li {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--ink-3);
+    letter-spacing: -0.005em;
+  }
   .ivi-kb {
     grid-column: 2;
-    grid-row: 1 / span 3;
+    grid-row: 1 / -1;
     align-self: center;
   }
   .ivi-kb .kb-block { margin: 0; }
@@ -1129,6 +1156,7 @@
       <li><a href="#blues">Blues</a></li>
       <li><a href="#mediants">Mediants</a></li>
       <li><a href="#triads">Triads</a></li>
+      <li><a href="#upper">Upper Structures</a></li>
       <li><a href="#ivi">ii–V–I</a></li>
       <li><a href="#bychord">By Chord</a></li>
       <li><a href="#stella">Stella</a></li>
@@ -1250,7 +1278,6 @@
         <ul class="usage">
           <li>Over m7 — pure Dorian without the modal commitment of the full scale</li>
           <li>Over dom7 — on the 5th degree (D Dorian pent over G7)</li>
-          <li>The fifth-degree min pent with 6 in place of b7</li>
         </ul>
       </div>
 
@@ -1424,22 +1451,23 @@
         <tr>
           <th>Degree</th>
           <th>Chord</th>
+          <th>C hexatonic over…</th>
           <th>Scale interpretation</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td class="chord">I</td><td class="name">I+ · Imaj7♭13</td><td>Augmented or major-7-b13 — the b6 is the tension</td></tr>
-        <tr><td class="chord">ii</td><td class="name">ii7♭5 · half-diminished</td><td>Built off the 2nd degree</td></tr>
-        <tr><td class="chord">III</td><td class="name">III7#9#5</td><td>Sort of — altered dominant flavor</td></tr>
-        <tr><td class="chord">iv</td><td class="name">iv-∆7 (melodic minor)</td><td>Minor major-7 on the 4th</td></tr>
-        <tr><td class="chord">v</td><td class="name">v7♭9 (Dorian b2)</td><td>Dominant with the b9</td></tr>
-        <tr><td class="chord">V</td><td class="name">V7sus♭9 (Mixolydian b2)</td><td>Suspended dominant with b9</td></tr>
-        <tr><td class="chord">vi</td><td class="name">vi-∆7♭13 (harmonic minor)</td><td>Sort of — harmonic minor flavor</td></tr>
-        <tr><td class="chord">♭VII</td><td class="name">♭VII7#11 (lyd dom)</td><td>The backdoor color</td></tr>
-        <tr><td class="chord">vii</td><td class="name">vii°7</td><td>Diminished from the leading tone</td></tr>
+        <tr><td class="chord">I</td><td class="name">I+ · Imaj7♭13</td><td class="name">C+ · C∆7♭13</td><td>Augmented or major-7-b13 — the b6 is the tension</td></tr>
+        <tr><td class="chord">ii</td><td class="name">ii7♭5 · half-diminished</td><td class="name">Dm7♭5</td><td>Built off the 2nd degree</td></tr>
+        <tr><td class="chord">III</td><td class="name">III7#9#5</td><td class="name">E7♯9♯5 <span class="muted">(sort of)</span></td><td>Sort of — altered dominant flavor</td></tr>
+        <tr><td class="chord">iv</td><td class="name">iv-∆7 (melodic minor)</td><td class="name">Fm∆7</td><td>Minor major-7 on the 4th</td></tr>
+        <tr><td class="chord">v</td><td class="name">v7♭9 (Dorian b2)</td><td class="name">G7♭9</td><td>Dominant with the b9</td></tr>
+        <tr><td class="chord">V</td><td class="name">V7sus♭9 (Mixolydian b2)</td><td class="name">G7sus♭9</td><td>Suspended dominant with b9</td></tr>
+        <tr><td class="chord">vi</td><td class="name">vi-∆7♭13 (harmonic minor)</td><td class="name">A♭∆7♯5 <span class="muted">(sort of)</span></td><td>Sort of — harmonic minor flavor</td></tr>
+        <tr><td class="chord">♭VII</td><td class="name">♭VII7#11 (lyd dom)</td><td class="name">B♭7♯11</td><td>The backdoor color — the hexatonic a whole step above</td></tr>
+        <tr><td class="chord">vii</td><td class="name">vii°7</td><td class="name">B°7</td><td>Diminished from the leading tone</td></tr>
       </tbody>
     </table>
-    <p class="muted reveal" style="margin-top: 24px; font-size: 14px; line-height: 1.6; max-width: 720px;">Any of the chords (like dom7#9#5) can work as a substitution. In practice: <strong style="color:var(--ink)">B♭ hex over A♭7#11 → E♭ hex over G7alt → G hex over Cm(maj7)</strong>.</p>
+    <p class="muted reveal" style="margin-top: 24px; font-size: 14px; line-height: 1.6; max-width: 760px;">So <strong style="color:var(--ink)">C hexatonic major (C D E F G A♭)</strong> sits over all of these at once: cleanly over Dm7♭5, Fm∆7, G7sus♭9, A♭∆7♯5 and B♭7♯11, and "sort of" over the altered-dominant and diminished readings. Any of the chords (like dom7#9#5) can work as a substitution. In practice: <strong style="color:var(--ink)">B♭ hex over A♭7#11 → E♭ hex over G7alt → G hex over Cm(maj7)</strong>.</p>
   </section>
 
   <hr class="divider">
@@ -1703,12 +1731,61 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
 
   <hr class="divider">
 
+  <!-- ============== UPPER STRUCTURES ============== -->
+  <section id="upper">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Upper Structures</span>
+      <h2>A triad over <em>a dominant.</em></h2>
+      <p class="lede">Put the chord's root, 3rd and ♭7 in the left hand. Stack a plain major triad on top with the right. The triad you choose names the extension — one familiar shape spelling a 13♯11, a 7♯9, a fully altered chord. Shown over C7.</p>
+    </div>
+
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">II · D major <span class="muted">→ C13♯11</span></div>
+        <div class="scale-formula">9 · ♯11 · 13 — the Lydian-dominant brightener</div>
+        <div class="kb-slot" data-kb="ust-II"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">♭VII · B♭ major <span class="muted">→ C9sus</span></div>
+        <div class="scale-formula">♭7 · 9 · 11 — the suspended, open sound</div>
+        <div class="kb-slot" data-kb="ust-bVII"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">♭III · E♭ major <span class="muted">→ C7♯9</span></div>
+        <div class="scale-formula">♯9 · 5 · ♭7 — the Hendrix tension</div>
+        <div class="kb-slot" data-kb="ust-bIII"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">VI · A major <span class="muted">→ C13♭9</span></div>
+        <div class="scale-formula">13 · ♭9 · 3 — dominant-diminished color</div>
+        <div class="kb-slot" data-kb="ust-VI"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">♭V · G♭ major <span class="muted">→ C7♭9♯11</span></div>
+        <div class="scale-formula">♯11 · ♭7 · ♭9 — the tritone-sub's own triad</div>
+        <div class="kb-slot" data-kb="ust-bV"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">♭VI · A♭ major <span class="muted">→ C7♯9♭13</span></div>
+        <div class="scale-formula">♭13 · 1 · ♯9 — fully altered</div>
+        <div class="kb-slot" data-kb="ust-bVI"></div>
+      </div>
+    </div>
+
+    <div class="reveal" style="max-width: 760px; margin-top: 44px;">
+      <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">The pattern: <strong style="color:var(--ink)">name the triad by where its root sits over the chord.</strong> A triad on the 9 (II) and one on the ♭7 (♭VII) keep things consonant; triads on the ♭VI, ♭V and VI pull into altered territory. The two unaltered ones (II, ♭VII) belong over a V going anywhere; the altered ones want a V resolving down a fifth to a tonic.</p>
+    </div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 14px; line-height: 1.7; max-width: 760px;">Over a <strong style="color:var(--ink)">major</strong> chord the move is gentler — II major over C∆7 gives 9·♯11·13 (the Lydian color from the Triad + 1 page), and iii minor (Em) is just C∆7's own 3-5-7. Over <strong style="color:var(--ink)">minor</strong>, a major triad up a ♭7 (B♭ over Cm) voices Cm11.</p>
+  </section>
+
+  <hr class="divider">
+
   <!-- ============== ii-V-I LAB ============== -->
   <section id="ivi">
     <div class="reveal" style="margin-bottom: 56px;">
       <span class="eyebrow">The ii–V–I Lab</span>
-      <h2>One cadence, <em>ten roads home.</em></h2>
-      <p class="lede">The same three bars — relit ten ways. Each tab is a substitution path with its own pentatonic recipe.</p>
+      <h2>One cadence, <em>eleven roads home.</em></h2>
+      <p class="lede">The same three bars — relit eleven ways. Each tab is a substitution path with a featured pentatonic and the fuller scale palette for every chord.</p>
     </div>
 
     <div class="ivi-lab reveal">
@@ -2859,6 +2936,20 @@ const VOICING_PRESETS = {
   'blues-crush':    { lh: [48, 55, 58], rh: [63, 64], stagger: 30, fromMidi: 47, toMidi: 72, label: 'Play the ♭3→3 crush',
                       legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 shell</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ → E crush</span>' },
 
+  // UPPER STRUCTURES over C7: LH = C E Bb (1·3·♭7); RH = a major triad
+  'ust-II':         { lh: [48, 52, 58], rh: [62, 66, 69], stagger: 30, fromMidi: 47, toMidi: 76, label: 'Play D maj / C7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 (1·3·♭7)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>D major (9·♯11·13)</span>' },
+  'ust-bVII':       { lh: [48, 52, 58], rh: [65, 70, 74], stagger: 30, fromMidi: 47, toMidi: 76, label: 'Play B♭ maj / C7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 (1·3·♭7)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B♭ major (♭7·9·11)</span>' },
+  'ust-bIII':       { lh: [48, 52, 58], rh: [63, 67, 70], stagger: 30, fromMidi: 47, toMidi: 76, label: 'Play E♭ maj / C7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 (1·3·♭7)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ major (♯9·5·♭7)</span>' },
+  'ust-VI':         { lh: [48, 52, 58], rh: [64, 69, 73], stagger: 30, fromMidi: 47, toMidi: 76, label: 'Play A maj / C7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 (1·3·♭7)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A major (13·♭9·3)</span>' },
+  'ust-bV':         { lh: [48, 52, 58], rh: [66, 70, 73], stagger: 30, fromMidi: 47, toMidi: 76, label: 'Play G♭ maj / C7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 (1·3·♭7)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G♭ major (♯11·♭7·♭9)</span>' },
+  'ust-bVI':        { lh: [48, 52, 58], rh: [63, 68, 72], stagger: 30, fromMidi: 47, toMidi: 76, label: 'Play A♭ maj / C7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C7 (1·3·♭7)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A♭ major (♭13·1·♯9)</span>' },
+
   // ARPEGGIOS in C
   // C dom13#11: LH Bb C (b7,1), RH D E F# A (9,3,#11,13)
   'arp-dom13':      { lh: [46, 48], rh: [62, 64, 66, 69], stagger: 35, fromMidi: 41, toMidi: 76, label: 'Play arpeggio' },
@@ -2937,6 +3028,12 @@ const IVI_CHORD_VOICINGS = [
   [
     [50, 53, 57, 60],   // Dm7
     [55, 59, 65, 68],   // G7alt  G B F Ab
+    [60, 64, 67, 71]    // C∆7
+  ],
+  // Diminished sub
+  [
+    [50, 53, 57, 60],   // Dm7
+    [56, 59, 62, 65],   // Ab°7  Ab B D F (= rootless G7b9)
     [60, 64, 67, 71]    // C∆7
   ],
   // Tritone sub
@@ -3166,72 +3263,79 @@ function render() {
 const IVI_SUBS = [
   {
     name: "Classical",
-    ii: { chord: "Dm7", pent: "A min pent" },
-    v:  { chord: "G7",  pent: "D Dorian pent" },
-    i:  { chord: "C∆7", pent: "E min pent" },
-    note: "The foundation. <em>A minor pent</em> over Dm7 catches the 9th and 13th; <em>D Dorian pent</em> (D F G A B — the 5th-degree min pent with the 6 instead of the b7) over G7 keeps the leading tone alive."
+    ii: { chord: "Dm7", pent: "A min pent", scales: ["D Dorian", "D min pent", "F major pent", "F6 (Barry reading)"] },
+    v:  { chord: "G7",  pent: "D Dorian pent", scales: ["G Mixolydian", "G bebop dominant", "D min pent", "G major pent"] },
+    i:  { chord: "C∆7", pent: "E min pent", scales: ["C Ionian", "C major pent", "G major pent", "C6 (Barry reading)"] },
+    note: "The foundation. <em>A minor pent</em> over Dm7 catches the 9th and 13th; <em>D Dorian pent</em> (D F G A B) over G7 keeps the leading tone alive."
   },
   {
     name: "Altered V",
-    ii: { chord: "Dm7", pent: "A min pent" },
-    v:  { chord: "G7alt", pent: "B♭ min pent" },
-    i:  { chord: "C∆7", pent: "E min pent" },
-    note: "The default jazz move. The <em>b♭ minor pentatonic</em> over G7alt sits on the b3 of V — every note is an alteration."
+    ii: { chord: "Dm7", pent: "A min pent", scales: ["D Dorian", "F major pent", "D min pent"] },
+    v:  { chord: "G7alt", pent: "B♭ min pent", scales: ["G altered (super-locrian)", "Hexatonic altered (no D♭)", "A♭ min pent — the ♭9", "E♭ min pent — the ♭6", "Half-whole dim — for ♭9/♯9"] },
+    i:  { chord: "C∆7", pent: "E min pent", scales: ["C Ionian", "C major pent", "C6 (Barry reading)"] },
+    note: "The default jazz move. The <em>B♭ minor pentatonic</em> over G7alt sits on the b3 of V — every note is an alteration."
+  },
+  {
+    name: "Diminished sub",
+    ii: { chord: "Dm7", pent: "A min pent", scales: ["D Dorian", "F major pent"] },
+    v:  { chord: "A♭°7", pent: "G half-whole dim", scales: ["A♭ whole-half diminished", "G7♭9 arpeggio (A♭ B D F)", "A♭°7 — any of its four inversions"] },
+    i:  { chord: "C∆7", pent: "E min pent", scales: ["C Ionian", "C major pent"] },
+    note: "A diminished 7 a half-step above the dominant's root <em>is</em> a rootless G7♭9 (A♭°7 = G7♭9 minus its root). Symmetric, so the same shape repeats every minor third. Play the whole-half diminished from A♭, or the half-whole from G."
   },
   {
     name: "Tritone sub",
-    ii: { chord: "Dm7", pent: "A min pent" },
-    v:  { chord: "D♭7#11", pent: "E♭ hexatonic maj" },
-    i:  { chord: "C∆7", pent: "E min pent" },
+    ii: { chord: "Dm7", pent: "A min pent", scales: ["D Dorian", "F major pent"] },
+    v:  { chord: "D♭7#11", pent: "E♭ hexatonic maj", scales: ["D♭ Lydian dominant", "A♭ min pent — 5th-degree", "Whole tone"] },
+    i:  { chord: "C∆7", pent: "E min pent", scales: ["C Ionian", "C major pent"] },
     note: "<em>E♭ hexatonic maj</em> (Hexatonic Major) over the tritone sub. The b5-of-V move."
   },
   {
     name: "Lydian I",
-    ii: { chord: "Dm7", pent: "A min pent" },
-    v:  { chord: "G7",  pent: "D min pent" },
-    i:  { chord: "C∆7♯11", pent: "B min pent" },
+    ii: { chord: "Dm7", pent: "A min pent", scales: ["D Dorian", "F major pent"] },
+    v:  { chord: "G7",  pent: "D min pent", scales: ["G Mixolydian", "G bebop dominant", "D Dorian pent"] },
+    i:  { chord: "C∆7♯11", pent: "B min pent", scales: ["C Lydian", "D major pent — 2nd-degree", "G major pent"] },
     note: "B minor pent over C∆7 sounds the #11 — the lydian I sound. Holds the maj7th too."
   },
   {
     name: "Screendoor V (B∆7#11)",
-    ii: { chord: "Dm7", pent: "A min pent" },
-    v:  { chord: "B∆7♯11", pent: "B♭ min pent" },
-    i:  { chord: "C∆7", pent: "E min pent" },
+    ii: { chord: "Dm7", pent: "A min pent", scales: ["D Dorian", "F major pent"] },
+    v:  { chord: "B∆7♯11", pent: "B♭ min pent", scales: ["B Lydian", "F♯ major pent"] },
+    i:  { chord: "C∆7", pent: "E min pent", scales: ["C Ionian", "C major pent"] },
     note: "<em>Santangelo's substitution.</em> III∆7#11 of V is a rootless V7#5#9. B♭ min pent over it brings outer-space color."
   },
   {
     name: "Backdoor",
-    ii: { chord: "Fm7", pent: "F min pent" },
-    v:  { chord: "B♭7", pent: "F min pent" },
-    i:  { chord: "C∆7", pent: "E min pent" },
-    note: "The backdoor dominant — <em>♭VII7 borrowed from the parallel minor</em>, resolving up a whole step to I. F minor pent covers both the iv and the ♭VII7 in one shape."
+    ii: { chord: "Fm7", pent: "C min pent — 5th-degree (9 &amp; 11)", scales: ["F Dorian", "F min pent", "A♭ major pent"] },
+    v:  { chord: "B♭7", pent: "F min pent — 5th-degree (9 &amp; 11)", scales: ["B♭ Lydian dominant — ♯11 = E, the 3rd of C", "B♭ Mixolydian", "F Dorian"] },
+    i:  { chord: "C∆7", pent: "E min pent", scales: ["C Ionian", "C major pent"] },
+    note: "The backdoor dominant — <em>♭VII7 borrowed from the parallel minor</em>, resolving up a whole step to I. The iv (Fm7) and ♭VII7 (B♭7) share a parent in E♭ major, so the 5th-degree minor pentatonics — C min pent over Fm7, F min pent over B♭7 — fit both and bring out the 9 &amp; 11. <em>Lydian dominant</em> is the common modern choice on the B♭7: its ♯11 (E) is the 3rd of the C∆7 you resolve to."
   },
   {
     name: "Outerspace (B∆7)",
-    ii: { chord: "Dm7", pent: "A min pent" },
-    v:  { chord: "B∆7", pent: "E♭ min pent" },
-    i:  { chord: "C∆7", pent: "E min pent" },
+    ii: { chord: "Dm7", pent: "A min pent", scales: ["D Dorian", "F major pent"] },
+    v:  { chord: "B∆7", pent: "E♭ min pent", scales: ["B Lydian", "B major pent"] },
+    i:  { chord: "C∆7", pent: "E min pent", scales: ["C Ionian", "C major pent"] },
     note: "III∆7 of V, with bVI min pent on top. Far. Beautiful."
   },
   {
     name: "Minor ii–V–i",
-    ii: { chord: "Dm7♭5", pent: "F min6 pent" },
-    v:  { chord: "G7alt", pent: "D♭ maj pent" },
-    i:  { chord: "Cm∆7", pent: "D min pent" },
+    ii: { chord: "Dm7♭5", pent: "F min6 pent", scales: ["D Locrian", "D Locrian ♮2 (F melodic minor)", "Fm6 (Barry reading)"] },
+    v:  { chord: "G7alt", pent: "D♭ maj pent", scales: ["G altered", "Hexatonic altered", "Half-whole diminished"] },
+    i:  { chord: "Cm∆7", pent: "D min pent", scales: ["C melodic minor", "C Dorian", "Cm6-diminished (Barry)", "E♭ major pent"] },
     note: "Or — <em>F minor 6 pentatonic for the whole progression</em>. One shape, three chords."
   },
   {
     name: "Hexatonic chain",
-    ii: { chord: "A♭7♯11", pent: "B♭ hexatonic maj" },
-    v:  { chord: "G7alt", pent: "E♭ hexatonic maj" },
-    i:  { chord: "Cm∆7", pent: "G hexatonic maj" },
+    ii: { chord: "A♭7♯11", pent: "B♭ hexatonic maj", scales: ["A♭ Lydian dominant", "E♭ min pent — 5th-degree"] },
+    v:  { chord: "G7alt", pent: "E♭ hexatonic maj", scales: ["G altered", "Hexatonic altered"] },
+    i:  { chord: "Cm∆7", pent: "G hexatonic maj", scales: ["C melodic minor", "Cm6-diminished (Barry)"] },
     note: "Tritone sub of ii. Three hexatonic major scales, woven through a minor cadence. <em>Whole step → whole step → minor third.</em>"
   },
   {
     name: "Playing out",
-    ii: { chord: "Dm7", pent: "Dm · F♯m · B♭m pent" },
-    v:  { chord: "G7", pent: "Cycle: 2nd, b3rd, b2nd, b6th pent" },
-    i:  { chord: "C∆7", pent: "Am · Em · Bm pent" },
+    ii: { chord: "Dm7", pent: "Dm · F♯m · B♭m pent", scales: ["Minor pent up major-3rds", "Side-slip ½-step, then resolve"] },
+    v:  { chord: "G7", pent: "Cycle: 2nd, b3rd, b2nd, b6th pent", scales: ["Stack pentatonics chromatically", "Altered / blue pentatonics"] },
+    i:  { chord: "C∆7", pent: "Am · Em · Bm pent", scales: ["Resolve the slip by ½-step", "C Lydian for lift"] },
     note: "For ii: minor pent up a 3rd and again. For V: stack pentatonics chromatically. Any shape can slide ½-step up or down and resolve. <em>The dissonance is the path home.</em>"
   }
 ];
@@ -3256,24 +3360,30 @@ function renderIvi(idx) {
   const sub = IVI_SUBS[idx];
   const voicings = IVI_CHORD_VOICINGS[idx];
   const prog = document.getElementById('ivi-progression');
+  const altList = arr => (arr && arr.length)
+    ? `<div class="pent-alts"><span class="alt-label">Also playable</span><ul>${arr.map(s => `<li>${s}</li>`).join('')}</ul></div>`
+    : '';
   prog.innerHTML = `
     <div class="ivi-slot">
       <div class="role">ii</div>
       <div class="chord">${sub.ii.chord}</div>
       <div class="pent">${sub.ii.pent}</div>
       <div class="ivi-kb" data-slot="0"></div>
+      ${altList(sub.ii.scales)}
     </div>
     <div class="ivi-slot">
       <div class="role">V</div>
       <div class="chord">${sub.v.chord}</div>
       <div class="pent">${sub.v.pent}</div>
       <div class="ivi-kb" data-slot="1"></div>
+      ${altList(sub.v.scales)}
     </div>
     <div class="ivi-slot">
       <div class="role">I</div>
       <div class="chord">${sub.i.chord}</div>
       <div class="pent">${sub.i.pent}</div>
       <div class="ivi-kb" data-slot="2"></div>
+      ${altList(sub.i.scales)}
     </div>
   `;
   document.getElementById('ivi-note').innerHTML = sub.note;
