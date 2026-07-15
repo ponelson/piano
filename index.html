@@ -1270,6 +1270,66 @@
     .chip { font-size: 12px; padding: 3px 6px; }
   }
 
+
+  /* Reharmonization Lab */
+  .reharm-shell {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 60px 80px -40px rgba(0,0,0,.55);
+  }
+  .reharm-toolbar { display:grid; grid-template-columns:1.15fr .85fr; gap:26px; margin-bottom:28px; }
+  .reharm-options { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .reharm-option {
+    display:flex; align-items:flex-start; gap:10px; padding:13px 14px;
+    border:1px solid var(--line); border-radius:12px; background:var(--bg);
+    font-size:14px; color:var(--ink-2); line-height:1.35;
+  }
+  .reharm-option input { margin-top:3px; accent-color:var(--accent); }
+  .reharm-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .reharm-cell { position:relative; }
+  .reharm-cell .bar-no {
+    position:absolute; z-index:2; top:8px; left:11px; font-family:'JetBrains Mono',monospace;
+    color:var(--ink-4); font-size:9px; letter-spacing:.14em;
+  }
+  .reharm-cell input {
+    width:100%; min-height:76px; padding:29px 12px 13px; text-align:center;
+    border:1px solid var(--line); border-radius:14px; background:var(--bg); color:var(--ink);
+    font-family:'JetBrains Mono',monospace; font-size:14px; transition:.25s var(--easing);
+  }
+  .reharm-cell input:focus { outline:none; border-color:var(--accent); background:var(--surface); }
+  .reharm-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:25px 0 0; }
+  .reharm-primary, .reharm-secondary {
+    border-radius:999px; padding:12px 19px; cursor:pointer; font-family:'JetBrains Mono',monospace;
+    font-size:10px; text-transform:uppercase; letter-spacing:.18em; transition:.25s var(--easing);
+  }
+  .reharm-primary { border:1px solid var(--accent); background:var(--accent); color:var(--bg); }
+  .reharm-primary:hover { background:var(--accent-2); border-color:var(--accent-2); transform:translateY(-1px); }
+  .reharm-secondary { border:1px solid var(--line-strong); background:transparent; color:var(--ink-2); }
+  .reharm-secondary:hover { border-color:var(--accent); color:var(--accent); }
+  .reharm-status { margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.1em; color:var(--ink-3); }
+  .reharm-results { margin-top:46px; display:grid; gap:18px; }
+  .reharm-result { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--bg); }
+  .reharm-result-head { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; padding:24px 26px; border-bottom:1px solid var(--line); }
+  .reharm-result-title { font-family:'Instrument Serif',serif; font-size:29px; font-style:italic; color:var(--ink); }
+  .reharm-result-sub { color:var(--ink-3); font-size:14px; max-width:620px; margin-top:4px; }
+  .reharm-chart { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); }
+  .reharm-outbar { min-height:88px; padding:26px 11px 12px; background:var(--bg-2); position:relative; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:5px; }
+  .reharm-outbar.changed { background:linear-gradient(180deg,rgba(212,165,116,.11),var(--bg-2)); }
+  .reharm-outbar .bn { position:absolute; top:8px; left:11px; font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--ink-4); }
+  .reharm-explanations { padding:4px 26px 22px; }
+  .reharm-detail { display:grid; grid-template-columns:70px minmax(125px,.35fr) 1fr; gap:18px; padding:18px 0; border-bottom:1px solid var(--line); }
+  .reharm-detail:last-child { border-bottom:0; }
+  .reharm-detail .number { font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--ink-4); letter-spacing:.16em; text-transform:uppercase; }
+  .reharm-detail .change { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--accent-2); }
+  .reharm-detail .why { color:var(--ink-2); font-size:14px; line-height:1.55; }
+  .reharm-detail .why strong { color:var(--ink); font-weight:500; }
+  .reharm-scale { display:inline-block; margin:5px 8px 0 0; padding:3px 8px; border:1px solid var(--line); border-radius:999px; color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:10px; }
+  .reharm-empty { padding:30px; border:1px dashed var(--line-strong); border-radius:16px; text-align:center; color:var(--ink-3); }
+  @media(max-width:900px){ .reharm-toolbar{grid-template-columns:1fr}.reharm-options{grid-template-columns:1fr 1fr} }
+  @media(max-width:640px){ .reharm-shell{padding:24px 16px}.reharm-grid,.reharm-chart{grid-template-columns:repeat(2,1fr)}.reharm-options{grid-template-columns:1fr}.reharm-detail{grid-template-columns:1fr;gap:5px}.reharm-status{width:100%;margin-left:0} }
+
 </style>
 </head>
 <body>
@@ -1283,6 +1343,7 @@
       <li><a href="#santangelo">Santangelo</a></li>
       <li><a href="#barry">Barry Harris</a></li>
       <li><a href="#blues">Blues</a></li>
+      <li><a href="#reharm">Reharm Lab</a></li>
       <li><a href="#mediants">Mediants</a></li>
       <li><a href="#triads">Triads</a></li>
       <li><a href="#upper">Upper Structures</a></li>
@@ -2331,6 +2392,54 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
   </section>
 
   <hr class="divider">
+
+
+  <hr class="divider">
+
+  <!-- ============== REHARMONIZATION LAB ============== -->
+  <section id="reharm">
+    <div class="reveal" style="margin-bottom:56px;">
+      <span class="eyebrow">The Reharmonization Lab</span>
+      <h2>Twelve bars. <em>Another way through.</em></h2>
+      <p class="lede">Enter any progression. The lab preserves its harmonic destination, then proposes alternative routes — with the reason, the scale, and the voice-leading logic behind every change.</p>
+    </div>
+
+    <div class="reharm-shell reveal">
+      <div class="reharm-toolbar">
+        <div class="control-block">
+          <label>Reharmonization language</label>
+          <select id="reharm-style">
+            <option value="subtle">Subtle · functional expansion</option>
+            <option value="evans">Lyrical · Bill Evans / chromatic voice leading</option>
+            <option value="modern">Modern jazz · altered, backdoor &amp; tritone</option>
+            <option value="postbop">Post-bop · modal &amp; mediant color</option>
+            <option value="coltrane">Maximum motion · Coltrane cycles</option>
+            <option value="barry">Bebop · Barry Harris dominant family</option>
+          </select>
+          <p class="muted" style="font-size:13px;margin-top:12px;max-width:600px;">Use spaces between chords inside a bar: <span class="accent-text" style="font-family:'JetBrains Mono',monospace">Dm7 G7alt</span>. Use <span class="accent-text">%</span> to repeat the previous bar.</p>
+        </div>
+        <div class="reharm-options">
+          <label class="reharm-option"><input id="reharm-preserve-ends" type="checkbox" checked><span><strong>Preserve endpoints</strong><br>Keep bars 1 and 12 recognizable.</span></label>
+          <label class="reharm-option"><input id="reharm-smooth" type="checkbox" checked><span><strong>Smooth voice leading</strong><br>Prefer semitone bass and guide-tone motion.</span></label>
+          <label class="reharm-option"><input id="reharm-two" type="checkbox" checked><span><strong>Allow two chords</strong><br>Insert preparation or passing harmony.</span></label>
+          <label class="reharm-option"><input id="reharm-outside" type="checkbox" checked><span><strong>Allow outside harmony</strong><br>Permit chromatic and non-diatonic color.</span></label>
+        </div>
+      </div>
+
+      <div class="reharm-grid" id="reharm-inputs"></div>
+      <div class="reharm-actions">
+        <button class="reharm-primary" id="reharm-generate">Reharmonize</button>
+        <button class="reharm-secondary" id="reharm-example">Load example</button>
+        <button class="reharm-secondary" id="reharm-clear">Clear</button>
+        <button class="reharm-secondary" id="reharm-play-original"><span class="play-tri"></span> Play original</button>
+        <span class="reharm-status" id="reharm-status">Ready</span>
+      </div>
+      <div class="reharm-results" id="reharm-results">
+        <div class="reharm-empty">The alternatives will appear here. Click any chord to audition it.</div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ============== REFERENCE ============== -->
   <section id="reference">
@@ -3915,6 +4024,168 @@ function buildBluesLab() {
   renderBluesChart(0);
 }
 
+
+
+//==============================================================================
+// REHARMONIZATION LAB — contextual, deterministic substitution engine
+//==============================================================================
+const RH_FLAT_NAMES = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+const RH_SHARP_NAMES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+let reharmPlayTimer = null;
+
+function rhRoot(sym){
+  const m=(sym||'').match(/^([A-G](?:b|#)?)/); return m ? PITCH_CLASS[m[1]] : null;
+}
+function rhName(pc, preferSharp=false){ return (preferSharp?RH_SHARP_NAMES:RH_FLAT_NAMES)[(pc+120)%12]; }
+function rhQuality(sym){
+  const s=(sym||'').replace(/^[A-G](?:b|#)?/,'');
+  if(/m7b5|ø/.test(s)) return 'half-dim';
+  if(/dim|°|o7/.test(s)) return 'dim';
+  if(/alt/.test(s)) return 'alt-dom';
+  if(/sus/.test(s)) return 'sus';
+  if(/^m(?!aj)|^-/.test(s)) return 'minor';
+  if(/7/.test(s) && !/maj7|∆7/.test(s)) return 'dom';
+  if(/maj|∆/.test(s)) return 'major7';
+  return 'major';
+}
+function rhTokens(v){
+  return (v||'').trim().replace(/[|,]+/g,' ').split(/\s+/).filter(Boolean)
+    .map(x=>x.replace(/♭/g,'b').replace(/♯/g,'#').replace(/∆/g,'maj').replace(/ø/g,'m7b5').replace(/°/g,'dim'));
+}
+function rhBarsFromInputs(){
+  const out=[]; let prev=[];
+  document.querySelectorAll('.reharm-cell input').forEach(inp=>{
+    let t=rhTokens(inp.value); if(t.length===1 && t[0]==='%') t=[...prev];
+    out.push(t); if(t.length) prev=t;
+  });
+  return out;
+}
+function rhScaleAdvice(sym){
+  const r=rhRoot(sym), q=rhQuality(sym); if(r==null) return [];
+  const n=rhName(r);
+  if(q==='alt-dom') return [`${rhName(r+1)} melodic minor`,`${n} altered`,`minor pentatonic from ${rhName(r+3)}`];
+  if(q==='dom') return [`${n} Mixolydian`,`${n} half–whole diminished`,`${rhName(r+2)} minor pentatonic`];
+  if(q==='sus') return [`${n} Mixolydian sus`,`${rhName(r-5)} major pentatonic`];
+  if(q==='minor') return [`${n} Dorian`,`${n} minor pentatonic`,`${rhName(r+2)} minor pentatonic`];
+  if(q==='half-dim') return [`${n} Locrian ♮2`,`${rhName(r+3)} melodic minor`];
+  if(q==='dim') return [`${n} whole–half diminished`];
+  return [`${n} Ionian`,`${n} Lydian`,`${rhName(r-3)} minor pentatonic`];
+}
+function rhTargetText(from,to){
+  const a=rhRoot(from), b=rhRoot(to); if(a==null||b==null) return 'Listen for common tones and resolve altered notes by step.';
+  const d=(b-a+12)%12;
+  if(d===1) return `The bass rises a semitone, ${rhName(a)} → ${rhName(b)}, creating maximum directional pull.`;
+  if(d===11) return `The bass falls a semitone, ${rhName(a)} → ${rhName(b)}, while upper voices can remain nearly fixed.`;
+  if(d===5||d===7) return 'Root motion by fourth or fifth preserves a strong functional cadence.';
+  if(d===6) return 'The tritone-related roots exchange dominant guide tones while retaining their resolution tendency.';
+  return 'Retain shared tones and move the nearest guide tones by semitone into the following harmony.';
+}
+function rhDominantTo(target, altered=false){
+  const t=rhRoot(target); if(t==null) return null; return rhName(t+7)+(altered?'7alt':'7');
+}
+function rhMinorTwoTo(target){
+  const t=rhRoot(target); if(t==null) return null; return rhName(t+2)+'m7';
+}
+function rhTritone(sym){ const r=rhRoot(sym); return r==null?null:rhName(r+6)+'7#11'; }
+function rhBackdoor(target){ const r=rhRoot(target); return r==null?null:rhName(r+10)+'7#11'; }
+function rhDiminishedApproach(target){ const r=rhRoot(target); return r==null?null:rhName(r-1)+'dim7'; }
+
+function rhTransformBar(bar,nextBar,index,style,opts,variant){
+  if(!bar.length) return {bar:[], reason:'Blank bar preserved.', changed:false};
+  const original=[...bar], first=bar[0], last=bar[bar.length-1], next=nextBar&&nextBar[0];
+  const q=rhQuality(last), r=rhRoot(last), nr=rhRoot(next);
+  let out=[...bar], why='Original harmony retained as a structural anchor.';
+  const canInsert=opts.two;
+
+  if(next && (q==='dom'||q==='alt-dom')){
+    if(style==='modern' || (style==='evans'&&variant===1)){
+      out=[rhTritone(last)]; why='Tritone substitution: the new dominant contains the same guide-tone tritone and resolves by chromatic bass motion.';
+    } else if(style==='barry'){
+      out=[rhName(r+1)+'dim7']; why='Barry Harris dominant-family substitution: the diminished chord a semitone above supplies the b9, 3, 5 and b7 of the dominant.';
+    } else if(style==='subtle' && canInsert){
+      out=[rhMinorTwoTo(next),last]; why='A preparatory ii chord expands the cadence without changing its destination.';
+    } else if(style==='coltrane'){
+      out=[rhName(r+4)+'7',rhName(r+8)+'7']; why='Major-third dominant cycle compresses Coltrane-style harmonic motion before the original resolution point.';
+    } else {
+      out=[last.replace(/7(?!.*7)/,'7alt')]; if(out[0]===last) out=[last+'alt']; why='The dominant is intensified with altered upper tensions while its functional resolution remains intact.';
+    }
+  } else if(next && nr!=null){
+    if(style==='subtle' && canInsert && index%3===1){
+      const d=rhDominantTo(next, rhQuality(next)==='minor'); if(d){out=[first,d];why='A secondary dominant tonicizes the following chord and clarifies the local destination.';}
+    } else if(style==='evans'){
+      if(index%2===0){out=[first,rhDiminishedApproach(next)];why='A common-tone diminished passing chord connects the bars with semitone inner-voice motion.';}
+      else if(r!=null){out=[rhName(r)+(q==='minor'?'m9':'maj9'),rhName(r+1)+'dim7'];why='The harmony is enriched, then nudged forward through a chromatic diminished connector.';}
+    } else if(style==='modern'){
+      if(index%3===0){out=[first,rhBackdoor(next)];why='A backdoor dominant approaches the next tonic area from its flat-seventh side, producing a softer dominant pull.';}
+      else if(q==='major'||q==='major7'){out=[rhName(r+4)+'m7/'+rhName(r)];why='A root-retaining upper-structure minor chord reinterprets the sonority without disturbing the bass.';}
+    } else if(style==='postbop'){
+      const shift=variant===2?8:4; out=[rhName(r+shift)+(q==='minor'?'m11':'maj7#11')];why='Chromatic-mediant substitution preserves selected common tones while changing the harmonic field and color.';
+    } else if(style==='coltrane'){
+      out=[rhName(r)+'maj7',rhName(r+4)+'7'];why='The bar pivots through a major-third axis, creating symmetrical motion toward the next phrase.';
+    } else if(style==='barry'){
+      if(q==='minor' && next && (rhQuality(next)==='dom'||rhQuality(next)==='alt-dom')){out=[next];why='The ii–V is heard as one dominant field; the minor chord becomes the dominant’s upper structure.';}
+      else {out=[first,rhDiminishedApproach(next)];why='Sixth-diminished logic alternates stable harmony with a diminished connector to animate the inner voices.';}
+    }
+  }
+  if(!opts.outside && out.some(x=>{const rr=rhRoot(x); return rr!=null&&r!=null&&![0,2,4,5,7,9,11].includes((rr-r+12)%12)})) out=[...original];
+  if(opts.ends && (index===0||index===11)) out=[...original];
+  const changed=out.join(' ')!==original.join(' ');
+  return {bar:out, changed, reason:changed?why:'Preserved to maintain the progression’s frame.'};
+}
+
+function rhGenerateVariant(bars,style,opts,variant){
+  const result=[], details=[];
+  bars.forEach((bar,i)=>{
+    const x=rhTransformBar(bar,bars[i+1],i,style,opts,variant);
+    result.push(x.bar);
+    if(x.changed){
+      const old=bar.join(' '), neu=x.bar.join(' '), next=(bars[i+1]||[])[0];
+      details.push({i,old,neu,reason:x.reason,scales:[...new Set(x.bar.flatMap(rhScaleAdvice))].slice(0,4),voice:rhTargetText(x.bar[x.bar.length-1],next)});
+    }
+  });
+  return {bars:result,details};
+}
+function rhStyleMeta(style,variant){
+  const names={subtle:['Functional expansion','Cadential polish','Passing harmony'],evans:['Lyrical chromaticism','Common-tone movement','Inner-voice path'],modern:['Tritone & backdoor','Altered architecture','Modern dominant color'],postbop:['Modal refraction','Chromatic mediants','Open post-bop field'],coltrane:['Major-third cycle','Compressed motion','Symmetrical dominant path'],barry:['Dominant family','Sixth-diminished motion','Bebop compression']};
+  const desc={subtle:'Keeps the form legible while strengthening approaches and cadences.',evans:'Prioritizes common tones, semitone bass movement, and pianistic inner voices.',modern:'Uses tritone, backdoor, altered, and upper-structure colors.',postbop:'Recasts function through modal fields and chromatic-mediant relationships.',coltrane:'Adds major-third symmetry and accelerated dominant motion.',barry:'Treats ii–V motion as one dominant family animated by diminished harmony.'};
+  return {name:names[style][variant-1]||names[style][0],desc:desc[style]};
+}
+function rhChordButton(sym){
+  const b=document.createElement('button'); b.className='chip'; b.textContent=prettyChord(sym); b.title='Click to hear '+sym;
+  b.addEventListener('click',()=>{playChord(chordVoicing(sym),18);b.classList.add('sounding');setTimeout(()=>b.classList.remove('sounding'),380)}); return b;
+}
+function rhRenderResult(data,style,variant){
+  const meta=rhStyleMeta(style,variant), card=document.createElement('article'); card.className='reharm-result';
+  const head=document.createElement('div'); head.className='reharm-result-head';
+  head.innerHTML=`<div><div class="reharm-result-title">${meta.name}</div><div class="reharm-result-sub">${meta.desc}</div></div>`;
+  const play=document.createElement('button');play.className='reharm-secondary';play.innerHTML='<span class="play-tri"></span> Play version';play.addEventListener('click',()=>rhPlayBars(data.bars));head.appendChild(play);card.appendChild(head);
+  const chart=document.createElement('div');chart.className='reharm-chart';
+  data.bars.forEach((bar,i)=>{const d=document.createElement('div');d.className='reharm-outbar'+(data.details.some(x=>x.i===i)?' changed':'');d.innerHTML=`<span class="bn">${i+1}</span>`;bar.forEach(c=>d.appendChild(rhChordButton(c)));chart.appendChild(d)});card.appendChild(chart);
+  const ex=document.createElement('div');ex.className='reharm-explanations';
+  if(!data.details.length) ex.innerHTML='<div class="reharm-empty" style="margin-top:20px">No valid contextual substitution was found under the selected constraints.</div>';
+  data.details.forEach(x=>{const d=document.createElement('div');d.className='reharm-detail';d.innerHTML=`<div class="number">Bar ${x.i+1}</div><div class="change">${prettyChord(x.old)}<br>→ ${prettyChord(x.neu)}</div><div class="why"><strong>Why it works.</strong> ${x.reason}<br><strong>Voice leading.</strong> ${x.voice}<div>${x.scales.map(s=>`<span class="reharm-scale">${s}</span>`).join('')}</div></div>`;ex.appendChild(d)});card.appendChild(ex);return card;
+}
+function rhPlayBars(bars){
+  if(reharmPlayTimer) clearTimeout(reharmPlayTimer); const seq=[]; bars.forEach(bar=>{const beats=bluesBeats(Math.max(1,bar.length));bar.forEach((s,i)=>seq.push({s,b:beats[i]}))}); let i=0;
+  const step=()=>{if(i>=seq.length){document.getElementById('reharm-status').textContent='Playback complete';return;}const e=seq[i++];playChord(chordVoicing(e.s),18);document.getElementById('reharm-status').textContent='Playing '+prettyChord(e.s);reharmPlayTimer=setTimeout(step,e.b*(60000/92));};step();
+}
+function buildReharmLab(){
+  const grid=document.getElementById('reharm-inputs'); if(!grid)return;
+  for(let i=0;i<12;i++){const d=document.createElement('div');d.className='reharm-cell';d.innerHTML=`<span class="bar-no">${i+1}</span><input aria-label="Bar ${i+1}" placeholder="${i===0?'Cmaj7':i===1?'Am7 D7':'—'}">`;grid.appendChild(d)}
+  const load=()=>{const ex=['Cmaj7','Am7 D7','Dm7','G7','Em7','A7alt','Dm7','G7','Cmaj7','A7alt','Dm7 G7','Cmaj7'];document.querySelectorAll('.reharm-cell input').forEach((x,i)=>x.value=ex[i]);document.getElementById('reharm-status').textContent='Example loaded';};
+  document.getElementById('reharm-example').addEventListener('click',load);
+  document.getElementById('reharm-clear').addEventListener('click',()=>{document.querySelectorAll('.reharm-cell input').forEach(x=>x.value='');document.getElementById('reharm-results').innerHTML='<div class="reharm-empty">The alternatives will appear here. Click any chord to audition it.</div>';});
+  document.getElementById('reharm-play-original').addEventListener('click',()=>rhPlayBars(rhBarsFromInputs()));
+  document.getElementById('reharm-generate').addEventListener('click',()=>{
+    const bars=rhBarsFromInputs(), count=bars.reduce((n,b)=>n+b.length,0), results=document.getElementById('reharm-results');
+    if(!count){results.innerHTML='<div class="reharm-empty">Enter at least one chord before generating alternatives.</div>';return;}
+    const style=document.getElementById('reharm-style').value, opts={ends:document.getElementById('reharm-preserve-ends').checked,smooth:document.getElementById('reharm-smooth').checked,two:document.getElementById('reharm-two').checked,outside:document.getElementById('reharm-outside').checked};
+    results.innerHTML=''; [1,2,3].forEach(v=>results.appendChild(rhRenderResult(rhGenerateVariant(bars,style,opts,v),style,v)));document.getElementById('reharm-status').textContent='Three alternatives generated';
+  });
+  load();
+}
+
+
 //==============================================================================
 // REVEAL ON SCROLL
 //==============================================================================
@@ -3961,6 +4232,7 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
   buildIviLab();
   buildBluesLab();
+  buildReharmLab();
   populateAllKeyboards();
   setupReveals();
   setupNav();
