@@ -6,31 +6,39 @@
 <title>Piano: Modes & Movements — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0a09;
-    --bg-2: #131210;
-    --surface: #1a1816;
-    --surface-2: #221f1c;
-    --line: rgba(255, 246, 230, 0.08);
-    --line-strong: rgba(255, 246, 230, 0.16);
-    --ink: #f2ece1;
-    --ink-2: #d4cdbf;
-    --ink-3: #8a8478;
-    --ink-4: #5a554c;
-    --accent: #d4a574;
-    --accent-2: #e8c498;
-    --accent-deep: #8b6840;
-    --rouge: #b8554a;
-    --jade: #6a8a7b;
-    --key-white: #f0e9dc;
-    --key-white-shadow: #c4bca8;
-    --key-black: #1a1715;
-    --radius: 14px;
-    --radius-lg: 22px;
+    /* world_models palette, remapped onto this file's variable names */
+    --bg: #f5f5f7;
+    --bg-2: rgba(255,255,255,0.55);
+    --surface: rgba(255,255,255,0.72);
+    --surface-2: rgba(255,255,255,0.60);
+    --line: rgba(0,0,0,0.09);
+    --line-strong: rgba(0,0,0,0.14);
+    --ink: #111114;
+    --ink-2: #303540;
+    --ink-3: #6b6f7b;
+    --ink-4: #9aa0ab;
+    --accent: #0071e3;
+    --accent-2: #3a8ff0;
+    --accent-deep: #0057b8;
+    --rouge: #bd2b28;          /* meaning-bearing: root / left-hand / pressed */
+    --jade: #1f8f4e;
+    --key-white: #ffffff;      /* real keyboard: white keys */
+    --key-white-shadow: #d7d9de;
+    --key-black: #1b1d22;      /* real keyboard: black keys */
+    --radius: 18px;
+    --radius-lg: 28px;
     --easing: cubic-bezier(0.4, 0, 0.15, 1);
     --easing-out: cubic-bezier(0.16, 1, 0.3, 1);
+    /* world_models type + surface tokens */
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+    --serif: 'Source Serif 4', ui-serif, Georgia, serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    --shadow: 0 18px 60px rgba(0,0,0,.10);
+    --shadow2: 0 8px 28px rgba(0,0,0,.08);
+    --blue:#0071e3; --green:#1f8f4e; --orange:#b65f00; --purple:#6b47d6; --red:#bd2b28;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,9 +46,9 @@
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    background: var(--bg);
+    background: #f5f5f7;
     color: var(--ink);
-    font-family: "Newsreader", Georgia, serif;
+    font-family: "Inter", Georgia, serif;
     font-weight: 380;
     font-size: 17px;
     line-height: 1.6;
@@ -48,8 +56,9 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     background-image:
-      radial-gradient(ellipse 1200px 600px at 50% -200px, rgba(212, 165, 116, 0.06), transparent),
-      radial-gradient(ellipse 800px 800px at 80% 30%, rgba(184, 85, 74, 0.03), transparent);
+      radial-gradient(circle at 15% 0%, #eaf3ff 0, rgba(234,243,255,0) 38%),
+      radial-gradient(circle at 80% 8%, #fff0df 0, rgba(255,240,223,0) 32%),
+      linear-gradient(180deg,#fbfbfd 0,#f5f5f7 45%,#eff2f6 100%);
   }
 
   /* Subtle grain */
@@ -59,7 +68,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.35;
+    opacity: 0.10;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     mix-blend-mode: overlay;
   }
@@ -73,7 +82,7 @@
     z-index: 50;
     backdrop-filter: blur(20px) saturate(140%);
     -webkit-backdrop-filter: blur(20px) saturate(140%);
-    background: rgba(11, 10, 9, 0.65);
+    background: rgba(245, 245, 247, 0.74);
     border-bottom: 1px solid var(--line);
   }
   nav.top .inner {
@@ -86,7 +95,7 @@
     gap: 20px;
   }
   nav.top .brand {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-size: 22px;
     letter-spacing: -0.01em;
     font-style: italic;
@@ -97,7 +106,7 @@
     list-style: none;
     display: flex;
     gap: 28px;
-    font-family: "Newsreader", serif;
+    font-family: "Inter", serif;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.02em;
@@ -153,7 +162,7 @@
   }
 
   h1, h2, h3 {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-weight: 400;
     letter-spacing: -0.02em;
     line-height: 1.05;
@@ -220,7 +229,7 @@
   }
   .hero .meta strong {
     display: block;
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-size: 28px;
     font-weight: 400;
     font-style: italic;
@@ -254,7 +263,7 @@
   }
   .atlas-header .nowplaying .scale {
     display: block;
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-style: italic;
     font-size: 32px;
     letter-spacing: -0.01em;
@@ -301,7 +310,7 @@
     color: var(--ink);
     padding: 14px 18px;
     border-radius: var(--radius);
-    font-family: "Newsreader", serif;
+    font-family: "Inter", serif;
     font-size: 17px;
     cursor: pointer;
     appearance: none;
@@ -504,7 +513,7 @@
     margin-bottom: 12px;
   }
   .readout-card .v {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-size: 22px;
     font-style: italic;
     color: var(--ink);
@@ -540,7 +549,7 @@
     border: none;
     color: var(--ink-3);
     padding: 16px 14px;
-    font-family: "Newsreader", serif;
+    font-family: "Inter", serif;
     font-size: 14px;
     text-align: left;
     cursor: pointer;
@@ -595,7 +604,7 @@
   }
   .scale-card:hover { border-color: var(--line-strong); }
   .scale-name {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-style: italic;
     font-size: 22px;
     color: var(--ink);
@@ -645,7 +654,7 @@
     padding-bottom: 14px;
   }
   .app-head .app-chord {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-style: italic;
     font-size: 36px;
     color: var(--ink);
@@ -774,7 +783,7 @@
     white-space: nowrap;
   }
   .study-table td.name {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-style: italic;
     color: var(--ink);
     font-size: 19px;
@@ -819,7 +828,7 @@
   }
   .ivi-slot > div:first-child { grid-column: 1; grid-row: 1; }
   .ivi-slot .chord {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-size: 44px;
     font-style: italic;
     color: var(--ink);
@@ -891,7 +900,7 @@
     border: 1px solid var(--line);
     color: var(--ink-3);
     padding: 10px 18px;
-    font-family: "Newsreader", serif;
+    font-family: "Inter", serif;
     font-size: 14px;
     border-radius: 999px;
     cursor: pointer;
@@ -942,7 +951,7 @@
     margin-bottom: 6px;
   }
   .timeline-entry h4 {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-weight: 400;
     font-style: italic;
     font-size: 26px;
@@ -1046,7 +1055,7 @@
   .contact-block { max-width: 720px; }
   .contact-email {
     display: inline-block;
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-style: italic;
     font-size: clamp(28px, 4vw, 44px);
     color: var(--accent);
@@ -1087,7 +1096,7 @@
     z-index: 2;
   }
   footer .signature {
-    font-family: "Instrument Serif", serif;
+    font-family: "Source Serif 4", serif;
     font-style: italic;
     font-size: 16px;
     text-transform: none;
@@ -1312,7 +1321,7 @@
   .reharm-results { margin-top:46px; display:grid; gap:18px; }
   .reharm-result { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--bg); }
   .reharm-result-head { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; padding:24px 26px; border-bottom:1px solid var(--line); }
-  .reharm-result-title { font-family:'Instrument Serif',serif; font-size:29px; font-style:italic; color:var(--ink); }
+  .reharm-result-title { font-family:'Source Serif 4',serif; font-size:29px; font-style:italic; color:var(--ink); }
   .reharm-result-sub { color:var(--ink-3); font-size:14px; max-width:620px; margin-top:4px; }
   .reharm-chart { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); }
   .reharm-outbar { min-height:88px; padding:26px 11px 12px; background:var(--bg-2); position:relative; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:5px; }
@@ -1330,6 +1339,26 @@
   @media(max-width:900px){ .reharm-toolbar{grid-template-columns:1fr}.reharm-options{grid-template-columns:1fr 1fr} }
   @media(max-width:640px){ .reharm-shell{padding:24px 16px}.reharm-grid,.reharm-chart{grid-template-columns:repeat(2,1fr)}.reharm-options{grid-template-columns:1fr}.reharm-detail{grid-template-columns:1fr;gap:5px}.reharm-status{width:100%;margin-left:0} }
 
+
+  /* ===== world_models re-skin overrides (chrome only; content untouched) ===== */
+  body { font-family: var(--sans) !important; }
+  h1, h2, h3, h4, h5, h6,
+  nav.top .brand,
+  .readout-card .notes,
+  .display, .big-word { font-family: var(--serif) !important; }
+  .eyebrow, code, kbd, pre, samp, th,
+  .tag, .chip, .value, .kb-swatch, .countline,
+  [class*="mono"] { font-family: var(--mono) !important; }
+
+  /* Glass on this file's container surfaces */
+  .readout-card, .scale-card, .app-card, .card,
+  .ivi-lab, .blues-bar, .reharm-shell, .reharm-cell,
+  .control-block, .mode-card, .chart-bar, .chart-cell {
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    box-shadow: var(--shadow2);
+  }
+  nav.top { -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
 </style>
 </head>
 <body>
