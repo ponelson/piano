@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piano: Modes & Movements — A Jazz Piano Library</title>
+<title>Piano: Modes & Movements v1.2 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -133,6 +133,37 @@
 
   @media (max-width: 760px) {
     nav.top ul { display: none; }
+  }
+
+  /* Topbar contact buttons */
+  nav.top .topbar-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .tc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 13px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    color: var(--ink-2);
+    text-decoration: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: color 0.25s var(--easing), border-color 0.25s var(--easing), background 0.25s var(--easing);
+    white-space: nowrap;
+  }
+  .tc-btn:hover { color: var(--accent); border-color: var(--accent); background: rgba(212, 165, 116, 0.06); }
+  .tc-btn svg { width: 14px; height: 14px; display: block; fill: currentColor; }
+  .tc-btn .lab { line-height: 1; }
+  @media (max-width: 900px) {
+    .tc-btn .lab { display: none; }
+    .tc-btn { padding: 8px; }
   }
 
   /* Layout */
@@ -1359,6 +1390,82 @@
     box-shadow: var(--shadow2);
   }
   nav.top { -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+
+  /* pentatonic-in-red overlay + underlying chord tones */
+  .mk-white.mk-pent { fill: var(--rouge); }
+  .mk-black.mk-pent { fill: var(--rouge); }
+  .mk-white.mk-chord { fill: var(--accent-2); }
+  .mk-black.mk-chord { fill: var(--accent-deep); }
+  .kb-swatch.pent { background: var(--rouge); }
+  .kb-swatch.chord { background: var(--accent-2); }
+
+  /* Search bar (mode finder + sub finder) */
+  .searchbar {
+    display: flex; align-items: center; gap: 12px; max-width: 620px;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    padding: 6px 6px 6px 20px;
+    transition: border-color 0.25s var(--easing);
+  }
+  .searchbar:focus-within { border-color: var(--accent-deep); }
+  .searchbar input {
+    flex: 1; background: transparent; border: 0; outline: none; color: var(--ink);
+    font-family: "JetBrains Mono", monospace; font-size: 15px; letter-spacing: 0.01em; padding: 12px 0;
+  }
+  .searchbar input::placeholder { color: var(--ink-4); }
+  .searchbar .go {
+    background: var(--accent); color: var(--bg); border: 0; border-radius: 10px;
+    padding: 12px 22px; font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer;
+    transition: background 0.25s var(--easing);
+  }
+  .searchbar .go:hover { background: var(--accent-2); }
+  .search-hints { margin: 16px 0 0; display: flex; gap: 8px; flex-wrap: wrap; }
+  .search-hint {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-3);
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px;
+    padding: 5px 13px; cursor: pointer; transition: all 0.2s var(--easing);
+  }
+  .search-hint:hover { color: var(--accent-2); border-color: var(--accent-deep); }
+  .search-hint .lab { color: var(--ink-4); text-transform: uppercase; letter-spacing: 0.12em; font-size: 9px; margin-right: 6px; }
+
+  .search-results { margin-top: 40px; display: grid; gap: 16px; }
+  .result-card {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: 24px 26px; transition: border-color 0.25s var(--easing);
+  }
+  .result-card:hover { border-color: var(--line-strong); }
+  .result-card.primary { border-color: var(--accent-deep); }
+  .result-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 6px;
+  }
+  .result-title {
+    font-family: "Instrument Serif", serif; font-style: italic; font-size: 25px;
+    color: var(--ink); letter-spacing: -0.01em;
+  }
+  .result-title .badge {
+    font-family: "JetBrains Mono", monospace; font-style: normal; font-size: 9px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--bg);
+    background: var(--accent); border-radius: 5px; padding: 3px 8px; margin-left: 12px; vertical-align: middle;
+  }
+  .result-sub {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-3); white-space: nowrap;
+  }
+  .result-why { color: var(--ink-2); font-size: 15px; line-height: 1.55; margin: 8px 0 14px; max-width: 640px; }
+  .result-why em { color: var(--accent-2); font-style: italic; }
+  .result-formula {
+    font-family: "JetBrains Mono", monospace; font-size: 15px; letter-spacing: 0.02em;
+    color: var(--ink-3); margin: 4px 0 16px; display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .result-formula .deg { transition: color 0.2s var(--easing); }
+  .result-formula .deg.hit { color: var(--rouge); font-weight: 500; }
+  .result-empty { color: var(--ink-3); font-size: 15px; font-style: italic; margin-top: 32px; }
+  .result-empty em { color: var(--accent-2); }
+  @media (max-width: 640px) { .result-head { flex-direction: column; gap: 4px; } }
 </style>
 </head>
 <body>
@@ -1368,6 +1475,7 @@
     <div class="brand">Piano: Modes &amp; Movements<span class="dot">.</span></div>
     <ul>
       <li><a href="#atlas">Atlas</a></li>
+      <li><a href="#modefinder">Find a Mode</a></li>
       <li><a href="#pentatonic">Pentatonics</a></li>
       <li><a href="#santangelo">Santangelo</a></li>
       <li><a href="#barry">Barry Harris</a></li>
@@ -1377,11 +1485,26 @@
       <li><a href="#triads">Triads</a></li>
       <li><a href="#upper">Upper Structures</a></li>
       <li><a href="#ivi">ii–V–I</a></li>
+      <li><a href="#subfinder">Sub Finder</a></li>
       <li><a href="#bychord">By Chord</a></li>
       <li><a href="#stella">Stella</a></li>
       <li><a href="#reference">Reference</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="topbar-contact">
+      <a class="tc-btn" href="mailto:ponelson@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.6L19.8 6H4.2ZM20 7.7l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.7V18h16V7.7Z"/></svg>
+        <span class="lab">Gmail</span>
+      </a>
+      <a class="tc-btn" href="https://www.linkedin.com/in/ponelson/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.55c0-1.32-.02-3.02-1.9-3.02-1.9 0-2.2 1.44-2.2 2.92V21H9V9Z"/></svg>
+        <span class="lab">LinkedIn</span>
+      </a>
+      <a class="tc-btn" href="https://ponelson.github.io/pon/" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.53.1.72-.23.72-.5v-1.9c-2.92.63-3.54-1.24-3.54-1.24-.48-1.22-1.17-1.55-1.17-1.55-.96-.65.07-.64.07-.64 1.06.08 1.62 1.09 1.62 1.09.94 1.62 2.47 1.15 3.07.88.1-.68.37-1.15.67-1.42-2.33-.26-4.78-1.16-4.78-5.18 0-1.15.41-2.08 1.08-2.82-.11-.27-.47-1.34.1-2.79 0 0 .88-.28 2.88 1.08a9.98 9.98 0 0 1 5.24 0c2-1.36 2.88-1.08 2.88-1.08.57 1.45.21 2.52.1 2.79.68.74 1.08 1.67 1.08 2.82 0 4.03-2.46 4.92-4.8 5.18.38.32.72.96.72 1.94v2.88c0 .28.19.61.73.5A10.5 10.5 0 0 0 12 1.5Z"/></svg>
+        <span class="lab">GitHub</span>
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -1451,6 +1574,33 @@
       </div>
 
       <div class="mode-grid" id="mode-grid"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== MODE FINDER ============== -->
+  <section id="modefinder">
+    <div class="reveal" style="margin-bottom: 44px;">
+      <span class="eyebrow">Find a Mode</span>
+      <h2>Search by <em>the notes you hear.</em></h2>
+      <p class="lede">Type the accidentals — the alterations you want against a major scale — and get every mode that contains them, closest color first. Enharmonics are folded together, so <span class="pent-degree">♯4</span> and <span class="pent-degree">♭5</span> return the same thing.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="searchbar">
+        <input id="mode-search" type="text" placeholder="#4, b7   —   or a name: lydian" autocomplete="off" spellcheck="false">
+        <button class="go" id="mode-search-go">Search</button>
+      </div>
+      <div class="search-hints" id="mode-hints">
+        <button class="search-hint" data-q="#4 b7"><span class="lab">try</span>♯4 ♭7</button>
+        <button class="search-hint" data-q="b5 b7"><span class="lab">try</span>♭5 ♭7</button>
+        <button class="search-hint" data-q="b9 #9"><span class="lab">try</span>♭9 ♯9</button>
+        <button class="search-hint" data-q="b3 b6"><span class="lab">try</span>♭3 ♭6</button>
+        <button class="search-hint" data-q="#5"><span class="lab">try</span>♯5</button>
+        <button class="search-hint" data-q="altered"><span class="lab">name</span>altered</button>
+      </div>
+      <div class="search-results" id="mode-results"></div>
     </div>
   </section>
 
@@ -2111,13 +2261,39 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
     <div class="reveal" style="margin-bottom: 56px;">
       <span class="eyebrow">The ii–V–I Lab</span>
       <h2>One cadence, <em>eleven roads home.</em></h2>
-      <p class="lede">The same three bars — relit eleven ways. Each tab is a substitution path with a featured pentatonic and the fuller scale palette for every chord.</p>
+      <p class="lede">The same three bars — relit eleven ways. Each tab is a substitution path. The keyboard under every chord shows the <span style="color:var(--rouge)">featured pentatonic in red</span>, with the chord tones it sits on in <span style="color:var(--accent-2)">amber</span> underneath.</p>
     </div>
 
     <div class="ivi-lab reveal">
       <div class="ivi-tabs" id="ivi-tabs"></div>
       <div class="ivi-progression" id="ivi-progression"></div>
       <div class="ivi-note" id="ivi-note"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== SUB FINDER ============== -->
+  <section id="subfinder">
+    <div class="reveal" style="margin-bottom: 44px;">
+      <span class="eyebrow">Substitution Finder</span>
+      <h2>Type a chord, <em>get its exits.</em></h2>
+      <p class="lede">Enter any chord and get the standard substitutions — tritone, diminished, related ii, altered, and the reharmonizations particular to its quality. Every result is playable.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="searchbar">
+        <input id="sub-search" type="text" placeholder="C7    —    Dm7, Cmaj7, Cm7b5, Cdim7…" autocomplete="off" spellcheck="false">
+        <button class="go" id="sub-search-go">Find subs</button>
+      </div>
+      <div class="search-hints" id="sub-hints">
+        <button class="search-hint" data-q="C7"><span class="lab">dom</span>C7</button>
+        <button class="search-hint" data-q="Cmaj7"><span class="lab">maj</span>Cmaj7</button>
+        <button class="search-hint" data-q="Dm7"><span class="lab">min</span>Dm7</button>
+        <button class="search-hint" data-q="Cm7b5"><span class="lab">half-dim</span>Cm7♭5</button>
+        <button class="search-hint" data-q="Cdim7"><span class="lab">dim</span>C°7</button>
+      </div>
+      <div class="search-results" id="sub-results"></div>
     </div>
   </section>
 
@@ -2831,6 +3007,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
       <a class="contact-email" href="mailto:ponelson@gmail.com">ponelson@gmail.com</a>
       <p class="contact-links">
         <a href="https://www.linkedin.com/in/ponelson/" target="_blank" rel="noopener">LinkedIn</a>
+        &nbsp;·&nbsp;
+        <a href="https://ponelson.github.io/pon/" target="_blank" rel="noopener">GitHub</a>
       </p>
     </div>
   </section>
@@ -2840,6 +3018,10 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
 <footer>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
+  <div style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
+    v1.2 · build 2026-08-11T14:51 · 11 August 2026, 10:51 AM ET<br>
+    supersedes v1.1 — adds Gmail / LinkedIn / GitHub contact buttons to the top bar
+  </div>
 </footer>
 
 <script>
@@ -3771,22 +3953,296 @@ function renderIvi(idx) {
   `;
   document.getElementById('ivi-note').innerHTML = sub.note;
 
-  // Inject keyboards into each slot
+  // Inject keyboards into each slot — pentatonic in red over the chord tones
+  const slots = [sub.ii, sub.v, sub.i];
   prog.querySelectorAll('.ivi-kb').forEach((el, i) => {
-    const notes = voicings[i];
+    const chordNotes = voicings[i];
+    const chordPcs = new Set(chordNotes.map(m => ((m % 12) + 12) % 12));
+    const color = resolveColorNotes(slots[i].pent);
+    const pentPcs = color ? new Set(color.pcs) : new Set();
+
+    const fromMidi = 48, toMidi = 84;  // C3–C6, room for two pentatonic octaves
+    const highlighted = {};
+    for (let m = fromMidi; m <= toMidi; m++) {
+      const pc = ((m % 12) + 12) % 12;
+      if (pentPcs.has(pc)) highlighted[m] = 'pent';
+      else if (chordPcs.has(pc)) highlighted[m] = 'chord';
+    }
+
+    const legend = color
+      ? `<span class="kb-legend-item"><span class="kb-swatch pent"></span>${color.label}</span><span class="kb-legend-item"><span class="kb-swatch chord"></span>chord tones</span>`
+      : `<span class="kb-legend-item"><span class="kb-swatch chord"></span>chord tones</span><span class="kb-legend-item">no single pentatonic — see note</span>`;
+
+    const kb = createKeyboardBlock({
+      fromMidi, toMidi, highlighted,
+      whiteW: 15, whiteH: 62,
+      playStagger: 90,
+      playLabel: color ? 'Play pentatonic' : 'Play chord',
+      legend
+    });
+
+    // Rewire the play button: scale ascending if we have a pentatonic, else the chord
+    const btn = kb.querySelector('.kb-play');
+    if (btn) {
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+      newBtn.addEventListener('click', () => {
+        if (color) {
+          const seq = Object.keys(highlighted)
+            .filter(m => highlighted[m] === 'pent')
+            .map(Number).sort((a, b) => a - b);
+          playChord(seq, 90);
+        } else {
+          playChord(chordNotes, 16);
+        }
+      });
+    }
+    el.appendChild(kb);
+  });
+}
+
+// Resolve a pentatonic / color-scale name (e.g. "A min pent", "E♭ hexatonic maj",
+// "G half-whole dim") into pitch classes. Returns null when there's no single shape.
+const COLOR_PC = {'C':0,'C#':1,'Db':1,'D':2,'D#':3,'Eb':3,'E':4,'Fb':4,'F':5,'F#':6,'Gb':6,'G':7,'G#':8,'Ab':8,'A':9,'A#':10,'Bb':10,'B':11};
+const COLOR_TYPES = {
+  minpent: [0,3,5,7,10], majpent: [0,2,4,7,9], min6: [0,2,3,7,9],
+  dorpent: [0,3,5,7,9], hexmaj: [0,2,4,5,7,8],
+  hwdim: [0,1,3,4,6,7,9,10], whdim: [0,2,3,5,6,8,9,11]
+};
+const COLOR_LABEL = {
+  minpent: 'min pentatonic', majpent: 'maj pentatonic', min6: 'min6 pentatonic',
+  dorpent: 'Dorian pentatonic', hexmaj: 'hexatonic', hwdim: 'half-whole dim', whdim: 'whole-half dim'
+};
+const COLOR_SPELL = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+function resolveColorNotes(str) {
+  if (!str) return null;
+  const s = str.replace(/♭/g, 'b').replace(/♯/g, '#');
+  const toks = s.split(/[\s·,]+/).filter(Boolean);
+  let root = null;
+  for (const t of toks) {
+    const m = t.match(/^([A-G][b#]?)(m|min|maj|hex|Dor|Lyd|6|7|$)/);
+    if (m) { root = COLOR_PC[m[1]]; break; }
+  }
+  if (root == null) return null;
+  let type = 'minpent';
+  if (/min6/.test(s)) type = 'min6';
+  else if (/hex/i.test(s)) type = 'hexmaj';
+  else if (/half-whole|half whole/i.test(s)) type = 'hwdim';
+  else if (/whole-half/i.test(s)) type = 'whdim';
+  else if (/Dorian pent/i.test(s)) type = 'dorpent';
+  else if (/major pent|maj pent/i.test(s)) type = 'majpent';
+  return { root, type, pcs: COLOR_TYPES[type].map(x => (x + root) % 12), label: COLOR_SPELL[root] + ' ' + COLOR_LABEL[type] };
+}
+
+//==============================================================================
+// MODE FINDER — search 77 modes by accidental
+//==============================================================================
+const MODE_INDEX = [];
+PARENTS.forEach((p, pi) => {
+  p.modes.forEach((mName, mi) => {
+    MODE_INDEX.push({ parent: p.name, short: p.short, parentIdx: pi, mode: mName, degree: mi + 1, pcs: rotateMode(p.intervals, mi) });
+  });
+});
+const MODE_MAJOR = new Set([0,2,4,5,7,9,11]);
+const MODE_DEG_SEMI = {1:0,2:2,3:4,4:5,5:7,6:9,7:11,9:2,11:5,13:9};
+
+function modeTokenToPc(tok) {
+  const m = tok.trim().replace(/♭/g,'b').replace(/♯/g,'#').match(/^(bb|b|##|#|x|n)?\s*(9|11|13|[1-7])$/);
+  if (!m) return null;
+  const acc = m[1] || '';
+  let semi = MODE_DEG_SEMI[parseInt(m[2])];
+  if (acc === 'b') semi -= 1; else if (acc === '#') semi += 1;
+  else if (acc === 'bb') semi -= 2; else if (acc === '##' || acc === 'x') semi += 2;
+  return ((semi % 12) + 12) % 12;
+}
+function parseModeQuery(str) {
+  const toks = str.split(/[\s,]+/).filter(Boolean);
+  const pcs = new Set();
+  let allAcc = toks.length > 0;
+  for (const t of toks) { const pc = modeTokenToPc(t); if (pc == null) { allAcc = false; break; } pcs.add(pc); }
+  return { pcs, isAccidental: allAcc && pcs.size > 0 };
+}
+// Spell a mode's pcs against the 7 diatonic degrees, so ♯4 reads ♯4 not ♭5
+function spellMode(pcs) {
+  return pcs.map((pc, i) => {
+    const deg = i + 1;
+    let acc = pc - MODE_DEG_SEMI[deg];
+    if (acc > 6) acc -= 12; if (acc < -6) acc += 12;
+    const sym = acc === 0 ? '' : acc === 1 ? '♯' : acc === -1 ? '♭' : acc === 2 ? '𝄪' : acc === -2 ? '♭♭' : (acc > 0 ? '♯' : '♭');
+    return { deg, pc, label: sym + deg };
+  });
+}
+function searchModes(str) {
+  const q = parseModeQuery(str);
+  if (!q.isAccidental) {
+    const needle = str.trim().toLowerCase();
+    if (!needle) return { hits: [], mode: 'empty' };
+    return { hits: MODE_INDEX.filter(m => (m.mode + ' ' + m.parent).toLowerCase().includes(needle)).slice(0, 10), mode: 'name', q };
+  }
+  const target = [...q.pcs];
+  const hits = MODE_INDEX
+    .filter(m => target.every(pc => m.pcs.includes(pc)))
+    .map(m => {
+      const chars = m.pcs.filter(pc => !MODE_MAJOR.has(pc));
+      const extraChars = chars.filter(pc => !q.pcs.has(pc)).length;
+      const queryChars = target.filter(pc => new Set(chars).has(pc)).length;
+      return { ...m, score: extraChars * 10 - queryChars };
+    })
+    .sort((a, b) => a.score - b.score || a.parentIdx - b.parentIdx || a.degree - b.degree)
+    .slice(0, 10);
+  return { hits, mode: 'accidental', q };
+}
+function renderModeResults(str) {
+  const box = document.getElementById('mode-results');
+  const { hits, mode, q } = searchModes(str);
+  box.innerHTML = '';
+  if (!str.trim()) return;
+  if (!hits.length) {
+    box.innerHTML = `<div class="result-empty">No mode matches <em>${str}</em>. Try accidentals like <em>#4 b7</em>, or a name like <em>dorian</em>.</div>`;
+    return;
+  }
+  const qpcs = q && q.pcs ? q.pcs : new Set();
+  hits.forEach((m, idx) => {
+    const card = document.createElement('div');
+    card.className = 'result-card' + (idx === 0 && mode === 'accidental' ? ' primary' : '');
+    const formula = spellMode(m.pcs)
+      .map(d => `<span class="deg${qpcs.has(d.pc) ? ' hit' : ''}">${d.label}</span>`).join('');
+    card.innerHTML = `
+      <div class="result-head">
+        <div class="result-title">${m.mode}${idx === 0 && mode === 'accidental' ? '<span class="badge">closest</span>' : ''}</div>
+        <div class="result-sub">Mode ${m.degree} of ${m.parent}</div>
+      </div>
+      <div class="result-formula">${formula}</div>
+      <div class="ivi-kb" data-mode-kb="${idx}"></div>`;
+    box.appendChild(card);
+    // scale keyboard from C
+    const notes = m.pcs.map(pc => 60 + pc);
+    const highlighted = {};
+    notes.forEach((mi, i) => { highlighted[mi] = i === 0 ? 'root' : 'in-scale'; });
+    const kb = createKeyboardBlock({
+      fromMidi: 59, toMidi: 73, highlighted,
+      whiteW: 17, whiteH: 60, playStagger: 90, playLabel: 'Play scale'
+    });
+    card.querySelector('[data-mode-kb]').appendChild(kb);
+  });
+}
+function buildModeFinder() {
+  const input = document.getElementById('mode-search');
+  const go = document.getElementById('mode-search-go');
+  if (!input) return;
+  const run = () => renderModeResults(input.value);
+  input.addEventListener('input', run);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+  if (go) go.addEventListener('click', run);
+  document.querySelectorAll('#mode-hints .search-hint').forEach(h => {
+    h.addEventListener('click', () => { input.value = h.dataset.q; run(); input.focus(); });
+  });
+}
+
+//==============================================================================
+// SUB FINDER — substitutions for any chord
+//==============================================================================
+const SUB_SPELL = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+const SUB_SHARP = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+const SUB_ASCII = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+function classifyChord(sym) {
+  const clean = sym.replace(/♭/g, 'b').replace(/♯/g, '#').trim();
+  const parsed = parseChordSymbol(clean);
+  if (!parsed) return null;
+  const q = clean.replace(/^([A-G][b#]?)/, '');
+  const preferSharp = /^[A-G]#/.test(clean);
+  let cat;
+  if (/^dim|^o|^°/.test(q)) cat = 'dim';
+  else if (/^m7b5|^ø|^min7b5|^half/.test(q)) cat = 'm7b5';
+  else if (/^m(?!aj)|^-/.test(q)) cat = 'min';
+  else if (/^aug|^\+/.test(q)) cat = 'aug';
+  else if (/sus/.test(q)) cat = 'sus';
+  else if (/^(maj|Maj|∆|M7|6)/.test(q) || q === '') cat = 'maj';
+  else if (/^(7|9|11|13|alt|dom)/.test(q)) cat = 'dom';
+  else cat = 'maj';
+  return { root: parsed.root, cat, preferSharp, clean };
+}
+function subsFor(sym) {
+  const c = classifyChord(sym);
+  if (!c) return null;
+  const R = c.root;
+  const name = pc => c.preferSharp ? SUB_SHARP[((pc % 12) + 12) % 12] : SUB_SPELL[((pc % 12) + 12) % 12];
+  const T = (pc, suffix) => SUB_ASCII[(((pc % 12) + 12) % 12)] + suffix;  // ascii for the audio engine
+  const out = [];
+  const add = (label, pc, suffix, why) => out.push({ label, ascii: T(pc, suffix), pretty: name(pc) + prettyChord('X' + suffix).slice(1), why });
+  if (c.cat === 'dom') {
+    add('Tritone sub', R + 6, '7#11', 'Same 3rd and ♭7 as the original — resolves down a half-step instead of a fifth.');
+    add('Diminished — rootless ♭9', R + 1, 'dim7', 'A dim7 a half-step above the root is this chord\'s ♭9 without its root; symmetric every minor third.');
+    add('Related ii — make it a ii–V', R + 7, 'm7', `Precede it: ${name(R + 7)}m7 → ${name(R)}7 is a ii–V.`);
+    add('Altered', R, '7alt', 'Same root, every tension raised or lowered — the default over a V resolving to a tonic.');
+    add('Suspended', R, '9sus', 'Delay the 3rd for an open color; drop to the 3 when you land.');
+  } else if (c.cat === 'maj') {
+    add('Relative minor (vi)', R + 9, 'm7', 'Shares three of four tones — the vi of this key.');
+    add('iii — rootless ∆9', R + 4, 'm7', `${name(R + 4)}m7 over ${name(R)} is a rootless ${name(R)}∆9.`);
+    add('Lydian', R, 'maj7#11', 'Raise the 4th for lift without losing the major-7 identity.');
+    add('Sixth', R, '6', 'Six for seven — less pull, more air. The Barry tonic-major.');
+  } else if (c.cat === 'min') {
+    add('Relative major (♭III)', R + 3, 'maj7', 'The same chord tones with a major 7 on top — the ♭III of this key.');
+    add('Minor sixth', R, 'm6', 'The Barry tonic-minor color — swap the ♭7 for a 6.');
+    add('Minor-major 7', R, 'mmaj7', 'Melodic-minor tonic; the noir color.');
+    add('As a ii — build a ii–V', R + 5, '7', `${name(R)}m7 → ${name(R + 5)}7 is a ii–V landing on ${name(R + 10)}.`);
+  } else if (c.cat === 'm7b5') {
+    add('Rootless ♭VI9', R + 8, '9', 'A half-diminished is the rootless 9 of the dominant a major-sixth below.');
+    add('Relative m6 (Barry)', R + 3, 'm6', `${name(R + 3)}m6 is the same four notes — the Barry reading of iiø.`);
+    add('As iiø — minor ii–V', R + 5, '7alt', `${name(R)}m7♭5 → ${name(R + 5)}7alt → ${name(R + 10)}m.`);
+  } else if (c.cat === 'dim') {
+    [R - 1, R + 2, R + 5, R + 8].forEach(x => add(`Resolves as ${name(x)}7♭9`, x, '7b9', 'A dim7 is a rootless 7♭9 — pick any of the four dominants a half-step below a chord tone.'));
+  } else if (c.cat === 'aug') {
+    add('As a dominant ♯5', R, '7#5', 'Add a ♭7 and it functions as a whole-tone dominant.');
+    add('Tritone sub', R + 6, '7#5', 'The augmented triad is symmetric — its tritone stacks the same three notes.');
+  } else if (c.cat === 'sus') {
+    add('Resolve the sus', R, '7', 'Drop the 4 to the 3 — the plain dominant it delays.');
+    add('Tritone sub', R + 6, '9sus', 'The same suspended color a tritone away.');
+  }
+  return { cat: c.cat, subs: out };
+}
+function renderSubResults(str) {
+  const box = document.getElementById('sub-results');
+  box.innerHTML = '';
+  if (!str.trim()) return;
+  const res = subsFor(str);
+  if (!res || !res.subs.length) {
+    box.innerHTML = `<div class="result-empty">Couldn't read <em>${str}</em> as a chord. Try <em>C7</em>, <em>Dm7</em>, <em>Cmaj7</em>, <em>Cm7b5</em>, or <em>Cdim7</em>.</div>`;
+    return;
+  }
+  res.subs.forEach((s, idx) => {
+    const card = document.createElement('div');
+    card.className = 'result-card' + (idx === 0 ? ' primary' : '');
+    card.innerHTML = `
+      <div class="result-head">
+        <div class="result-title">${s.pretty}</div>
+        <div class="result-sub">${s.label}</div>
+      </div>
+      <div class="result-why">${s.why}</div>
+      <div class="ivi-kb" data-sub-kb="${idx}"></div>`;
+    box.appendChild(card);
+    const notes = chordVoicing(s.ascii);
     const highlighted = {};
     notes.forEach(m => { highlighted[m] = 'in-scale'; });
-    // Mark lowest as root visually
-    const root = Math.min(...notes);
-    highlighted[root] = 'root';
+    if (notes.length) highlighted[Math.min(...notes)] = 'root';
+    const lo = Math.min(...notes, 48), hi = Math.max(...notes, 72);
     const kb = createKeyboardBlock({
-      fromMidi: 47, toMidi: 74,
-      highlighted,
-      whiteW: 18, whiteH: 70,
-      playStagger: 14,
-      playLabel: 'Play chord'
+      fromMidi: Math.min(lo, 47), toMidi: Math.max(hi, 74), highlighted,
+      whiteW: 16, whiteH: 60, playStagger: 16, playLabel: 'Play chord'
     });
-    el.appendChild(kb);
+    card.querySelector('[data-sub-kb]').appendChild(kb);
+  });
+}
+function buildSubFinder() {
+  const input = document.getElementById('sub-search');
+  const go = document.getElementById('sub-search-go');
+  if (!input) return;
+  const run = () => renderSubResults(input.value);
+  input.addEventListener('input', run);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+  if (go) go.addEventListener('click', run);
+  document.querySelectorAll('#sub-hints .search-hint').forEach(h => {
+    h.addEventListener('click', () => { input.value = h.dataset.q; run(); input.focus(); });
   });
 }
 
@@ -3813,7 +4269,8 @@ function parseChordSymbol(sym) {
   else if (/^maj9/.test(q))           iv = [0,4,7,11,14];
   else if (/^maj7/.test(q))           iv = [0,4,7,11];
   else if (/^m(?!aj)/.test(q)) {
-    if (/^m6/.test(q))                iv = [0,3,7,9];
+    if (/^m(?:maj7|Maj7|M7|\(maj7\)|∆7?)/.test(q)) iv = [0,3,7,11];
+    else if (/^m6/.test(q))           iv = [0,3,7,9];
     else if (/^m9/.test(q))           iv = [0,3,7,10,14];
     else if (/^m11/.test(q))          iv = [0,3,7,10,17];
     else if (/^m7/.test(q))           iv = [0,3,7,10];
@@ -4262,6 +4719,8 @@ document.addEventListener('DOMContentLoaded', () => {
   buildIviLab();
   buildBluesLab();
   buildReharmLab();
+  buildModeFinder();
+  buildSubFinder();
   populateAllKeyboards();
   setupReveals();
   setupNav();
