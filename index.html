@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piano: Modes & Movements v1.2 — A Jazz Piano Library</title>
+<title>Piano: Modes & Movements v1.6 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -39,6 +39,56 @@
     --shadow: 0 18px 60px rgba(0,0,0,.10);
     --shadow2: 0 8px 28px rgba(0,0,0,.08);
     --blue:#0071e3; --green:#1f8f4e; --orange:#b65f00; --purple:#6b47d6; --red:#bd2b28;
+    --body-bg: #f5f5f7;
+    --body-image:
+      radial-gradient(circle at 15% 0%, #eaf3ff 0, rgba(234,243,255,0) 38%),
+      radial-gradient(circle at 80% 8%, #fff0df 0, rgba(255,240,223,0) 32%),
+      linear-gradient(180deg,#fbfbfd 0,#f5f5f7 45%,#eff2f6 100%);
+    --overlay-scrim: rgba(245,245,247,0.86);
+    --on-accent: #ffffff;
+    --accent-wash: rgba(0,113,227,0.10);
+    --rouge-wash: rgba(189,43,40,0.09);
+    --rouge-line: rgba(189,43,40,0.26);
+    --invert-bg: #111114;
+    --invert-ink: #f5f5f7;
+    --nav-bg: rgba(245,245,247,0.74);
+  }
+
+  html[data-theme="dark"] {
+    --bg: #101014;
+    --bg-2: rgba(255,255,255,0.045);
+    --surface: rgba(255,255,255,0.07);
+    --surface-2: rgba(255,255,255,0.05);
+    --line: rgba(255,255,255,0.10);
+    --line-strong: rgba(255,255,255,0.18);
+    --ink: #f2f3f5;
+    --ink-2: #c7ccd6;
+    --ink-3: #8f96a3;
+    --ink-4: #6a707c;
+    --accent: #4b9dff;
+    --accent-2: #79b8ff;
+    --accent-deep: #2f7fe0;
+    --rouge: #ff6b63;
+    --jade: #3fbf76;
+    --key-white: #e8e9ec;
+    --key-white-shadow: #a8abb2;
+    --key-black: #17181c;
+    --shadow: 0 18px 60px rgba(0,0,0,.55);
+    --shadow2: 0 8px 28px rgba(0,0,0,.42);
+    --blue:#4b9dff; --green:#3fbf76; --orange:#e0973a; --purple:#a58bff; --red:#ff6b63;
+    --body-bg: #101014;
+    --body-image:
+      radial-gradient(circle at 15% 0%, #16233a 0, rgba(22,35,58,0) 40%),
+      radial-gradient(circle at 80% 8%, #2a2016 0, rgba(42,32,22,0) 34%),
+      linear-gradient(180deg,#131318 0,#101014 45%,#0c0c10 100%);
+    --overlay-scrim: rgba(12,12,16,0.88);
+    --on-accent: #0b0b0f;
+    --accent-wash: rgba(75,157,255,0.15);
+    --rouge-wash: rgba(255,107,99,0.14);
+    --rouge-line: rgba(255,107,99,0.32);
+    --invert-bg: #1c1d24;
+    --invert-ink: #f2f3f5;
+    --nav-bg: rgba(16,16,20,0.76);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,7 +96,7 @@
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    background: #f5f5f7;
+    background: var(--body-bg);
     color: var(--ink);
     font-family: "Inter", Georgia, serif;
     font-weight: 380;
@@ -55,10 +105,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    background-image:
-      radial-gradient(circle at 15% 0%, #eaf3ff 0, rgba(234,243,255,0) 38%),
-      radial-gradient(circle at 80% 8%, #fff0df 0, rgba(255,240,223,0) 32%),
-      linear-gradient(180deg,#fbfbfd 0,#f5f5f7 45%,#eff2f6 100%);
+    background-image: var(--body-image);
+    transition: background-color 0.4s var(--easing), color 0.4s var(--easing);
   }
 
   /* Subtle grain */
@@ -82,7 +130,7 @@
     z-index: 50;
     backdrop-filter: blur(20px) saturate(140%);
     -webkit-backdrop-filter: blur(20px) saturate(140%);
-    background: rgba(245, 245, 247, 0.74);
+    background: var(--nav-bg);
     border-bottom: 1px solid var(--line);
   }
   nav.top .inner {
@@ -158,7 +206,7 @@
     transition: color 0.25s var(--easing), border-color 0.25s var(--easing), background 0.25s var(--easing);
     white-space: nowrap;
   }
-  .tc-btn:hover { color: var(--accent); border-color: var(--accent); background: rgba(212, 165, 116, 0.06); }
+  .tc-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-wash); }
   .tc-btn svg { width: 14px; height: 14px; display: block; fill: currentColor; }
   .tc-btn .lab { line-height: 1; }
   @media (max-width: 900px) {
@@ -492,7 +540,7 @@
   .kb-play:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(212, 165, 116, 0.04);
+    background: var(--accent-wash);
   }
   .kb-play .play-tri {
     width: 0; height: 0;
@@ -804,7 +852,7 @@
     line-height: 1.5;
   }
   .study-table tr:hover td {
-    background: rgba(212, 165, 116, 0.03);
+    background: var(--accent-wash);
   }
   .study-table td.chord {
     font-family: "JetBrains Mono", monospace;
@@ -1092,7 +1140,7 @@
     color: var(--accent);
     text-decoration: none;
     letter-spacing: -0.01em;
-    border-bottom: 1px solid rgba(212, 165, 116, 0.3);
+    border-bottom: 1px solid var(--line-strong);
     padding-bottom: 4px;
     transition: color 0.3s var(--easing), border-color 0.3s var(--easing);
   }
@@ -1265,7 +1313,7 @@
   .chart-bar:hover { border-color: var(--line-strong); }
   .chart-bar.playing {
     border-color: var(--accent);
-    background: linear-gradient(180deg, rgba(212,165,116,0.12) 0%, var(--bg-2) 100%);
+    background: linear-gradient(180deg, var(--accent-wash) 0%, var(--bg-2) 100%);
   }
   .chart-bar .bn {
     position: absolute;
@@ -1291,7 +1339,7 @@
   .chip:hover { color: var(--accent-2); border-color: var(--accent-deep); }
   .chip.sounding {
     background: var(--accent);
-    color: var(--bg);
+    color: var(--on-accent);
     border-color: var(--accent);
   }
   .chart-note {
@@ -1356,7 +1404,7 @@
   .reharm-result-sub { color:var(--ink-3); font-size:14px; max-width:620px; margin-top:4px; }
   .reharm-chart { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); }
   .reharm-outbar { min-height:88px; padding:26px 11px 12px; background:var(--bg-2); position:relative; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:5px; }
-  .reharm-outbar.changed { background:linear-gradient(180deg,rgba(212,165,116,.11),var(--bg-2)); }
+  .reharm-outbar.changed { background:linear-gradient(180deg,var(--accent-wash),var(--bg-2)); }
   .reharm-outbar .bn { position:absolute; top:8px; left:11px; font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--ink-4); }
   .reharm-explanations { padding:4px 26px 22px; }
   .reharm-detail { display:grid; grid-template-columns:70px minmax(125px,.35fr) 1fr; gap:18px; padding:18px 0; border-bottom:1px solid var(--line); }
@@ -1443,7 +1491,7 @@
     gap: 16px; flex-wrap: wrap; margin-bottom: 6px;
   }
   .result-title {
-    font-family: "Instrument Serif", serif; font-style: italic; font-size: 25px;
+    font-family: var(--serif); font-style: italic; font-size: 25px;
     color: var(--ink); letter-spacing: -0.01em;
   }
   .result-title .badge {
@@ -1465,32 +1513,335 @@
   .result-formula .deg.hit { color: var(--rouge); font-weight: 500; }
   .result-empty { color: var(--ink-3); font-size: 15px; font-style: italic; margin-top: 32px; }
   .result-empty em { color: var(--accent-2); }
-  @media (max-width: 640px) { .result-head { flex-direction: column; gap: 4px; } }
+
+  /* Playing-out cycle explorer */
+  .kb-swatch.outhome { background: var(--rouge); }
+  .kb-swatch.outother { background: var(--accent-deep); }
+  .out-centers {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin: 4px 0 26px;
+  }
+  .out-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 62px;
+    padding: 11px 14px 8px;
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.18s var(--easing);
+  }
+  .out-chip .n { font-family: "JetBrains Mono", monospace; font-size: 17px; color: var(--ink); }
+  .out-chip .ix {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  .out-chip.home { border-color: var(--rouge); }
+  .out-chip.home .n { color: var(--rouge); }
+  .out-chip.home .ix { color: var(--rouge); }
+  .out-chip:hover { transform: translateY(-2px); border-color: var(--accent-deep); }
+  .out-chip.sounding { background: var(--accent); border-color: var(--accent); }
+  .out-chip.sounding .n, .out-chip.sounding .ix { color: var(--on-accent); }
+  .lab-select {
+    background: var(--bg-2);
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    color: var(--ink-2);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    padding: 6px 9px;
+    cursor: pointer;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* Comping rhythm grid */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 5px;
+    max-width: 820px;
+    margin: 4px 0 0;
+  }
+  .comp-cell {
+    position: relative;
+    aspect-ratio: 1 / 1.5;
+    min-height: 46px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s var(--easing), border-color 0.15s var(--easing), transform 0.12s var(--easing);
+  }
+  .comp-cell.beat { border-color: var(--line-strong); }
+  .comp-cell.barstart { border-left: 2px solid var(--ink-4); }
+  .comp-cell .cl {
+    position: absolute;
+    bottom: 5px; left: 0; right: 0;
+    text-align: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    color: var(--ink-4);
+    pointer-events: none;
+  }
+  .comp-cell.on { background: var(--accent); border-color: var(--accent); }
+  .comp-cell.on .cl { color: var(--on-accent); opacity: 0.75; }
+  .comp-cell:hover { transform: translateY(-2px); border-color: var(--accent-deep); }
+  .comp-cell.now { box-shadow: 0 0 0 2px var(--rouge); }
+  .comp-cell.on.now { background: var(--rouge); border-color: var(--rouge); }
+  @media (max-width: 640px) {
+    .comp-cell { min-height: 34px; }
+    .comp-cell .cl { font-size: 7px; }
+  }
+
+  /* Inverted statement panel */
+  .invert-panel {
+    background: var(--invert-bg);
+    border-radius: var(--radius-lg);
+    padding: 34px 38px;
+    max-width: 840px;
+    color: var(--invert-ink);
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.5;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    box-shadow: var(--shadow2);
+  }
+  .invert-panel em { color: var(--accent-2); font-style: italic; }
+  @media (max-width: 640px) { .invert-panel { padding: 26px 22px; font-size: 19px; } }
+
+  /* Mode-finder detail rows */
+  .mf-row {
+    display: grid;
+    grid-template-columns: 108px 1fr;
+    gap: 18px;
+    align-items: baseline;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+  }
+  .mf-row:first-of-type { border-top: 0; }
+  .mf-lab {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  .mf-val { color: var(--ink-2); font-size: 14px; line-height: 1.6; }
+  .mf-val strong { color: var(--ink); font-weight: 500; }
+  .acc-chip {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: var(--rouge);
+    background: var(--rouge-wash);
+    border: 1px solid var(--rouge-line);
+    border-radius: 6px;
+    padding: 2px 10px;
+    margin: 0 6px 4px 0;
+  }
+  .acc-chip.none { color: var(--ink-3); background: var(--bg-2); border-color: var(--line); font-size: 13px; }
+  .acc-chip.none em { color: var(--accent-2); font-style: italic; }
+  .scale-notes { font-family: "JetBrains Mono", monospace; font-size: 15px; display: flex; gap: 11px; flex-wrap: wrap; }
+  .scale-notes .sn { color: var(--ink-2); }
+  .scale-notes .sn.root { color: var(--accent); }
+  .sib-list { display: flex; flex-direction: column; gap: 3px; font-family: "JetBrains Mono", monospace; font-size: 12.5px; }
+  .sib-list .sib { color: var(--ink-3); }
+  .sib-list .sib.here { color: var(--accent); }
+  @media (max-width: 640px) {
+    .result-head { flex-direction: column; gap: 4px; }
+    .mf-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* ---------- NAV TOOLS ---------- */
+  .nav-current {
+    margin-left: 14px; padding-left: 14px;
+    border-left: 1px solid var(--line-strong);
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--accent); font-weight: 400;
+  }
+  .nav-current:empty { display: none; }
+  @media (max-width: 760px) { .nav-current { display: none; } }
+  .menu-group a.active { color: var(--accent); }
+  .menu-group a.active::before { content: '— '; color: var(--accent); }
+  nav.top .nav-tools { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+  .nav-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 13px; background: transparent;
+    border: 1px solid var(--line-strong); border-radius: 999px;
+    color: var(--ink-2); font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    cursor: pointer; white-space: nowrap;
+    transition: color 0.25s var(--easing), border-color 0.25s var(--easing);
+  }
+  .nav-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .nav-btn svg { width: 14px; height: 14px; display: block; fill: currentColor; }
+  .nav-btn.icon-only { padding: 8px; }
+  .nav-btn .kbd {
+    font-size: 9px; padding: 1px 5px; border-radius: 4px;
+    border: 1px solid var(--line-strong); color: var(--ink-4);
+  }
+  .ico-moon { display: none; }
+  html[data-theme="dark"] .ico-sun { display: none; }
+  html[data-theme="dark"] .ico-moon { display: block; }
+  @media (max-width: 900px) {
+    .nav-btn .lab, .nav-btn .kbd { display: none; }
+    .nav-btn { padding: 8px; }
+  }
+  @media (max-width: 560px) {
+    nav.top .brand { font-size: 12px; }
+    .topbar-contact .tc-btn:not(:first-child) { display: none; }
+  }
+
+  /* ---------- OVERLAYS ---------- */
+  .overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: var(--overlay-scrim);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    backdrop-filter: blur(22px) saturate(140%);
+    display: flex; justify-content: center;
+    padding: 80px 24px 40px; overflow-y: auto;
+    opacity: 0; transition: opacity 0.22s var(--easing);
+  }
+  .overlay[hidden] { display: none; }
+  .overlay.open { opacity: 1; }
+  .overlay-inner {
+    width: 100%; background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-lg); box-shadow: var(--shadow);
+    transform: translateY(-8px);
+    transition: transform 0.28s var(--easing-out);
+  }
+  .overlay.open .overlay-inner { transform: translateY(0); }
+  .menu-inner { max-width: 1040px; padding: 30px 34px 38px; align-self: flex-start; }
+  .overlay-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .overlay-close {
+    background: transparent; border: 1px solid var(--line-strong); color: var(--ink-3);
+    border-radius: 999px; cursor: pointer; font-family: var(--mono);
+    font-size: 13px; line-height: 1; padding: 7px 12px;
+    transition: all 0.2s var(--easing);
+  }
+  .overlay-close:hover { color: var(--accent); border-color: var(--accent); }
+  .menu-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 34px; }
+  .menu-group h4 {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-4); font-weight: 400;
+    margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  .menu-group a {
+    display: block; color: var(--ink-2); text-decoration: none;
+    font-family: var(--serif); font-size: 18px; padding: 6px 0;
+    transition: color 0.18s var(--easing), transform 0.18s var(--easing);
+  }
+  .menu-group a:hover { color: var(--accent); transform: translateX(3px); }
+  @media (max-width: 800px) { .menu-groups { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) {
+    .menu-groups { grid-template-columns: 1fr; gap: 22px; }
+    .menu-inner { padding: 24px 22px 30px; }
+    .overlay { padding: 70px 14px 30px; }
+  }
+
+  /* ---------- SEARCH PALETTE ---------- */
+  .palette-inner { max-width: 680px; align-self: flex-start; overflow: hidden; }
+  .palette-bar { display: flex; align-items: center; gap: 12px; padding: 16px 16px 16px 22px; border-bottom: 1px solid var(--line); }
+  .palette-ico { width: 17px; height: 17px; fill: var(--ink-4); flex-shrink: 0; }
+  .palette-bar input {
+    flex: 1; background: transparent; border: 0; outline: none; color: var(--ink);
+    font-family: var(--mono); font-size: 15px; padding: 6px 0;
+  }
+  .palette-bar input::placeholder { color: var(--ink-4); }
+  .palette-results { max-height: 56vh; overflow-y: auto; padding: 8px; }
+  .p-item {
+    display: block; width: 100%; text-align: left; background: transparent;
+    border: 0; border-radius: 12px; padding: 11px 14px; cursor: pointer;
+    color: var(--ink-2); transition: background 0.14s var(--easing);
+  }
+  .p-item:hover, .p-item.sel { background: var(--bg-2); }
+  .p-item.sel { box-shadow: inset 0 0 0 1px var(--line-strong); }
+  .p-title { font-family: var(--serif); font-size: 17px; color: var(--ink); display: block; }
+  .p-title mark { background: transparent; color: var(--accent); font-style: italic; }
+  .p-meta {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-4); display: block; margin-top: 3px;
+  }
+  .p-empty { padding: 30px 16px; color: var(--ink-3); font-style: italic; text-align: center; }
+  .palette-foot {
+    display: flex; gap: 18px; padding: 11px 20px; border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-4);
+  }
+  .palette-foot .kbd {
+    border: 1px solid var(--line-strong); border-radius: 4px;
+    padding: 1px 5px; margin-right: 4px;
+  }
+  body.overlay-open { overflow: hidden; }
+
+  /* ---------- REDUCED MOTION ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print {
+    @page { margin: 15mm; }
+    nav.top, .overlay, .kb-play, .lab-transport, .search-hints,
+    .searchbar .go, .topbar-contact, .nav-tools, .kb-legend { display: none !important; }
+    body {
+      background: #fff !important; background-image: none !important;
+      color: #000; font-size: 11pt;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    section { break-before: page; padding: 0 0 18pt !important; }
+    section:first-of-type { break-before: avoid; }
+    h2, h3 { break-after: avoid; }
+    .card, .result-card, .chart-bar, .recipe, .kb-block, .comp-grid { break-inside: avoid; }
+    .card, .result-card, .invert-panel, .chart-bar, .recipe {
+      border: 1px solid #bbb !important; background: #fff !important;
+      box-shadow: none !important; color: #000 !important;
+    }
+    a { color: #000; text-decoration: none; }
+    .divider { border-color: #ccc; }
+    .mini-keyboard { filter: grayscale(1); }
+    details.ref > div { display: block !important; }
+  }
 </style>
 </head>
 <body>
 
 <nav class="top">
   <div class="inner">
-    <div class="brand">Piano: Modes &amp; Movements<span class="dot">.</span></div>
-    <ul>
-      <li><a href="#atlas">Atlas</a></li>
-      <li><a href="#modefinder">Find a Mode</a></li>
-      <li><a href="#pentatonic">Pentatonics</a></li>
-      <li><a href="#santangelo">Santangelo</a></li>
-      <li><a href="#barry">Barry Harris</a></li>
-      <li><a href="#blues">Blues</a></li>
-      <li><a href="#reharm">Reharm Lab</a></li>
-      <li><a href="#mediants">Mediants</a></li>
-      <li><a href="#triads">Triads</a></li>
-      <li><a href="#upper">Upper Structures</a></li>
-      <li><a href="#ivi">ii–V–I</a></li>
-      <li><a href="#subfinder">Sub Finder</a></li>
-      <li><a href="#bychord">By Chord</a></li>
-      <li><a href="#stella">Stella</a></li>
-      <li><a href="#reference">Reference</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="brand">Piano: Modes &amp; Movements<span class="dot">.</span><span class="nav-current" id="nav-current"></span></div>
+    <div class="nav-tools">
+      <button class="nav-btn" id="nav-search-btn" aria-label="Search the atlas">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 1 1-4.7 13.35l-3.6 3.6a1 1 0 0 1-1.4-1.42l3.6-3.6A7.5 7.5 0 0 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"/></svg>
+        <span class="lab">Search</span><span class="kbd">/</span>
+      </button>
+      <button class="nav-btn" id="nav-menu-btn" aria-label="All sections" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18v2H3v-2Zm0 5.5h18v2H3v-2Zm0 5.5h18v2H3v-2Z"/></svg>
+        <span class="lab">Sections</span>
+      </button>
+      <button class="nav-btn icon-only" id="nav-theme-btn" aria-label="Toggle dark mode">
+        <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-1-13h2v3h-2V2Zm0 17h2v3h-2v-3ZM2 11h3v2H2v-2Zm17 0h3v2h-3v-2ZM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Zm2.1-13.5 1.4 1.4-2.1 2.1-1.4-1.4 2.1-2.1ZM5.6 19.8l-1.4-1.4 2.1-2.1 1.4 1.4-2.1 2.1Z"/></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.3 3a1 1 0 0 1 .27 1.76 6.5 6.5 0 0 0 6.67 11.1 1 1 0 0 1 1.2 1.46A9 9 0 1 1 12.3 3Z"/></svg>
+      </button>
+    </div>
     <div class="topbar-contact">
       <a class="tc-btn" href="mailto:ponelson@gmail.com" aria-label="Email">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.6L19.8 6H4.2ZM20 7.7l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.7V18h16V7.7Z"/></svg>
@@ -1583,22 +1934,23 @@
   <section id="modefinder">
     <div class="reveal" style="margin-bottom: 44px;">
       <span class="eyebrow">Find a Mode</span>
-      <h2>Search by <em>the notes you hear.</em></h2>
-      <p class="lede">Type the accidentals — the alterations you want against a major scale — and get every mode that contains them, closest color first. Enharmonics are folded together, so <span class="pent-degree">♯4</span> and <span class="pent-degree">♭5</span> return the same thing.</p>
+      <h2>Search by <em>sound or by name.</em></h2>
+      <p class="lede">Type the accidentals you hear and get every mode containing them, closest color first — enharmonics fold together, so <span class="pent-degree">♯4</span> and <span class="pent-degree">♭5</span> return the same thing. Or type a name and get its accidentals, its family, and exactly where it sits in that family. Names accept nicknames (<em>altered</em>, <em>acoustic</em>, <em>spanish</em>), a root (<em>F♯ dorian</em>), or a coordinate (<em>mode 4 of melodic minor</em>).</p>
     </div>
 
     <div class="reveal">
       <div class="searchbar">
-        <input id="mode-search" type="text" placeholder="#4, b7   —   or a name: lydian" autocomplete="off" spellcheck="false">
+        <input id="mode-search" type="text" placeholder="lydian dominant   —   or #4, b7   —   or F# dorian" autocomplete="off" spellcheck="false">
         <button class="go" id="mode-search-go">Search</button>
       </div>
       <div class="search-hints" id="mode-hints">
-        <button class="search-hint" data-q="#4 b7"><span class="lab">try</span>♯4 ♭7</button>
-        <button class="search-hint" data-q="b5 b7"><span class="lab">try</span>♭5 ♭7</button>
-        <button class="search-hint" data-q="b9 #9"><span class="lab">try</span>♭9 ♯9</button>
-        <button class="search-hint" data-q="b3 b6"><span class="lab">try</span>♭3 ♭6</button>
-        <button class="search-hint" data-q="#5"><span class="lab">try</span>♯5</button>
-        <button class="search-hint" data-q="altered"><span class="lab">name</span>altered</button>
+        <button class="search-hint" data-q="lydian dominant"><span class="lab">name</span>lydian dominant</button>
+        <button class="search-hint" data-q="altered"><span class="lab">nickname</span>altered</button>
+        <button class="search-hint" data-q="F# dorian"><span class="lab">root</span>F♯ dorian</button>
+        <button class="search-hint" data-q="mode 4 of melodic minor"><span class="lab">coordinate</span>mode 4 of melodic minor</button>
+        <button class="search-hint" data-q="#4 b7"><span class="lab">accidentals</span>♯4 ♭7</button>
+        <button class="search-hint" data-q="b5 b7"><span class="lab">accidentals</span>♭5 ♭7</button>
+        <button class="search-hint" data-q="b9 #9"><span class="lab">accidentals</span>♭9 ♯9</button>
       </div>
       <div class="search-results" id="mode-results"></div>
     </div>
@@ -1686,7 +2038,7 @@
       </div>
 
       <div class="card">
-        <h3>Blues <em>Hexatonic</em> <span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:0.7em;color:var(--ink-3);letter-spacing:0;text-transform:none;">(honorary pentatonic)</span></h3>
+        <h3>Blues <em>Hexatonic</em> <span style="font-family:var(--serif);font-style:italic;font-size:0.7em;color:var(--ink-3);letter-spacing:0;text-transform:none;">(honorary pentatonic)</span></h3>
         <div class="formula-line">1 · b3 · 4 · b5 · 5 · b7</div>
         <div class="kb-slot" data-kb="blues-hex"></div>
         <p class="desc" style="margin-top:18px">Six-note blues. Minor pentatonic plus the flat fifth — the blue note that does all the work.</p>
@@ -2095,7 +2447,7 @@ C/G  A+7 | A♭13  G9      | Em7 A7  | D7♭5 G7♯9♯5</div>
 
     <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Barry over the <em>embedded ii–V's</em></h3>
     <div class="reveal" style="max-width: 760px; margin-bottom: 16px;">
-      <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Each little ii–V is one dominant environment (see <a href="#barry" style="color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(212,165,116,0.3);">Barry Harris</a>). The minor chord is just the dominant's upper structure.</p>
+      <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Each little ii–V is one dominant environment (see <a href="#barry" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rouge-line);">Barry Harris</a>). The minor chord is just the dominant's upper structure.</p>
     </div>
     <div class="recipe reveal">Gm7 – C7   →  play C dominant   (sets up F7)
 Dm7 – G7   →  play G dominant   (sets up C7)
@@ -2133,12 +2485,14 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
       <div class="card">
         <h3>Major 3rd <em>above</em></h3>
         <div class="formula-line">C &rarr; E</div>
-        <p class="desc" style="margin-top:18px">Reharmonize into the key a natural third up. Bright, lifting.</p>
+        <div class="kb-slot" data-kb="mediant-maj3-up"></div>
+        <p class="desc" style="margin-top:18px">Reharmonize into the key a natural third up. Bright, lifting. C∆7 and E∆7 share only one tone — B — which is what makes the shift feel like a lit window.</p>
       </div>
       <div class="card">
         <h3>Major 3rd <em>below</em></h3>
         <div class="formula-line">C &rarr; A&#9837;</div>
-        <p class="desc" style="margin-top:18px">Down a natural third. Warm, flattening.</p>
+        <div class="kb-slot" data-kb="mediant-maj3-down"></div>
+        <p class="desc" style="margin-top:18px">Down a natural third. Warm, flattening. A♭∆7's major 7th is G — the 5th of C — so it settles rather than lifts.</p>
       </div>
       <div class="card">
         <h3>Minor 3rd <em>above</em></h3>
@@ -2252,6 +2606,349 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
       <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">The pattern: <strong style="color:var(--ink)">name the triad by where its root sits over the chord.</strong> A triad on the 9 (II) and one on the ♭7 (♭VII) keep things consonant; triads on the ♭VI, ♭V and VI pull into altered territory. The two unaltered ones (II, ♭VII) belong over a V going anywhere; the altered ones want a V resolving down a fifth to a tonic.</p>
     </div>
     <p class="muted reveal" style="margin-top: 20px; font-size: 14px; line-height: 1.7; max-width: 760px;">Over a <strong style="color:var(--ink)">major</strong> chord the move is gentler — II major over C∆7 gives 9·♯11·13 (the Lydian color from the Triad + 1 page), and iii minor (Em) is just C∆7's own 3-5-7. Over <strong style="color:var(--ink)">minor</strong>, a major triad up a ♭7 (B♭ over Cm) voices Cm11.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== PLAYING OUT ============== -->
+  <section id="playingout">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Playing Out</span>
+      <h2>Leave the key <em>on purpose.</em></h2>
+      <p class="lede">A system for going outside that never sounds like a mistake, following the approach taught by <strong>Justin Highland</strong>. The idea: divide the octave evenly, treat each note of that division as a <em>tonality</em>, and move one shape through them. Because the division is symmetric, the shape is identical at every stop — so the ear hears deliberate repetition rather than wrong notes.</p>
+    </div>
+
+    <div class="invert-panel reveal">
+      What makes an outside line sound intentional isn't which notes you leave on — it's that the listener can hear the same shape arriving again. Symmetry supplies the pattern; the pattern supplies the permission.
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 20px; font-style: italic;">The five <em>divisions</em></h3>
+    <p class="lede reveal" style="margin-bottom: 28px; max-width: 840px;">Each row is a way of slicing the octave into equal parts. The count is how many tonalities you get before the cycle returns home — and that count is the whole dial. Three tonalities keeps you close; eight puts you almost anywhere.</p>
+
+    <div class="blues-lab reveal">
+      <div class="ivi-tabs" id="out-tabs"></div>
+      <div class="lab-transport">
+        <button class="kb-play" id="out-play"><span class="play-tri"></span>Run the cycle</button>
+        <label class="lab-field">Shape
+          <select id="out-motif" class="lab-select"></select>
+        </label>
+        <label class="lab-field">Tempo
+          <input type="range" id="out-tempo" min="50" max="180" step="2" value="104">
+          <span class="bpm" id="out-bpm">104</span>
+        </label>
+      </div>
+      <div class="out-centers" id="out-centers"></div>
+      <div class="ivi-kb" id="out-kb"></div>
+      <div class="chart-note" id="out-note"></div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 20px; font-style: italic;">How each one <em>behaves</em></h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Up in major thirds <em>· 3</em></h3>
+        <div class="formula-line">C → E → A♭</div>
+        <p class="desc" style="margin-top:18px">The most anchored of the five. Both new centers are consonant against C — E is the 3rd, A♭ the ♭6 — so it reads as modulation rather than dissonance. This is the Coltrane-changes cycle; three stops and you're home.</p>
+        <ul class="usage">
+          <li>Best over a static major or a tonic vamp</li>
+          <li>Union of the three triads is the augmented scale</li>
+          <li>Shortest round trip — safest place to start</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Up in minor thirds <em>· 4</em></h3>
+        <div class="formula-line">C → E♭ → G♭ → A</div>
+        <p class="desc" style="margin-top:18px">The diminished cycle: every center is a tone of C°7. Over a dominant this barely counts as outside, because a °7 is a rootless 7♭9 — so transposing a lick by minor thirds keeps you inside the altered sound the whole way around.</p>
+        <ul class="usage">
+          <li>The default choice on a V chord</li>
+          <li>Four stops, all chord tones of the same °7</li>
+          <li>Pairs with the diminished material in Special Scales</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Whole tone <em>· 6</em></h3>
+        <div class="formula-line">C → D → E → F♯ → G♯ → B♭</div>
+        <p class="desc" style="margin-top:18px">Six centers, every other chromatic note. Because you only ever land on one whole-tone collection, the line keeps a consistent color — floating and rootless rather than tense. Suits 7♯5 and augmented harmony.</p>
+        <ul class="usage">
+          <li>No perfect fifths anywhere — that's the sound</li>
+          <li>Six stops is a long trip; exit early if you need to</li>
+          <li>The other six notes are your resolution targets</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Whole–half diminished <em>· 8</em></h3>
+        <div class="formula-line">C D E♭ F G♭ A♭ A B</div>
+        <p class="desc" style="margin-top:18px">Eight centers alternating whole step, half step. Denser than the minor-third cycle and it includes it — the °7 tones plus a passing tone between each. Diminished and tonic-diminished contexts.</p>
+        <ul class="usage">
+          <li>Contains the minor-thirds cycle inside it</li>
+          <li>Alternating step sizes make the motion audible</li>
+          <li>Use over a °7 or a tonic-minor with movement</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Half–whole diminished <em>· 8</em></h3>
+        <div class="formula-line">C D♭ E♭ E G♭ G A B♭</div>
+        <p class="desc" style="margin-top:18px">The dominant one. Against a C7 these eight notes spell <strong style="color:var(--ink)">1 ♭9 ♯9 3 ♯11 5 13 ♭7</strong> — so every center is already a color tone of the chord. You can travel the furthest here and still be explainable.</p>
+        <ul class="usage">
+          <li>The most chromatic option that remains defensible</li>
+          <li>Every stop is a legitimate dominant extension</li>
+          <li>Start on the ♭9 or ♯11 to get out fast</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Choosing <em>the dial</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55; margin-top:6px;">Fewer tonalities means a faster return and a more consonant trip. More means further out and longer before resolution. Pick the cycle by how much time you have: two bars of static harmony wants three tonalities; eight bars of one chord can take eight.</p>
+        <div class="recipe" style="margin-top:16px; font-size:12px; background:var(--bg);">2 bars  → major 3rds
+4 bars  → minor 3rds
+8 bars  → whole tone or diminished</div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Working the <em>system</em></h3>
+    <div class="recipe reveal"><span class="step">1</span>  Play a short shape in the home key — four or five notes, one bar or less.
+<span class="step">2</span>  Repeat it at the next center in the cycle. Same fingering, same rhythm.
+<span class="step">3</span>  Keep the rhythm <b>identical</b> at every stop. The rhythm is what tells the listener it's a pattern.
+<span class="step">4</span>  Travel as far as the harmony gives you time for. You don't have to complete the cycle.
+<span class="step">5</span>  Exit by half step into a chord tone of the chord you're actually on.
+<span class="step">6</span>  Leave space immediately after. The silence confirms it was a choice.</div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 840px;">Step 3 is the one people skip, and it's the one that does the work. Change the rhythm as you transpose and the whole thing collapses back into sounding lost. Step 5 is the other: an outside line is judged entirely by how it lands, and a half step into a 3rd or a ♭7 forgives almost anything that came before it. The <em>Playing out</em> tab in the ii–V–I lab applies this to a cadence, and the two-triad device in Triads &amp; Upper Structures is the same principle with a smaller shape.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== BLOCK CHORDS ============== -->
+  <section id="blockchords">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Block Chords &amp; Locked Hands</span>
+      <h2>Harmonize the <em>melody itself.</em></h2>
+      <p class="lede">Every other technique here puts chords under a line. Block chords make the line <em>into</em> chords: every melody note gets its own voicing, both hands move in parallel, and the tune arrives as a slab of harmony. It's the sound of Shearing, Garland's choruses, and every big-band sax soli ever written.</p>
+    </div>
+
+    <div class="invert-panel reveal">
+      A block-chord passage has no accompaniment and no solo. There is only the melody, thickened — which is why the rhythm of the melody becomes the rhythm of the whole texture.
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">Three ways to <em>thicken a note</em></h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Drop 2</h3>
+        <div class="formula-line">take the 2nd voice down an octave</div>
+        <div class="kb-slot" data-kb="block-drop2"></div>
+        <p class="desc" style="margin-top:18px">Close-position C∆7 is C E G B. Drop the second voice from the top (G) an octave and you get <strong style="color:var(--ink)">G · C E B</strong> — open, playable in two hands, and the standard guitar and big-band spacing.</p>
+      </div>
+      <div class="card">
+        <h3>Drop 3</h3>
+        <div class="formula-line">take the 3rd voice down an octave</div>
+        <div class="kb-slot" data-kb="block-drop3"></div>
+        <p class="desc" style="margin-top:18px">Drop the third voice instead (E) and the gap opens lower. Wider and darker than drop 2 — good for ballads and for the bottom of a big spread.</p>
+      </div>
+      <div class="card">
+        <h3>Shearing <em>block</em></h3>
+        <div class="formula-line">melody doubled an octave below</div>
+        <div class="kb-slot" data-kb="block-shearing"></div>
+        <p class="desc" style="margin-top:18px">Four notes in the right hand, then the left hand doubles the top note an octave down. Five notes, both hands locked together, moving as one shape. This is the "locked hands" sound.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The Barry Harris <em>engine</em></h3>
+    <p class="lede reveal" style="margin-bottom: 28px; max-width: 820px;">Here's the part that makes block chords actually usable rather than a per-note puzzle. The sixth-diminished scale already alternates two chords — so you harmonize a scale by alternating them, and every melody note gets a voicing automatically.</p>
+    <div class="grid-2 reveal" style="align-items:start;">
+      <div class="card">
+        <h3>The <em>alternation</em></h3>
+        <div class="recipe" style="margin:0 0 16px; font-size:12px; background:var(--bg);">C  D  E  F  G  A♭  A  B   ← C6-diminished
+C6 D°7 C6 D°7 C6 D°7 C6 D°7</div>
+        <p class="desc">Chord tones of C6 (C E G A) get a <strong style="color:var(--ink)">C6</strong> inversion. Everything between them gets a <strong style="color:var(--ink)">D°7</strong> inversion. That's the whole rule — no decisions per note.</p>
+      </div>
+      <div class="card">
+        <h3>Why it <em>works</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Because the two chords share no notes and together fill the eight-note scale, every step of the melody is covered, and consecutive voicings move by the smallest possible distance. The inner voices walk; nothing leaps. Harmonize a scale this way and the result sounds composed.</p>
+        <div class="kb-slot" data-kb="block-barry-c6"></div>
+      </div>
+    </div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 820px;">Same machinery for minor (Cm6 alternating with D°7) and for dominants (C7 alternating with D°7) — the formulas are up in the Barry Harris section. Add the melody note an octave below in the left hand and the Barry system becomes the Shearing sound.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">How to <em>practice it</em></h3>
+    <div class="recipe reveal"><span class="step">1</span>  Play the C6-diminished scale up and down, one octave, right hand only.
+<span class="step">2</span>  Harmonize each note — C6 inversion on chord tones, D°7 inversion between.
+<span class="step">3</span>  Add the left hand doubling the top note an octave down. That's locked hands.
+<span class="step">4</span>  Do the same on the minor-sixth and dominant-seventh diminished scales.
+<span class="step">5</span>  Take a melody you know. Harmonize only the notes that fall on beats.
+<span class="step">6</span>  Break the lock — let the left hand drop out for a bar, then come back.</div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 820px;">Step 6 matters more than it looks. Unbroken block chords for thirty-two bars is exhausting to listen to; the technique reads as an <em>effect</em> only when it starts and stops.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== RHYTHM CHANGES ============== -->
+  <section id="rhythmchanges">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Rhythm Changes</span>
+      <h2>The other form <em>everyone knows.</em></h2>
+      <p class="lede">After the blues, this is the most-played set of changes in jazz — the harmony of <em>I Got Rhythm</em>, and underneath dozens of bebop heads. Thirty-two bars, <strong>AABA</strong>: eight bars of turnaround, twice, then a bridge that is nothing but dominants moving around the cycle. Shown here in C; the standard key is B♭.</p>
+    </div>
+
+    <div class="blues-lab reveal">
+      <div class="ivi-tabs" id="rhythm-tabs"></div>
+      <div class="lab-transport">
+        <button class="kb-play" id="rhythm-play"><span class="play-tri"></span>Play section</button>
+        <label class="lab-field">Tempo
+          <input type="range" id="rhythm-tempo" min="60" max="240" step="4" value="160">
+          <span class="bpm" id="rhythm-bpm">160</span>
+        </label>
+        <label class="lab-field"><input type="checkbox" id="rhythm-loop"> Loop</label>
+      </div>
+      <div class="chart" id="rhythm-chart"></div>
+      <div class="chart-note" id="rhythm-chart-note"></div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The <em>shape</em></h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>A · <em>8 bars</em></h3>
+        <div class="formula-line">I–vi–ii–V, twice, then IV</div>
+        <p class="desc" style="margin-top:18px">A turnaround repeated, a trip to the IV in bars 5–6, and a setup for the repeat. Played twice.</p>
+      </div>
+      <div class="card">
+        <h3>B · <em>8 bars</em></h3>
+        <div class="formula-line">III7 – VI7 – II7 – V7</div>
+        <p class="desc" style="margin-top:18px">Four dominants, two bars each, around the cycle of fifths. No ii chords, no resolution until the last bar.</p>
+      </div>
+      <div class="card">
+        <h3>A · <em>8 bars</em></h3>
+        <div class="formula-line">as before, with an ending</div>
+        <p class="desc" style="margin-top:18px">The last A resolves instead of turning around — that's the only difference.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Why it's the <em>best practice vehicle</em></h3>
+    <div class="grid-2 reveal" style="align-items:start;">
+      <div class="card">
+        <h3>The A section is <em>one cell</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Bars 1–4 are I–vi–ii–V and bars 3–4 repeat it. If you can play four bars of turnaround, you can play sixteen of the thirty-two bars. Practice the cell, not the tune.</p>
+        <div class="recipe" style="margin-top:16px; font-size:12px; background:var(--bg);">Target chain through the turnaround:
+C6   → E or A     A7   → C♯ or G
+Dm7  → F or C     G7   → B or F</div>
+      </div>
+      <div class="card">
+        <h3>The bridge is a <em>cycle drill</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Eight bars of dominants moving in fourths, two bars each — enough time to state an idea and transpose it. Play <em>one</em> phrase through all four chords, changing only the pitches.</p>
+        <div class="recipe" style="margin-top:16px; font-size:12px; background:var(--bg);">Begin each arpeggio on the 3rd:
+E7 → G♯   A7 → C♯   D7 → F♯   G7 → B
+Then anticipate each new chord on the &amp; of 4.</div>
+      </div>
+    </div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 820px;">At tempo, the A section moves two chords per bar, so there is no time to think in scales — you're playing guide tones and one rhythm. That constraint is the lesson.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== COMPING ============== -->
+  <section id="comping">
+    <div class="reveal" style="margin-bottom: 44px;">
+      <span class="eyebrow">Comping</span>
+      <h2>What the <em>other hand</em> does.</h2>
+      <p class="lede">Comping is a rhythm decision, not a voicing decision. The voicings on this page are already right; what makes a comp sound good is <em>where</em> the chords land and how much silence sits between them. Click the cells to build a two-bar pattern, or take one of these and edit it.</p>
+    </div>
+
+    <div class="blues-lab reveal">
+      <div class="ivi-tabs" id="comp-tabs"></div>
+      <div class="lab-transport">
+        <button class="kb-play" id="comp-play"><span class="play-tri"></span>Play rhythm</button>
+        <label class="lab-field">Tempo
+          <input type="range" id="comp-tempo" min="60" max="220" step="4" value="132">
+          <span class="bpm" id="comp-bpm">132</span>
+        </label>
+        <label class="lab-field"><input type="checkbox" id="comp-walk"> Bass on beats</label>
+      </div>
+      <div class="comp-grid" id="comp-grid"></div>
+      <div class="chart-note" id="comp-note"></div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Rules that <em>survive contact</em></h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Answer, don't <em>accompany</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Play in the soloist's gaps, not underneath their phrases. If you're both playing constantly, neither of you is heard.</p>
+      </div>
+      <div class="card">
+        <h3>Anticipate the <em>change</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Land the new chord on the &amp; of 4 rather than the downbeat. It pulls the band forward; landing square pushes it back.</p>
+      </div>
+      <div class="card">
+        <h3>Repeat, then <em>break</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Establish a pattern for two or four bars so it registers, then disrupt it. A comp with no pattern is noise; one that never breaks is wallpaper.</p>
+      </div>
+      <div class="card">
+        <h3>Three notes is <em>plenty</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">A 3–7 shell plus one tension says everything. Full five-note voicings behind a soloist muddy the middle register where the horn lives.</p>
+      </div>
+      <div class="card">
+        <h3>Stay <em>out of the way</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Keep voicings between roughly C3 and C5. Below that you fight the bass; above it you fight the melody.</p>
+      </div>
+      <div class="card">
+        <h3>Solo piano is <em>different</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">With no bass or drums you own the time. Comp sparser than you think, and let the left hand state roots on 1 and 3 more often than you would in a trio.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== INTROS, ENDINGS, TAGS ============== -->
+  <section id="intros">
+    <div class="reveal" style="margin-bottom: 44px;">
+      <span class="eyebrow">Intros, Endings &amp; Tags</span>
+      <h2>How to start and <em>how to stop.</em></h2>
+      <p class="lede">The two moments an audience actually notices, and the two most players never practice. All of these are formulas — learn four and you can begin or end any standard without discussing it first.</p>
+    </div>
+
+    <h3 class="reveal" style="margin: 0 0 20px; font-style: italic;">Intros</h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Vamp on the <em>last four</em></h3>
+        <div class="formula-line">| Em7 A7 | Dm7 G7 | ×2</div>
+        <p class="desc" style="margin-top:18px">Take the tune's final four bars and loop them until the head starts. Works on almost anything, requires no arrangement, and tells the band exactly where you are.</p>
+      </div>
+      <div class="card">
+        <h3>The <em>pedal</em></h3>
+        <div class="formula-line">G in the bass, everything moves above</div>
+        <div class="kb-slot" data-kb="intro-pedal"></div>
+        <p class="desc" style="margin-top:18px">Hold the dominant in the bass and move upper voices freely over it. Tension with no obligation — release into bar 1 of the head whenever you want.</p>
+      </div>
+      <div class="card">
+        <h3>Rubato <em>from the last phrase</em></h3>
+        <div class="formula-line">final 2 bars, out of time</div>
+        <p class="desc" style="margin-top:18px">Play the tune's last two bars freely, slowing into a fermata on the V — then count off. The ballad default.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 20px; font-style: italic;">Endings</h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>The <em>tag</em></h3>
+        <div class="formula-line">repeat the last 4 bars ×3, then end</div>
+        <p class="desc" style="margin-top:18px">The universal ending. Loop the final cadence three times — the third time usually goes up a half step or gets more altered — then resolve. Everyone knows to stop on the third pass.</p>
+      </div>
+      <div class="card">
+        <h3>♭II7 <em>into the tonic</em></h3>
+        <div class="formula-line">D♭7♯11 → C6/9</div>
+        <div class="kb-slot" data-kb="ending-b2"></div>
+        <p class="desc" style="margin-top:18px">The tritone sub as a final gesture. Both guide tones fall a half step into the tonic, so it lands with no ambiguity about being over.</p>
+      </div>
+      <div class="card">
+        <h3>The <em>6/9</em></h3>
+        <div class="formula-line">C6/9 — C E G A D</div>
+        <div class="kb-slot" data-kb="ending-69"></div>
+        <p class="desc" style="margin-top:18px">Don't end on a ∆7 — the major 7th still wants to move. A 6/9 has no leading tone and no tension left, which is exactly what a final chord should be.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The <em>Coltrane tag</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 820px;">Worth learning on its own: instead of looping I–vi–ii–V, descend by major thirds on the way back.</p>
+    <div class="recipe reveal">Standard tag   | C6  A7  | Dm7  G7 |  ×3
+Coltrane tag   | C6  E♭7 | A♭6  B7 | E6  G7 | C6 |
+Each new tonic is a major 3rd below the last — C, A♭, E, back to C.</div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 820px;">Same eight bars, same destination, three tonal centers instead of one. Play it slowly the first hundred times.</p>
   </section>
 
   <hr class="divider">
@@ -2598,6 +3295,82 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
 
   <hr class="divider">
 
+  <!-- ============== TIME & PHRASING ============== -->
+  <section id="phrasing">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Time &amp; Phrasing</span>
+      <h2>The part that isn't <em>notes.</em></h2>
+      <p class="lede">Everything else on this page answers <em>which notes</em>. None of it answers <em>when</em> — and when is what makes a line sound like jazz rather than like a scale being demonstrated. A correct phrase with square rhythm sounds like an exercise; a plain phrase with good time sounds like music.</p>
+    </div>
+
+    <div class="invert-panel reveal">
+      <p style="margin:0;">Rhythm decides whether it sounds like jazz. Target notes decide whether it follows the changes. Scales, arpeggios, and chromatics are only the route between the targets.</p>
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">Start <em>off the beat</em></h3>
+    <p class="lede reveal" style="margin-bottom: 28px; max-width: 800px;">The single most common reason a line sounds stiff: every phrase begins on beat 1 and ends at the bar line, so the solo gets chopped into one-measure scale demonstrations.</p>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Enter <em>late</em></h3>
+        <div class="formula-line">&amp; of 2 · &amp; of 3 · &amp; of 4</div>
+        <p class="desc" style="margin-top:18px">Over <strong style="color:var(--ink)">| Dm7 | G7 | C∆7 |</strong>, begin on the &amp; of 2 in the first bar, run through the G7, and land on beat 2 of the C∆7. One sentence across three chords.</p>
+      </div>
+      <div class="card">
+        <h3>Anticipate</h3>
+        <div class="formula-line">B on the &amp; of 4 → G7</div>
+        <p class="desc" style="margin-top:18px">Play a note belonging to the <em>next</em> chord just before it arrives. One note is enough — switching the whole scale early sounds like a mistake rather than a lean.</p>
+      </div>
+      <div class="card">
+        <h3>Delay the <em>resolution</em></h3>
+        <div class="formula-line">G7 → C∆7, resolve on beat 2</div>
+        <p class="desc" style="margin-top:18px">Let the dominant spill a beat into the tonic bar. The harmony changes on beat 1; the melody catches up on beat 2 or 3. Instant forward motion.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">One <em>rhythmic cell</em>, many pitches</h3>
+    <p class="lede reveal" style="margin-bottom: 28px; max-width: 800px;">A motif is a rhythm, not a melody. Keep the rhythm fixed and change the notes to follow the changes — the listener hears one idea developing instead of eleven unrelated ones.</p>
+    <div class="grid-2 reveal" style="align-items:start;">
+      <div class="card">
+        <h3>Cells worth <em>owning</em></h3>
+        <div class="recipe" style="margin:0; font-size:12px; background:var(--bg);">Three eighths + a quarter
+Quarter + two eighths
+Triplet pickup into the downbeat
+3 + 3 + 2 across the bar
+Dotted-quarter groupings in 4/4
+Repeated note + syncopated tail</div>
+      </div>
+      <div class="card">
+        <h3>Six ways to <em>develop one</em></h3>
+        <div class="recipe" style="margin:0; font-size:12px; background:var(--bg);">Repeat it on the next chord
+Displace it by one eighth note
+Shorten the ending
+Extend the final note
+Answer it an octave lower
+Invert the contour, keep the rhythm</div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">Phrase lengths that <em>cross the bar</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 800px;">If phrases are 2 and 4 bars long, they align with the form and the solo sounds like a worksheet. Odd lengths force the line across the harmonic seams.</p>
+    <div class="recipe reveal">Practice phrases lasting <b>3 beats · 5 beats · 6 beats · 1½ bars · 2 bars + a pickup</b>.
+A five-beat phrase over one-bar chords crosses the bar line automatically — you can't play it square.</div>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">Leave <em>space</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 800px;">Silence is where the harmony and the rhythm you just played actually register. A solo with no rests gives the listener nowhere to stand.</p>
+    <div class="recipe reveal">Bars 1–2   statement
+Bar 3, beats 1–2   answer
+Bar 3, beats 3–4   <b>silence</b>
+Bar 4   pickup into the next statement</div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 800px;">On solo piano, the left hand can take the answer: a 3–7 shell, a quartal stab, or an anticipatory chord on the &amp; of 4 — then get out of the way again.</p>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">Change <em>one variable</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 800px;">The most common practice mistake is changing rhythm, harmony, register, and substitution at once, which makes it impossible to tell what improved.</p>
+    <div class="recipe reveal">Keep the rhythm fixed;  change the harmony.
+Keep the harmony fixed; change the rhythm.
+Keep the notes fixed;   displace the accents.
+Keep the phrase fixed;  begin it on a different subdivision.
+Keep the target fixed;  approach it by a different route.</div>
+  </section>
 
   <hr class="divider">
 
@@ -2836,6 +3609,8 @@ LH: 7-6-b6-6   RH: 7-6-b6-6</div>
           <div class="recipe"><span class="step">Original</span>   IV — vii° — iii — vi — ii — V — I
 <span class="step">In C</span>         F∆7 — Bm7♭5 — Em7 — Am7 — Dm7 — G7 — C∆7</div>
           <p>The Powell, tritone-sub, and five-step variants below operate on the <em>iii–vi–ii–V–I</em> tail of this cycle, but the full IV–vii preamble extends the same logic two chords earlier — and can be reharmed the same way.</p>
+          <p class="muted" style="font-size:13px;margin:14px 0;">The first move of the long cadence — F∆7 resolving down a fifth to Bm7♭5.</p>
+          <div class="kb-slot" data-kb="reharm-longcadence"></div>
 
           <p style="margin-top: 28px;"><strong style="color:var(--ink)">I → IV reharmonization, by stages.</strong></p>
           <div class="recipe"><span class="step">Stage 1</span>  C∆7 → F∆7
@@ -2849,6 +3624,8 @@ LH: 7-6-b6-6   RH: 7-6-b6-6</div>
 <span class="step">All dominant</span>   III7alt — VI7alt — ii — V7 — I
 <span class="step">Powell</span>   iii — bIII7 [tritone sub of vi] — bVI7 [tritone sub of ii] — bII7 [tritone sub of V] — I
 <span class="step">Redux</span>   iii — bIII7 — bVI7 — bII7 — I</div>
+          <p class="muted" style="font-size:13px;margin:14px 0;">The chromatic descent it produces — Em7 → E♭7 → A♭7 → D♭7 → C∆7, each root falling a half step or a fifth.</p>
+          <div class="kb-slot" data-kb="reharm-powell"></div>
 
           <p style="margin-top: 28px;"><strong style="color:var(--ink)">iii–vi–ii–V–I with extended tritone subs.</strong></p>
           <div class="recipe">B♭7(#11) [tritone sub for iii] → A7(#11b9) [sec dom instead of vi → ii] → E♭7 [tritone sub for vi] → Dm7 → A♭7 → G7 → D♭7 → C∆
@@ -2900,15 +3677,26 @@ B♭13sus4 → A13sus4 → A♭13sus4 → G13sus4</div>
         <div class="ref-body">
           <p>A dim7 can sub for any I∆ or any dom7 heading to a ii7 or I∆7 — use the whole-half diminished scale to solo.</p>
           <p>Any dom7b9 resolving to I∆7 can use a diminished arpeggio in the right hand. <code>F7b9</code> with <code>Cdim</code> (C, Eb, Gb, A).</p>
-          <p>In <em>system C</em>:</p>
+          <p class="muted" style="font-size:13px;margin:-6px 0 14px;">F7♭9 in the left hand, the C°7 arpeggio sitting on top of it in the right.</p>
+          <div class="kb-slot" data-kb="dim-f7b9"></div>
+
+          <p style="margin-top: 28px;">In <em>system C</em>:</p>
           <ul>
             <li><code>Cdim7</code> — a rootless voicing for four dominant chords</li>
             <li><code>Fdim7</code> — the roots of those four dominants</li>
             <li><code>Gdim7</code> — the roots of the four resolutions</li>
           </ul>
-          <p><strong style="color:var(--ink)">Secondary dominant to diminished.</strong></p>
+          <p class="muted" style="font-size:13px;margin:14px 0;">The C°7 shape itself — C E♭ G♭ A. Symmetric, so all four inversions are the same shape moved a minor third.</p>
+          <div class="kb-slot" data-kb="dim-c-system"></div>
+
+          <p style="margin-top: 28px;">The whole-half diminished scale a half step above the dominant's root — the scale to solo with:</p>
+          <div class="kb-slot" data-kb="dim-wh-scale"></div>
+
+          <p style="margin-top: 28px;"><strong style="color:var(--ink)">Secondary dominant to diminished.</strong></p>
           <div class="recipe">C∆7 → A7/C# [sec dom of ii] → Bb [just the root, up ½] → Dm7
 i.e., the bii°7 emerges by just walking up a half step</div>
+          <p class="muted" style="font-size:13px;margin:14px 0;">The pivot moment — A7 with C♯ in the bass, one half step below the D of the Dm7 it lands on.</p>
+          <div class="kb-slot" data-kb="dim-secdom"></div>
         </div>
       </details>
 
@@ -2924,6 +3712,8 @@ i.e., the bii°7 emerges by just walking up a half step</div>
             <li>ii–V becomes Vsus7</li>
             <li>ii–V becomes IIIsus♭9</li>
           </ul>
+          <p class="muted" style="font-size:13px;margin:14px 0;">Rootless C∆9 — E G B D. The same four notes are an Em7, and a G6. Three names, one grip.</p>
+          <div class="kb-slot" data-kb="sub-rootless-imaj9"></div>
 
           <p style="margin-top: 22px;"><strong style="color:var(--ink)">♭3-raised substitution</strong> — for all chords except the I:</p>
           <div class="recipe">ii–V–I  becomes  ii–V of ♭III
@@ -2937,6 +3727,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
             <li>VI7alt can be #i°7</li>
             <li>∆+5 becomes dom7♭13</li>
           </ul>
+          <p class="muted" style="font-size:13px;margin:14px 0;">A♭°7 over a G bass — the rootless G7♭9. Drop the G and it's just the diminished shape.</p>
+          <div class="kb-slot" data-kb="sub-dim-rootless"></div>
 
           <p style="margin-top: 22px;"><strong style="color:var(--ink)">Tritone substitution.</strong></p>
           <ul>
@@ -2944,6 +3736,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
             <li>Any m7 or m7♭5 becomes a tritone dom7 — especially the ii of a ii–V–i</li>
             <li>The VI or iv becomes a tritone dom7 — especially the vi of a vi–ii–V–i</li>
           </ul>
+          <p class="muted" style="font-size:13px;margin:14px 0;">D♭7 for G7 — the shared tritone is in red. B and F sit in both chords; only the root moves.</p>
+          <div class="kb-slot" data-kb="sub-tritone-shared"></div>
 
           <p style="margin-top: 22px;"><strong style="color:var(--ink)">Secondary dominant.</strong> Each preceding chord becomes the V7 of the chord that follows:</p>
           <div class="recipe">iii–vi–ii–V–I  →  V7/vi – V7/ii – V7/V – V7 – I  →  III7 – VI7 – II7 – V7 – I</div>
@@ -3019,10 +3813,80 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v1.2 · build 2026-08-11T14:51 · 11 August 2026, 10:51 AM ET<br>
-    supersedes v1.1 — adds Gmail / LinkedIn / GitHub contact buttons to the top bar
+    v1.6 · build 2026-08-25T16:07 · 25 August 2026, 12:07 PM ET<br>
+    supersedes v1.5 — grouped section menu and live section indicator, global search palette (press /), dark mode, print stylesheet, reduced-motion support
   </div>
 </footer>
+
+<!-- ============== SECTION MENU OVERLAY ============== -->
+<div class="overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="All sections" hidden>
+  <div class="overlay-inner menu-inner">
+    <div class="overlay-head">
+      <span class="eyebrow" style="margin:0">All Sections</span>
+      <button class="overlay-close" data-close-overlay aria-label="Close">&times;</button>
+    </div>
+    <div class="menu-groups">
+      <div class="menu-group">
+        <h4>Modes &amp; Scales</h4>
+        <a href="#atlas">The Atlas</a>
+        <a href="#modefinder">Find a Mode</a>
+        <a href="#pentatonic">Pentatonics</a>
+        <a href="#special">Special Scales</a>
+        <a href="#bychord">Scales by Chord Type</a>
+      </div>
+      <div class="menu-group">
+        <h4>Systems</h4>
+        <a href="#barry">Barry Harris</a>
+        <a href="#santangelo">James Santangelo</a>
+        <a href="#blockchords">Block Chords</a>
+        <a href="#playingout">Playing Out</a>
+      </div>
+      <div class="menu-group">
+        <h4>Harmony</h4>
+        <a href="#triads">Triad + 1</a>
+        <a href="#upper">Upper Structures</a>
+        <a href="#mediants">Modal Interchange</a>
+        <a href="#ivi">The ii–V–I Lab</a>
+        <a href="#subfinder">Substitution Finder</a>
+        <a href="#reharm">Reharmonization Lab</a>
+      </div>
+      <div class="menu-group">
+        <h4>Forms</h4>
+        <a href="#blues">The Blues</a>
+        <a href="#rhythmchanges">Rhythm Changes</a>
+        <a href="#intros">Intros, Endings &amp; Tags</a>
+      </div>
+      <div class="menu-group">
+        <h4>Playing</h4>
+        <a href="#phrasing">Time &amp; Phrasing</a>
+        <a href="#comping">Comping</a>
+        <a href="#stella">Field Recording · 1964</a>
+      </div>
+      <div class="menu-group">
+        <h4>Reference</h4>
+        <a href="#reference">Voicings &amp; Warmups</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============== SEARCH PALETTE ============== -->
+<div class="overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search the atlas" hidden>
+  <div class="overlay-inner palette-inner">
+    <div class="palette-bar">
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="palette-ico"><path d="M10.5 3a7.5 7.5 0 1 1-4.7 13.35l-3.6 3.6a1 1 0 0 1-1.4-1.42l3.6-3.6A7.5 7.5 0 0 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"/></svg>
+      <input id="palette-input" type="text" placeholder="Search everything — tritone, backdrop, Coltrane tag, ♯11…" autocomplete="off" spellcheck="false">
+      <button class="overlay-close" data-close-overlay aria-label="Close">esc</button>
+    </div>
+    <div class="palette-results" id="palette-results"></div>
+    <div class="palette-foot">
+      <span><span class="kbd">↑</span><span class="kbd">↓</span> navigate</span>
+      <span><span class="kbd">↵</span> go</span>
+      <span><span class="kbd">esc</span> close</span>
+    </div>
+  </div>
+</div>
 
 <script>
 //==============================================================================
@@ -3331,6 +4195,9 @@ function createKeyboardBlock(opts) {
 // Pentatonic / special scale data in C, MIDI starting at 48 (C3)
 // Each value: { fromMidi, toMidi, highlighted: {midi: 'root'|'in-scale'}, stagger }
 const KB_PRESETS = {
+  // WHOLE-HALF DIMINISHED from Ab — the scale for a G7b9
+  'dim-wh-scale':  { notes: [56, 58, 59, 61, 62, 64, 65, 67, 68], stagger: 90 },
+
   // PENTATONICS (in C, arpeggiated)
   'pent-major':    { notes: [48, 50, 52, 55, 57], stagger: 110 },
   'pent-minor':    { notes: [48, 51, 53, 55, 58], stagger: 110 },
@@ -3409,6 +4276,67 @@ const KB_PRESETS = {
 
 // LH/RH two-handed voicings & exercises
 const VOICING_PRESETS = {
+  // ---- BLOCK CHORDS ----
+  // Drop 2 on C∆7: close C E G B -> drop the G (2nd from top) an octave. G2 | C4 E4 B4
+  'block-drop2':    { lh: [43], rh: [60, 64, 71], stagger: 24, fromMidi: 41, toMidi: 74, label: 'Play drop 2',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G — the dropped voice</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C E B — what stays on top</span>' },
+  // Drop 3 on C∆7: drop the E (3rd from top) an octave. E2 | C4 G4 B4
+  'block-drop3':    { lh: [40], rh: [60, 67, 71], stagger: 24, fromMidi: 38, toMidi: 74, label: 'Play drop 3',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>E — the dropped voice, lower gap</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C G B</span>' },
+  // Shearing block on a C melody note: RH C6 four-note (E G A C), LH doubles top C an octave down
+  'block-shearing': { lh: [60], rh: [64, 67, 69, 72], stagger: 22, fromMidi: 58, toMidi: 76, label: 'Play locked hands',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — melody doubled an octave below</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E G A C — the C6 under the melody note</span>' },
+  // Barry: C6 inversion (E G A C) next to D°7 inversion — the alternation
+  'block-barry-c6': { lh: [62, 65, 68, 71], rh: [64, 67, 69, 72], stagger: 26, fromMidi: 59, toMidi: 76, label: 'Play C6 + D°7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D F A♭ B — the D°7 (between chord tones)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E G A C — the C6 (on chord tones)</span>' },
+
+  // ---- INTROS & ENDINGS ----
+  // Dominant pedal: G in bass, upper voices free above
+  'intro-pedal':    { lh: [31, 43], rh: [65, 69, 74], stagger: 26, fromMidi: 29, toMidi: 78, label: 'Play the pedal',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G — held in the bass</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>F A D — free to move above it</span>' },
+  // Db7#11 ending chord
+  'ending-b2':      { lh: [37, 49], rh: [59, 65, 67], stagger: 26, fromMidi: 35, toMidi: 71, label: 'Play D♭7♯11',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D♭ — a half step above the tonic</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B F G — B→C and F→E, both by half step</span>' },
+  // C6/9 — C E G A D
+  'ending-69':      { lh: [36, 48], rh: [64, 67, 69, 74], stagger: 26, fromMidi: 34, toMidi: 78, label: 'Play C6/9',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — root</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E G A D — a 6th and a 9th, no leading tone</span>' },
+
+  // ---- DIMINISHED SYSTEM ----
+  // F7b9 in LH, C°7 arpeggio in RH — the dim arpeggio sitting on the dominant
+  'dim-f7b9':       { lh: [41, 45, 51], rh: [60, 63, 66, 69], stagger: 26, fromMidi: 40, toMidi: 74, label: 'Play F7♭9 + C°7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F A E♭ — root, 3, ♭7</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C E♭ G♭ A — the C°7 above it; G♭ is F\'s ♭9</span>' },
+  // The C°7 shape alone — C Eb Gb A
+  'dim-c-system':   { lh: [48], rh: [51, 54, 57, 60], stagger: 90, fromMidi: 47, toMidi: 73, label: 'Play C°7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — root</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ G♭ A — stacked minor thirds</span>' },
+  // A7 with C# in bass resolving toward Dm7
+  'dim-secdom':     { lh: [37, 45], rh: [55, 61, 64], stagger: 26, fromMidi: 36, toMidi: 68, label: 'Play A7/C♯',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C♯ in the bass — a half step under D</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G C♯ E — the tritone plus 5</span>' },
+
+  // ---- SUBSTITUTIONS ----
+  // Rootless C∆9 = Em7 = G6 — E G B D
+  'sub-rootless-imaj9': { lh: [], rh: [64, 67, 71, 74], stagger: 26, fromMidi: 59, toMidi: 79, label: 'Play E G B D',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>E G B D — rootless C∆9, or Em7, or G6</span>' },
+  // Ab°7 over a G bass = rootless G7b9
+  'sub-dim-rootless': { lh: [43], rh: [56, 59, 62, 65], stagger: 26, fromMidi: 42, toMidi: 70, label: 'Play G7♭9',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G — the root you can drop</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A♭ B D F — the A♭°7 above it</span>' },
+  // Db7 for G7 — shared tritone B/F in RH, Db root in LH
+  'sub-tritone-shared': { lh: [37], rh: [59, 65], stagger: 30, fromMidi: 36, toMidi: 70, label: 'Play D♭7 shell',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D♭ — the only note that moved</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B &amp; F — the tritone shared with G7</span>' },
+
+  // ---- REHARMONIZATION ----
+  // F∆7 → Bm7b5, the first move of the long cadence
+  'reharm-longcadence': { lh: [41, 53], rh: [57, 60, 64], stagger: 26, fromMidi: 40, toMidi: 71, label: 'Play F∆7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F — root, falls a fifth to B</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A C E — three of these four stay for the Bm7♭5</span>' },
+  // Powell: Eb7 shell — the tritone sub of vi
+  'reharm-powell':  { lh: [39, 51], rh: [55, 61], stagger: 28, fromMidi: 38, toMidi: 68, label: 'Play E♭7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>E♭ — a half step under the Dm7 ahead</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G D♭ — the tritone</span>' },
+
+  // ---- CHROMATIC MEDIANTS ----
+  'mediant-maj3-up':   { lh: [52, 64], rh: [68, 71, 75], stagger: 26, fromMidi: 51, toMidi: 79, label: 'Play E∆7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>E — a major 3rd above C</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G♯ B D♯ — only B is shared with C∆7</span>' },
+  'mediant-maj3-down': { lh: [44, 56], rh: [60, 63, 67], stagger: 26, fromMidi: 43, toMidi: 71, label: 'Play A♭∆7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A♭ — a major 3rd below C</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C E♭ G — C and G are both in C∆7</span>' },
+
   // TRIAD+1: Cmaj+9 in close voicing — C D E G
   'triad1-cmaj9':   { lh: [60], rh: [62, 64, 67], stagger: 25, fromMidi: 48, toMidi: 71, label: 'Play triad+1' },
   // PLAYING OUT WITH TRIADS: C 1st inv (E G C) + Ebm 2nd inv (Bb Eb Gb) — show both with two colors
@@ -4035,16 +4963,70 @@ function resolveColorNotes(str) {
 }
 
 //==============================================================================
-// MODE FINDER — search 77 modes by accidental
+// MODE FINDER — search 77 modes by accidental OR by name
 //==============================================================================
 const MODE_INDEX = [];
 PARENTS.forEach((p, pi) => {
   p.modes.forEach((mName, mi) => {
-    MODE_INDEX.push({ parent: p.name, short: p.short, parentIdx: pi, mode: mName, degree: mi + 1, pcs: rotateMode(p.intervals, mi) });
+    MODE_INDEX.push({ parent: p.name, short: p.short, parentIdx: pi, mode: mName, degree: mi + 1, pcs: rotateMode(p.intervals, mi), siblings: p.modes });
   });
 });
 const MODE_MAJOR = new Set([0,2,4,5,7,9,11]);
 const MODE_DEG_SEMI = {1:0,2:2,3:4,4:5,5:7,6:9,7:11,9:2,11:5,13:9};
+
+// --- letter-accurate spelling ---
+const SPELL_LETTERS = ['C','D','E','F','G','A','B'];
+const SPELL_NAT = { C:0, D:2, E:4, F:5, G:7, A:9, B:11 };
+const SPELL_ACC = { '-2':'𝄫', '-1':'♭', '0':'', '1':'♯', '2':'𝄪' };
+function parseRootNote(str) {
+  const m = String(str).trim().match(/^([A-Ga-g])(bb|b|##|#|♭♭|♭|♯♯|♯)?$/);
+  if (!m) return null;
+  const letter = m[1].toUpperCase();
+  const a = (m[2] || '').replace(/♭/g, 'b').replace(/♯/g, '#');
+  const acc = a === 'b' ? -1 : a === 'bb' ? -2 : a === '#' ? 1 : a === '##' ? 2 : 0;
+  return { letter, acc, pc: ((SPELL_NAT[letter] + acc) % 12 + 12) % 12 };
+}
+function spellScale(root, pcs) {
+  const li = SPELL_LETTERS.indexOf(root.letter);
+  return pcs.map((off, i) => {
+    const letter = SPELL_LETTERS[(li + i) % 7];
+    const targetPc = ((root.pc + off) % 12 + 12) % 12;
+    let acc = targetPc - SPELL_NAT[letter];
+    if (acc > 6) acc -= 12;
+    if (acc < -6) acc += 12;
+    const sym = SPELL_ACC[String(acc)] !== undefined ? SPELL_ACC[String(acc)] : (acc > 0 ? '♯'.repeat(acc) : '♭'.repeat(-acc));
+    return { letter, acc, pc: targetPc, name: letter + sym };
+  });
+}
+// The root of the parent scale that this mode comes from
+function parentRootOf(m, rootPc) {
+  return ((rootPc - PARENTS[m.parentIdx].intervals[m.degree - 1]) % 12 + 12) % 12;
+}
+const PC_SPELL = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+
+// --- common names & nicknames ---
+const MODE_ALIASES = {
+  'altered':'Altered (Super-Locrian)', 'alt':'Altered (Super-Locrian)', 'super locrian':'Altered (Super-Locrian)',
+  'superlocrian':'Altered (Super-Locrian)', 'diminished whole tone':'Altered (Super-Locrian)', 'dim whole tone':'Altered (Super-Locrian)',
+  'acoustic':'Lydian Dominant', 'lydian b7':'Lydian Dominant', 'overtone':'Lydian Dominant',
+  'mixolydian #4':'Lydian Dominant', 'mixolydian #11':'Lydian Dominant', 'bartok':'Lydian Dominant',
+  'jazz minor':'Melodic Minor', 'ascending melodic minor':'Melodic Minor',
+  'half diminished':'Locrian ♮2', 'half-diminished':'Locrian ♮2', 'locrian 2':'Locrian ♮2',
+  'locrian natural 2':'Locrian ♮2', 'locrian #2':'Locrian ♮2', 'aeolian b5':'Locrian ♮2',
+  'phrygian #6':'Dorian b2', 'phrygian natural 6':'Dorian b2', 'javanese':'Dorian b2',
+  'spanish':'Phrygian Dominant', 'jewish':'Phrygian Dominant', 'freygish':'Phrygian Dominant',
+  'ahava raba':'Phrygian Dominant', 'phrygian major':'Phrygian Dominant', 'flamenco':'Phrygian Dominant',
+  'romanian':'Dorian #4 (Ukrainian)', 'ukrainian dorian':'Dorian #4 (Ukrainian)', 'misheberakh':'Dorian #4 (Ukrainian)',
+  'natural minor':'Aeolian', 'minor':'Aeolian', 'relative minor':'Aeolian',
+  'major':'Ionian', 'major scale':'Ionian',
+  'gypsy minor':'Hungarian Minor', 'hungarian':'Hungarian Minor', 'double harmonic minor':'Hungarian Minor',
+  'byzantine':'Ionian b2 b6', 'arabic':'Ionian b2 b6', 'gypsy major':'Ionian b2 b6', 'double harmonic':'Ionian b2 b6',
+  'lydian #5':'Lydian Augmented', 'lydian augmented':'Lydian Augmented',
+  'mixolydian b13':'Mixolydian b6', 'hindu':'Mixolydian b6', 'aeolian dominant':'Mixolydian b6', 'melodic major':'Mixolydian b6',
+  'ionian b6':'Harmonic Major',
+  'ultralocrian':'Ultra-Locrian', 'altered bb7':'Ultra-Locrian', 'altered diminished':'Ultra-Locrian'
+};
+const modeNorm = s => String(s).toLowerCase().replace(/♭/g,'b').replace(/♯/g,'#').replace(/♮/g,'').replace(/[^a-z0-9#b ]/g,' ').replace(/\s+/g,' ').trim();
 
 function modeTokenToPc(tok) {
   const m = tok.trim().replace(/♭/g,'b').replace(/♯/g,'#').match(/^(bb|b|##|#|x|n)?\s*(9|11|13|[1-7])$/);
@@ -4069,15 +5051,42 @@ function spellMode(pcs) {
     let acc = pc - MODE_DEG_SEMI[deg];
     if (acc > 6) acc -= 12; if (acc < -6) acc += 12;
     const sym = acc === 0 ? '' : acc === 1 ? '♯' : acc === -1 ? '♭' : acc === 2 ? '𝄪' : acc === -2 ? '♭♭' : (acc > 0 ? '♯' : '♭');
-    return { deg, pc, label: sym + deg };
+    return { deg, pc, acc, label: sym + deg };
   });
 }
+
+// Name search: handles a leading root ("F# dorian"), nicknames, and "mode 4 of melodic minor"
+function nameSearchModes(raw) {
+  let s = modeNorm(raw);
+  if (!s) return { hits: [], root: null };
+  let root = null;
+  const rm = s.match(/^([a-g](?:#|b)?)\s+(.+)$/);
+  if (rm) { const r = parseRootNote(rm[1]); if (r) { root = r; s = rm[2]; } }
+
+  let m = s.match(/^mode\s*(\d)\s*of\s*(.+)$/) || s.match(/^(.+?)\s*mode\s*(\d)$/);
+  if (m) {
+    const deg = parseInt(m[1].length === 1 ? m[1] : m[2]);
+    const fam = modeNorm(m[1].length === 1 ? m[2] : m[1]);
+    const seed = MODE_INDEX.find(x => modeNorm(x.parent).includes(fam) || modeNorm(x.short).includes(fam));
+    if (seed) {
+      const f = MODE_INDEX.filter(x => x.parentIdx === seed.parentIdx && x.degree === deg);
+      if (f.length) return { hits: f, root };
+    }
+  }
+  const aliasKey = MODE_ALIASES[s] ? s : (MODE_ALIASES[s.replace(/\s+scale$/, '')] ? s.replace(/\s+scale$/, '') : null);
+  if (aliasKey) return { hits: MODE_INDEX.filter(x => modeNorm(x.mode) === modeNorm(MODE_ALIASES[aliasKey])), root, alias: aliasKey };
+
+  let hits = MODE_INDEX.filter(x => modeNorm(x.mode) === s);
+  if (!hits.length) hits = MODE_INDEX.filter(x => modeNorm(x.mode).startsWith(s));
+  if (!hits.length) hits = MODE_INDEX.filter(x => modeNorm(x.mode).includes(s) || modeNorm(x.parent).includes(s));
+  return { hits: hits.slice(0, 10), root };
+}
+
 function searchModes(str) {
   const q = parseModeQuery(str);
   if (!q.isAccidental) {
-    const needle = str.trim().toLowerCase();
-    if (!needle) return { hits: [], mode: 'empty' };
-    return { hits: MODE_INDEX.filter(m => (m.mode + ' ' + m.parent).toLowerCase().includes(needle)).slice(0, 10), mode: 'name', q };
+    const r = nameSearchModes(str);
+    return { hits: r.hits, mode: 'name', root: r.root, alias: r.alias, q: null };
   }
   const target = [...q.pcs];
   const hits = MODE_INDEX
@@ -4092,35 +5101,61 @@ function searchModes(str) {
     .slice(0, 10);
   return { hits, mode: 'accidental', q };
 }
+
 function renderModeResults(str) {
   const box = document.getElementById('mode-results');
-  const { hits, mode, q } = searchModes(str);
+  const { hits, mode, q, root, alias } = searchModes(str);
   box.innerHTML = '';
   if (!str.trim()) return;
   if (!hits.length) {
-    box.innerHTML = `<div class="result-empty">No mode matches <em>${str}</em>. Try accidentals like <em>#4 b7</em>, or a name like <em>dorian</em>.</div>`;
+    box.innerHTML = `<div class="result-empty">No mode matches <em>${str}</em>. Try accidentals like <em>#4 b7</em>, a name like <em>lydian dominant</em>, a nickname like <em>altered</em>, or <em>mode 4 of melodic minor</em>.</div>`;
     return;
   }
   const qpcs = q && q.pcs ? q.pcs : new Set();
+  const useRoot = root || parseRootNote('C');
   hits.forEach((m, idx) => {
     const card = document.createElement('div');
-    card.className = 'result-card' + (idx === 0 && mode === 'accidental' ? ' primary' : '');
-    const formula = spellMode(m.pcs)
-      .map(d => `<span class="deg${qpcs.has(d.pc) ? ' hit' : ''}">${d.label}</span>`).join('');
+    card.className = 'result-card' + (idx === 0 ? ' primary' : '');
+    const spelled = spellMode(m.pcs);
+    const formula = spelled.map(d => `<span class="deg${qpcs.has(d.pc) ? ' hit' : ''}">${d.label}</span>`).join('');
+    const accidentals = spelled.filter(d => d.acc !== 0);
+    const accHtml = accidentals.length
+      ? accidentals.map(d => `<span class="acc-chip">${d.label}</span>`).join('')
+      : `<span class="acc-chip none">none — it <em>is</em> the major scale</span>`;
+
+    const notes = spellScale(useRoot, m.pcs);
+    const notesHtml = notes.map((n, i) => `<span class="sn${i === 0 ? ' root' : ''}">${n.name}</span>`).join('');
+    const pRoot = parentRootOf(m, useRoot.pc);
+    const fam = PARENTS[m.parentIdx];
+
+    const sibs = m.siblings.map((sName, si) => {
+      const sRootPc = (pRoot + fam.intervals[si]) % 12;
+      return `<span class="sib${si + 1 === m.degree ? ' here' : ''}">${si + 1}. ${PC_SPELL[sRootPc]} ${sName}</span>`;
+    }).join('');
+
+    const badge = idx === 0 ? `<span class="badge">${mode === 'name' ? 'match' : 'closest'}</span>` : '';
+    const aliasLine = (idx === 0 && alias) ? `<div class="result-why" style="margin-bottom:2px;">Also called <em>${alias}</em>.</div>` : '';
+
     card.innerHTML = `
       <div class="result-head">
-        <div class="result-title">${m.mode}${idx === 0 && mode === 'accidental' ? '<span class="badge">closest</span>' : ''}</div>
-        <div class="result-sub">Mode ${m.degree} of ${m.parent}</div>
+        <div class="result-title">${notes[0].name} ${m.mode}${badge}</div>
+        <div class="result-sub">Mode ${m.degree} of ${m.siblings.length} · ${m.parent}</div>
       </div>
-      <div class="result-formula">${formula}</div>
+      ${aliasLine}
+      <div class="mf-row"><span class="mf-lab">Accidentals</span><div class="mf-val">${accHtml}</div></div>
+      <div class="mf-row"><span class="mf-lab">Formula</span><div class="mf-val"><div class="result-formula" style="margin:0">${formula}</div></div></div>
+      <div class="mf-row"><span class="mf-lab">Notes</span><div class="mf-val scale-notes">${notesHtml}</div></div>
+      <div class="mf-row"><span class="mf-lab">Family</span><div class="mf-val">Degree ${m.degree} of <strong>${PC_SPELL[pRoot]} ${fam.name}</strong> — same notes, different home.</div></div>
+      <div class="mf-row"><span class="mf-lab">Siblings</span><div class="mf-val sib-list">${sibs}</div></div>
       <div class="ivi-kb" data-mode-kb="${idx}"></div>`;
     box.appendChild(card);
-    // scale keyboard from C
-    const notes = m.pcs.map(pc => 60 + pc);
+
+    const lowMidi = 60 + useRoot.pc;
+    const midis = m.pcs.map(pc => lowMidi + pc).concat([lowMidi + 12]);
     const highlighted = {};
-    notes.forEach((mi, i) => { highlighted[mi] = i === 0 ? 'root' : 'in-scale'; });
+    midis.forEach((mi, i) => { highlighted[mi] = (i === 0 || i === midis.length - 1) ? 'root' : 'in-scale'; });
     const kb = createKeyboardBlock({
-      fromMidi: 59, toMidi: 73, highlighted,
+      fromMidi: Math.min(59, lowMidi - 1), toMidi: Math.max(73, lowMidi + 13), highlighted,
       whiteW: 17, whiteH: 60, playStagger: 90, playLabel: 'Play scale'
     });
     card.querySelector('[data-mode-kb]').appendChild(kb);
@@ -4395,120 +5430,407 @@ const BLUES_CHARTS = [
   }
 ];
 
-let bluesIdx = 0;
-let bluesTimer = null;
-let bluesPlaying = false;
+//==============================================================================
+// PLAYING OUT — symmetric cycles (Justin Highland's system)
+//==============================================================================
+const OUT_SPELL = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+const OUT_CYCLES = [
+  { name: 'Major 3rds · 3',
+    centers: [0, 4, 8],
+    note: 'Three tonalities, four semitones apart — <strong>C, E, A♭</strong>. Both new centers are consonant against a C tonic (the 3rd and the ♭6), so this reads as modulation rather than dissonance, and the round trip is short enough to use over two bars. The three major triads together spell the augmented scale. Coltrane\'s cycle.' },
+  { name: 'Minor 3rds · 4',
+    centers: [0, 3, 6, 9],
+    note: 'Four tonalities, three semitones apart — <strong>C, E♭, G♭, A</strong> — which is exactly a C°7. Over a dominant this hardly counts as outside: a °7 is a rootless 7♭9, so a lick transposed by minor thirds stays inside the altered sound the entire way around. The default cycle on a V chord.' },
+  { name: 'Whole tone · 6',
+    centers: [0, 2, 4, 6, 8, 10],
+    note: 'Six tonalities, two semitones apart — every other chromatic note. You never leave one whole-tone collection, so the color stays consistent: floating and rootless rather than tense. There are no perfect fifths anywhere in it, which is the sound. The six notes you\'re <em>not</em> playing are your resolution targets.' },
+  { name: 'Whole–half dim · 8',
+    centers: [0, 2, 3, 5, 6, 8, 9, 11],
+    note: 'Eight tonalities alternating whole step, half step — <strong>C D E♭ F G♭ A♭ A B</strong>. It contains the minor-thirds cycle and adds a passing tone between each °7 tone, so it\'s denser but built on the same skeleton. Sits naturally over a °7 or a tonic minor that wants inner movement.' },
+  { name: 'Half–whole dim · 8',
+    centers: [0, 1, 3, 4, 6, 7, 9, 10],
+    note: 'Eight tonalities alternating half step, whole step — <strong>C D♭ E♭ E G♭ G A B♭</strong>. Against a C7 these spell <strong>1 ♭9 ♯9 3 ♯11 5 13 ♭7</strong>, so every center is already a color tone of the chord. This is the furthest out you can travel while every note remains explainable.' }
+];
+const OUT_MOTIFS = [
+  { name: 'Minor pent 1-♭3-4-5', iv: [0, 3, 5, 7] },
+  { name: 'Major triad 1-3-5', iv: [0, 4, 7] },
+  { name: 'Bebop cell 1-2-3-5', iv: [0, 2, 4, 7] },
+  { name: 'Fourths 1-4-♭7', iv: [0, 5, 10] },
+  { name: 'Enclosure ♭2-1-7-1', iv: [1, 0, -1, 0] }
+];
 
-function bluesBeats(n) {
-  if (n === 1) return [4];
-  if (n === 2) return [2, 2];
-  if (n === 3) return [2, 1, 1];
-  if (n === 4) return [1, 1, 1, 1];
-  return new Array(n).fill(4 / n);
-}
+let outIdx = 0, outMotif = 0, outTimer = null, outPlaying = false;
 
-function clearBluesHighlight() {
-  document.querySelectorAll('#blues-chart .chart-bar').forEach(b => b.classList.remove('playing'));
-  document.querySelectorAll('#blues-chart .chip').forEach(c => c.classList.remove('sounding'));
-}
-
-function renderBluesChart(idx) {
-  bluesIdx = idx;
-  stopBlues();
-  const chart = BLUES_CHARTS[idx];
-  const el = document.getElementById('blues-chart');
-  el.innerHTML = '';
-  chart.bars.forEach((bar, i) => {
-    const div = document.createElement('div');
-    div.className = 'chart-bar';
-    div.dataset.bar = i;
-    const bn = document.createElement('span');
-    bn.className = 'bn';
-    bn.textContent = i + 1;
-    div.appendChild(bn);
-    bar.forEach((sym, j) => {
-      const chip = document.createElement('button');
-      chip.className = 'chip';
-      chip.dataset.bar = i;
-      chip.dataset.slot = j;
-      chip.textContent = prettyChord(sym);
-      chip.addEventListener('click', () => {
-        playChord(chordVoicing(sym), 16);
-        chip.classList.add('sounding');
-        setTimeout(() => chip.classList.remove('sounding'), 320);
-      });
-      div.appendChild(chip);
+function renderOutCycle() {
+  const cyc = OUT_CYCLES[outIdx];
+  const chips = document.getElementById('out-centers');
+  if (!chips) return;
+  chips.innerHTML = '';
+  cyc.centers.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.className = 'out-chip' + (i === 0 ? ' home' : '');
+    b.dataset.i = i;
+    b.innerHTML = `<span class="n">${OUT_SPELL[c]}</span><span class="ix">${i === 0 ? 'home' : i + 1}</span>`;
+    b.addEventListener('click', () => {
+      playChord(OUT_MOTIFS[outMotif].iv.map(x => 60 + c + x), 95);
+      b.classList.add('sounding');
+      setTimeout(() => b.classList.remove('sounding'), 520);
     });
-    el.appendChild(div);
-  });
-  document.getElementById('blues-chart-note').innerHTML = chart.note;
-}
-
-function stopBlues() {
-  bluesPlaying = false;
-  if (bluesTimer) { clearTimeout(bluesTimer); bluesTimer = null; }
-  clearBluesHighlight();
-  const btn = document.getElementById('blues-play');
-  if (btn) btn.innerHTML = '<span class="play-tri"></span>Play chorus';
-}
-
-function playBluesChorus() {
-  const chart = BLUES_CHARTS[bluesIdx];
-  const seq = [];
-  chart.bars.forEach((bar, i) => {
-    const beats = bluesBeats(bar.length);
-    bar.forEach((sym, j) => seq.push({ sym, bar: i, slot: j, beats: beats[j] }));
+    chips.appendChild(b);
   });
 
-  bluesPlaying = true;
-  document.getElementById('blues-play').innerHTML = '<span class="play-tri"></span>Stop';
+  const kbBox = document.getElementById('out-kb');
+  kbBox.innerHTML = '';
+  const highlighted = {};
+  cyc.centers.forEach((c, i) => { highlighted[60 + c] = i === 0 ? 'root' : 'in-scale'; });
+  highlighted[72] = 'root';
+  kbBox.appendChild(createKeyboardBlock({
+    fromMidi: 59, toMidi: 73, highlighted,
+    whiteW: 17, whiteH: 62, playStagger: 95,
+    playLabel: 'Play the centers',
+    legend: `<span class="kb-legend-item"><span class="kb-swatch outhome"></span>home tonality</span><span class="kb-legend-item"><span class="kb-swatch outother"></span>the other ${cyc.centers.length - 1}</span>`
+  }));
 
+  document.getElementById('out-note').innerHTML = cyc.note;
+}
+
+function stopOut() {
+  outPlaying = false;
+  if (outTimer) { clearTimeout(outTimer); outTimer = null; }
+  document.querySelectorAll('#out-centers .out-chip').forEach(c => c.classList.remove('sounding'));
+  const b = document.getElementById('out-play');
+  if (b) b.innerHTML = '<span class="play-tri"></span>Run the cycle';
+}
+
+function playOutCycle() {
+  const cyc = OUT_CYCLES[outIdx];
+  const motif = OUT_MOTIFS[outMotif].iv;
+  const tempoEl = document.getElementById('out-tempo');
+  outPlaying = true;
+  const btn = document.getElementById('out-play');
+  if (btn) btn.innerHTML = '<span class="play-tri"></span>Stop';
+
+  // every center, then a half-step resolution back into the home 3rd
+  const stops = cyc.centers.map((c, i) => ({ c, i })).concat([{ c: 0, i: -1, resolve: true }]);
   let k = 0;
   const step = () => {
-    if (!bluesPlaying) return;
-    if (k >= seq.length) {
-      if (document.getElementById('blues-loop').checked) { k = 0; }
-      else { stopBlues(); return; }
+    if (!outPlaying) return;
+    if (k >= stops.length) { stopOut(); return; }
+    const s = stops[k++];
+    const beatMs = 60000 / Number(tempoEl ? tempoEl.value : 104);
+    document.querySelectorAll('#out-centers .out-chip').forEach(c => c.classList.remove('sounding'));
+    if (!s.resolve) {
+      const chip = document.querySelector(`#out-centers .out-chip[data-i="${s.i}"]`);
+      if (chip) chip.classList.add('sounding');
+      playChord(motif.map(x => 60 + s.c + x), 95);
+      outTimer = setTimeout(step, beatMs * 1.5);
+    } else {
+      playChord([65, 64], 110);   // F → E: half step into the 3rd of C
+      outTimer = setTimeout(step, beatMs * 2);
     }
-    const ev = seq[k++];
-    const beatMs = 60000 / Number(document.getElementById('blues-tempo').value);
-    clearBluesHighlight();
-    const barEl = document.querySelector(`#blues-chart .chart-bar[data-bar="${ev.bar}"]`);
-    if (barEl) barEl.classList.add('playing');
-    const chipEl = document.querySelector(`#blues-chart .chip[data-bar="${ev.bar}"][data-slot="${ev.slot}"]`);
-    if (chipEl) chipEl.classList.add('sounding');
-    playChord(chordVoicing(ev.sym), 18);
-    bluesTimer = setTimeout(step, ev.beats * beatMs);
   };
   step();
 }
 
-function buildBluesLab() {
-  const tabs = document.getElementById('blues-tabs');
+function buildOutLab() {
+  const tabs = document.getElementById('out-tabs');
   if (!tabs) return;
-  BLUES_CHARTS.forEach((chart, i) => {
+  OUT_CYCLES.forEach((c, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'ivi-tab' + (i === 0 ? ' active' : '');
+    btn.textContent = c.name;
+    btn.addEventListener('click', () => {
+      tabs.querySelectorAll('.ivi-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      outIdx = i;
+      stopOut();
+      renderOutCycle();
+    });
+    tabs.appendChild(btn);
+  });
+  const sel = document.getElementById('out-motif');
+  OUT_MOTIFS.forEach((m, i) => {
+    const o = document.createElement('option');
+    o.value = i; o.textContent = m.name;
+    sel.appendChild(o);
+  });
+  sel.addEventListener('change', () => { outMotif = Number(sel.value); });
+  const play = document.getElementById('out-play');
+  if (play) play.addEventListener('click', () => { outPlaying ? stopOut() : playOutCycle(); });
+  const tempoEl = document.getElementById('out-tempo');
+  if (tempoEl) tempoEl.addEventListener('input', () => { document.getElementById('out-bpm').textContent = tempoEl.value; });
+  renderOutCycle();
+}
+
+//==============================================================================
+// COMPING RHYTHMS — clickable 2-bar rhythm grids, 8 eighths per bar
+//==============================================================================
+// Each pattern is 16 slots (two bars of eighth notes). 1 = hit, 0 = rest.
+const COMP_PATTERNS = [
+  { name: 'Charleston',
+    hits: [1,0,0,1,0,0,0,0, 1,0,0,1,0,0,0,0],
+    why: 'Beat 1 and the &amp; of 2. The single most useful comping rhythm in jazz — it states the harmony and gets out of the way. If you learn one, learn this.' },
+  { name: 'Charleston, displaced',
+    hits: [0,0,1,0,0,1,0,0, 0,0,1,0,0,1,0,0],
+    why: 'The same shape pushed a beat later, so nothing lands on the downbeat. Sounds twice as sophisticated for zero extra information.' },
+  { name: 'The push',
+    hits: [0,0,0,0,0,0,0,1, 1,0,0,0,0,0,0,0],
+    why: 'A single anticipation on the &amp; of 4, tied across the bar line. This is how you signal a chord change <em>before</em> it happens — the most common device behind a soloist.' },
+  { name: 'Two-and-four',
+    hits: [0,0,1,0,0,0,1,0, 0,0,1,0,0,0,1,0],
+    why: 'Straight backbeat. Deliberately plain — useful under a busy soloist, and the reference point that makes everything else register as syncopation.' },
+  { name: 'Three-three-two',
+    hits: [1,0,0,1,0,0,1,0, 1,0,0,1,0,0,1,0],
+    why: 'Groupings of 3+3+2 eighths across the bar. The accents cycle against the meter without ever leaving 4/4 — the Latin-leaning comp.' },
+  { name: 'Sparse',
+    hits: [0,0,0,0,0,0,0,0, 0,0,0,1,0,0,0,0],
+    why: 'One chord in two bars. Almost always better than what you were about to play. Space is a comping choice, not an absence of one.' },
+  { name: 'Red Garland',
+    hits: [1,0,0,1,0,0,1,0, 0,0,1,0,0,1,0,0],
+    why: 'Bar 1 pushes forward, bar 2 answers off the beat. Asymmetry across two bars is what makes a comp sound conversational instead of looped.' }
+];
+
+let compIdx = 0, compTimer = null, compPlaying = false, compStep = 0;
+const COMP_VOICING = [52, 55, 59, 62];   // rootless C∆9 — E G B D
+const COMP_BASS = [36, 43];
+
+function renderCompGrid() {
+  const grid = document.getElementById('comp-grid');
+  if (!grid) return;
+  const p = COMP_PATTERNS[compIdx];
+  grid.innerHTML = '';
+  p.hits.forEach((h, i) => {
+    const cell = document.createElement('button');
+    cell.className = 'comp-cell' + (h ? ' on' : '') + (i % 2 === 0 ? ' beat' : '') + (i === 8 ? ' barstart' : '');
+    cell.dataset.i = i;
+    cell.innerHTML = `<span class="cl">${i % 2 === 0 ? (i % 8) / 2 + 1 : '&amp;'}</span>`;
+    cell.addEventListener('click', () => {
+      p.hits[i] = p.hits[i] ? 0 : 1;
+      cell.classList.toggle('on');
+      if (p.hits[i]) playChord(COMP_VOICING, 10);
+    });
+    grid.appendChild(cell);
+  });
+  const note = document.getElementById('comp-note');
+  if (note) note.innerHTML = p.why;
+}
+
+function stopComp() {
+  compPlaying = false;
+  if (compTimer) { clearInterval(compTimer); compTimer = null; }
+  document.querySelectorAll('#comp-grid .comp-cell').forEach(c => c.classList.remove('now'));
+  const b = document.getElementById('comp-play');
+  if (b) b.innerHTML = '<span class="play-tri"></span>Play rhythm';
+}
+
+function playComp() {
+  const tempoEl = document.getElementById('comp-tempo');
+  compPlaying = true;
+  compStep = 0;
+  const b = document.getElementById('comp-play');
+  if (b) b.innerHTML = '<span class="play-tri"></span>Stop';
+  const tick = () => {
+    if (!compPlaying) return;
+    const p = COMP_PATTERNS[compIdx];
+    document.querySelectorAll('#comp-grid .comp-cell').forEach(c => c.classList.remove('now'));
+    const cell = document.querySelector(`#comp-grid .comp-cell[data-i="${compStep}"]`);
+    if (cell) cell.classList.add('now');
+    const walk = document.getElementById('comp-walk');
+    if (walk && walk.checked && compStep % 2 === 0) playChord([COMP_BASS[(compStep / 2) % 2]], 0);
+    if (p.hits[compStep]) playChord(COMP_VOICING, 10);
+    compStep = (compStep + 1) % 16;
+  };
+  const eighthMs = () => 30000 / Number(tempoEl ? tempoEl.value : 120);
+  tick();
+  compTimer = setInterval(tick, eighthMs());
+}
+
+function buildCompLab() {
+  const tabs = document.getElementById('comp-tabs');
+  if (!tabs) return;
+  COMP_PATTERNS.forEach((p, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'ivi-tab' + (i === 0 ? ' active' : '');
+    btn.textContent = p.name;
+    btn.addEventListener('click', () => {
+      tabs.querySelectorAll('.ivi-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      compIdx = i;
+      renderCompGrid();
+    });
+    tabs.appendChild(btn);
+  });
+  const play = document.getElementById('comp-play');
+  if (play) play.addEventListener('click', () => { compPlaying ? stopComp() : playComp(); });
+  const tempoEl = document.getElementById('comp-tempo');
+  if (tempoEl) tempoEl.addEventListener('input', () => {
+    document.getElementById('comp-bpm').textContent = tempoEl.value;
+    if (compPlaying) { stopComp(); playComp(); }
+  });
+  renderCompGrid();
+}
+
+const RHYTHM_CHARTS = [
+  {
+    name: 'A section — basic',
+    barLabels: ['A1','2','3','4','5','6','7','8'],
+    bars: [
+      ['C6','Am7'], ['Dm7','G7'], ['C6','Am7'], ['Dm7','G7'],
+      ['C6','C7'], ['F6','F#dim7'], ['C6','A7'], ['Dm7','G7']
+    ],
+    note: 'The bones. Bars 1–4 are an <strong>I–vi–ii–V</strong> turnaround played twice — that single cell is most of the tune. Bars 5–6 go to the IV and come back through the ♯IV°7; bars 7–8 set up the repeat. Everything else on these tabs is a decoration of this.'
+  },
+  {
+    name: 'A section — bebop',
+    barLabels: ['A1','2','3','4','5','6','7','8'],
+    bars: [
+      ['C6','A7b9'], ['Dm7','G7'], ['Em7','A7b9'], ['Dm7','G7'],
+      ['C7'], ['F6','Fm6'], ['Em7','A7b9'], ['Dm7','G7']
+    ],
+    note: 'What players actually play. The vi becomes a <em>dominant</em> (A7♭9) so it pulls harder; bar 3 swaps the I for a iii7, which is a rootless C∆9 anyway. Bar 6 minors the IV — <em>F6 → Fm6</em> — which is the backdoor move, and the ♭6 (A♭) falling to G is the strongest voice-leading in the tune.'
+  },
+  {
+    name: 'A section — tritone subs',
+    barLabels: ['A1','2','3','4','5','6','7','8'],
+    bars: [
+      ['C6','Eb7'], ['Dm7','Db7'], ['Em7','Eb7'], ['Dm7','Db7'],
+      ['C7'], ['F6','F#dim7'], ['Em7','Eb7'], ['Dm7','Db7']
+    ],
+    note: 'Every dominant replaced by the one a tritone away, which turns the turnaround into a chromatic descent: <strong>C – E♭7 – Dm7 – D♭7 – C</strong>. The bass walks down by half steps and the guide tones barely move. This is the standard "rhythm changes with subs" sound.'
+  },
+  {
+    name: 'The bridge',
+    barLabels: ['B1','2','3','4','5','6','7','8'],
+    barBeats: 4,
+    bars: [
+      ['E7'], ['E7'], ['A7'], ['A7'],
+      ['D7'], ['D7'], ['G7'], ['G7']
+    ],
+    note: 'Four dominants, two bars each, moving around the <strong>cycle of fifths</strong> — E7 → A7 → D7 → G7 — landing back on the C. In B♭ (the usual key) it\'s D7–G7–C7–F7. There is no ii chord anywhere: it\'s eight bars of pure dominant, which is why it\'s the best place on any standard to practice one idea transposed through the cycle.'
+  },
+  {
+    name: 'Bridge — with ii\'s',
+    barLabels: ['B1','2','3','4','5','6','7','8'],
+    bars: [
+      ['Bm7','E7'], ['E7'], ['Em7','A7'], ['A7'],
+      ['Am7','D7'], ['D7'], ['Dm7','G7'], ['G7']
+    ],
+    note: 'The same cycle with a ii inserted before each dominant. Each pair is one ii–V, so the bridge becomes four ii–Vs descending by whole step. Use the <em>dominant</em>\'s material across both chords of each pair — the minor chord is just supplying the upper extensions.'
+  }
+];
+function chartBeats(n, barBeats) {
+  const B = barBeats || 4;
+  if (n === 1) return [B];
+  if (n === 2) return [B / 2, B / 2];
+  if (n === 3) return [B / 2, B / 4, B / 4];
+  if (n === 4) return [B / 4, B / 4, B / 4, B / 4];
+  return new Array(n).fill(B / n);
+}
+
+function makeChartLab(prefix, CHARTS, opts) {
+  const o = opts || {};
+  const chartEl = document.getElementById(prefix + '-chart');
+  const tabsEl = document.getElementById(prefix + '-tabs');
+  const noteEl = document.getElementById(prefix + '-chart-note');
+  const playBtn = document.getElementById(prefix + '-play');
+  const tempoEl = document.getElementById(prefix + '-tempo');
+  const bpmEl = document.getElementById(prefix + '-bpm');
+  const loopEl = document.getElementById(prefix + '-loop');
+  if (!chartEl || !tabsEl) return null;
+
+  const playLabel = o.playLabel || 'Play chorus';
+  let idx = 0, timer = null, playing = false;
+
+  const clearHighlight = () => {
+    chartEl.querySelectorAll('.chart-bar').forEach(b => b.classList.remove('playing'));
+    chartEl.querySelectorAll('.chip').forEach(c => c.classList.remove('sounding'));
+  };
+
+  const stop = () => {
+    playing = false;
+    if (timer) { clearTimeout(timer); timer = null; }
+    clearHighlight();
+    if (playBtn) playBtn.innerHTML = '<span class="play-tri"></span>' + playLabel;
+  };
+
+  const render = i => {
+    idx = i;
+    stop();
+    const chart = CHARTS[i];
+    chartEl.innerHTML = '';
+    chart.bars.forEach((bar, bi) => {
+      const div = document.createElement('div');
+      div.className = 'chart-bar';
+      div.dataset.bar = bi;
+      const bn = document.createElement('span');
+      bn.className = 'bn';
+      bn.textContent = (chart.barLabels && chart.barLabels[bi]) || (bi + 1);
+      div.appendChild(bn);
+      bar.forEach((sym, si) => {
+        const chip = document.createElement('button');
+        chip.className = 'chip';
+        chip.dataset.bar = bi;
+        chip.dataset.slot = si;
+        chip.textContent = prettyChord(sym);
+        chip.addEventListener('click', () => {
+          playChord(chordVoicing(sym), 16);
+          chip.classList.add('sounding');
+          setTimeout(() => chip.classList.remove('sounding'), 320);
+        });
+        div.appendChild(chip);
+      });
+      chartEl.appendChild(div);
+    });
+    if (noteEl) noteEl.innerHTML = chart.note || '';
+  };
+
+  const play = () => {
+    const chart = CHARTS[idx];
+    const seq = [];
+    chart.bars.forEach((bar, bi) => {
+      const beats = chartBeats(bar.length, chart.barBeats);
+      bar.forEach((sym, si) => seq.push({ sym, bar: bi, slot: si, beats: beats[si] }));
+    });
+    playing = true;
+    if (playBtn) playBtn.innerHTML = '<span class="play-tri"></span>Stop';
+    let k = 0;
+    const step = () => {
+      if (!playing) return;
+      if (k >= seq.length) {
+        if (loopEl && loopEl.checked) { k = 0; } else { stop(); return; }
+      }
+      const ev = seq[k++];
+      const beatMs = 60000 / Number(tempoEl ? tempoEl.value : 120);
+      clearHighlight();
+      const barEl = chartEl.querySelector(`.chart-bar[data-bar="${ev.bar}"]`);
+      if (barEl) barEl.classList.add('playing');
+      const chipEl = chartEl.querySelector(`.chip[data-bar="${ev.bar}"][data-slot="${ev.slot}"]`);
+      if (chipEl) chipEl.classList.add('sounding');
+      playChord(chordVoicing(ev.sym), 18);
+      timer = setTimeout(step, ev.beats * beatMs);
+    };
+    step();
+  };
+
+  CHARTS.forEach((chart, i) => {
     const btn = document.createElement('button');
     btn.className = 'ivi-tab' + (i === 0 ? ' active' : '');
     btn.textContent = chart.name;
     btn.addEventListener('click', () => {
-      document.querySelectorAll('#blues-tabs .ivi-tab').forEach(t => t.classList.remove('active'));
+      tabsEl.querySelectorAll('.ivi-tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
-      renderBluesChart(i);
+      render(i);
     });
-    tabs.appendChild(btn);
+    tabsEl.appendChild(btn);
   });
-
-  document.getElementById('blues-play').addEventListener('click', () => {
-    if (bluesPlaying) stopBlues();
-    else playBluesChorus();
-  });
-  const tempo = document.getElementById('blues-tempo');
-  tempo.addEventListener('input', () => {
-    document.getElementById('blues-bpm').textContent = tempo.value;
-  });
-
-  renderBluesChart(0);
+  if (playBtn) playBtn.addEventListener('click', () => { playing ? stop() : play(); });
+  if (tempoEl && bpmEl) tempoEl.addEventListener('input', () => { bpmEl.textContent = tempoEl.value; });
+  render(0);
+  return { render, stop, play };
 }
+
+function buildBluesLab() { makeChartLab('blues', BLUES_CHARTS); }
+function buildRhythmLab() { makeChartLab('rhythm', RHYTHM_CHARTS, { playLabel: 'Play section' }); }
 
 
 
@@ -4692,16 +6014,21 @@ function setupReveals() {
 // NAV ACTIVE STATE
 //==============================================================================
 function setupNav() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav.top a');
+  const sections = document.querySelectorAll('main section[id]');
+  const menuLinks = document.querySelectorAll('.menu-group a');
+  const current = document.getElementById('nav-current');
+
+  const labelFor = sec => {
+    const eb = sec.querySelector('.eyebrow');
+    return eb ? eb.textContent.replace(/\s+/g, ' ').trim() : sec.id;
+  };
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         const id = e.target.id;
-        navLinks.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-        });
+        menuLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        if (current) current.textContent = labelFor(e.target);
       }
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
@@ -4712,18 +6039,243 @@ function setupNav() {
 //==============================================================================
 // BOOT
 //==============================================================================
+//==============================================================================
+// THEME
+//==============================================================================
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  try { localStorage.setItem('piano-theme', t); } catch (e) {}
+}
+function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('piano-theme'); } catch (e) {}
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
+  const btn = document.getElementById('nav-theme-btn');
+  if (btn) btn.addEventListener('click', () => {
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+  if (window.matchMedia) {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = e => { let s = null; try { s = localStorage.getItem('piano-theme'); } catch (_) {} if (!s) applyTheme(e.matches ? 'dark' : 'light'); };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+  }
+}
+
+//==============================================================================
+// OVERLAYS — section menu + search palette
+//==============================================================================
+let openOverlayEl = null;
+function openOverlay(el) {
+  if (openOverlayEl) closeOverlay();
+  el.hidden = false;
+  document.body.classList.add('overlay-open');
+  requestAnimationFrame(() => el.classList.add('open'));
+  openOverlayEl = el;
+  const btn = document.getElementById('nav-menu-btn');
+  if (btn && el.id === 'menu-overlay') btn.setAttribute('aria-expanded', 'true');
+}
+function closeOverlay() {
+  const el = openOverlayEl;
+  if (!el) return;
+  el.classList.remove('open');
+  document.body.classList.remove('overlay-open');
+  const btn = document.getElementById('nav-menu-btn');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+  setTimeout(() => { el.hidden = true; }, 220);
+  openOverlayEl = null;
+}
+function setupOverlays() {
+  const menu = document.getElementById('menu-overlay');
+  const search = document.getElementById('search-overlay');
+  const menuBtn = document.getElementById('nav-menu-btn');
+  const searchBtn = document.getElementById('nav-search-btn');
+  if (menuBtn) menuBtn.addEventListener('click', () => openOverlay(menu));
+  if (searchBtn) searchBtn.addEventListener('click', openPalette);
+
+  document.querySelectorAll('[data-close-overlay]').forEach(b => b.addEventListener('click', closeOverlay));
+  [menu, search].forEach(o => {
+    if (!o) return;
+    o.addEventListener('click', e => { if (e.target === o) closeOverlay(); });
+  });
+  if (menu) menu.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', closeOverlay));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && openOverlayEl) { e.preventDefault(); closeOverlay(); return; }
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement && document.activeElement.tagName);
+    if ((e.key === '/' && !typing) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) {
+      e.preventDefault();
+      openPalette();
+    }
+  });
+}
+
+//==============================================================================
+// SEARCH PALETTE — indexes the whole page at load
+//==============================================================================
+let PALETTE_INDEX = [];
+let paletteSel = 0;
+
+function buildPaletteIndex() {
+  PALETTE_INDEX = [];
+  const seen = new Set();
+  const push = (title, meta, target, weight) => {
+    const key = title.toLowerCase() + '|' + meta;
+    if (!title || seen.has(key)) return;
+    seen.add(key);
+    PALETTE_INDEX.push({ title, meta, target, weight });
+  };
+  const clean = s => (s || '').replace(/\s+/g, ' ').trim();
+
+  document.querySelectorAll('main section[id]').forEach(sec => {
+    const eyebrow = clean(sec.querySelector('.eyebrow') && sec.querySelector('.eyebrow').textContent);
+    const h2 = clean(sec.querySelector('h2') && sec.querySelector('h2').textContent);
+    const secName = eyebrow || h2 || sec.id;
+    push(secName, 'Section', sec.id, 0);
+    if (h2 && h2 !== secName) push(h2, secName, sec.id, 1);
+
+    sec.querySelectorAll('h3').forEach((h, i) => {
+      const t = clean(h.textContent);
+      if (!t) return;
+      if (!h.id) h.id = sec.id + '-h' + i;
+      push(t, secName, h.id, 2);
+    });
+    sec.querySelectorAll('summary h3').forEach(h => {
+      const t = clean(h.textContent);
+      const det = h.closest('details');
+      if (det && !det.id) det.id = sec.id + '-d' + Math.random().toString(36).slice(2, 7);
+      if (det) push(t, secName + ' · Reference', det.id, 2);
+    });
+    sec.querySelectorAll('.formula-line').forEach(f => {
+      const t = clean(f.textContent);
+      const card = f.closest('.card');
+      const h = card && card.querySelector('h3');
+      if (!t || t.length > 60) return;
+      let anchor = sec.id;
+      if (h) { if (!h.id) h.id = sec.id + '-f' + Math.random().toString(36).slice(2, 7); anchor = h.id; }
+      push(t, (h ? clean(h.textContent) + ' · ' : '') + secName, anchor, 4);
+    });
+    sec.querySelectorAll('.ivi-tab, .search-hint').forEach(t => {
+      const c = t.cloneNode(true);
+      c.querySelectorAll('.lab').forEach(l => l.remove());
+      const txt = clean(c.textContent);
+      if (txt && txt.length < 40) push(txt, secName + ' · tab', sec.id, 5);
+    });
+  });
+}
+
+function scorePalette(item, q) {
+  const t = item.title.toLowerCase();
+  const m = (item.meta || '').toLowerCase();
+  if (t === q) return 0;
+  if (t.startsWith(q)) return 1 + item.weight * 0.1;
+  const wordStart = new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(t);
+  if (wordStart) return 3 + item.weight * 0.1;
+  if (t.includes(q)) return 5 + item.weight * 0.1;
+  if (m.includes(q)) return 8 + item.weight * 0.1;
+  return Infinity;
+}
+
+function renderPalette(q) {
+  const box = document.getElementById('palette-results');
+  const query = q.trim().toLowerCase();
+  box.innerHTML = '';
+  paletteSel = 0;
+  let hits;
+  if (!query) {
+    hits = PALETTE_INDEX.filter(i => i.meta === 'Section').slice(0, 24);
+  } else {
+    hits = PALETTE_INDEX
+      .map(i => ({ i, s: scorePalette(i, query) }))
+      .filter(x => x.s !== Infinity)
+      .sort((a, b) => a.s - b.s)
+      .slice(0, 30)
+      .map(x => x.i);
+  }
+  if (!hits.length) {
+    box.innerHTML = `<div class="p-empty">Nothing matches “${q}”.</div>`;
+    return;
+  }
+  hits.forEach((h, idx) => {
+    const b = document.createElement('button');
+    b.className = 'p-item' + (idx === 0 ? ' sel' : '');
+    b.dataset.target = h.target;
+    let title = h.title;
+    if (query) {
+      const at = title.toLowerCase().indexOf(query);
+      if (at >= 0) title = title.slice(0, at) + '<mark>' + title.slice(at, at + query.length) + '</mark>' + title.slice(at + query.length);
+    }
+    b.innerHTML = `<span class="p-title">${title}</span><span class="p-meta">${h.meta}</span>`;
+    b.addEventListener('click', () => gotoPalette(h.target));
+    box.appendChild(b);
+  });
+}
+
+function gotoPalette(id) {
+  closeOverlay();
+  const el = document.getElementById(id);
+  if (!el) return;
+  const det = el.closest ? el.closest('details') : null;
+  if (el.tagName === 'DETAILS') el.open = true;
+  else if (det) det.open = true;
+  setTimeout(() => {
+    const y = el.getBoundingClientRect().top + window.pageYOffset - 88;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }, 240);
+}
+
+function movePaletteSel(dir) {
+  const items = [...document.querySelectorAll('#palette-results .p-item')];
+  if (!items.length) return;
+  items[paletteSel] && items[paletteSel].classList.remove('sel');
+  paletteSel = (paletteSel + dir + items.length) % items.length;
+  items[paletteSel].classList.add('sel');
+  items[paletteSel].scrollIntoView({ block: 'nearest' });
+}
+
+function openPalette() {
+  const ov = document.getElementById('search-overlay');
+  const input = document.getElementById('palette-input');
+  openOverlay(ov);
+  input.value = '';
+  renderPalette('');
+  setTimeout(() => input.focus(), 60);
+}
+
+function setupPalette() {
+  buildPaletteIndex();
+  const input = document.getElementById('palette-input');
+  if (!input) return;
+  input.addEventListener('input', () => renderPalette(input.value));
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); movePaletteSel(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); movePaletteSel(-1); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      const sel = document.querySelector('#palette-results .p-item.sel');
+      if (sel) gotoPalette(sel.dataset.target);
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   buildKeyboard();
   populateSelectors();
   render();
   buildIviLab();
   buildBluesLab();
+  buildRhythmLab();
+  buildCompLab();
+  buildOutLab();
   buildReharmLab();
   buildModeFinder();
   buildSubFinder();
   populateAllKeyboards();
   setupReveals();
   setupNav();
+  setupOverlays();
+  setupPalette();
 });
 </script>
 
