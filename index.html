@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piano: Modes & Movements v1.6 — A Jazz Piano Library</title>
+<title>Piano: Modes & Movements v1.7 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -3450,30 +3450,115 @@ Keep the target fixed;  approach it by a different route.</div>
       <details class="ref">
         <summary><h3>Newjazz Chord Grips</h3><span class="chev">+</span></summary>
         <div class="ref-body">
-          <ul>
-            <li><code>grip 1a</code> — maj7</li>
-            <li><code>grip 2a</code> — 1, 3, #4, 7</li>
-            <li><code>grip 1b</code> — 1, 3, 4, 6</li>
-            <li><code>grip 2b</code> — 1, 4, b5, b7</li>
-            <li><code>grip 3</code> — 1, b3, 4, 5, b7</li>
-          </ul>
-          <p>ii–V–I as a chain of grips:</p>
-          <div class="recipe">ii (1a on b3) → V (2a on b7) → I (3 on the 3rd)
-ii (1a on b3) → bII7alt (2a on 3rd) → I (3 on the 3rd)
-Vsus (1b on 4) → V7 (2b on 3rd) → I (3 on the 6th)
-ii (1b on b7) → bII7alt (2b on b7) → I (3 on the 6th)</div>
-          <p><strong style="color:var(--ink)">Upper-structure ii7b5–V7alt–im∆7.</strong> Solo over each chord with major triads from specific degrees:</p>
-          <ul>
-            <li>ii7b5 — major triads of bVII &amp; I, no 5th. Over Am7b5: F &amp; G triads. Over Dm7b5: B♭ &amp; C triads <em>(a rootless half-diminished)</em></li>
-            <li>V7alt — major triads of bII &amp; bIII (over D7alt: Ab &amp; Bb)</li>
-            <li>im69 — major triads of IV &amp; V (over Gm69: C &amp; D)</li>
-          </ul>
-          <p style="margin-top: 16px;">B♭ &amp; C major triads over a Dm7♭5 — the upper-structure picture:</p>
-          <div class="kb-slot" data-kb="newjazz-iib5"></div>
+          <p>Five right-hand shapes. Each is defined by its own intervals, but none of them is played on the chord root — the left hand supplies an <em>implied root</em> underneath, and the same grip becomes a different chord depending on how far below it that root sits. Learn the five shapes once, then learn where to put the root.</p>
+
+          <table class="study-table" style="margin: 20px 0 26px;">
+            <thead><tr><th>Grip</th><th>Intervals</th><th>On C</th><th>What it is on its own</th></tr></thead>
+            <tbody>
+              <tr><td class="name">1a</td><td class="chord">1 · 3 · 5 · 7</td><td class="chord">C E G B</td><td>A plain ∆7</td></tr>
+              <tr><td class="name">2a</td><td class="chord">1 · 3 · ♯4 · 7</td><td class="chord">C E F♯ B</td><td>∆7♯11 — the 5th replaced by the ♯4</td></tr>
+              <tr><td class="name">1b</td><td class="chord">1 · 3 · 4 · 6</td><td class="chord">C E F A</td><td>A ∆7 rooted a 4th up (F∆7 in this position)</td></tr>
+              <tr><td class="name">2b</td><td class="chord">1 · 4 · ♭5 · ♭7</td><td class="chord">C F G♭ B♭</td><td>Quartal, with a tritone inside it</td></tr>
+              <tr><td class="name">3</td><td class="chord">1 · ♭3 · 4 · 5 · ♭7</td><td class="chord">C E♭ F G B♭</td><td>Five notes — a minor pentatonic stack</td></tr>
+            </tbody>
+          </table>
+
           <p style="margin-top: 18px;">Grip 1a (∆7) — C E G B in the right hand:</p>
           <div class="kb-slot" data-kb="newjazz-grip1a"></div>
-          <p style="margin-top: 18px;">Grip 3 (1, b3, 4, 5, b7) — C E♭ F G B♭:</p>
+          <p style="margin-top: 18px;">Grip 2a (1, 3, ♯4, 7) — C E F♯ B. The ♯4 is what makes this the workhorse:</p>
+          <div class="kb-slot" data-kb="nj-grip2a"></div>
+          <p style="margin-top: 18px;">Grip 1b (1, 3, 4, 6) — C E F A:</p>
+          <div class="kb-slot" data-kb="nj-grip1b"></div>
+          <p style="margin-top: 18px;">Grip 2b (1, 4, ♭5, ♭7) — C F G♭ B♭:</p>
+          <div class="kb-slot" data-kb="nj-grip2b"></div>
+          <p style="margin-top: 18px;">Grip 3 (1, ♭3, 4, 5, ♭7) — C E♭ F G B♭:</p>
           <div class="kb-slot" data-kb="newjazz-grip3"></div>
+
+          <h4 style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); margin: 38px 0 12px; font-weight: 400;">The grips as rootless motion</h4>
+          <p>Read the table as: <em>put the grip here, put the root that far below it, and this is the chord you get.</em> The degrees are what the right hand supplies over the implied root — every one of these voicings omits the root entirely.</p>
+
+          <table class="study-table" style="margin: 20px 0 26px;">
+            <thead><tr><th>Grip</th><th>Root sits</th><th>Degrees over that root</th><th>Chord</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td class="name">2a</td><td class="chord">m7 below</td><td class="chord">♭7 · 9 · 3 · 13</td><td class="name">dom 13</td><td class="chord">B♭ D E A / C = C13</td></tr>
+              <tr><td class="name">2b</td><td class="chord">M3 below</td><td class="chord">3 · 13 · ♭7 · 9</td><td class="name">dom 13</td><td class="chord">E A B♭ D / C = C13</td></tr>
+              <tr><td class="name">2a</td><td class="chord">♭5 below</td><td class="chord">♭5 · ♭7 · 1 · 11</td><td class="name">m7♭5</td><td class="chord">E♭ G A D / A = Am7♭5</td></tr>
+              <tr><td class="name">2a</td><td class="chord">M3 below</td><td class="chord">3 · ♭13 · ♭7 · ♯9</td><td class="name">7alt</td><td class="chord">G♭ B♭ C F / D = D7alt</td></tr>
+              <tr><td class="name">2b</td><td class="chord">M6 below</td><td class="chord">13 · 9 · ♭3 · 5</td><td class="name">m6/9</td><td class="chord">E A B♭ D / G = Gm6/9</td></tr>
+              <tr><td class="name">1a</td><td class="chord">m7 below</td><td class="chord">♭7 · 9 · 11 · 13</td><td class="name">13sus</td><td class="chord">B♭ D F A / C = C13sus</td></tr>
+              <tr><td class="name">1a</td><td class="chord">m3 below</td><td class="chord">♭3 · 5 · ♭7 · 9</td><td class="name">m9</td><td class="chord">E♭ G B♭ D / C = Cm9</td></tr>
+              <tr><td class="name">1b</td><td class="chord">P4 below</td><td class="chord">11 · 13 · ♭7 · 9</td><td class="name">13sus</td><td class="chord">B♭ D E♭ G / F = F13sus</td></tr>
+              <tr><td class="name">1b</td><td class="chord">m7 below</td><td class="chord">♭7 · 9 · ♭3 · 5</td><td class="name">m9</td><td class="chord">B♭ D E♭ G / C = Cm9</td></tr>
+            </tbody>
+          </table>
+
+          <p><strong style="color:var(--ink)">C13 two ways.</strong> Grip 2a with the root a minor 7th below (left) and grip 2b with the root a major 3rd below — the same four degrees, different spacing:</p>
+          <div class="kb-slot" data-kb="nj-13-2a"></div>
+          <div class="kb-slot" data-kb="nj-13-2b"></div>
+
+          <p style="margin-top: 22px;"><strong style="color:var(--ink)">One shape, three roots.</strong> E♭ G A D is grip 2a. Move only the left hand and it becomes three different chords — and because B7alt and F13 are the same shape, this <em>is</em> the tritone substitution, shown as a fact about the keyboard rather than as a rule:</p>
+          <div class="recipe">E♭ G A D  over A   =  Am7♭5      (root ♭5 below)
+E♭ G A D  over B   =  B7alt      (root M3 below)
+E♭ G A D  over F   =  F13        (root m7 below)</div>
+          <div class="kb-slot" data-kb="nj-oneshape"></div>
+
+          <h4 style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); margin: 38px 0 12px; font-weight: 400;">Minor ii–V–i: 2a → 2a → 2b</h4>
+          <p>Three chords, two grips, and the root doing all the work underneath. In G minor:</p>
+          <div class="recipe"><span class="step">iiø</span>  Am7♭5   grip 2a on E♭   root ♭5 below   E♭ G A D
+<span class="step">V</span>   D7alt   grip 2a on G♭   root M3 below   G♭ B♭ C F
+<span class="step">i</span>   Gm6/9   grip 2b on E     root M6 below   E A B♭ D</div>
+          <div class="kb-slot" data-kb="nj-iib5-grip"></div>
+          <div class="kb-slot" data-kb="nj-valt-grip"></div>
+          <div class="kb-slot" data-kb="nj-im69-grip"></div>
+
+          <h4 style="font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink); margin: 32px 0 12px; font-weight: 400;">Soloing over it: two major triads a whole step apart</h4>
+          <p>Every chord in that cadence is covered by a pair of major triads a whole step apart. That's the whole system — only the pair moves:</p>
+          <table class="study-table" style="margin: 20px 0 22px;">
+            <thead><tr><th>Chord</th><th>Triad pair</th><th>In G minor</th><th>What the union spells</th></tr></thead>
+            <tbody>
+              <tr><td class="name">ii<sup>ø</sup>7</td><td class="chord">♭6 &amp; ♭7</td><td class="chord">F &amp; G over Am7♭5</td><td>A Locrian ♮2 — the whole scale</td></tr>
+              <tr><td class="name">V7alt</td><td class="chord">♭5 &amp; ♭6</td><td class="chord">A♭ &amp; B♭ over D7alt</td><td>D altered — all seven notes</td></tr>
+              <tr><td class="name">i m6/9</td><td class="chord">4 &amp; 5</td><td class="chord">C &amp; D over Gm6/9</td><td>G melodic minor</td></tr>
+            </tbody>
+          </table>
+          <div class="recipe">F  G   →   A♭  B♭   →   C  D
+   the pair climbs; the shape never changes</div>
+          <p class="muted" style="font-size:13px; margin-top:14px;">On the tonic, <strong style="color:var(--ink)">♭3 &amp; 4</strong> (B♭ &amp; C over Gm) is the Dorian version instead — use it when the tonic is a m7 or m6 rather than m6/9, since the B♭ triad's F is a ♭7 and turns melodic minor into Dorian.</p>
+          <p style="margin-top: 18px;">A♭ and B♭ triads over a D7alt — the altered scale, complete, as two ordinary major triads:</p>
+          <div class="kb-slot" data-kb="nj-valt-triads"></div>
+          <p style="margin-top: 18px;">C and D triads over Gm6/9 — G melodic minor:</p>
+          <div class="kb-slot" data-kb="nj-im69-triads"></div>
+          <p style="margin-top: 18px;">B♭ &amp; C major triads over a Dm7♭5 — the same device on the ♭6 and ♭7:</p>
+          <div class="kb-slot" data-kb="newjazz-iib5"></div>
+
+          <h4 style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); margin: 38px 0 12px; font-weight: 400;">The four-grip chain: 1a → 2a → 1b → 2b</h4>
+          <p>Four grips in sequence, with the root reinterpreting each one. The shapes barely move — usually a single voice — while the harmony travels a long way. Four readings of the same chain:</p>
+
+          <div class="recipe"><span class="step">A</span>  sus → dom, twice
+   C13sus    1a on B♭   root m7 below   B♭ D F  A
+   C13       2a on B♭   root m7 below   B♭ D E  A     ← F drops to E
+   F13sus    1b on B♭   root P4 below   B♭ D E♭ G
+   F13       2b on A    root M3 below   A  D E♭ G     ← B♭ drops to A</div>
+
+          <div class="recipe"><span class="step">B</span>  ii → tritone sub → sus → dom
+   Cm9       1a on E♭   root m3 below   E♭ G B♭ D
+   B7alt     2a on E♭   root M3 below   E♭ G A  D     ← B♭ drops to A
+   B♭13sus   1b on E♭   root P4 below   E♭ G A♭ C
+   B♭13      2b on D    root M3 below   D  G A♭ C</div>
+
+          <div class="recipe"><span class="step">C</span>  two ii–Vs, descending
+   Gm9       1a on B♭   root m3 below   B♭ D F  A
+   C13       2a on B♭   root m7 below   B♭ D E  A
+   Cm9       1b on B♭   root m7 below   B♭ D E♭ G
+   F13       2b on A    root M3 below   A  D E♭ G</div>
+
+          <div class="recipe"><span class="step">D</span>  one ii–V, two positions
+   Cm9       1a on E♭   root m3 below   E♭ G B♭ D
+   F13       2a on E♭   root m7 below   E♭ G A  D
+   Cm9       1b on B♭   root m7 below   B♭ D E♭ G
+   F13       2b on A    root M3 below   A  D E♭ G</div>
+
+          <p class="muted" style="font-size:13px; margin-top:16px;">Chains <strong style="color:var(--ink)">A</strong> and <strong style="color:var(--ink)">C</strong> use identical right-hand shapes throughout — only the left hand differs. That's the point of the whole system: B♭ D E♭ G is <em>both</em> F13sus and Cm9, and which one it is depends entirely on the note underneath it.</p>
         </div>
       </details>
 
@@ -3813,8 +3898,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v1.6 · build 2026-08-25T16:07 · 25 August 2026, 12:07 PM ET<br>
-    supersedes v1.5 — grouped section menu and live section indicator, global search palette (press /), dark mode, print stylesheet, reduced-motion support
+    v1.7 · build 2026-08-27T10:33 · 27 August 2026, 6:33 AM ET<br>
+    supersedes v1.6 — Newjazz grips rebuilt: all five shapes charted, the rootless-motion table, the minor ii&ndash;V&ndash;i chain and its triad pairs, and the four-grip chain in four keys; two mislabelled degrees corrected
   </div>
 </footer>
 
@@ -4276,6 +4361,38 @@ const KB_PRESETS = {
 
 // LH/RH two-handed voicings & exercises
 const VOICING_PRESETS = {
+  // ---- NEWJAZZ GRIPS (bare shapes on C) ----
+  'nj-grip2a':      { lh: [], rh: [60, 64, 66, 71], stagger: 22, fromMidi: 48, toMidi: 76, label: 'Play grip 2a',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>C E F♯ B — 1 · 3 · ♯4 · 7</span>' },
+  'nj-grip1b':      { lh: [], rh: [60, 64, 65, 69], stagger: 22, fromMidi: 48, toMidi: 76, label: 'Play grip 1b',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>C E F A — 1 · 3 · 4 · 6</span>' },
+  'nj-grip2b':      { lh: [], rh: [60, 65, 66, 70], stagger: 22, fromMidi: 48, toMidi: 76, label: 'Play grip 2b',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>C F G♭ B♭ — 1 · 4 · ♭5 · ♭7</span>' },
+
+  // ---- ROOTLESS MOTION ----
+  // grip 2a on Bb, root C a m7 below = C13
+  'nj-13-2a':       { lh: [36], rh: [58, 62, 64, 69], stagger: 26, fromMidi: 35, toMidi: 72, label: 'Play C13 (2a)',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — implied root, a m7 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B♭ D E A — ♭7 · 9 · 3 · 13</span>' },
+  // grip 2b on E, root C a M3 below = C13
+  'nj-13-2b':       { lh: [36], rh: [64, 69, 70, 74], stagger: 26, fromMidi: 35, toMidi: 77, label: 'Play C13 (2b)',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — implied root, a M3 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E A B♭ D — 3 · 13 · ♭7 · 9</span>' },
+  // the ambiguous shape, no root at all
+  'nj-oneshape':    { lh: [], rh: [63, 67, 69, 74], stagger: 24, fromMidi: 59, toMidi: 78, label: 'Play E♭ G A D',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ G A D — no root; it is whatever the bass says it is</span>' },
+  // minor ii-V-i in G minor
+  'nj-iib5-grip':   { lh: [45], rh: [63, 67, 69, 74], stagger: 26, fromMidi: 43, toMidi: 78, label: 'Play Am7♭5',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A — root, a ♭5 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ G A D — ♭5 · ♭7 · 1 · 11</span>' },
+  'nj-valt-grip':   { lh: [38], rh: [54, 58, 60, 65], stagger: 26, fromMidi: 36, toMidi: 69, label: 'Play D7alt',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D — root, a M3 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G♭ B♭ C F — 3 · ♭13 · ♭7 · ♯9</span>' },
+  'nj-im69-grip':   { lh: [43], rh: [64, 69, 70, 74], stagger: 26, fromMidi: 41, toMidi: 77, label: 'Play Gm6/9',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G — root, a M6 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E A B♭ D — 13 · 9 · ♭3 · 5</span>' },
+
+  // ---- UPPER-STRUCTURE TRIAD PAIRS ----
+  'nj-valt-triads': { lh: [38], rh: [68, 70, 72, 74, 75, 77], stagger: 34, fromMidi: 36, toMidi: 79, label: 'Play A♭ + B♭ over D',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D — the root</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A♭ &amp; B♭ triads — ♭5 and ♭6; together, the D altered scale</span>' },
+  'nj-im69-triads': { lh: [43], rh: [60, 62, 64, 66, 67, 69], stagger: 34, fromMidi: 41, toMidi: 72, label: 'Play C + D over G',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G — the root</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C &amp; D triads — 4 and 5; together, G melodic minor</span>' },
+
   // ---- BLOCK CHORDS ----
   // Drop 2 on C∆7: close C E G B -> drop the G (2nd from top) an octave. G2 | C4 E4 B4
   'block-drop2':    { lh: [43], rh: [60, 64, 71], stagger: 24, fromMidi: 41, toMidi: 74, label: 'Play drop 2',
