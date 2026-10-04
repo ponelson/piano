@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piano: Modes & Movements v1.7 — A Jazz Piano Library</title>
+<title>Piano: Modes & Movements v2.2 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -1821,6 +1821,34 @@
     .mini-keyboard { filter: grayscale(1); }
     details.ref > div { display: block !important; }
   }
+
+  /* Exercise player */
+  .ivi-tab.small { font-size: 9px; padding: 5px 11px; }
+  .ex-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 18px; flex-wrap: wrap; margin: 6px 0 14px;
+  }
+  .ex-chord {
+    font-family: var(--serif); font-style: italic; font-size: 27px;
+    color: var(--ink); margin-right: 14px;
+  }
+  .ex-tag {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent-2); margin-right: 14px;
+  }
+  .ex-count {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+    color: var(--ink-4);
+  }
+  .ex-dots { display: flex; gap: 6px; flex-wrap: wrap; }
+  .ex-dot {
+    width: 9px; height: 9px; padding: 0; border-radius: 50%;
+    border: 1px solid var(--line-strong); background: transparent;
+    cursor: pointer; transition: all 0.18s var(--easing);
+  }
+  .ex-dot:hover { border-color: var(--accent); }
+  .ex-dot.now { background: var(--accent); border-color: var(--accent); transform: scale(1.3); }
+  #ex-prev, #ex-next { font-size: 10px; }
 </style>
 </head>
 <body>
@@ -2715,6 +2743,325 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
 
   <hr class="divider">
 
+  <hr class="divider">
+
+  <hr class="divider">
+
+  <!-- ============== NEWJAZZ ============== -->
+  <section id="newjazz">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">NewJazz · Oliver Prehn</span>
+      <h2>Three grips, <em>and the bass decides.</em></h2>
+      <p class="lede">A complete left-hand chord system built from <strong>three</strong> shapes. Every voicing is rootless — the bass player supplies the keynote, or you cross over with the right hand to practise. The shapes never change; what changes is the note underneath, and that alone turns one grip into a minor 9, a 13sus, an altered dominant or a minor 6/9.</p>
+    </div>
+
+    <div class="invert-panel reveal">
+      The same grip, with a different bass, is a different chord. Learn two inversions of Grip 1, two of Grip 2, one of Grip 3 — and you can voice nearly every chord in a standard without ever learning a voicing per chord.
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 20px; font-style: italic;">The <em>three grips</em></h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 820px;">Grip 1 and Grip 2 each get two inversions, named <em>a</em> and <em>b</em>, so progressions stay smooth without leaping. Grip 3 is played in one inversion only.</p>
+
+    <table class="study-table reveal" style="margin-bottom: 30px;">
+      <thead><tr><th>Grip</th><th>Intervals</th><th>On C</th><th>What the shape is</th></tr></thead>
+      <tbody>
+        <tr><td class="name">1a</td><td class="chord">1 · 3 · 5 · 7</td><td class="chord">C E G B</td><td>A ∆7 shape</td></tr>
+        <tr><td class="name">1b</td><td class="chord">1 · 3 · 4 · 6</td><td class="chord">C E F A</td><td>The same four notes, inverted from the 5th</td></tr>
+        <tr><td class="name">2a</td><td class="chord">1 · 3 · ♯4 · 7</td><td class="chord">C E F♯ B</td><td>A ∆7♯11 shape — the 5th replaced</td></tr>
+        <tr><td class="name">2b</td><td class="chord">1 · 4 · ♭5 · ♭7</td><td class="chord">C F G♭ B♭</td><td>The same four notes, inverted from the ♯4</td></tr>
+        <tr><td class="name">3</td><td class="chord">1 · ♭3 · 4 · 5 · ♭7</td><td class="chord">C E♭ F G B♭</td><td>A minor pentatonic scale — five notes, one inversion</td></tr>
+      </tbody>
+    </table>
+
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Grip 1 <em>· 1a</em></h3>
+        <div class="kb-slot" data-kb="newjazz-grip1a"></div>
+        <p class="desc" style="margin-top:16px">C E G B.</p>
+      </div>
+      <div class="card">
+        <h3>Grip 1 <em>· 1b</em></h3>
+        <div class="kb-slot" data-kb="nj-grip1b"></div>
+        <p class="desc" style="margin-top:16px">C E F A — 1a inverted.</p>
+      </div>
+      <div class="card">
+        <h3>Grip 2 <em>· 2a</em></h3>
+        <div class="kb-slot" data-kb="nj-grip2a"></div>
+        <p class="desc" style="margin-top:16px">C E F♯ B.</p>
+      </div>
+      <div class="card">
+        <h3>Grip 2 <em>· 2b</em></h3>
+        <div class="kb-slot" data-kb="nj-grip2b"></div>
+        <p class="desc" style="margin-top:16px">C F G♭ B♭ — 2a inverted.</p>
+      </div>
+      <div class="card">
+        <h3>Grip 3</h3>
+        <div class="kb-slot" data-kb="newjazz-grip3"></div>
+        <p class="desc" style="margin-top:16px">C E♭ F G B♭ — one inversion only.</p>
+      </div>
+      <div class="card">
+        <h3>Why <em>inversions</em></h3>
+        <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55; margin-top:6px;">Two inversions per grip is enough to move anywhere without the hand jumping. Play <strong style="color:var(--ink)">1a→2a</strong> in one register and <strong style="color:var(--ink)">1b→2b</strong> in the other; pick whichever keeps you near where you already are.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Grip 1: move the bass a fifth, <em>change everything</em></h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 820px;">The cleanest demonstration in the system. One hand shape, two bass notes a fifth apart, two unrelated-sounding chords.</p>
+    <div class="grid-2 reveal" style="align-items:start;">
+      <div class="card">
+        <h3>Bass a m3 below <em>· minor 9</em></h3>
+        <div class="kb-slot" data-kb="nj-g1-m9"></div>
+        <p class="desc" style="margin-top:16px">E♭ G B♭ D over <strong style="color:var(--ink)">C</strong> = ♭3 5 ♭7 9 — <em>Cm9</em>.</p>
+      </div>
+      <div class="card">
+        <h3>Bass a m7 below <em>· 13sus</em></h3>
+        <div class="kb-slot" data-kb="nj-g1-sus"></div>
+        <p class="desc" style="margin-top:16px">The identical grip over <strong style="color:var(--ink)">F</strong> = ♭7 9 11 13 — <em>F13sus</em>. The bass simply fell a fifth.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Grip 2: <em>four chord qualities</em> from one shape</h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 820px;">Run a sequence of fifths alternating 2b and 2a, attach a different family of bass notes each time, and the same hand produces four different chord types in all twelve keys.</p>
+    <table class="study-table reveal">
+      <thead><tr><th>Bass sits</th><th>Grip</th><th>Degrees above it</th><th>Chord</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="chord">M3 below</td><td class="name">2b</td><td class="chord">3 · 13 · ♭7 · 9</td><td class="name">dominant 13</td><td class="chord">E A B♭ D / C</td></tr>
+        <tr><td class="chord">M3 below</td><td class="name">2a</td><td class="chord">3 · ♭13 · ♭7 · ♯9</td><td class="name">7 altered</td><td class="chord">G♭ B♭ C F / D</td></tr>
+        <tr><td class="chord">M6 below</td><td class="name">2b</td><td class="chord">13 · 9 · ♭3 · 5</td><td class="name">minor 6/9 — tonic minor</td><td class="chord">E A B♭ D / G</td></tr>
+        <tr><td class="chord">♭5 below</td><td class="name">2a</td><td class="chord">♭5 · ♭7 · 1 · 11</td><td class="name">m7♭5 (sus4)</td><td class="chord">E♭ G A D / A</td></tr>
+      </tbody>
+    </table>
+    <p class="muted reveal" style="margin-top:18px; font-size:13px; max-width:820px;">Note the dominant appears twice: <em>2b</em> a major third below gives the plain 13, <em>2a</em> a major third below gives the altered. The difference between a lush dominant and a tense one is one note inside the grip.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Grip 3: the tonic major, <em>from two places</em></h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 820px;">Grip 3 is a minor pentatonic scale, and it voices tonic major chords. There are two placements that work — which is why, running it round the cycle, every second chord uses the same notes in the left hand.</p>
+    <div class="grid-2 reveal" style="align-items:start;">
+      <div class="card">
+        <h3>Bass a M6 below <em>· 6/9</em></h3>
+        <div class="kb-slot" data-kb="nj-g3-69"></div>
+        <p class="desc" style="margin-top:16px">A minor pentatonic over <strong style="color:var(--ink)">C</strong> = 13 1 9 3 5 — <em>C6/9</em>. No 7th anywhere, so nothing is left wanting to move.</p>
+      </div>
+      <div class="card">
+        <h3>Bass a M3 below <em>· ∆13</em></h3>
+        <div class="kb-slot" data-kb="nj-g3-maj13"></div>
+        <p class="desc" style="margin-top:16px">E minor pentatonic over <strong style="color:var(--ink)">C</strong> = 3 5 13 7 9 — <em>C∆13</em>. Same grip, brighter, with the major 7th in it.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The core progression: <em>1a → 2a → 1b → 2b</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 820px;">Descending fifths, alternating the grips and their inversions so the hand barely moves. Then change only the bass notes and the identical grip sequence becomes three different progressions.</p>
+    <div class="recipe reveal"><span class="step">A</span>  minor 7 → 7            bass: m3 below  ·  m7 below
+<span class="step">B</span>  sus → 7                bass: m7 below  ·  m7 below   <b>(Grip 1's bass dropped a fifth)</b>
+<span class="step">C</span>  mi7 → 7alt → sus → 7   bass: m3 · M3 · m7 · m7 below</div>
+    <p class="muted reveal" style="margin-top:16px; font-size:13px; max-width:820px;">Same grips, same transitions, same fingering. Only the left-hand bass note is rewritten, and the progression changes character completely. This is the central claim of the system and it holds up under inspection.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">ii–V–I in major: <em>Grip 1 → Grip 2 → Grip 3</em></h3>
+    <div class="recipe reveal">minor 7   Grip 1    bass m3 below
+7         Grip 2    bass M3 below
+tonic     Grip 3    bass M6 below   → 6/9
+
+Invert all three (1b, 2b, Grip 3) to sit lower on the keyboard.
+Change Grip 1's bass to the m7 below and the ii becomes a sus.
+Change Grip 2 to 2a and the V becomes altered.</div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">ii–V–i in minor: <em>Grip 2 alone</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 820px;">The whole minor cadence from one grip. In G minor, the sequence is <strong>2a → 2a → 2b</strong>; inverted it becomes 2b → 2b → 2a, which lets you place it anywhere on the register.</p>
+    <div class="recipe reveal"><span class="step">iiø</span>  Am7♭5 <b>sus4</b>   grip 2a on E♭   bass ♭5 below   E♭ G A D
+<span class="step">V</span>   D7 <b>altered</b>    grip 2a on G♭   bass M3 below   G♭ B♭ C F
+<span class="step">i</span>   Gm<b>6/9</b>         grip 2b on E    bass M6 below   E A B♭ D</div>
+    <div class="kb-slot" data-kb="nj-iib5-grip"></div>
+    <div class="kb-slot" data-kb="nj-valt-grip"></div>
+    <div class="kb-slot" data-kb="nj-im69-grip"></div>
+    <p class="muted reveal" style="margin-top:18px; font-size:13px; max-width:820px;">The written chord symbols understate what you're playing — the grip expands every one of them. It isn't a iiø7, it's a <em>iiø7 sus4</em>; the tonic isn't a minor triad, it's a <em>minor 6/9</em>.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">One shape, <em>three roots</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 820px;">The consequence of a rootless system, stated plainly. E♭ G A D is Grip 2a — and because B7alt and F13 turn out to be the same shape, the tritone substitution shows up here as a fact about the keyboard rather than a rule to memorize.</p>
+    <div class="recipe reveal">E♭ G A D  over A   =  Am7♭5     (bass ♭5 below)
+E♭ G A D  over B   =  B7alt     (bass M3 below)
+E♭ G A D  over F   =  F13       (bass m7 below)</div>
+    <div class="kb-slot" data-kb="nj-oneshape"></div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">One grip, four chords, <em>one scale</em></h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 820px;">This is the shortcut the whole system is built toward. Take <strong>Grip 2a</strong> — say <strong style="color:var(--rouge)">E♭ G A D</strong> — put it in the left hand and leave it there. Move only the bass, and the same four notes voice four different chords. Then add one right-hand shape in two positions, and you have the complete scale for every one of them.</p>
+
+    <table class="study-table reveal" style="margin-bottom: 28px;">
+      <thead><tr><th>Bass sits on the grip's…</th><th>Chord</th><th>Grip over that bass</th><th>Scale</th></tr></thead>
+      <tbody>
+        <tr><td class="chord">tritone</td><td class="name">iiø7 &nbsp;<span style="color:var(--ink-3)">Aø7</span></td><td class="chord">♭5 · ♭7 · 1 · 11</td><td class="chord">A Locrian ♮2</td></tr>
+        <tr><td class="chord">major 3rd</td><td class="name">V7alt &nbsp;<span style="color:var(--ink-3)">B7alt</span></td><td class="chord">3 · ♭13 · ♭7 · ♯9</td><td class="chord">B altered</td></tr>
+        <tr><td class="chord">♭7</td><td class="name">V13♯11 &nbsp;<span style="color:var(--ink-3)">F13♯11</span></td><td class="chord">♭7 · 9 · 3 · 13</td><td class="chord">F Lydian dominant</td></tr>
+        <tr><td class="chord">♭3</td><td class="name">i m(∆7) &nbsp;<span style="color:var(--ink-3)">Cm</span></td><td class="chord">♭3 · 5 · 13 · 9</td><td class="chord">C melodic minor</td></tr>
+      </tbody>
+    </table>
+    <p class="muted reveal" style="margin-bottom: 36px; font-size: 13px; max-width: 820px;">All four scales are modes of <strong style="color:var(--ink)">C melodic minor</strong>. The grip never moves; the bass chooses which mode you are hearing. That is the same bass-decides-everything principle as the rest of the system, now carrying four chords at once.</p>
+
+    <h3 class="reveal" style="margin: 0 0 16px; font-style: italic;">The right hand: <em>1 · 4 · 5 · 6 · 8</em>, twice</h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 820px;">One five-finger shape — root, 4th, 5th, 6th, octave. Place it <strong>a half step below where the left-hand pinky sits</strong>, then place it again <strong>a whole step below that</strong>. Two positions, same fingering, and between them you can solo over all four chords without moving the left hand.</p>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>The <em>grip</em></h3>
+        <div class="kb-slot" data-kb="nj-oneshape"></div>
+        <p class="desc" style="margin-top:16px">E♭ G A D. Pinky on E♭ — that note is the reference for everything the right hand does.</p>
+      </div>
+      <div class="card">
+        <h3>Position <em>1</em></h3>
+        <div class="kb-slot" data-kb="njx-pos1"></div>
+        <p class="desc" style="margin-top:16px">A half step below E♭ is <strong style="color:var(--ink)">D</strong>. From there: D G A B D.</p>
+      </div>
+      <div class="card">
+        <h3>Position <em>2</em></h3>
+        <div class="kb-slot" data-kb="njx-pos2"></div>
+        <p class="desc" style="margin-top:16px">A whole step below that is <strong style="color:var(--ink)">C</strong>. From there: C F G A C.</p>
+      </div>
+    </div>
+
+    <div class="recipe reveal" style="margin-top:26px;">Position 1   D  G  A  B      Position 2   C  F  G  A
+Together they give   <b>C  D  F  G  A  B</b>  — six notes.
+The grip adds the seventh: <b>E♭</b>.
+Total = <b>C melodic minor</b>, and nothing is left over.</div>
+    <p class="muted reveal" style="margin-top:18px; font-size:13px; max-width:820px;">The two hands are exact complements. The right hand can't produce the ♭3 and the left hand is already holding it, which is why the shape sounds complete rather than like a fragment.</p>
+
+    <h3 class="reveal" style="margin: 64px 0 20px; font-style: italic;">The four chords, <em>played</em></h3>
+    <div class="grid-2 reveal" style="align-items:start;">
+      <div class="card">
+        <h3>iiø7 <em>· bass on the tritone</em></h3>
+        <div class="kb-slot" data-kb="njx-iib5"></div>
+        <p class="desc" style="margin-top:16px">A underneath. Grip gives ♭5 ♭7 1 11; position 1 above completes <strong style="color:var(--ink)">A Locrian ♮2</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>V7alt <em>· bass on the M3</em></h3>
+        <div class="kb-slot" data-kb="njx-valt"></div>
+        <p class="desc" style="margin-top:16px">B underneath, same grip, same right hand. Now it reads 3 ♭13 ♭7 ♯9 and the scale is <strong style="color:var(--ink)">B altered</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>V13♯11 <em>· bass on the ♭7</em></h3>
+        <div class="kb-slot" data-kb="njx-13s11"></div>
+        <p class="desc" style="margin-top:16px">F underneath. The ♯11 isn't in the grip — it's the <strong style="color:var(--ink)">B</strong> in the right hand, which is exactly why the chord earns the name.</p>
+      </div>
+      <div class="card">
+        <h3>i minor <em>· bass on the ♭3</em></h3>
+        <div class="kb-slot" data-kb="njx-itonic"></div>
+        <p class="desc" style="margin-top:16px">C underneath. The grip alone is a m6/9; the <strong style="color:var(--ink)">B</strong> in the right hand is the major 7th that makes it a minor-major tonic.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">Worked out in <em>C minor</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 820px;">Same procedure, different key. For a Cm7♭5 the left-hand pinky goes on the tritone of C — <strong>G♭</strong> — and the two right-hand positions follow from there automatically.</p>
+    <div class="recipe reveal">Cm7♭5     LH pinky on <b>G♭</b>  (the tritone)   grip: G♭ B♭ C F
+          half step below G♭ → <b>F</b>    position 1:  F  B♭ C  D  F
+          whole step below F → <b>E♭</b>   position 2:  E♭ A♭ B♭ C  E♭
+
+total:  C D E♭ F G♭ A♭ B♭  =  <b>C Locrian ♮2</b>  (6th mode of E♭ melodic minor)</div>
+    <p class="muted reveal" style="margin-top:18px; font-size:13px; max-width:820px;">You never work out the scale. You find the tritone, drop a half step, drop a whole step, and the fingering is identical in all twelve keys — which is the entire argument for hand grips over theory. The <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a> has this as <em>Prehn · grip + row</em>, steppable and transposable.</p>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The pentatonic hand grip and <em>the row</em></h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 820px;">The right-hand half of the method. Place the hand on a minor pentatonic — thumb on the keynote, fingers stepwise up — and the shape is identical in every key. Then stack three of them.</p>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>The <em>grip</em></h3>
+        <div class="formula-line">1 · ♭3 · 4 · 5 · ♭7</div>
+        <p class="desc" style="margin-top:18px">Five fingers, five notes, same fingering in all twelve keys — which is the entire point. Once the hand knows it, you stop choosing notes and start making phrases.</p>
+      </div>
+      <div class="card">
+        <h3>The <em>row</em></h3>
+        <div class="formula-line">pos 1 → pos 2 → pos 3, a 5th apart</div>
+        <p class="desc" style="margin-top:18px">From F: <strong style="color:var(--ink)">F · C · G</strong> minor pentatonic. Left hand stays on position 1; the right hand moves freely between all three. Same shape, three places.</p>
+      </div>
+      <div class="card">
+        <h3>Thin it to a <em>quartal</em></h3>
+        <div class="kb-slot" data-kb="nj-row-quartal"></div>
+        <p class="desc" style="margin-top:16px">Lift fingers 4 and 2 and what's left is <strong style="color:var(--ink)">F B♭ E♭</strong> — stacked fourths. The left hand's chord is already inside the scale shape.</p>
+      </div>
+    </div>
+    <div class="recipe reveal" style="margin-top:22px;">The three positions together contain <b>seven</b> notes, not fifteen:
+   F pent  F A♭ B♭ C E♭      C pent  C E♭ F G B♭      G pent  G B♭ C D F
+   union = C D E♭ F G A♭ B♭  =  one diatonic collection (E♭ major)
+Over F that is <b>1 9 ♭3 11 5 13 ♭7</b> — F Dorian. Move the bass and you get the other modes.</div>
+    <p class="muted reveal" style="margin-top:18px; font-size:13px; max-width:820px;">So the row is a way of playing a whole seven-note scale while your hand only ever knows one five-note shape — and the same bass-note logic from the grips applies again: the collection is fixed, the bass decides which mode you're hearing.</p>
+  </section>
+
+  <!-- ============== STRIDE & RAGTIME ============== -->
+  <section id="stride">
+    <div class="reveal" style="margin-bottom: 56px;">
+      <span class="eyebrow">Stride &amp; Ragtime</span>
+      <h2>The left hand <em>is the band.</em></h2>
+      <p class="lede">Before the rhythm section existed, the left hand played it: bass note on the strong beats, chord on the weak ones, and a harmonic vocabulary built almost entirely from chromatic approach rather than modulation. Everything here is in G.</p>
+    </div>
+
+    <div class="invert-panel reveal">
+      Ragtime almost never changes key inside a strain. What sounds like harmonic motion is a diminished or augmented chord passing between two diatonic ones — a half step of bass movement doing the work of a modulation.
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 20px; font-style: italic;">The <em>left hand</em></h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Bass and <em>chord</em></h3>
+        <div class="formula-line">1 &amp; 3 bass · 2 &amp; 4 chord</div>
+        <div class="kb-slot" data-kb="stride-oompah"></div>
+        <p class="desc" style="margin-top:18px">The engine. Single bass note low, three-note chord in the middle register, strictly alternating. Keep the chord quiet and the bass even — the swing comes from steadiness, not accent.</p>
+      </div>
+      <div class="card">
+        <h3>The <em>tenth</em></h3>
+        <div class="formula-line">root + 3rd, ten notes apart</div>
+        <div class="kb-slot" data-kb="stride-tenth"></div>
+        <p class="desc" style="margin-top:18px">The stride bass proper. If you can't span it, roll it — bass note, then the 3rd a fraction later. Broken tenths are idiomatic, not a compromise.</p>
+      </div>
+      <div class="card">
+        <h3>Walking the <em>bass line</em></h3>
+        <div class="formula-line">A &rarr; B &rarr; C &rarr; C♯</div>
+        <p class="desc" style="margin-top:18px">The last bar of the arrangement: <strong style="color:var(--ink)">Am7 – G/B – C6 – C♯°7</strong>. The chords exist to harmonize a bass line that is simply climbing by step. Inversions aren't decoration here, they're how the line stays smooth.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 20px; font-style: italic;">Three <em>passing chords</em> that do everything</h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>♯IV°7 &rarr; <em>I⁶₄</em></h3>
+        <div class="formula-line">C &rarr; C♯°7 &rarr; G/D</div>
+        <div class="kb-slot" data-kb="rag-sharp4dim"></div>
+        <div class="kb-slot" data-kb="rag-i64"></div>
+        <p class="desc" style="margin-top:18px">The signature ragtime cadence, and it happens twice in your chart. Bass climbs C–C♯–D; the tonic lands in second inversion, so it reads as a breath rather than an ending. Everything about the idiom is in this one move.</p>
+      </div>
+      <div class="card">
+        <h3>♭VI°7 &rarr; <em>V7</em></h3>
+        <div class="formula-line">E♭°7 &rarr; D7</div>
+        <div class="kb-slot" data-kb="rag-b6dim"></div>
+        <p class="desc" style="margin-top:18px">Bar 8. The diminished sits a half step <em>above</em> the dominant and falls into it — three of its four notes are already in D7, so only the bass really moves.</p>
+      </div>
+      <div class="card">
+        <h3>III7 and <em>III7♯5</em></h3>
+        <div class="formula-line">B7♯5 &rarr; B7 &rarr; C</div>
+        <div class="kb-slot" data-kb="rag-iii7aug"></div>
+        <p class="desc" style="margin-top:18px">Bar 2. The raised 5th of B7 <em>is</em> G — the note it came from — and it resolves up to the 3rd of the IV chord. An augmented dominant is a half-step machine with the answer already inside it.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Your arrangement, <em>playable</em></h3>
+    <p class="lede reveal" style="margin-bottom: 28px; max-width: 820px;">The sixteen bars from the score, the same sixteen bars stripped bare, and the ♯IV°7 cadence on its own to loop. Click any chord to hear it; press play to run the strain.</p>
+
+    <div class="blues-lab reveal">
+      <div class="ivi-tabs" id="rag-tabs"></div>
+      <div class="lab-transport">
+        <button class="kb-play" id="rag-play"><span class="play-tri"></span>Play strain</button>
+        <label class="lab-field">Tempo
+          <input type="range" id="rag-tempo" min="50" max="160" step="2" value="92">
+          <span class="bpm" id="rag-bpm">92</span>
+        </label>
+        <label class="lab-field"><input type="checkbox" id="rag-loop"> Loop</label>
+      </div>
+      <div class="chart" id="rag-chart"></div>
+      <div class="chart-note" id="rag-chart-note"></div>
+    </div>
+
+    <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The <em>form</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 820px;">Ragtime is sectional, not cyclical — it borrows its shape from the march, not the song. Nobody solos; you play the strains.</p>
+    <div class="recipe reveal">Each strain is <b>16 bars</b>, usually 4 + 4 + 4 + 4.
+Classic order:  <b>A A B B A C C D D</b>
+The <b>C strain — the "trio" — moves to the subdominant</b> and usually stays there.
+Repeats are written, not optional: the B strain is heard twice before A returns.</div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 820px;">The trio's key change is the only real modulation in the whole form, which is why it lands. Everything inside a strain — the diminished chords, the augmented dominants, the inversions — is chromatic motion within one key, and that distinction is the difference between playing ragtime and playing a jazz tune with old chords in it.</p>
+  </section>
+
   <!-- ============== BLOCK CHORDS ============== -->
   <section id="blockchords">
     <div class="reveal" style="margin-bottom: 56px;">
@@ -2733,7 +3080,7 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
         <h3>Drop 2</h3>
         <div class="formula-line">take the 2nd voice down an octave</div>
         <div class="kb-slot" data-kb="block-drop2"></div>
-        <p class="desc" style="margin-top:18px">Close-position C∆7 is C E G B. Drop the second voice from the top (G) an octave and you get <strong style="color:var(--ink)">G · C E B</strong> — open, playable in two hands, and the standard guitar and big-band spacing.</p>
+        <p class="desc" style="margin-top:18px">Close-position C∆7 is C E G B. Drop the second voice from the top (G) an octave and you get <strong style="color:var(--ink)">G · C E B</strong> — the standard guitar and big-band spacing. There are four of these per chord; the full treatment is <a href="#blockchords-d2" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">below</a>.</p>
       </div>
       <div class="card">
         <h3>Drop 3</h3>
@@ -2748,6 +3095,80 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
         <p class="desc" style="margin-top:18px">Four notes in the right hand, then the left hand doubles the top note an octave down. Five notes, both hands locked together, moving as one shape. This is the "locked hands" sound.</p>
       </div>
     </div>
+
+    <h3 id="blockchords-d2" class="reveal" style="margin: 64px 0 16px; font-style: italic;">Drop 2, <em>properly</em></h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 840px;">Drop 2 isn't a voicing — it's a <em>spacing rule</em> you apply to any four-note chord, in any inversion. Take the close-position chord, count down from the top, and drop the second voice an octave. Because you can start from any of the four inversions, every chord yields four drop-2 voicings — and each one puts a different chord tone on top.</p>
+
+    <div class="grid-2 reveal" style="align-items:start; margin-bottom: 34px;">
+      <div class="card">
+        <h3>Close position <em>· the problem</em></h3>
+        <div class="kb-slot" data-kb="d2-close"></div>
+        <p class="desc" style="margin-top:16px">C E G B inside a single octave. Fine at the top of the keyboard, mud below middle C, and it needs one hand to hold all four notes.</p>
+      </div>
+      <div class="card">
+        <h3>Drop 2 <em>· the fix</em></h3>
+        <div class="kb-slot" data-kb="d2-inv0"></div>
+        <p class="desc" style="margin-top:16px">Drop the G and the chord spans <strong style="color:var(--ink)">16 semitones</strong> — just over an octave. That's the narrowest spacing that stays clear in the register you actually play in, and it splits naturally between two hands.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 0 0 14px; font-style: italic;">Four inversions, <em>four melody notes</em></h3>
+    <p class="lede reveal" style="margin-bottom: 26px; max-width: 840px;">This is the part worth memorizing. You don't choose a drop-2 voicing by the chord — you choose it by <strong>which note you need on top</strong>. All four below are C∆7.</p>
+    <div class="grid-2 reveal">
+      <div class="card">
+        <h3>From root position <em>· B on top</em></h3>
+        <div class="formula-line">C E G B &rarr; G · C E B</div>
+        <div class="kb-slot" data-kb="d2-inv0"></div>
+      </div>
+      <div class="card">
+        <h3>From 1st inversion <em>· C on top</em></h3>
+        <div class="formula-line">E G B C &rarr; B · E G C</div>
+        <div class="kb-slot" data-kb="d2-inv1"></div>
+      </div>
+      <div class="card">
+        <h3>From 2nd inversion <em>· E on top</em></h3>
+        <div class="formula-line">G B C E &rarr; C · G B E</div>
+        <div class="kb-slot" data-kb="d2-inv2"></div>
+      </div>
+      <div class="card">
+        <h3>From 3rd inversion <em>· G on top</em></h3>
+        <div class="formula-line">B C E G &rarr; E · B C G</div>
+        <div class="kb-slot" data-kb="d2-inv3"></div>
+      </div>
+    </div>
+    <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 840px;"><strong style="color:var(--ink)">The counting trap.</strong> "Second voice from the top" means second in <em>the inversion you started from</em> — not the chord's 5th. From root position you drop the G; from first inversion you drop the B; from second, the C; from third, the E. Get this wrong and you'll produce the same voicing four times.</p>
+
+    <h3 class="reveal" style="margin: 64px 0 20px; font-style: italic;">The same rule on <em>dominant and minor</em></h3>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>G7 <em>· root position</em></h3>
+        <div class="formula-line">G B D F &rarr; D · G B F</div>
+        <div class="kb-slot" data-kb="d2-dom"></div>
+        <p class="desc" style="margin-top:16px">The tritone B–F ends up as the top two voices, which is why drop-2 dominants sound so pointed.</p>
+      </div>
+      <div class="card">
+        <h3>Dm7 <em>· root position</em></h3>
+        <div class="formula-line">D F A C &rarr; A · D F C</div>
+        <div class="kb-slot" data-kb="d2-min"></div>
+        <p class="desc" style="margin-top:16px">Identical procedure. The rule cares about the number of voices, not the chord quality.</p>
+      </div>
+      <div class="card">
+        <h3>Drop 2 &amp; 4</h3>
+        <div class="formula-line">drop the 2nd <em>and</em> 4th voices</div>
+        <div class="kb-slot" data-kb="d2-24"></div>
+        <p class="desc" style="margin-top:16px">C G E B — nearly two octaves. Use it when drop 2 still isn't wide enough, or when you want the bass genuinely separated from the colour.</p>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 64px 0 16px; font-style: italic;">Why you learn all four: <em>voice leading</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">Pick the form whose top note is the melody you want, then pick the next chord's form that's nearest. Done properly a whole ii–V–I moves by six semitones in total, spread across two inner voices, while the melody note holds or falls by a step.</p>
+    <div class="recipe reveal">melody on F:
+   Dm7   D  A  C  F      top F
+   G7    D  G  B  F      top F — holds; F is ♭7 of both chords
+   C∆7   C  G  B  E      top E — falls a semitone
+
+   total movement across all three chords: <b>6 semitones</b></div>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">All four chains — melody on C, D, F or A — are in the <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a> as <em>Drop 2 · ii–V–I</em>, steppable and transposable into any key. That is the drill: not the shapes on their own, but choosing a shape by its top note and then moving as little as possible.</p>
 
     <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The Barry Harris <em>engine</em></h3>
     <p class="lede reveal" style="margin-bottom: 28px; max-width: 820px;">Here's the part that makes block chords actually usable rather than a per-note puzzle. The sixth-diminished scale already alternates two chords — so you harmonize a scale by alternating them, and every melody note gets a voicing automatically.</p>
@@ -3427,7 +3848,35 @@ Keep the target fixed;  approach it by a different route.</div>
       <p class="lede">The technical residue. Tap to expand each.</p>
     </div>
 
-    <div class="reveal">
+    <h3 class="reveal" style="margin: 0 0 14px; font-style: italic;">The exercise player — <em>step it, hear it, move it</em></h3>
+    <p class="lede reveal" style="margin-bottom: 28px; max-width: 820px;">Every warmup below, playable. Step through one chord at a time, play the whole drill in tempo, or transpose it into any key — which is the only way these actually get learned.</p>
+
+    <div class="blues-lab reveal">
+      <div class="ivi-tabs" id="ex-tabs"></div>
+      <p class="muted" id="ex-blurb" style="font-size: 14px; max-width: 800px; margin: 18px 0 14px;"></p>
+      <div class="ivi-tabs" id="ex-stages" style="margin-bottom: 14px;"></div>
+      <div class="lab-transport">
+        <button class="kb-play" id="ex-prev" aria-label="Previous step">&larr; Step</button>
+        <button class="kb-play" id="ex-play"><span class="play-tri"></span>Play through</button>
+        <button class="kb-play" id="ex-next" aria-label="Next step">Step &rarr;</button>
+        <label class="lab-field">Key
+          <select id="ex-key" class="lab-select"></select>
+        </label>
+        <label class="lab-field">Tempo
+          <input type="range" id="ex-tempo" min="40" max="160" step="2" value="76">
+          <span class="bpm" id="ex-bpm">76</span>
+        </label>
+        <label class="lab-field"><input type="checkbox" id="ex-loop"> Loop</label>
+      </div>
+      <div class="ex-head">
+        <div id="ex-label"></div>
+        <div class="ex-dots" id="ex-dots"></div>
+      </div>
+      <div class="ivi-kb" id="ex-kb"></div>
+      <div class="chart-note" id="ex-caption"></div>
+    </div>
+
+    <div class="reveal" style="margin-top: 64px;">
 
       <details class="ref" open>
         <summary><h3>Reds Spread &amp; Quartal Voicings</h3><span class="chev">+</span></summary>
@@ -3448,117 +3897,33 @@ Keep the target fixed;  approach it by a different route.</div>
       </details>
 
       <details class="ref">
-        <summary><h3>Newjazz Chord Grips</h3><span class="chev">+</span></summary>
+        <summary><h3>Newjazz Chord Grips &mdash; quick reference</h3><span class="chev">+</span></summary>
         <div class="ref-body">
-          <p>Five right-hand shapes. Each is defined by its own intervals, but none of them is played on the chord root — the left hand supplies an <em>implied root</em> underneath, and the same grip becomes a different chord depending on how far below it that root sits. Learn the five shapes once, then learn where to put the root.</p>
+          <p>The full treatment, with every placement verified against Oliver Prehn's own compendiums, now lives in the <a href="#newjazz" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">NewJazz section</a>. This is the lookup table.</p>
 
-          <table class="study-table" style="margin: 20px 0 26px;">
-            <thead><tr><th>Grip</th><th>Intervals</th><th>On C</th><th>What it is on its own</th></tr></thead>
+          <table class="study-table" style="margin: 18px 0 24px;">
+            <thead><tr><th>Grip</th><th>Bass sits</th><th>Degrees over the bass</th><th>Chord</th><th>Example</th></tr></thead>
             <tbody>
-              <tr><td class="name">1a</td><td class="chord">1 · 3 · 5 · 7</td><td class="chord">C E G B</td><td>A plain ∆7</td></tr>
-              <tr><td class="name">2a</td><td class="chord">1 · 3 · ♯4 · 7</td><td class="chord">C E F♯ B</td><td>∆7♯11 — the 5th replaced by the ♯4</td></tr>
-              <tr><td class="name">1b</td><td class="chord">1 · 3 · 4 · 6</td><td class="chord">C E F A</td><td>A ∆7 rooted a 4th up (F∆7 in this position)</td></tr>
-              <tr><td class="name">2b</td><td class="chord">1 · 4 · ♭5 · ♭7</td><td class="chord">C F G♭ B♭</td><td>Quartal, with a tritone inside it</td></tr>
-              <tr><td class="name">3</td><td class="chord">1 · ♭3 · 4 · 5 · ♭7</td><td class="chord">C E♭ F G B♭</td><td>Five notes — a minor pentatonic stack</td></tr>
+              <tr><td class="name">1a / 1b</td><td class="chord">m3 below</td><td class="chord">♭3 · 5 · ♭7 · 9</td><td class="name">minor 9</td><td class="chord">E♭ G B♭ D / C</td></tr>
+              <tr><td class="name">1a / 1b</td><td class="chord">m7 below</td><td class="chord">♭7 · 9 · 11 · 13</td><td class="name">13sus</td><td class="chord">E♭ G B♭ D / F</td></tr>
+              <tr><td class="name">2b</td><td class="chord">M3 below</td><td class="chord">3 · 13 · ♭7 · 9</td><td class="name">dominant 13</td><td class="chord">E A B♭ D / C</td></tr>
+              <tr><td class="name">2a</td><td class="chord">M3 below</td><td class="chord">3 · ♭13 · ♭7 · ♯9</td><td class="name">7 altered</td><td class="chord">G♭ B♭ C F / D</td></tr>
+              <tr><td class="name">2a</td><td class="chord">♭5 below</td><td class="chord">♭5 · ♭7 · 1 · 11</td><td class="name">m7♭5 sus4</td><td class="chord">E♭ G A D / A</td></tr>
+              <tr><td class="name">2b</td><td class="chord">M6 below</td><td class="chord">13 · 9 · ♭3 · 5</td><td class="name">minor 6/9</td><td class="chord">E A B♭ D / G</td></tr>
+              <tr><td class="name">3</td><td class="chord">M6 below</td><td class="chord">13 · 1 · 9 · 3 · 5</td><td class="name">major 6/9</td><td class="chord">A C D E G / C</td></tr>
+              <tr><td class="name">3</td><td class="chord">M3 below</td><td class="chord">3 · 5 · 13 · 7 · 9</td><td class="name">major ∆13</td><td class="chord">E G A B D / C</td></tr>
             </tbody>
           </table>
 
-          <p style="margin-top: 18px;">Grip 1a (∆7) — C E G B in the right hand:</p>
-          <div class="kb-slot" data-kb="newjazz-grip1a"></div>
-          <p style="margin-top: 18px;">Grip 2a (1, 3, ♯4, 7) — C E F♯ B. The ♯4 is what makes this the workhorse:</p>
-          <div class="kb-slot" data-kb="nj-grip2a"></div>
-          <p style="margin-top: 18px;">Grip 1b (1, 3, 4, 6) — C E F A:</p>
-          <div class="kb-slot" data-kb="nj-grip1b"></div>
-          <p style="margin-top: 18px;">Grip 2b (1, 4, ♭5, ♭7) — C F G♭ B♭:</p>
-          <div class="kb-slot" data-kb="nj-grip2b"></div>
-          <p style="margin-top: 18px;">Grip 3 (1, ♭3, 4, 5, ♭7) — C E♭ F G B♭:</p>
-          <div class="kb-slot" data-kb="newjazz-grip3"></div>
-
-          <h4 style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); margin: 38px 0 12px; font-weight: 400;">The grips as rootless motion</h4>
-          <p>Read the table as: <em>put the grip here, put the root that far below it, and this is the chord you get.</em> The degrees are what the right hand supplies over the implied root — every one of these voicings omits the root entirely.</p>
-
-          <table class="study-table" style="margin: 20px 0 26px;">
-            <thead><tr><th>Grip</th><th>Root sits</th><th>Degrees over that root</th><th>Chord</th><th>Example</th></tr></thead>
-            <tbody>
-              <tr><td class="name">2a</td><td class="chord">m7 below</td><td class="chord">♭7 · 9 · 3 · 13</td><td class="name">dom 13</td><td class="chord">B♭ D E A / C = C13</td></tr>
-              <tr><td class="name">2b</td><td class="chord">M3 below</td><td class="chord">3 · 13 · ♭7 · 9</td><td class="name">dom 13</td><td class="chord">E A B♭ D / C = C13</td></tr>
-              <tr><td class="name">2a</td><td class="chord">♭5 below</td><td class="chord">♭5 · ♭7 · 1 · 11</td><td class="name">m7♭5</td><td class="chord">E♭ G A D / A = Am7♭5</td></tr>
-              <tr><td class="name">2a</td><td class="chord">M3 below</td><td class="chord">3 · ♭13 · ♭7 · ♯9</td><td class="name">7alt</td><td class="chord">G♭ B♭ C F / D = D7alt</td></tr>
-              <tr><td class="name">2b</td><td class="chord">M6 below</td><td class="chord">13 · 9 · ♭3 · 5</td><td class="name">m6/9</td><td class="chord">E A B♭ D / G = Gm6/9</td></tr>
-              <tr><td class="name">1a</td><td class="chord">m7 below</td><td class="chord">♭7 · 9 · 11 · 13</td><td class="name">13sus</td><td class="chord">B♭ D F A / C = C13sus</td></tr>
-              <tr><td class="name">1a</td><td class="chord">m3 below</td><td class="chord">♭3 · 5 · ♭7 · 9</td><td class="name">m9</td><td class="chord">E♭ G B♭ D / C = Cm9</td></tr>
-              <tr><td class="name">1b</td><td class="chord">P4 below</td><td class="chord">11 · 13 · ♭7 · 9</td><td class="name">13sus</td><td class="chord">B♭ D E♭ G / F = F13sus</td></tr>
-              <tr><td class="name">1b</td><td class="chord">m7 below</td><td class="chord">♭7 · 9 · ♭3 · 5</td><td class="name">m9</td><td class="chord">B♭ D E♭ G / C = Cm9</td></tr>
-            </tbody>
-          </table>
-
-          <p><strong style="color:var(--ink)">C13 two ways.</strong> Grip 2a with the root a minor 7th below (left) and grip 2b with the root a major 3rd below — the same four degrees, different spacing:</p>
-          <div class="kb-slot" data-kb="nj-13-2a"></div>
-          <div class="kb-slot" data-kb="nj-13-2b"></div>
-
-          <p style="margin-top: 22px;"><strong style="color:var(--ink)">One shape, three roots.</strong> E♭ G A D is grip 2a. Move only the left hand and it becomes three different chords — and because B7alt and F13 are the same shape, this <em>is</em> the tritone substitution, shown as a fact about the keyboard rather than as a rule:</p>
-          <div class="recipe">E♭ G A D  over A   =  Am7♭5      (root ♭5 below)
-E♭ G A D  over B   =  B7alt      (root M3 below)
-E♭ G A D  over F   =  F13        (root m7 below)</div>
-          <div class="kb-slot" data-kb="nj-oneshape"></div>
-
-          <h4 style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); margin: 38px 0 12px; font-weight: 400;">Minor ii–V–i: 2a → 2a → 2b</h4>
-          <p>Three chords, two grips, and the root doing all the work underneath. In G minor:</p>
-          <div class="recipe"><span class="step">iiø</span>  Am7♭5   grip 2a on E♭   root ♭5 below   E♭ G A D
-<span class="step">V</span>   D7alt   grip 2a on G♭   root M3 below   G♭ B♭ C F
-<span class="step">i</span>   Gm6/9   grip 2b on E     root M6 below   E A B♭ D</div>
-          <div class="kb-slot" data-kb="nj-iib5-grip"></div>
-          <div class="kb-slot" data-kb="nj-valt-grip"></div>
-          <div class="kb-slot" data-kb="nj-im69-grip"></div>
-
-          <h4 style="font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink); margin: 32px 0 12px; font-weight: 400;">Soloing over it: two major triads a whole step apart</h4>
-          <p>Every chord in that cadence is covered by a pair of major triads a whole step apart. That's the whole system — only the pair moves:</p>
-          <table class="study-table" style="margin: 20px 0 22px;">
-            <thead><tr><th>Chord</th><th>Triad pair</th><th>In G minor</th><th>What the union spells</th></tr></thead>
-            <tbody>
-              <tr><td class="name">ii<sup>ø</sup>7</td><td class="chord">♭6 &amp; ♭7</td><td class="chord">F &amp; G over Am7♭5</td><td>A Locrian ♮2 — the whole scale</td></tr>
-              <tr><td class="name">V7alt</td><td class="chord">♭5 &amp; ♭6</td><td class="chord">A♭ &amp; B♭ over D7alt</td><td>D altered — all seven notes</td></tr>
-              <tr><td class="name">i m6/9</td><td class="chord">4 &amp; 5</td><td class="chord">C &amp; D over Gm6/9</td><td>G melodic minor</td></tr>
-            </tbody>
-          </table>
-          <div class="recipe">F  G   →   A♭  B♭   →   C  D
-   the pair climbs; the shape never changes</div>
-          <p class="muted" style="font-size:13px; margin-top:14px;">On the tonic, <strong style="color:var(--ink)">♭3 &amp; 4</strong> (B♭ &amp; C over Gm) is the Dorian version instead — use it when the tonic is a m7 or m6 rather than m6/9, since the B♭ triad's F is a ♭7 and turns melodic minor into Dorian.</p>
-          <p style="margin-top: 18px;">A♭ and B♭ triads over a D7alt — the altered scale, complete, as two ordinary major triads:</p>
+          <p><strong style="color:var(--ink)">The upper-structure triad pairs</strong> for soloing over the minor cadence — two major triads a whole step apart on every chord:</p>
+          <div class="recipe">iiø7   ♭6 &amp; ♭7 triads   F &amp; G over Am7♭5     → A Locrian ♮2
+V7alt  ♭5 &amp; ♭6 triads   A♭ &amp; B♭ over D7alt   → D altered
+i m6/9  4 &amp; 5 triads    C &amp; D over Gm6/9     → G melodic minor</div>
           <div class="kb-slot" data-kb="nj-valt-triads"></div>
-          <p style="margin-top: 18px;">C and D triads over Gm6/9 — G melodic minor:</p>
           <div class="kb-slot" data-kb="nj-im69-triads"></div>
-          <p style="margin-top: 18px;">B♭ &amp; C major triads over a Dm7♭5 — the same device on the ♭6 and ♭7:</p>
+          <p class="muted" style="font-size:13px; margin-top:14px;">On a m7 or m6 tonic use <strong style="color:var(--ink)">♭3 &amp; 4</strong> instead (B♭ &amp; C over Gm) — that spells Dorian rather than melodic minor.</p>
+          <p style="margin-top: 22px;">The same device on a Dm7♭5 — B♭ &amp; C major triads on its ♭6 and ♭7:</p>
           <div class="kb-slot" data-kb="newjazz-iib5"></div>
-
-          <h4 style="font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); margin: 38px 0 12px; font-weight: 400;">The four-grip chain: 1a → 2a → 1b → 2b</h4>
-          <p>Four grips in sequence, with the root reinterpreting each one. The shapes barely move — usually a single voice — while the harmony travels a long way. Four readings of the same chain:</p>
-
-          <div class="recipe"><span class="step">A</span>  sus → dom, twice
-   C13sus    1a on B♭   root m7 below   B♭ D F  A
-   C13       2a on B♭   root m7 below   B♭ D E  A     ← F drops to E
-   F13sus    1b on B♭   root P4 below   B♭ D E♭ G
-   F13       2b on A    root M3 below   A  D E♭ G     ← B♭ drops to A</div>
-
-          <div class="recipe"><span class="step">B</span>  ii → tritone sub → sus → dom
-   Cm9       1a on E♭   root m3 below   E♭ G B♭ D
-   B7alt     2a on E♭   root M3 below   E♭ G A  D     ← B♭ drops to A
-   B♭13sus   1b on E♭   root P4 below   E♭ G A♭ C
-   B♭13      2b on D    root M3 below   D  G A♭ C</div>
-
-          <div class="recipe"><span class="step">C</span>  two ii–Vs, descending
-   Gm9       1a on B♭   root m3 below   B♭ D F  A
-   C13       2a on B♭   root m7 below   B♭ D E  A
-   Cm9       1b on B♭   root m7 below   B♭ D E♭ G
-   F13       2b on A    root M3 below   A  D E♭ G</div>
-
-          <div class="recipe"><span class="step">D</span>  one ii–V, two positions
-   Cm9       1a on E♭   root m3 below   E♭ G B♭ D
-   F13       2a on E♭   root m7 below   E♭ G A  D
-   Cm9       1b on B♭   root m7 below   B♭ D E♭ G
-   F13       2b on A    root M3 below   A  D E♭ G</div>
-
-          <p class="muted" style="font-size:13px; margin-top:16px;">Chains <strong style="color:var(--ink)">A</strong> and <strong style="color:var(--ink)">C</strong> use identical right-hand shapes throughout — only the left hand differs. That's the point of the whole system: B♭ D E♭ G is <em>both</em> F13sus and Cm9, and which one it is depends entirely on the note underneath it.</p>
         </div>
       </details>
 
@@ -3584,7 +3949,7 @@ Step 6: + tritone sub — C → Am → Eb7 → D7 → Gm7 → C7 → F</div>
           <div class="kb-slot" data-kb="warmup-maness"></div>
 
           <p style="margin-top: 28px;"><strong style="color:var(--ink)">Tritone-sub warmup.</strong></p>
-          <div class="recipe">Step 1: Drop-2 voicings diatonically (LH: 1-3, RH: 7-2-5)
+          <div class="recipe">Step 1: Spread voicings diatonically (LH: 1-3, RH: 7-2-5)
 Step 2: Insert sec dom before each (LH: 1-b7, RH: 3-b6-1)
 Step 3: Move LH 1-b7 to b5-b7 — the sec dom becomes a tritone sub (LH: 1-3, RH: b7-9-#11)
 Result: C∆9 → A7b13 → Dm9 → B7b13   becomes   C∆9 → Eb9#11 → Dm9 → F9#11</div>
@@ -3898,8 +4263,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v1.7 · build 2026-08-27T10:33 · 27 August 2026, 6:33 AM ET<br>
-    supersedes v1.6 — Newjazz grips rebuilt: all five shapes charted, the rootless-motion table, the minor ii&ndash;V&ndash;i chain and its triad pairs, and the four-grip chain in four keys; two mislabelled degrees corrected
+    v2.2 · build 2026-10-04T03:50 · 3 October 2026, 11:50 PM ET<br>
+    supersedes v2.1 — expands drop 2 from one card into a full treatment: all four inversions with their melody notes, the counting trap, dominant and minor forms, drop 2&amp;4, and a voice-led drop-2 ii&ndash;V&ndash;I in the exercise player
   </div>
 </footer>
 
@@ -3923,6 +4288,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
         <h4>Systems</h4>
         <a href="#barry">Barry Harris</a>
         <a href="#santangelo">James Santangelo</a>
+        <a href="#newjazz">NewJazz · Prehn</a>
+        <a href="#stride">Stride &amp; Ragtime</a>
         <a href="#blockchords">Block Chords</a>
         <a href="#playingout">Playing Out</a>
       </div>
@@ -4083,62 +4450,111 @@ function ensureAudio() {
   const curve = new Float32Array(n);
   for (let i = 0; i < n; i++) {
     const x = (i * 2) / n - 1;
-    curve[i] = Math.tanh(x * 1.5) * 0.9;
+    curve[i] = Math.tanh(x * 1.9) * 0.88;
   }
   shaper.curve = curve;
   shaper.oversample = '2x';
-  masterGain.connect(shaper);
+  // Gentle amplitude tremolo — the Rhodes' built-in vibrato, kept shallow
+  const trem = audioCtx.createGain();
+  trem.gain.value = 0.92;
+  const lfo = audioCtx.createOscillator();
+  lfo.type = 'sine';
+  lfo.frequency.value = 4.6;
+  const lfoDepth = audioCtx.createGain();
+  lfoDepth.gain.value = 0.08;
+  lfo.connect(lfoDepth);
+  lfoDepth.connect(trem.gain);
+  lfo.start();
+
+  masterGain.connect(trem);
+  trem.connect(shaper);
   shaper.connect(audioCtx.destination);
 }
 
-function playNote(midi) {
+function playNote(midi, dur) {
   ensureAudio();
-  if (audioCtx.state === 'suspended') audioCtx.resume();
+  if (!audioCtx || !masterGain) return;
+  if (audioCtx.state === 'suspended') { try { audioCtx.resume(); } catch (e) {} }
+  if (!Number.isFinite(midi)) return;
 
+  const D = Math.max(0.35, Number(dur) || 2.0);
   const freq = 440 * Math.pow(2, (midi - 69) / 12);
   const now = audioCtx.currentTime;
+  const reg = Math.min(1, Math.max(0, (midi - 36) / 48));   // 0 = bass, 1 = treble
+  const bodyDur = D * (1.0 - 0.25 * reg);
+  const ramp = (p, v, t) => p.exponentialRampToValueAtTime(Math.max(v, 0.0001), t);
 
-  // Three harmonic oscillators for warmth
-  const osc1 = audioCtx.createOscillator(); osc1.type = 'sine';     osc1.frequency.value = freq;
-  const osc2 = audioCtx.createOscillator(); osc2.type = 'triangle'; osc2.frequency.value = freq * 2;
-  const osc3 = audioCtx.createOscillator(); osc3.type = 'sine';     osc3.frequency.value = freq * 3.01;
-  const osc4 = audioCtx.createOscillator(); osc4.type = 'sine';     osc4.frequency.value = freq * 0.5;
+  // ---- Rhodes: two FM pairs ------------------------------------------
+  // Pair A (body): carrier and modulator at the same frequency. A 1:1 ratio
+  // with a falling index gives the warm 1-2-3 harmonic stack of a struck tine.
+  // Pair B (tine): modulator at 7x, high index for a few hundredths of a
+  // second — the metallic "bark" of the hammer, gone almost immediately.
+  const idxA0 = (2.2 - 0.7 * reg) * freq;
+  const modA = audioCtx.createOscillator(); modA.type = 'sine'; modA.frequency.value = freq;
+  const modAGain = audioCtx.createGain();
+  modAGain.gain.setValueAtTime(idxA0, now);
+  ramp(modAGain.gain, 0.55 * freq, now + Math.min(0.5, bodyDur * 0.5));
+  ramp(modAGain.gain, 0.16 * freq, now + bodyDur);
+  modA.connect(modAGain);
 
-  const g1 = audioCtx.createGain(); g1.gain.value = 0.55;
-  const g2 = audioCtx.createGain(); g2.gain.value = 0.18;
-  const g3 = audioCtx.createGain(); g3.gain.value = 0.06;
-  const g4 = audioCtx.createGain(); g4.gain.value = 0.12;
+  const carA = audioCtx.createOscillator(); carA.type = 'sine'; carA.frequency.value = freq;
+  const carA2 = audioCtx.createOscillator(); carA2.type = 'sine'; carA2.frequency.value = freq; carA2.detune.value = 7;
+  modAGain.connect(carA.frequency);
+  modAGain.connect(carA2.frequency);
+
+  const idxB0 = (1.6 + 0.8 * reg) * freq * 7;
+  const modB = audioCtx.createOscillator(); modB.type = 'sine'; modB.frequency.value = freq * 7;
+  const modBGain = audioCtx.createGain();
+  modBGain.gain.setValueAtTime(idxB0, now);
+  ramp(modBGain.gain, 0.25 * freq * 7, now + 0.11);
+  ramp(modBGain.gain, 0.02 * freq * 7, now + Math.min(0.45, D));
+  modB.connect(modBGain);
+
+  const carB = audioCtx.createOscillator(); carB.type = 'sine'; carB.frequency.value = freq;
+  modBGain.connect(carB.frequency);
+
+  const sub = audioCtx.createOscillator(); sub.type = 'sine'; sub.frequency.value = freq * 0.5;
+
+  const gA = audioCtx.createGain();  gA.gain.value = 0.62;
+  const gA2 = audioCtx.createGain(); gA2.gain.value = 0.16;
+  const gB = audioCtx.createGain();
+  gB.gain.setValueAtTime(0.30, now);
+  ramp(gB.gain, 0.055, now + Math.min(0.25, D * 0.4));
+  ramp(gB.gain, 0.006, now + bodyDur);
+  const gSub = audioCtx.createGain(); gSub.gain.value = 0.10 * (1 - reg);
 
   const filter = audioCtx.createBiquadFilter();
   filter.type = 'lowpass';
-  filter.frequency.setValueAtTime(4500, now);
-  filter.frequency.exponentialRampToValueAtTime(1200, now + 1.6);
-  filter.Q.value = 0.7;
+  filter.frequency.setValueAtTime(5200 + 2500 * reg, now);
+  ramp(filter.frequency, 1500, now + bodyDur * 0.9);
+  filter.Q.value = 0.3;
 
   const env = audioCtx.createGain();
-  env.gain.setValueAtTime(0, now);
-  env.gain.linearRampToValueAtTime(0.35, now + 0.006);
-  env.gain.exponentialRampToValueAtTime(0.18, now + 0.15);
-  env.gain.exponentialRampToValueAtTime(0.0008, now + 1.8);
+  env.gain.setValueAtTime(0.0001, now);
+  env.gain.linearRampToValueAtTime(0.46, now + 0.003);   // hammer
+  ramp(env.gain, 0.26, now + 0.10);                      // tine settles
+  ramp(env.gain, 0.0006, now + bodyDur);                 // bell tail
 
-  osc1.connect(g1); osc2.connect(g2); osc3.connect(g3); osc4.connect(g4);
-  g1.connect(filter); g2.connect(filter); g3.connect(filter); g4.connect(filter);
+  carA.connect(gA); carA2.connect(gA2); carB.connect(gB); sub.connect(gSub);
+  gA.connect(filter); gA2.connect(filter); gB.connect(filter); gSub.connect(filter);
   filter.connect(env);
   env.connect(masterGain);
 
-  osc1.start(now); osc2.start(now); osc3.start(now); osc4.start(now);
-  const stop = now + 2.0;
-  osc1.stop(stop); osc2.stop(stop); osc3.stop(stop); osc4.stop(stop);
+  const stop = now + D + 0.06;
+  [carA, carA2, carB, modA, modB, sub].forEach(o => { o.start(now); o.stop(stop); });
 }
 
-function playChord(midis, stagger = 12) {
-  // stagger in ms between successive notes
-  ensureAudio();
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  const sorted = [...midis].sort((a, b) => a - b);
-  sorted.forEach((m, i) => {
-    setTimeout(() => playNote(m), i * stagger);
-  });
+// Never let an audio failure propagate into a caller's scheduling loop.
+function playChord(midis, stagger = 12, dur) {
+  try {
+    ensureAudio();
+    if (!audioCtx) return;
+    if (audioCtx.state === 'suspended') { try { audioCtx.resume(); } catch (e) {} }
+    const sorted = [...midis].filter(Number.isFinite).sort((a, b) => a - b);
+    sorted.forEach((m, i) => {
+      setTimeout(() => { try { playNote(m, dur); } catch (e) {} }, i * stagger);
+    });
+  } catch (e) { /* audio unavailable — the UI still runs */ }
 }
 
 //==============================================================================
@@ -4361,6 +4777,64 @@ const KB_PRESETS = {
 
 // LH/RH two-handed voicings & exercises
 const VOICING_PRESETS = {
+  // ---- DROP 2 ----
+  'd2-inv0': { lh: [55], rh: [60, 64, 71], stagger: 24, fromMidi: 53, toMidi: 74, label: 'Play drop 2 · B on top',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G — the dropped voice</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C E B — melody note B</span>' },
+  'd2-inv1': { lh: [59], rh: [64, 67, 72], stagger: 24, fromMidi: 57, toMidi: 75, label: 'Play drop 2 · C on top',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>B — the dropped voice</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E G C — melody note C</span>' },
+  'd2-inv2': { lh: [60], rh: [67, 71, 76], stagger: 24, fromMidi: 58, toMidi: 79, label: 'Play drop 2 · E on top',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — the dropped voice</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G B E — melody note E</span>' },
+  'd2-inv3': { lh: [52], rh: [59, 60, 67], stagger: 24, fromMidi: 50, toMidi: 70, label: 'Play drop 2 · G on top',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>E — the dropped voice</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B C G — the 7th and root sit a semitone apart; that is correct</span>' },
+  'd2-dom':  { lh: [50], rh: [55, 59, 65], stagger: 24, fromMidi: 48, toMidi: 68, label: 'Play G7 drop 2',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D — dropped</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G B F — the tritone B/F sits on top</span>' },
+  'd2-min':  { lh: [57], rh: [62, 65, 72], stagger: 24, fromMidi: 55, toMidi: 75, label: 'Play Dm7 drop 2',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A — dropped</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>D F C — melody note C</span>' },
+  'd2-close':{ lh: [], rh: [60, 64, 67, 71], stagger: 24, fromMidi: 58, toMidi: 74, label: 'Play close position',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>C E G B — all inside one octave: muddy down low, one hand only</span>' },
+  'd2-24':   { lh: [48, 55], rh: [64, 71], stagger: 26, fromMidi: 46, toMidi: 74, label: 'Play drop 2&4',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C G — the 2nd and 4th voices, both dropped</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E B — spans nearly two octaves</span>' },
+
+  // ---- NEWJAZZ: one grip, four chords (E♭ G A D + the 1-4-5-6-8 row) ----
+  'njx-pos1':       { lh: [], rh: [62, 67, 69, 71, 74], stagger: 70, fromMidi: 59, toMidi: 77, label: 'Play position 1',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>D G A B D — 1·4·5·6·8 from a half step below the grip</span>' },
+  'njx-pos2':       { lh: [], rh: [60, 65, 67, 69, 72], stagger: 70, fromMidi: 58, toMidi: 75, label: 'Play position 2',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>C F G A C — the same shape, a whole step lower</span>' },
+  'njx-iib5':       { lh: [45, 51, 55, 57, 62], rh: [74, 79, 81, 83], stagger: 24, fromMidi: 43, toMidi: 86, label: 'Play Aø7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A bass + the grip — ♭5 ♭7 1 11</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>position 1 — gives A Locrian ♮2</span>' },
+  'njx-valt':       { lh: [47, 51, 55, 57, 62], rh: [74, 79, 81, 83], stagger: 24, fromMidi: 45, toMidi: 86, label: 'Play B7alt',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>B bass + the grip — 3 ♭13 ♭7 ♯9</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>position 1 — gives the B altered scale</span>' },
+  'njx-13s11':      { lh: [41, 51, 55, 57, 62], rh: [72, 77, 79, 81], stagger: 24, fromMidi: 39, toMidi: 84, label: 'Play F13♯11',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F bass + the grip — ♭7 9 3 13</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>position 2 — the B here <em>is</em> the ♯11</span>' },
+  'njx-itonic':     { lh: [48, 51, 55, 57, 62], rh: [72, 77, 79, 81], stagger: 24, fromMidi: 46, toMidi: 84, label: 'Play Cm(∆7)',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C bass + the grip — ♭3 5 13 9</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>position 2 — the B here is the major 7th</span>' },
+
+  // ---- NEWJAZZ / OLIVER PREHN ----
+  'nj-g3-69':       { lh: [36], rh: [45, 48, 50, 52, 55], stagger: 24, fromMidi: 34, toMidi: 60, label: 'Play C6/9',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — the bass, a M6 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A C D E G — A minor pentatonic = C6/9</span>' },
+  'nj-g3-maj13':    { lh: [36], rh: [52, 55, 57, 59, 62], stagger: 24, fromMidi: 34, toMidi: 65, label: 'Play C∆13',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — the bass, a M3 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E G A B D — E minor pentatonic = C∆13</span>' },
+  'nj-g1-m9':       { lh: [36], rh: [51, 55, 58, 62], stagger: 24, fromMidi: 34, toMidi: 65, label: 'Play Cm9',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — bass a m3 below the grip</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ G B♭ D — ♭3 5 ♭7 9</span>' },
+  'nj-g1-sus':      { lh: [41], rh: [51, 55, 58, 62], stagger: 24, fromMidi: 39, toMidi: 65, label: 'Play F13sus',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F — the same grip, bass dropped a fifth</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ G B♭ D — now ♭7 9 11 13</span>' },
+  'nj-row-quartal': { lh: [41, 46, 51], rh: [], stagger: 70, fromMidi: 39, toMidi: 60, label: 'Play the quartal',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F B♭ E♭ — fingers 5·3·1 of the F minor pentatonic grip</span>' },
+
+  // ---- STRIDE & RAGTIME ----
+  'stride-oompah':  { lh: [31], rh: [47, 50, 55], stagger: 150, fromMidi: 29, toMidi: 60, label: 'Play bass → chord',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G1 — bass on beats 1 and 3</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B D G — chord on 2 and 4</span>' },
+  'stride-tenth':   { lh: [31, 47], rh: [], stagger: 110, fromMidi: 29, toMidi: 55, label: 'Play the tenth',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G1 + B2 — root and 3rd, a tenth apart; break it if you can\'t span it</span>' },
+  'rag-iii7aug':    { lh: [35], rh: [51, 55, 57], stagger: 26, fromMidi: 33, toMidi: 62, label: 'Play B7♯5',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>B — III7 of G</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>D♯ G A — the raised 5th (G) is already the note it resolves to</span>' },
+  'rag-sharp4dim':  { lh: [37], rh: [52, 55, 58], stagger: 26, fromMidi: 35, toMidi: 62, label: 'Play C♯°7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C♯ — a half step under the D it falls to</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E G B♭ — E→D, B♭→B</span>' },
+  'rag-i64':        { lh: [38], rh: [55, 59, 62], stagger: 26, fromMidi: 35, toMidi: 65, label: 'Play G/D',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D — the 5th in the bass</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G B D — tonic harmony, second inversion</span>' },
+  'rag-b6dim':      { lh: [39], rh: [54, 57, 60], stagger: 26, fromMidi: 37, toMidi: 63, label: 'Play E♭°7',
+                      legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>E♭ — falls a half step to D</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G♭ A C — three of these four are already in D7</span>' },
+
   // ---- NEWJAZZ GRIPS (bare shapes on C) ----
   'nj-grip2a':      { lh: [], rh: [60, 64, 66, 71], stagger: 22, fromMidi: 48, toMidi: 76, label: 'Play grip 2a',
                       legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>C E F♯ B — 1 · 3 · ♯4 · 7</span>' },
@@ -5457,11 +5931,13 @@ function parseChordSymbol(sym) {
 function chordVoicing(sym) {
   const c = parseChordSymbol(sym);
   if (!c) return [];
-  const bassMidi = 36 + c.bass;             // C2–B2
-  const base = 52 + c.root;                 // E3–D#4
+  const bassMidi = 36 + c.bass;             // C2–B2, the implied/played root
+  // Upper structure sits from C3 up. (This MUST be a C — 52 is E3, which
+  // transposed every voicing a major 3rd sharp against its own bass.)
+  const base = 48 + c.root;                 // C3–B3, always an octave above the bass
   const upper = c.iv
     .map(i => base + i)
-    .map(n => n > 84 ? n - 12 : n);
+    .map(n => (n > 84 ? n - 12 : n));
   return [bassMidi, ...upper];
 }
 
@@ -5636,15 +6112,16 @@ function playOutCycle() {
     const s = stops[k++];
     const beatMs = 60000 / Number(tempoEl ? tempoEl.value : 104);
     document.querySelectorAll('#out-centers .out-chip').forEach(c => c.classList.remove('sounding'));
-    if (!s.resolve) {
-      const chip = document.querySelector(`#out-centers .out-chip[data-i="${s.i}"]`);
-      if (chip) chip.classList.add('sounding');
-      playChord(motif.map(x => 60 + s.c + x), 95);
-      outTimer = setTimeout(step, beatMs * 1.5);
-    } else {
-      playChord([65, 64], 110);   // F → E: half step into the 3rd of C
-      outTimer = setTimeout(step, beatMs * 2);
-    }
+    outTimer = setTimeout(step, beatMs * (s.resolve ? 2 : 1.5));
+    try {
+      if (!s.resolve) {
+        const chip = document.querySelector(`#out-centers .out-chip[data-i="${s.i}"]`);
+        if (chip) chip.classList.add('sounding');
+        playChord(motif.map(x => 60 + s.c + x), 95, 1.4);
+      } else {
+        playChord([65, 64], 110, 1.8);   // F → E: half step into the 3rd of C
+      }
+    } catch (e) {}
   };
   step();
 }
@@ -5677,6 +6154,321 @@ function buildOutLab() {
   const tempoEl = document.getElementById('out-tempo');
   if (tempoEl) tempoEl.addEventListener('input', () => { document.getElementById('out-bpm').textContent = tempoEl.value; });
   renderOutCycle();
+}
+
+//==============================================================================
+// EXERCISE PLAYER — steppable, playable, transposable drills
+//==============================================================================
+// A step is either { sym: 'Am7' } (voiced by chordVoicing) or an explicit
+// { root, lh: [semitones], rh: [semitones] } measured from the exercise's key.
+// Everything is stored relative to C and transposed at render time.
+const EX_KEYS = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+
+const EXERCISES = [
+  {
+    id: 'mountain',
+    name: 'The Mountain',
+    blurb: 'Round the cycle of fifths, every chord preceded by its own dominant. Left hand takes the shell, right hand takes the colour — and the hand shape only ever has two forms.',
+    stages: [{
+      label: 'Full cycle',
+      caption: 'Minor and major sevenths: <b>LH 1–3, RH 7–9–5</b>. Dominants: <b>LH 1–♭7, RH 3–13–9</b>. Nothing else changes for thirteen chords.',
+      steps: [
+        { root: 0,  q: '∆7',  lh: [0,4],  rh: [11,14,19], name: 'C∆7',  tag: 'I∆7' },
+        { root: 4,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'E7',   tag: 'V7/vi' },
+        { root: 9,  q: 'm7',  lh: [0,3],  rh: [10,14,19], name: 'Am7',  tag: 'vi7' },
+        { root: 2,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'D7',   tag: 'V7/V' },
+        { root: 7,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'G7',   tag: 'V7' },
+        { root: 0,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'C7',   tag: 'V7/IV' },
+        { root: 5,  q: '∆7',  lh: [0,4],  rh: [11,14,19], name: 'F∆7',  tag: 'IV∆7' },
+        { root: 11, q: '7',   lh: [0,10], rh: [4,9,14],   name: 'B7',   tag: 'V7/iii' },
+        { root: 4,  q: 'm7',  lh: [0,3],  rh: [10,14,19], name: 'Em7',  tag: 'iii7' },
+        { root: 9,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'A7',   tag: 'V7/ii' },
+        { root: 2,  q: 'm7',  lh: [0,3],  rh: [10,14,19], name: 'Dm7',  tag: 'ii7' },
+        { root: 7,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'G7',   tag: 'V7' },
+        { root: 0,  q: '∆7',  lh: [0,4],  rh: [11,14,19], name: 'C∆7',  tag: 'I∆7' }
+      ]
+    }]
+  },
+  {
+    id: 'drop2',
+    name: 'Drop 2 · ii–V–I',
+    blurb: 'The reason to learn all four forms: pick the one whose top note is the melody you want, then voice-lead. Each chain below moves only six semitones across three chords, and the melody note barely budges.',
+    stages: [
+      { label: 'Melody on C', caption: 'Starting with <b>C</b> on top of the Dm7. Two inner voices move a step each; the top note falls only a semitone into the V and then holds.',
+        steps: [ {root:0,lh:[21],rh:[14,17,24],name:'Dm7',tag:'A D F C — top C'},
+                 {root:0,lh:[19],rh:[14,17,23],name:'G7',tag:'G D F B — top B'},
+                 {root:0,lh:[19],rh:[12,16,23],name:'C∆7',tag:'G C E B — top B holds'} ] },
+      { label: 'Melody on D', caption: 'Starting with <b>D</b> on top — the 9th of the ii, held straight through the V.',
+        steps: [ {root:0,lh:[12],rh:[5,9,14],name:'Dm7',tag:'C F A D — top D'},
+                 {root:0,lh:[11],rh:[5,7,14],name:'G7',tag:'B F G D — top D holds'},
+                 {root:0,lh:[11],rh:[4,7,12],name:'C∆7',tag:'B E G C — top C'} ] },
+      { label: 'Melody on F', caption: 'Starting with <b>F</b> on top. F is the ♭7 of the ii and the ♭7 of the V, so it holds across both, then falls a semitone to the 3rd of the tonic.',
+        steps: [ {root:0,lh:[14],rh:[9,12,17],name:'Dm7',tag:'D A C F — top F'},
+                 {root:0,lh:[14],rh:[7,11,17],name:'G7',tag:'D G B F — top F holds'},
+                 {root:0,lh:[12],rh:[7,11,16],name:'C∆7',tag:'C G B E — F falls to E'} ] },
+      { label: 'Melody on A', caption: 'Starting with <b>A</b> on top, the highest of the four chains — the version to use when the tune sits up there.',
+        steps: [ {root:0,lh:[17],rh:[12,14,21],name:'Dm7',tag:'F C D A — top A'},
+                 {root:0,lh:[17],rh:[11,14,19],name:'G7',tag:'F B D G — top G'},
+                 {root:0,lh:[16],rh:[11,12,19],name:'C∆7',tag:'E B C G — top G holds'} ] }
+    ]
+  },
+  {
+    id: 'prehn-row',
+    name: 'Prehn · grip + row',
+    blurb: 'One left-hand grip and one right-hand shape in two positions cover four different chords. Only the bass note changes — and every one of the four turns out to be a mode of the same melodic minor scale.',
+    stages: [
+      { label: 'Right hand · position 1', caption: 'Grip <b>E♭ G A D</b> throughout. Right hand plays <b>1·4·5·6·8</b> starting a half step below the grip, so from <b>D</b>. The bass note alone decides the chord.',
+        steps: [
+          { root:0, lh:[9,15,19,21,26],  rh:[26,31,33,35,38], name:'Aø7',     tag:'bass on the tritone → A Locrian ♮2' },
+          { root:0, lh:[11,15,19,21,26], rh:[26,31,33,35,38], name:'B7alt',   tag:'bass on the M3 below → B altered' },
+          { root:0, lh:[5,15,19,21,26],  rh:[26,31,33,35,38], name:'F13♯11',  tag:'bass on the ♭7 below → F Lydian dominant' },
+          { root:0, lh:[12,15,19,21,26], rh:[26,31,33,35,38], name:'Cm(∆7)',  tag:'bass on the ♭3 below → C melodic minor' }
+        ] },
+      { label: 'Right hand · position 2', caption: 'The identical shape a whole step lower, from <b>C</b>. Positions 1 and 2 together give six of the seven notes; the grip supplies the seventh.',
+        steps: [
+          { root:0, lh:[9,15,19,21,26],  rh:[24,29,31,33,36], name:'Aø7',     tag:'bass on the tritone' },
+          { root:0, lh:[11,15,19,21,26], rh:[24,29,31,33,36], name:'B7alt',   tag:'bass on the M3 below' },
+          { root:0, lh:[5,15,19,21,26],  rh:[24,29,31,33,36], name:'F13♯11',  tag:'the B is the ♯11' },
+          { root:0, lh:[12,15,19,21,26], rh:[24,29,31,33,36], name:'Cm(∆7)',  tag:'the B is the major 7th' }
+        ] }
+    ]
+  },
+  {
+    id: 'maness',
+    name: 'Maness key-change',
+    blurb: 'Six stages that grow one device at a time, turning a bare C → F into a fully reharmonized approach. Step through the stages to hear each insertion arrive.',
+    stages: [
+      { label: 'Step 1 · bare', caption: 'The move you are decorating.', steps: [ {sym:'C'}, {sym:'F'} ] },
+      { label: 'Step 2 · common tone', caption: 'Am shares C and E with the C chord — the pivot.', steps: [ {sym:'C'}, {sym:'Am'}, {sym:'F'} ] },
+      { label: 'Step 3 · sec dom', caption: 'C7 is the V7 of F. The B♭ appears and the key tips.', steps: [ {sym:'C'}, {sym:'Am'}, {sym:'C7'}, {sym:'F'} ] },
+      { label: 'Step 4 · its ii', caption: 'Gm7 precedes C7 — now it is a full ii–V into F.', steps: [ {sym:'C'}, {sym:'Am'}, {sym:'Gm7'}, {sym:'C7'}, {sym:'F'} ] },
+      { label: 'Step 5 · sec dom of the ii', caption: 'D7 over F♯ pushes into Gm7, and the bass starts walking.', steps: [ {sym:'C'}, {sym:'Am'}, {sym:'D7/F#'}, {sym:'Gm7'}, {sym:'C7'}, {sym:'F'} ] },
+      { label: 'Step 6 · tritone sub', caption: 'E♭7 replaces nothing — it is inserted a half step above D7, so the bass falls E♭–D–G–C–F.', steps: [ {sym:'C'}, {sym:'Am'}, {sym:'Eb7'}, {sym:'D7'}, {sym:'Gm7'}, {sym:'C7'}, {sym:'F'} ] }
+    ]
+  },
+  {
+    id: 'tritonesub',
+    name: 'Tritone-sub warmup',
+    blurb: 'Diatonic spread voicings, then a secondary dominant inserted before each, then the same dominant re-voiced until it has become a tritone substitution. The right hand barely moves.',
+    stages: [
+      { label: 'Step 1 · diatonic', caption: '<b>LH 1–3, RH 7–9–5.</b> Diatonic, nothing borrowed. (The source calls this a drop-2; strictly it is a rootless spread — a true drop 2 of C∆9 would be B C E G D.)',
+        steps: [ {root:0,lh:[0,4],rh:[11,14,19],name:'C∆9'}, {root:2,lh:[0,3],rh:[10,14,19],name:'Dm9'} ] },
+      { label: 'Step 2 · secondary dominants', caption: 'Insert the V7 of each chord: <b>LH 1–♭7, RH 3–♭13–1</b>.',
+        steps: [ {root:0,lh:[0,4],rh:[11,14,19],name:'C∆9'}, {root:9,lh:[0,10],rh:[4,8,12],name:'A7♭13'},
+                 {root:2,lh:[0,3],rh:[10,14,19],name:'Dm9'}, {root:11,lh:[0,10],rh:[4,8,12],name:'B7♭13'} ] },
+      { label: 'Step 3 · tritone subs', caption: 'Move the LH from 1–♭7 to ♭5–♭7 and the dominant becomes the chord a tritone away: <b>RH ♭7–9–♯11</b>.',
+        steps: [ {root:0,lh:[0,4],rh:[11,14,19],name:'C∆9'}, {root:3,lh:[0,4],rh:[10,14,18],name:'E♭9♯11'},
+                 {root:2,lh:[0,3],rh:[10,14,19],name:'Dm9'}, {root:5,lh:[0,4],rh:[10,14,18],name:'F9♯11'} ] }
+    ]
+  },
+  {
+    id: 'moo',
+    name: 'Moo chord warmup',
+    blurb: 'A ∆7 with the 7th on the bottom of the right hand, answered by a 2–5–1 over its own 3rd — then the pair moves by whole steps, down and back up.',
+    stages: [{
+      label: 'Down a step, then up',
+      caption: '<b>7–3–5 over the root</b> alternating with <b>2–5–1 over the 3rd</b>. The right hand moves by one note at a time.',
+      steps: [
+        { root:0,  lh:[0],  rh:[11,16,19], name:'C∆7',  tag:'7-3-5 / 1 in bass' },
+        { root:11, lh:[0],  rh:[10,15,20], name:'G2/B', tag:'2-5-1 / 3 in bass' },
+        { root:10, lh:[0],  rh:[11,16,19], name:'B♭∆7', tag:'down a whole step' },
+        { root:9,  lh:[0],  rh:[10,15,20], name:'F2/A', tag:'2-5-1 / 3 in bass' },
+        { root:2,  lh:[0],  rh:[11,16,19], name:'D∆7',  tag:'up a whole step' },
+        { root:1,  lh:[0],  rh:[10,15,20], name:'A2/C♯',tag:'2-5-1 / 3 in bass' },
+        { root:0,  lh:[0],  rh:[11,16,19], name:'C∆7',  tag:'home' },
+        { root:11, lh:[0],  rh:[10,15,20], name:'G2/B', tag:'2-5-1 / 3 in bass' }
+      ]
+    }]
+  },
+  {
+    id: 'barry',
+    name: 'Barry Harris warmup',
+    blurb: 'Two halves: a fixed frame built on the major 7th, then the sixth-diminished line 7–6–♭6–6 played in both hands at once.',
+    stages: [
+      { label: 'Frame', caption: '<b>LH 1–7, RH 3–7–3.</b> The major 7th appears in both hands.',
+        steps: [ { root:0, lh:[0,11], rh:[16,23,28], name:'C — the frame', tag:'LH C–B · RH E–B–E' } ] },
+      { label: 'The 7–6–♭6–6 line', caption: 'Both hands move together. This is the sixth-diminished alternation compressed into four notes.',
+        steps: [
+          { root:0, lh:[11], rh:[35], name:'7', tag:'B' },
+          { root:0, lh:[9],  rh:[33], name:'6', tag:'A' },
+          { root:0, lh:[8],  rh:[32], name:'♭6', tag:'A♭' },
+          { root:0, lh:[9],  rh:[33], name:'6', tag:'A — and back' }
+        ] }
+    ]
+  },
+  {
+    id: 'oblique',
+    name: 'Oblique motion',
+    blurb: 'One voice holds while the others move — the gesture that makes a piano sound like more than one instrument. Run it both ways.',
+    stages: [
+      { label: 'Left hand moves', caption: 'Right hand holds <b>1–4–1</b>; the left hand walks <b>2 · 3 · 4 · 3 · 2 · 1</b> and then to the V.',
+        steps: [
+          { root:0, lh:[2],  rh:[12,17,24], name:'LH on 2', tag:'D under C–F–C' },
+          { root:0, lh:[4],  rh:[12,17,24], name:'LH on 3', tag:'E' },
+          { root:0, lh:[5],  rh:[12,17,24], name:'LH on 4', tag:'F' },
+          { root:0, lh:[4],  rh:[12,17,24], name:'LH on 3', tag:'E' },
+          { root:0, lh:[2],  rh:[12,17,24], name:'LH on 2', tag:'D' },
+          { root:0, lh:[0],  rh:[12,17,24], name:'LH on 1', tag:'C' },
+          { root:0, lh:[-5], rh:[11,17,23], name:'V', tag:'G beneath B–F–B' }
+        ] },
+      { label: 'Right hand moves', caption: 'Now the left hand holds the 2 and the right-hand top voice walks <b>4 · 5 · 6 · 5 · 4</b> before the V.',
+        steps: [
+          { root:0, lh:[2], rh:[12,17,24], name:'RH on 4', tag:'F on top of C–?–C' },
+          { root:0, lh:[2], rh:[12,19,24], name:'RH on 5', tag:'G' },
+          { root:0, lh:[2], rh:[12,21,24], name:'RH on 6', tag:'A' },
+          { root:0, lh:[2], rh:[12,19,24], name:'RH on 5', tag:'G' },
+          { root:0, lh:[2], rh:[12,17,24], name:'RH on 4', tag:'F' },
+          { root:0, lh:[-5], rh:[11,17,23], name:'V', tag:'resolve' }
+        ] }
+    ]
+  }
+];
+
+let exIdx = 0, exStage = 0, exStep = 0, exKey = 0, exTimer = null, exPlaying = false;
+
+function exCurrent() { return EXERCISES[exIdx].stages[exStage]; }
+
+// Resolve one step into { lh, rh, all } MIDI arrays at the current key
+function exVoice(s) {
+  const k = exKey;
+  if (s.sym) {
+    const v = chordVoicing(s.sym);
+    const t = v.map(m => m + k);
+    return { lh: t.slice(0, 1), rh: t.slice(1), all: t, name: prettyChord(s.sym), tag: s.tag || '' };
+  }
+  const lh = s.lh.map(i => 36 + s.root + i + k);
+  const rh = s.rh.map(i => 48 + s.root + i + k);
+  return { lh, rh, all: [...lh, ...rh], name: s.name || '', tag: s.tag || '' };
+}
+
+function renderExStep() {
+  const st = exCurrent();
+  const s = st.steps[exStep];
+  const v = exVoice(s);
+
+  const kbBox = document.getElementById('ex-kb');
+  if (!kbBox) return;
+  const highlighted = {};
+  v.lh.forEach(m => { highlighted[m] = 'lh'; });
+  v.rh.forEach(m => { highlighted[m] = 'rh'; });
+  const lo = Math.min(...v.all, 36), hi = Math.max(...v.all, 72);
+  kbBox.innerHTML = '';
+  kbBox.appendChild(createKeyboardBlock({
+    fromMidi: Math.min(lo - 2, 34), toMidi: Math.max(hi + 2, 76),
+    highlighted, whiteW: 15, whiteH: 66, playStagger: 18,
+    playLabel: 'Play this step',
+    legend: `<span class="kb-legend-item"><span class="kb-swatch lh"></span>left hand</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>right hand</span>`
+  }));
+
+  const lab = document.getElementById('ex-label');
+  if (lab) lab.innerHTML = `<span class="ex-chord">${v.name || '—'}</span>` +
+    (v.tag ? `<span class="ex-tag">${v.tag}</span>` : '') +
+    `<span class="ex-count">${exStep + 1} / ${st.steps.length}</span>`;
+
+  const dots = document.getElementById('ex-dots');
+  if (dots) {
+    dots.innerHTML = '';
+    st.steps.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'ex-dot' + (i === exStep ? ' now' : '');
+      b.title = 'Step ' + (i + 1);
+      b.addEventListener('click', () => { stopEx(); exStep = i; renderExStep(); playExStep(); });
+      dots.appendChild(b);
+    });
+  }
+}
+
+function playExStep() {
+  const v = exVoice(exCurrent().steps[exStep]);
+  playChord(v.all, 16, 1.6);
+}
+
+function stopEx() {
+  exPlaying = false;
+  if (exTimer) { clearTimeout(exTimer); exTimer = null; }
+  const b = document.getElementById('ex-play');
+  if (b) b.innerHTML = '<span class="play-tri"></span>Play through';
+}
+
+function playExThrough() {
+  const st = exCurrent();
+  const tempoEl = document.getElementById('ex-tempo');
+  const loopEl = document.getElementById('ex-loop');
+  exPlaying = true;
+  exStep = 0;
+  const b = document.getElementById('ex-play');
+  if (b) b.innerHTML = '<span class="play-tri"></span>Stop';
+  const tick = () => {
+    if (!exPlaying) return;
+    if (exStep >= st.steps.length) {
+      if (loopEl && loopEl.checked) exStep = 0;
+      else { stopEx(); return; }
+    }
+    const beatMs = 60000 / Number(tempoEl ? tempoEl.value : 76);
+    exTimer = setTimeout(() => { exStep++; tick(); }, beatMs);
+    try { renderExStep(); playChord(exVoice(st.steps[exStep]).all, 16, Math.min(1.8, beatMs / 1000 * 1.2)); } catch (e) {}
+  };
+  tick();
+}
+
+function renderExercise() {
+  const ex = EXERCISES[exIdx];
+  const stagesEl = document.getElementById('ex-stages');
+  stagesEl.innerHTML = '';
+  if (ex.stages.length > 1) {
+    ex.stages.forEach((st, i) => {
+      const b = document.createElement('button');
+      b.className = 'ivi-tab small' + (i === exStage ? ' active' : '');
+      b.textContent = st.label;
+      b.addEventListener('click', () => { stopEx(); exStage = i; exStep = 0; renderExercise(); });
+      stagesEl.appendChild(b);
+    });
+  }
+  document.getElementById('ex-blurb').innerHTML = ex.blurb;
+  document.getElementById('ex-caption').innerHTML = exCurrent().caption || '';
+  renderExStep();
+}
+
+function buildExerciseLab() {
+  const tabs = document.getElementById('ex-tabs');
+  if (!tabs) return;
+  EXERCISES.forEach((ex, i) => {
+    const b = document.createElement('button');
+    b.className = 'ivi-tab' + (i === 0 ? ' active' : '');
+    b.textContent = ex.name;
+    b.addEventListener('click', () => {
+      tabs.querySelectorAll('.ivi-tab').forEach(t => t.classList.remove('active'));
+      b.classList.add('active');
+      stopEx(); exIdx = i; exStage = 0; exStep = 0; renderExercise();
+    });
+    tabs.appendChild(b);
+  });
+
+  const keySel = document.getElementById('ex-key');
+  EX_KEYS.forEach((n, i) => {
+    const o = document.createElement('option');
+    o.value = i; o.textContent = n;
+    keySel.appendChild(o);
+  });
+  keySel.addEventListener('change', () => { exKey = Number(keySel.value); renderExStep(); });
+
+  document.getElementById('ex-prev').addEventListener('click', () => {
+    stopEx();
+    const n = exCurrent().steps.length;
+    exStep = (exStep - 1 + n) % n;
+    renderExStep(); playExStep();
+  });
+  document.getElementById('ex-next').addEventListener('click', () => {
+    stopEx();
+    const n = exCurrent().steps.length;
+    exStep = (exStep + 1) % n;
+    renderExStep(); playExStep();
+  });
+  document.getElementById('ex-play').addEventListener('click', () => { exPlaying ? stopEx() : playExThrough(); });
+  const tempoEl = document.getElementById('ex-tempo');
+  tempoEl.addEventListener('input', () => { document.getElementById('ex-bpm').textContent = tempoEl.value; });
+
+  renderExercise();
 }
 
 //==============================================================================
@@ -5753,8 +6545,11 @@ function playComp() {
     const cell = document.querySelector(`#comp-grid .comp-cell[data-i="${compStep}"]`);
     if (cell) cell.classList.add('now');
     const walk = document.getElementById('comp-walk');
-    if (walk && walk.checked && compStep % 2 === 0) playChord([COMP_BASS[(compStep / 2) % 2]], 0);
-    if (p.hits[compStep]) playChord(COMP_VOICING, 10);
+    const eighth = 30000 / Number(tempoEl ? tempoEl.value : 120) / 1000;
+    try {
+      if (walk && walk.checked && compStep % 2 === 0) playChord([COMP_BASS[(compStep / 2) % 2]], 0, eighth * 3);
+      if (p.hits[compStep]) playChord(COMP_VOICING, 10, eighth * 2.2);
+    } catch (e) {}
     compStep = (compStep + 1) % 16;
   };
   const eighthMs = () => 30000 / Number(tempoEl ? tempoEl.value : 120);
@@ -5786,6 +6581,40 @@ function buildCompLab() {
   });
   renderCompGrid();
 }
+
+const RAG_CHARTS = [
+  {
+    name: 'As charted',
+    barBeats: 4,
+    bars: [
+      ['G9'], ['B7#5','B7'], ['C'], ['C#dim7'],
+      ['G/D'], ['E7'], ['Am7'], ['Ebdim7','D7'],
+      ['G6','Bm7'], ['C','C#dim7'], ['G/D'], ['D7sus4','D7'],
+      ['G9'], ['B7','C7'], ['C#dim7'], ['Am7','G/B','C6','C#dim7']
+    ],
+    note: 'The progression as written in the arrangement. Four devices carry the whole thing: <strong>III7 into the subdominant</strong> (bar 2, with the augmented fifth doing the pulling), the <strong>♯IV°7 → I⁶₄</strong> cadence (bars 3–5 and again 10–11), a <strong>♭VI°7 approach to the V</strong> (bar 8), and a <strong>diatonic bass walk</strong> under the final bar, A–B–C–C♯.'
+  },
+  {
+    name: 'Stripped to its bones',
+    barBeats: 4,
+    bars: [
+      ['G'], ['G'], ['C'], ['C'],
+      ['G'], ['E7'], ['Am7'], ['D7'],
+      ['G'], ['C'], ['G/D'], ['D7'],
+      ['G'], ['C'], ['G'], ['D7']
+    ],
+    note: 'The same sixteen bars with every passing chord removed. <strong>I – IV – I – V</strong>, essentially a parlour song. Toggle between the two tabs: everything that makes the arrangement sound like ragtime is the <em>difference</em> between these charts, and all of it is chromatic approach — never a change of key.'
+  },
+  {
+    name: 'The ♯IV°7 cadence',
+    barBeats: 4,
+    bars: [
+      ['G'], ['C'], ['C#dim7'], ['G/D'],
+      ['G'], ['C'], ['C#dim7'], ['G/D']
+    ],
+    note: 'The signature move, isolated and looped. <strong>IV → ♯IV°7 → I⁶₄.</strong> The bass climbs C – C♯ – D while the upper voices fall; the tonic arrives over its own 5th rather than its root, which is why it sounds like a comma rather than a full stop. Turn on Loop and play it twenty times.'
+  }
+];
 
 const RHYTHM_CHARTS = [
   {
@@ -5918,13 +6747,18 @@ function makeChartLab(prefix, CHARTS, opts) {
       }
       const ev = seq[k++];
       const beatMs = 60000 / Number(tempoEl ? tempoEl.value : 120);
-      clearHighlight();
-      const barEl = chartEl.querySelector(`.chart-bar[data-bar="${ev.bar}"]`);
-      if (barEl) barEl.classList.add('playing');
-      const chipEl = chartEl.querySelector(`.chip[data-bar="${ev.bar}"][data-slot="${ev.slot}"]`);
-      if (chipEl) chipEl.classList.add('sounding');
-      playChord(chordVoicing(ev.sym), 18);
-      timer = setTimeout(step, ev.beats * beatMs);
+      const holdMs = ev.beats * beatMs;
+      // Schedule the next step FIRST so nothing downstream can stall the transport.
+      timer = setTimeout(step, holdMs);
+      try {
+        clearHighlight();
+        const barEl = chartEl.querySelector(`.chart-bar[data-bar="${ev.bar}"]`);
+        if (barEl) barEl.classList.add('playing');
+        const chipEl = chartEl.querySelector(`.chip[data-bar="${ev.bar}"][data-slot="${ev.slot}"]`);
+        if (chipEl) chipEl.classList.add('sounding');
+        // Let each chord ring a little past its slot, but never pile up.
+        playChord(chordVoicing(ev.sym), 18, Math.min(2.0, (holdMs / 1000) * 1.25));
+      } catch (e) { /* keep playing */ }
     };
     step();
   };
@@ -5948,6 +6782,7 @@ function makeChartLab(prefix, CHARTS, opts) {
 
 function buildBluesLab() { makeChartLab('blues', BLUES_CHARTS); }
 function buildRhythmLab() { makeChartLab('rhythm', RHYTHM_CHARTS, { playLabel: 'Play section' }); }
+function buildRagLab() { makeChartLab('rag', RAG_CHARTS, { playLabel: 'Play strain' }); }
 
 
 
@@ -6375,8 +7210,22 @@ function setupPalette() {
   });
 }
 
+// Create/resume the AudioContext on the first real user gesture, so the first
+// transport tick never races a suspended context.
+function setupAudioUnlock() {
+  const unlock = () => {
+    try {
+      ensureAudio();
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    } catch (e) {}
+  };
+  ['pointerdown', 'touchstart', 'keydown'].forEach(evt =>
+    document.addEventListener(evt, unlock, { once: true, passive: true }));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  setupAudioUnlock();
   buildKeyboard();
   populateSelectors();
   render();
@@ -6384,6 +7233,8 @@ document.addEventListener('DOMContentLoaded', () => {
   buildBluesLab();
   buildRhythmLab();
   buildCompLab();
+  buildExerciseLab();
+  buildRagLab();
   buildOutLab();
   buildReharmLab();
   buildModeFinder();
