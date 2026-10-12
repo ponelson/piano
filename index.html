@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Piano: Modes &amp; Movements v4.0">
-<title>Piano: Modes & Movements v4.0 — A Jazz Piano Library</title>
+<meta property="og:title" content="Piano: Modes &amp; Movements v4.1">
+<title>Piano: Modes & Movements v4.1 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -1880,6 +1880,7 @@
   }
   .sim-card:hover { border-color: var(--line-strong); }
   .sim-card.bad { border-color: var(--rouge-line); }
+  .sim-card.now { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
   .sim-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
   .sim-sym { font-family: var(--serif); font-style: italic; font-size: 26px; color: var(--ink); }
   .sim-grip {
@@ -1935,7 +1936,7 @@
 
   <!-- ============== HERO ============== -->
   <section class="hero">
-    <span class="eyebrow">A Jazz Piano Library · v4.0 · 11 October 2026, 4:30 PM ET · build 2026-10-11T20:30Z</span>
+    <span class="eyebrow">A Jazz Piano Library · v4.1 · 11 October 2026, 8:01 PM ET · build 2026-10-12T00:01Z</span>
     <h1>
       <span class="line">Eleven parent scales.</span>
       <span class="line">Seventy-seven modes.</span>
@@ -2395,7 +2396,7 @@ Target D over G7:   E – C♯ – D</div>
   <section id="blues">
     <div class="reveal" style="margin-bottom: 56px;">
       <span class="eyebrow">The Blues</span>
-      <h2>Twelve bars, <em>fully lit.</em></h2>
+      <h2>Twelve bars, <em>eight ways.</em></h2>
       <p class="lede">Eight harmonizations of the same form — playable, in C — plus the passing chords that connect them, the guide tones that steer them, and the Barry-Harris language for soloing over them. The blues collections themselves live up in Pentatonics, and the hand-shape approach — blues as grips rather than scales — is in <a href="#newjazz" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">NewJazz</a>.</p>
     </div>
 
@@ -2654,6 +2655,7 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
       </div>
 
     </div>
+    <p class="muted reveal" style="margin-top: 28px; font-size: 13px; max-width: 840px;"><strong style="color:var(--ink)">Two major triads over a progression:</strong> the triad-pair lesson — two major triads a whole step apart on every chord of a minor ii–V–i, remembered as two minor chords — is in <a href="#newjazz-triadpairs" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">NewJazz</a>, with the Barry Harris reading in <a href="#barry" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The Barry Harris System</a>. In C minor: B♭ + C over Dm7♭5, D♭ + E♭ over G7alt, F + G over Cm∆7.</p>
   </section>
 
   <hr class="divider">
@@ -2721,6 +2723,24 @@ Em7 – A7   →  play A dominant   (sets up Dm7)</div>
 
     <h3 class="reveal" style="margin: 64px 0 20px; font-style: italic;">The five <em>divisions</em></h3>
     <p class="lede reveal" style="margin-bottom: 28px; max-width: 840px;">Each row is a way of slicing the octave into equal parts. The count is how many tonalities you get before the cycle returns home — and that count is the whole dial. Three tonalities keeps you close; eight puts you almost anywhere.</p>
+
+    <div class="recipe reveal" style="margin-bottom: 18px;"><b>Three words first.</b>
+   <b>Tonality</b>  a temporary home note. You play your shape as if that note were the key.
+   <b>Step</b>      the distance from one tonality to the next.
+   <b>Division</b>  a step that divides the 12 semitones evenly — so after a fixed number
+            of stops you arrive back where you started. That number is the dial.</div>
+
+    <table class="study-table reveal" style="margin-bottom: 18px;">
+      <thead><tr><th>Division</th><th>Step</th><th>Stops</th><th>Tonalities from C</th><th>One shape — a C major triad — at each stop</th><th>Use over</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Major thirds</td><td class="chord">4 semitones</td><td class="chord">12 ÷ 4 = <b>3</b></td><td class="chord">C · E · A♭</td><td class="chord">C E G → E G♯ B → A♭ C E♭</td><td>a major chord or tonic vamp</td></tr>
+        <tr><td class="name">Minor thirds</td><td class="chord">3 semitones</td><td class="chord">12 ÷ 3 = <b>4</b></td><td class="chord">C · E♭ · G♭ · A</td><td class="chord">C E G → E♭ G B♭ → G♭ B♭ D♭ → A C♯ E</td><td>a dominant 7 — the stops are its °7</td></tr>
+        <tr><td class="name">Whole tone</td><td class="chord">2 semitones</td><td class="chord">12 ÷ 2 = <b>6</b></td><td class="chord">C · D · E · F♯ · A♭ · B♭</td><td class="chord">C E G → D F♯ A → E G♯ B → F♯ A♯ C♯ → A♭ C E♭ → B♭ D F</td><td>7♯5 and augmented chords</td></tr>
+        <tr><td class="name">Whole–half diminished</td><td class="chord">2, 1, 2, 1…</td><td class="chord">12 ÷ 3 × 2 = <b>8</b></td><td class="chord">C · D · E♭ · F · G♭ · A♭ · A · B</td><td class="chord">C E G → D F♯ A → E♭ G B♭ → F A C → …</td><td>a diminished 7, or tonic minor with movement</td></tr>
+        <tr><td class="name">Half–whole diminished</td><td class="chord">1, 2, 1, 2…</td><td class="chord">12 ÷ 3 × 2 = <b>8</b></td><td class="chord">C · D♭ · E♭ · E · G♭ · G · A · B♭</td><td class="chord">C E G → D♭ F A♭ → E♭ G B♭ → E G♯ B → …</td><td>a dominant 7 with ♭9 / ♯9 / 13</td></tr>
+      </tbody>
+    </table>
+    <p class="muted reveal" style="margin: 0 0 26px; font-size: 13px; max-width: 840px;">Read each row left to right: pick the step, list the tonalities it lands on starting from your chord's root, and play one shape — the same notes, the same fingering, the same rhythm — at each. The two diminished rows alternate step sizes, so they make eight stops rather than four; both contain the minor-thirds row (C E♭ G♭ A) with one extra stop between each. The tabs below play each division with a shape of your choice.</p>
 
     <div class="blues-lab reveal">
       <div class="ivi-tabs" id="out-tabs"></div>
@@ -3075,7 +3095,7 @@ total:  C D E♭ F G♭ A♭ B♭  =  <b>C Locrian ♮2</b>  (6th mode of E♭ m
     <p class="muted reveal" style="margin-top:18px; font-size:13px; max-width:820px;">You never work out the scale. You find the tritone, drop a half step, drop a whole step, and the fingering is identical in all twelve keys — which is the entire argument for hand grips over theory. The <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a> has this as <em>Prehn · grip + row</em>, steppable and transposable.</p>
 
     <h3 id="newjazz-sim" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Grip <em>simulator</em></h3>
-    <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Type any progression and the grips generate underneath, one card per chord. It picks between the <em>a</em> and <em>b</em> inversions to keep the hand still — so the voicings it gives you are already voice-led, and the movement count tells you how far the hand travelled.</p>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Type any progression — up to sixteen chords, in standard or NewJazz spelling (<em>Dmi7</em>, <em>CMa7</em>, <em>CmiMa7</em>) — and the left-hand grips generate underneath, with <strong>Play the progression</strong> to hear them in time, one card per chord. It picks between the <em>a</em> and <em>b</em> inversions to keep the hand still — so the voicings it gives you are already voice-led, and the movement count tells you how far the hand travelled.</p>
 
     <div class="reveal">
       <div class="searchbar">
@@ -3086,10 +3106,20 @@ total:  C D E♭ F G♭ A♭ B♭  =  <b>C Locrian ♮2</b>  (6th mode of E♭ m
         <button class="search-hint" data-q="Dm7 G7 Cmaj7"><span class="lab">major</span>ii–V–I</button>
         <button class="search-hint" data-q="Dm7b5 G7alt Cm6"><span class="lab">minor</span>iiø–V–i</button>
         <button class="search-hint" data-q="Am7 D7 Gmaj7 Cmaj7 F#m7b5 B7alt Em6"><span class="lab">cycle</span>the seven-chord cycle</button>
+        <button class="search-hint" data-q="Am7 D7 Gmaj7 Cmaj7 F#m7b5 B7alt Em6 Em6 Am7 D7 Gmaj7 Cmaj7 F#m7b5 B7alt Em6 Em6"><span class="lab">cycle ×2</span>sixteen bars</button>
+        <button class="search-hint" data-q="Dmi7 G7 CMa7 Dmi7b5 G7b9 CmiMa7"><span class="lab">menus</span>major then minor, NewJazz spelling</button>
         <button class="search-hint" data-q="Fm7 Bb7 Eb69"><span class="lab">1a 2a 3</span>in E♭</button>
         <button class="search-hint" data-q="Dsus D7 Gsus G7"><span class="lab">chain</span>sus → dom</button>
         <button class="search-hint" data-q="Cm7 F7 Bbmaj7 Ebmaj7"><span class="lab">cycle</span>descending fifths</button>
         <button class="search-hint" data-q="Cmaj7 A7alt Dm7 G7alt"><span class="lab">turnaround</span>I–VI–ii–V</button>
+      </div>
+      <div class="lab-transport" style="margin-top: 18px;">
+        <button class="kb-play" id="sim-play"><span class="play-tri"></span>Play the progression</button>
+        <label class="lab-field">Tempo
+          <input type="range" id="sim-tempo" min="40" max="160" step="2" value="72">
+          <span class="bpm" id="sim-bpm">72</span>
+        </label>
+        <label class="lab-field"><input type="checkbox" id="sim-loop"> Loop</label>
       </div>
       <div class="sim-results" id="sim-results"></div>
     </div>
@@ -3187,7 +3217,7 @@ total:  C D E♭ F G♭ A♭ B♭  =  <b>C Locrian ♮2</b>  (6th mode of E♭ m
     <div class="recipe reveal">Am7 → D7:  <b>one note moves.</b>  G B C E  →  F♯ B C E
 D7 and F♯m7♭5 are the <b>same four notes</b> — F♯ B C E — on a different bass.
 G6/9 → C6/9: the same grip, moved; neither grip contains a major 7.</div>
-    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Steppable and transposable in the <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a> as <em>NewJazz · the cycle</em>.</p>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;"><button class="kb-play" data-sim-load="Am7 D7 Gmaj7 Cmaj7 F#m7b5 B7alt Em6" style="margin: 0 10px 0 0;"><span class="play-tri"></span>Open the cycle in the grip simulator</button> Steppable and transposable in the <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a> as <em>NewJazz · the cycle</em>.</p>
 
     <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The right hand through the cycle: <em>one shape, moving thumb</em></h3>
     <p class="lede reveal" style="margin-bottom: 26px; max-width: 840px;">The same <strong>1 · 4 · 5 · 6 · 8</strong> shape covers every chord in the progression. You never change the fingering — you only change where the thumb lands. Each chord has a <em>row</em> of positions a perfect fifth apart, and the row plus the left-hand grip spells the chord's scale exactly, with nothing left over.</p>
@@ -4113,7 +4143,7 @@ Each new tonic is a major 3rd below the last — C, A♭, E, back to C.</div>
     <div class="reveal" style="margin-bottom: 56px;">
       <span class="eyebrow">The ii–V–I Lab</span>
       <h2>One cadence, <em>twelve roads home.</em></h2>
-      <p class="lede">The same three bars — relit twelve ways. Each tab is a substitution path, and under every chord the <em>Also playable</em> list names each melodic-minor and harmonic-minor mode that fits, with its parent scale. The keyboard under every chord shows the <span style="color:var(--rouge)">featured pentatonic in red</span>, with the chord tones it sits on in <span style="color:var(--accent-2)">amber</span> underneath.</p>
+      <p class="lede">The same three bars — relit twelve ways. Each tab is a substitution path. Under every chord: the <strong>NewJazz hand grips</strong> first — left-hand grip from the simulator, then the right-hand grips — and then the scales, with any scale that has the same notes as another shown in parentheses, e.g. <em>D minor pentatonic (F major pentatonic)</em>, <em>G Lydian dominant (D melodic minor)</em>. The keyboard under every chord shows the <span style="color:var(--rouge)">featured pentatonic in red</span>, with the chord tones it sits on in <span style="color:var(--accent-2)">amber</span> underneath.</p>
     </div>
 
     <div class="ivi-lab reveal">
@@ -5487,8 +5517,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div class="verstamp" style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v4.0 · build 2026-10-11T20:30Z · 11 October 2026, 4:30 PM ET<br>
-    supersedes v3.9 (build 2026-10-11T20:18Z) — adds the NewJazz major ii–V–I scale menu (eighteen scales over Dm7 | G7 | C∆7, by parent), carried into the ii–V–I Lab's Classical tab and What plays over what
+    v4.1 · build 2026-10-12T00:01Z · 11 October 2026, 8:01 PM ET<br>
+    supersedes v4.0 (build 2026-10-11T20:30Z) — ii–V–I Lab leads each chord with its NewJazz hand grips (left-hand grip from the simulator, right-hand blues, 1·4·5·6·8, triad-pair and harmonic-minor grips), and shows same-note scales in parentheses · Playing Out spells out the five divisions (step, stops, tonalities, one shape at each stop, what to use it over) · grip simulator reads NewJazz chord spellings, names notes by degree (F♯ in G, not G♭), shows notes kept between chords, and plays the progression in time · "Open the cycle in the grip simulator" · triad-pair lesson linked from Triads · Blues heading renamed "Twelve bars, eight ways"
   </div>
 </footer>
 
@@ -6826,143 +6856,158 @@ function render() {
 const IVI_SUBS = [
   {
     name: "Classical",
-    ii: { chord: "Dm7", pent: "A minor pentatonic", scales: ["D Dorian", "D minor pentatonic", "F major pentatonic", "F6 (Barry reading)",
-      "MM D Dorian ♭2 · 2nd mode of C melodic minor — the darker ♭9 colour",
-      "MM D melodic minor — heard as Dm6; its C♯ replaces the ♭7",
-      "HM D Dorian ♯4 · 4th mode of A harmonic minor — m7 with a ♯11",
-      "NJ D natural minor (Aeolian) · 6th mode of F major",
-      "NJ D Phrygian · 3rd mode of B♭ major",
-      "HX D Phrygian ♭4 · 3rd mode of B♭ harmonic major"] },
-    v:  { chord: "G7",  pent: "D Dorian pentatonic", scales: ["G Mixolydian", "G bebop dominant", "A minor pentatonic", "G major pentatonic",
-      "MM G Lydian dominant · 4th mode of D melodic minor — 7♯11",
-      "MM G Mixolydian ♭6 (Aeolian dominant) · 5th mode of C melodic minor — 7♭13",
-      "MM G altered · 7th mode of A♭ melodic minor — 7alt",
-      "HM G Phrygian dominant · 5th mode of C harmonic minor — 7♭9♭13, borrowed from C minor",
-      "HX G Mixolydian ♭2 · 5th mode of C harmonic major — 7♭9",
-      "HX G Phrygian ♭4 · 3rd mode of E♭ harmonic major — 7♭9♯9♭13",
-      "SY G inverted (half-whole) diminished",
-      "NJ C harmonic-minor hexatonic (C D E♭ G A♭ B) — the two harmonic-minor grips"] },
-    i:  { chord: "C∆7", pent: "E minor pentatonic", scales: ["C Ionian", "C major pentatonic", "G major pentatonic", "C6 (Barry reading)",
-      "MM C Lydian augmented · 3rd mode of A melodic minor — ∆7♯5 (raises the 5th)",
-      "HM C Ionian ♯5 · 3rd mode of A harmonic minor — ∆7♯5 (raises the 5th)",
-      "HM C Lydian ♯2 · 6th mode of E harmonic minor — ∆7♯9♯11",
-      "HX C harmonic major — major with a ♭6",
-      "SY C augmented (C E♭ E G A♭ B)",
-      "NJ C Lydian"] },
-    note: "The foundation. <em>A minor pentatonic</em> over Dm7 catches the 9th and 13th; <em>D Dorian pentatonic</em> (D F G A B) over G7 keeps the leading tone alive. Every melodic-minor and harmonic-minor mode that fits each chord is listed under it, with its parent, plus the rest of the NewJazz major menu — see <a href=\"#newjazz-major-ivi\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">NewJazz</a>."
+    ii: { chord: "Dm7", sim: "Dm7", pent: "A minor pentatonic (C major pentatonic)",
+      rh: ["D minor blues", "A minor blues (C major blues) — carries into the V", "E minor blues (G major blues) — carries into the V"],
+      scales: ["D Dorian (C major)", "D minor pentatonic (F major pentatonic)", "F6 (Barry — the same notes as Dm7)", "D natural minor (F major)", "D Phrygian (B♭ major)", "MM D Dorian ♭2 (C melodic minor)", "MM D melodic minor — heard as Dm6; its C♯ replaces the ♭7", "HM D Dorian ♯4 (A harmonic minor)", "HX D Phrygian ♭4 (B♭ harmonic major)"] },
+    v:  { chord: "G7", sim: "G7", pent: "D Dorian pentatonic",
+      rh: ["C major blues (A minor blues)", "G major blues (E minor blues)", "G minor blues — darker"],
+      scales: ["G Mixolydian (C major)", "G bebop dominant", "A minor pentatonic (C major pentatonic)", "G major pentatonic (E minor pentatonic)", "MM G Lydian dominant (D melodic minor)", "MM G Aeolian dominant · Mixolydian ♭6 (C melodic minor)", "MM G altered (A♭ melodic minor)", "HM G Phrygian dominant (C harmonic minor)", "HX G Mixolydian ♭2 (C harmonic major)", "HX G Phrygian ♭4 (E♭ harmonic major)", "SY G half-whole diminished", "NJ C harmonic-minor hexatonic (C D E♭ G A♭ B)"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "E minor pentatonic (G major pentatonic)",
+      rh: ["C major blues (A minor blues) — held over from the V", "C minor blues — dark"],
+      scales: ["C Ionian (C major)", "C Lydian (G major)", "C major pentatonic (A minor pentatonic)", "C6 (Barry — the same notes as Am7)", "MM C Lydian augmented (A melodic minor) — ∆7♯5", "HM C Ionian ♯5 (A harmonic minor) — ∆7♯5", "HM C Lydian ♯2 (E harmonic minor)", "HX C harmonic major", "SY C augmented (C E♭ E G A♭ B)"] },
+    note: "The foundation. Left hand: NewJazz grips 1b → 2b → 3, voice-led so the hand barely moves. Right hand: the blues grips from <a href=\"#newjazz-bluesivi\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">Lesson 1</a> — A minor blues and E minor blues on the ii <em>are</em> the C major and G major blues you want on the V. Same-note scales are shown together, the second in parentheses."
   },
   {
     name: "Altered V",
-    ii: { chord: "Dm7", pent: "A minor pentatonic", scales: ["D Dorian", "F major pentatonic", "D minor pentatonic",
-      "MM D Dorian ♭2 · 2nd mode of C melodic minor", "HM D Dorian ♯4 · 4th mode of A harmonic minor"] },
-    v:  { chord: "G7alt", pent: "B♭ minor pentatonic", scales: ["Hexatonic altered (no D♭)", "A♭ minor pentatonic — the ♭9", "E♭ minor pentatonic — the ♭6", "Half-whole diminished — for ♭9/♯9",
-      "MM G altered (super-Locrian) · 7th mode of A♭ melodic minor",
-      "HM G Phrygian dominant · 5th mode of C harmonic minor — when the ♭9 and ♭13 resolve to minor"] },
-    i:  { chord: "C∆7", pent: "E minor pentatonic", scales: ["C Ionian", "C major pentatonic", "C6 (Barry reading)",
-      "HM C Lydian ♯2 · 6th mode of E harmonic minor"] },
-    note: "The default jazz move. The <em>B♭ minor pentatonic</em> over G7alt sits on the ♭3 of V — every note is an alteration."
+    ii: { chord: "Dm7", sim: "Dm7", pent: "A minor pentatonic (C major pentatonic)",
+      rh: ["D minor blues", "A minor blues (C major blues) — carries into the V", "E minor blues (G major blues) — carries into the V"],
+      scales: ["D Dorian (C major)", "D minor pentatonic (F major pentatonic)", "MM D Dorian ♭2 (C melodic minor)", "HM D Dorian ♯4 (A harmonic minor)"] },
+    v:  { chord: "G7alt", sim: "G7alt", pent: "B♭ minor pentatonic (D♭ major pentatonic)",
+      rh: ["1·4·5·6·8 from B♭ — B♭ E♭ F G B♭", "1·4·5·6·8 from A♭ — A♭ D♭ E♭ F A♭"],
+      scales: ["G hexatonic altered (no D♭)", "A♭ minor pentatonic (B major pentatonic) — the ♭9", "E♭ minor pentatonic (G♭ major pentatonic) — the ♭6", "SY G half-whole diminished — for ♭9/♯9", "MM G altered (A♭ melodic minor)", "HM G Phrygian dominant (C harmonic minor) — when it resolves to minor"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "E minor pentatonic (G major pentatonic)",
+      rh: ["C major blues (A minor blues) — held over from the V"],
+      scales: ["C Ionian (C major)", "C major pentatonic (A minor pentatonic)", "C6 (Barry — the same notes as Am7)", "HM C Lydian ♯2 (E harmonic minor)"] },
+    note: "The default jazz move. The <em>B♭ minor pentatonic</em> over G7alt sits on the ♭3 of V — every note is an alteration. Left hand: grip 2a, the altered placement."
   },
   {
     name: "Diminished sub",
-    ii: { chord: "Dm7", pent: "A minor pentatonic", scales: ["D Dorian", "F major pentatonic", "HM D Dorian ♯4 · 4th mode of A harmonic minor"] },
-    v:  { chord: "A♭°7", pent: "G half-whole diminished", scales: ["A♭ whole-half diminished", "G7♭9 arpeggio (A♭ B D F)", "A♭°7 — any of its four inversions",
-      "HM B Ultra-Locrian · 7th mode of C harmonic minor — the same four-note chord (B D F A♭), heard toward C minor",
-      "HM G Phrygian dominant · 5th mode of C harmonic minor — A♭°7 is a rootless G7♭9"] },
-    i:  { chord: "C∆7", pent: "E minor pentatonic", scales: ["C Ionian", "C major pentatonic"] },
-    note: "A diminished 7 a half-step above the dominant's root <em>is</em> a rootless G7♭9 (A♭°7 = G7♭9 minus its root). Symmetric, so the same shape repeats every minor third. Play the whole-half diminished from A♭, or the half-whole from G."
+    ii: { chord: "Dm7", sim: "Dm7", pent: "A minor pentatonic (C major pentatonic)",
+      rh: ["D minor blues", "A minor blues (C major blues) — carries into the V", "E minor blues (G major blues) — carries into the V"],
+      scales: ["D Dorian (C major)", "D minor pentatonic (F major pentatonic)", "HM D Dorian ♯4 (A harmonic minor)"] },
+    v:  { chord: "A♭°7", sim: null, pent: "G half-whole diminished (A♭ whole-half diminished)",
+      rh: [],
+      scales: ["G7♭9 arpeggio (A♭ B D F)", "A♭°7 — any of its four inversions (B°7, D°7, F°7)", "HM B Ultra-Locrian (C harmonic minor) — the same four-note chord, heard toward C minor", "HM G Phrygian dominant (C harmonic minor) — A♭°7 is a rootless G7♭9"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "E minor pentatonic (G major pentatonic)",
+      rh: ["C major blues (A minor blues) — held over from the V"],
+      scales: ["C Ionian (C major)", "C major pentatonic (A minor pentatonic)", "C6 (Barry — the same notes as Am7)"] },
+    note: "A diminished 7 a half-step above the dominant's root <em>is</em> a rootless G7♭9. Symmetric, so the same shape repeats every minor third. NewJazz has no grip for a °7 — the simulator leaves it out."
   },
   {
     name: "Tritone sub",
-    ii: { chord: "Dm7", pent: "A minor pentatonic", scales: ["D Dorian", "F major pentatonic"] },
-    v:  { chord: "D♭7♯11", pent: "E♭ hexatonic major", scales: ["A♭ minor pentatonic — on the 5th", "Whole tone",
-      "MM D♭ Lydian dominant · 4th mode of A♭ melodic minor — the same seven notes as G altered"] },
-    i:  { chord: "C∆7", pent: "E minor pentatonic", scales: ["C Ionian", "C major pentatonic"] },
+    ii: { chord: "Dm7", sim: "Dm7", pent: "A minor pentatonic (C major pentatonic)",
+      rh: ["D minor blues", "A minor blues (C major blues) — carries into the V", "E minor blues (G major blues) — carries into the V"],
+      scales: ["D Dorian (C major)", "D minor pentatonic (F major pentatonic)"] },
+    v:  { chord: "D♭7♯11", sim: "Db7#11", pent: "E♭ hexatonic major",
+      rh: [],
+      scales: ["A♭ minor pentatonic (B major pentatonic) — on the 5th", "D♭ whole tone (G whole tone)", "MM D♭ Lydian dominant (A♭ melodic minor) — the same seven notes as G altered"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "E minor pentatonic (G major pentatonic)",
+      rh: ["C major blues (A minor blues) — held over from the V"],
+      scales: ["C Ionian (C major)", "C major pentatonic (A minor pentatonic)", "C6 (Barry — the same notes as Am7)"] },
     note: "<em>E♭ hexatonic major</em> over the tritone sub. The ♭5-of-V move."
   },
   {
     name: "Lydian I",
-    ii: { chord: "Dm7", pent: "A minor pentatonic", scales: ["D Dorian", "F major pentatonic"] },
-    v:  { chord: "G7",  pent: "D minor pentatonic", scales: ["G Mixolydian", "G bebop dominant", "D Dorian pentatonic",
-      "MM G Lydian dominant · 4th mode of D melodic minor"] },
-    i:  { chord: "C∆7♯11", pent: "B minor pentatonic", scales: ["C Lydian", "D major pentatonic — on the 2nd", "G major pentatonic",
-      "MM C Lydian augmented · 3rd mode of A melodic minor",
-      "HM C Lydian ♯2 · 6th mode of E harmonic minor"] },
+    ii: { chord: "Dm7", sim: "Dm7", pent: "A minor pentatonic (C major pentatonic)",
+      rh: ["D minor blues", "A minor blues (C major blues) — carries into the V", "E minor blues (G major blues) — carries into the V"],
+      scales: ["D Dorian (C major)", "D minor pentatonic (F major pentatonic)"] },
+    v:  { chord: "G7", sim: "G7", pent: "D minor pentatonic (F major pentatonic)",
+      rh: ["C major blues (A minor blues)", "G major blues (E minor blues)"],
+      scales: ["G Mixolydian (C major)", "G bebop dominant", "D Dorian pentatonic", "MM G Lydian dominant (D melodic minor)"] },
+    i:  { chord: "C∆7♯11", sim: "Cmaj7#11", pent: "B minor pentatonic (D major pentatonic)",
+      rh: [],
+      scales: ["C Lydian (G major)", "G major pentatonic (E minor pentatonic)", "MM C Lydian augmented (A melodic minor)", "HM C Lydian ♯2 (E harmonic minor)"] },
     note: "B minor pentatonic over C∆7 sounds the ♯11 — the Lydian I sound. Holds the major 7th too."
   },
   {
     name: "Screendoor V (B∆7♯11)",
-    ii: { chord: "Dm7", pent: "A minor pentatonic", scales: ["D Dorian", "F major pentatonic"] },
-    v:  { chord: "B∆7♯11", pent: "B♭ minor pentatonic", scales: ["B Lydian", "F♯ major pentatonic",
-      "MM B Lydian augmented · 3rd mode of G♯ melodic minor — the same notes as G altered",
-      "HM B Lydian ♯2 · 6th mode of D♯ harmonic minor"] },
-    i:  { chord: "C∆7", pent: "E minor pentatonic", scales: ["C Ionian", "C major pentatonic"] },
-    note: "<em>Santangelo's substitution.</em> III∆7♯11 of V is a rootless V7♯5♯9 — which is why B Lydian augmented and G altered are the same seven notes. B♭ minor pentatonic over it brings outer-space colour."
+    ii: { chord: "Dm7", sim: "Dm7", pent: "A minor pentatonic (C major pentatonic)",
+      rh: ["D minor blues", "A minor blues (C major blues) — carries into the V", "E minor blues (G major blues) — carries into the V"],
+      scales: ["D Dorian (C major)", "D minor pentatonic (F major pentatonic)"] },
+    v:  { chord: "B∆7♯11", sim: "Bmaj7#11", pent: "B♭ minor pentatonic (D♭ major pentatonic)",
+      rh: [],
+      scales: ["B Lydian (F♯ major)", "F♯ major pentatonic (D♯ minor pentatonic)", "MM B Lydian augmented (G♯ melodic minor) — the same notes as G altered", "HM B Lydian ♯2 (D♯ harmonic minor)"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "E minor pentatonic (G major pentatonic)",
+      rh: ["C major blues (A minor blues) — held over from the V"],
+      scales: ["C Ionian (C major)", "C major pentatonic (A minor pentatonic)", "C6 (Barry — the same notes as Am7)"] },
+    note: "<em>Santangelo's substitution.</em> III∆7♯11 of V is a rootless V7♯5♯9 — which is why B Lydian augmented and G altered are the same seven notes."
   },
   {
     name: "Backdoor",
-    ii: { chord: "Fm7", pent: "C minor pentatonic — on the 5th (9 &amp; 11)", scales: ["F Dorian", "F minor pentatonic", "A♭ major pentatonic",
-      "MM F melodic minor — the iv minor 6 sound; the same seven notes as B♭ Lydian dominant",
-      "MM F Dorian ♭2 · 2nd mode of E♭ melodic minor",
-      "HM F Dorian ♯4 · 4th mode of C harmonic minor"] },
-    v:  { chord: "B♭7", pent: "F minor pentatonic — on the 5th (9 &amp; 11)", scales: ["B♭ Mixolydian", "F Dorian",
-      "MM B♭ Lydian dominant · 4th mode of F melodic minor — ♯11 = E, the 3rd of C",
-      "MM B♭ Mixolydian ♭6 · 5th mode of E♭ melodic minor",
-      "HM B♭ Phrygian dominant · 5th mode of E♭ harmonic minor"] },
-    i:  { chord: "C∆7", pent: "E minor pentatonic", scales: ["C Ionian", "C major pentatonic"] },
-    note: "The backdoor dominant — <em>♭VII7 borrowed from the parallel minor</em>, resolving up a whole step to I. The iv (Fm7) and ♭VII7 (B♭7) share a parent in E♭ major, so the minor pentatonics on their 5ths — C minor pentatonic over Fm7, F minor pentatonic over B♭7 — fit both and bring out the 9 &amp; 11. With melodic minor the two chords share one collection outright: <em>F melodic minor</em> over the Fm6 is <em>B♭ Lydian dominant</em> over the B♭7, and its ♯11 (E) is the 3rd of the C∆7 you resolve to."
+    ii: { chord: "Fm7", sim: "Fm7", pent: "C minor pentatonic (E♭ major pentatonic) — on the 5th",
+      rh: [],
+      scales: ["F Dorian (E♭ major)", "F minor pentatonic (A♭ major pentatonic)", "MM F melodic minor (B♭ Lydian dominant) — the iv minor 6 sound", "MM F Dorian ♭2 (E♭ melodic minor)", "HM F Dorian ♯4 (C harmonic minor)"] },
+    v:  { chord: "B♭7", sim: "Bb7", pent: "F minor pentatonic (A♭ major pentatonic) — on the 5th",
+      rh: [],
+      scales: ["B♭ Mixolydian (E♭ major — the same notes as F Dorian)", "MM B♭ Lydian dominant (F melodic minor) — ♯11 = E, the 3rd of C", "MM B♭ Mixolydian ♭6 (E♭ melodic minor)", "HM B♭ Phrygian dominant (E♭ harmonic minor)"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "E minor pentatonic (G major pentatonic)",
+      rh: ["C major blues (A minor blues) — held over from the V"],
+      scales: ["C Ionian (C major)", "C major pentatonic (A minor pentatonic)", "C6 (Barry — the same notes as Am7)"] },
+    note: "The backdoor dominant — <em>♭VII7 borrowed from the parallel minor</em>, resolving up a whole step to I. Fm7 and B♭7 share a parent in E♭ major, and with melodic minor they share one collection outright: F melodic minor over the Fm6 is B♭ Lydian dominant over the B♭7."
   },
   {
     name: "Outerspace (B∆7)",
-    ii: { chord: "Dm7", pent: "A minor pentatonic", scales: ["D Dorian", "F major pentatonic"] },
-    v:  { chord: "B∆7", pent: "E♭ minor pentatonic", scales: ["B Lydian", "B major pentatonic",
-      "HM B Lydian ♯2 · 6th mode of D♯ harmonic minor",
-      "MM B Lydian augmented · 3rd mode of G♯ melodic minor — only if the 5th is raised"] },
-    i:  { chord: "C∆7", pent: "E minor pentatonic", scales: ["C Ionian", "C major pentatonic"] },
+    ii: { chord: "Dm7", sim: "Dm7", pent: "A minor pentatonic (C major pentatonic)",
+      rh: ["D minor blues", "A minor blues (C major blues) — carries into the V", "E minor blues (G major blues) — carries into the V"],
+      scales: ["D Dorian (C major)", "D minor pentatonic (F major pentatonic)"] },
+    v:  { chord: "B∆7", sim: "Bmaj7", pent: "E♭ minor pentatonic (G♭ major pentatonic)",
+      rh: [],
+      scales: ["B Lydian (F♯ major)", "B major pentatonic (G♯ minor pentatonic)", "HM B Lydian ♯2 (D♯ harmonic minor)", "MM B Lydian augmented (G♯ melodic minor) — only if the 5th is raised"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "E minor pentatonic (G major pentatonic)",
+      rh: ["C major blues (A minor blues) — held over from the V"],
+      scales: ["C Ionian (C major)", "C major pentatonic (A minor pentatonic)", "C6 (Barry — the same notes as Am7)"] },
     note: "III∆7 of V, with the minor pentatonic on its 3rd (E♭ = D♯) on top. Far. Beautiful."
   },
   {
     name: "Minor ii–V–i",
-    ii: { chord: "Dm7♭5", pent: "F minor 6 pentatonic", scales: ["D Locrian", "Fm6 (Barry reading)",
-      "MM D Locrian ♮2 (half-diminished) · 6th mode of F melodic minor",
-      "MM D Super Locrian · 7th mode of E♭ melodic minor",
-      "HM D Locrian ♮6 (♯6) · 2nd mode of C harmonic minor",
-      "HX D Dorian ♭5 · 2nd mode of C harmonic major",
-      "NJ C harmonic-minor hexatonic — one collection for all three chords"] },
-    v:  { chord: "G7alt", pent: "D♭ major pentatonic", scales: ["Hexatonic altered", "Half-whole (\"inverted\") diminished",
-      "MM G altered · 7th mode of A♭ melodic minor",
-      "HM G Phrygian dominant · 5th mode of C harmonic minor",
-      "HX G Mixolydian ♭2 · 5th mode of C harmonic major",
-      "HX G Phrygian ♭4 · 3rd mode of E♭ harmonic major",
-      "NJ C harmonic-minor hexatonic"] },
-    i:  { chord: "Cm∆7", pent: "D minor pentatonic", scales: ["C Dorian", "Cm6-diminished (Barry)", "E♭ major pentatonic",
-      "MM C melodic minor", "HM C harmonic minor",
-      "HX C Lydian ♭3 · 4th mode of G harmonic major",
-      "SY C augmented (C E♭ E G A♭ B)",
-      "NJ C harmonic-minor hexatonic — the grips over E♭∆7♯5 (= rootless Cm∆9)"] },
-    note: "Or — <em>F minor 6 pentatonic for the whole progression</em>. One shape, three chords. The harmonic-minor answer is the same idea with six notes: C harmonic minor covers Dm7♭5 (Locrian ♮6), G7alt (Phrygian dominant) and Cm∆7 at once. The full NewJazz scale menu for this cadence is in <a href=\"#newjazz-minor-ivi\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">NewJazz</a>."
+    ii: { chord: "Dm7♭5", sim: "Dm7b5", pent: "F minor 6 pentatonic",
+      rh: ["1·4·5·6·8 from G — G C D E G", "1·4·5·6·8 from F — F B♭ C D F", "triad pair B♭ + C (♭6 & ♭7)"],
+      scales: ["D Locrian (E♭ major)", "Fm6 (Barry reading)", "MM D half-diminished · Locrian ♮2 (F melodic minor)", "MM D Super Locrian (E♭ melodic minor)", "HM D Locrian ♯6 (C harmonic minor)", "HX D Dorian ♭5 (C harmonic major)", "NJ C harmonic-minor hexatonic — one collection for all three chords"] },
+    v:  { chord: "G7alt", sim: "G7alt", pent: "D♭ major pentatonic (B♭ minor pentatonic)",
+      rh: ["1·4·5·6·8 from B♭ — B♭ E♭ F G B♭", "1·4·5·6·8 from A♭ — A♭ D♭ E♭ F A♭", "triad pair D♭ + E♭ (♭5 & ♭6)"],
+      scales: ["G hexatonic altered", "SY G half-whole · inverted diminished", "MM G altered (A♭ melodic minor)", "HM G Phrygian dominant (C harmonic minor)", "HX G Mixolydian ♭2 (C harmonic major)", "HX G Phrygian ♭4 (E♭ harmonic major)", "NJ C harmonic-minor hexatonic"] },
+    i:  { chord: "Cm∆7", sim: "CmMaj7", pent: "D minor pentatonic (F major pentatonic)",
+      rh: ["1·4·5·6·8 from D — D G A B D", "1·4·5·6·8 from C — C F G A C", "triad pair F + G (4 & 5)"],
+      scales: ["C Dorian (B♭ major)", "Cm6-diminished (Barry)", "E♭ major pentatonic (C minor pentatonic)", "MM C melodic minor", "HM C harmonic minor", "HX C Lydian ♭3 (G harmonic major)", "SY C augmented (C E♭ E G A♭ B)", "NJ C harmonic-minor hexatonic — the grips over E♭∆7♯5 (= rootless Cm∆9)"] },
+    note: "NewJazz on the minor cadence: the left hand is <em>grip 2</em> throughout; the right hand plays the <a href=\"#newjazz-descent\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">1·4·5·6·8 shape</a> twice per chord, thumb walking down a degree each time; the <a href=\"#newjazz-triadpairs\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">triad pairs</a> give a second right-hand option. Or — <em>F minor 6 pentatonic for the whole progression</em>. The full scale menu is in <a href=\"#newjazz-minor-ivi\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">NewJazz</a>."
   },
   {
     name: "Harmonic minor · NewJazz",
-    ii: { chord: "Dm7♭5", pent: "C harmonic-minor hexatonic", scales: ["HM D Locrian ♮6 · 2nd mode of C harmonic minor", "MM D Locrian ♮2 · 6th mode of F melodic minor"] },
-    v:  { chord: "G7♭9♭13", pent: "C harmonic-minor hexatonic", scales: ["HM G Phrygian dominant · 5th mode of C harmonic minor", "MM G altered · 7th mode of A♭ melodic minor"] },
-    i:  { chord: "E♭∆7♯5", pent: "C harmonic-minor hexatonic", scales: ["HM E♭ Ionian ♯5 · 3rd mode of C harmonic minor", "MM E♭ Lydian augmented · 3rd mode of C melodic minor",
-      "NJ grips D G B D · E♭ A♭ C E♭ · E♭ D C · A♭ G F"] },
-    note: "The NewJazz harmonic-minor lesson, placed in a cadence. <em>E♭∆7♯5</em> (E♭ G B D) is a rootless <em>Cm∆9</em>, so it stands in for the tonic. The two four-note grips — D G B D and E♭ A♭ C E♭ — give the hexatonic C D E♭ G A♭ B; the two three-note cells supply the F, and all four together are C harmonic minor. Full lesson in <a href=\"#newjazz-hm\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">NewJazz</a>."
+    ii: { chord: "Dm7♭5", sim: "Dm7b5", pent: "C harmonic-minor hexatonic",
+      rh: ["D G B D + E♭ A♭ C E♭ — the two four-note grips", "E♭ D C + A♭ G F — the two falling cells"],
+      scales: ["HM D Locrian ♯6 (C harmonic minor)", "MM D half-diminished · Locrian ♮2 (F melodic minor)"] },
+    v:  { chord: "G7♭9♭13", sim: "G7b9b13", pent: "C harmonic-minor hexatonic",
+      rh: ["D G B D + E♭ A♭ C E♭ — the two four-note grips", "E♭ D C + A♭ G F — the two falling cells"],
+      scales: ["HM G Phrygian dominant (C harmonic minor)", "MM G altered (A♭ melodic minor)"] },
+    i:  { chord: "E♭∆7♯5", sim: null, pent: "C harmonic-minor hexatonic",
+      rh: ["D G B D + E♭ A♭ C E♭ — the two four-note grips", "E♭ D C + A♭ G F — the two falling cells"],
+      scales: ["HM E♭ Ionian ♯5 (C harmonic minor)", "MM E♭ Lydian augmented (C melodic minor)"] },
+    note: "The NewJazz harmonic-minor lesson in a cadence. <em>E♭∆7♯5</em> (E♭ G B D) is a rootless <em>Cm∆9</em>, so it stands in for the tonic. The four grips are C harmonic minor exactly. Full lesson in <a href=\"#newjazz-hm\" style=\"color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);\">NewJazz</a>."
   },
   {
     name: "Hexatonic chain",
-    ii: { chord: "A♭7♯11", pent: "B♭ hexatonic major", scales: ["E♭ minor pentatonic — on the 5th",
-      "MM A♭ Lydian dominant · 4th mode of E♭ melodic minor"] },
-    v:  { chord: "G7alt", pent: "E♭ hexatonic major", scales: ["Hexatonic altered",
-      "MM G altered · 7th mode of A♭ melodic minor", "HM G Phrygian dominant · 5th mode of C harmonic minor"] },
-    i:  { chord: "Cm∆7", pent: "G hexatonic major", scales: ["Cm6-diminished (Barry)", "MM C melodic minor", "HM C harmonic minor"] },
+    ii: { chord: "A♭7♯11", sim: "Ab7#11", pent: "B♭ hexatonic major",
+      rh: [],
+      scales: ["E♭ minor pentatonic (G♭ major pentatonic) — on the 5th", "MM A♭ Lydian dominant (E♭ melodic minor)"] },
+    v:  { chord: "G7alt", sim: "G7alt", pent: "E♭ hexatonic major",
+      rh: [],
+      scales: ["G hexatonic altered", "MM G altered (A♭ melodic minor)", "HM G Phrygian dominant (C harmonic minor)"] },
+    i:  { chord: "Cm∆7", sim: "CmMaj7", pent: "G hexatonic major",
+      rh: [],
+      scales: ["Cm6-diminished (Barry)", "MM C melodic minor", "HM C harmonic minor"] },
     note: "Tritone sub of ii. Three hexatonic major scales, woven through a minor cadence. <em>Whole step → whole step → minor third.</em>"
   },
   {
     name: "Playing out",
-    ii: { chord: "Dm7", pent: "Dm · F♯m · B♭m — minor pentatonics", scales: ["Minor pentatonics up in major 3rds", "Side-slip ½-step, then resolve"] },
-    v:  { chord: "G7", pent: "Cycle: minor pentatonics on the 2nd, ♭3rd, ♭2nd, ♭6th", scales: ["Stack pentatonics chromatically", "Altered / blue pentatonics"] },
-    i:  { chord: "C∆7", pent: "Am · Em · Bm — minor pentatonics", scales: ["Resolve the slip by ½-step", "C Lydian for lift"] },
+    ii: { chord: "Dm7", sim: "Dm7", pent: "D, F♯, B♭ minor pentatonics",
+      rh: [],
+      scales: ["Minor pentatonics up in major 3rds", "Side-slip ½-step, then resolve"] },
+    v:  { chord: "G7", sim: "G7", pent: "Minor pentatonics on the 2nd, ♭3rd, ♭2nd, ♭6th",
+      rh: [],
+      scales: ["Stack pentatonics chromatically", "Altered / blue pentatonics"] },
+    i:  { chord: "C∆7", sim: "Cmaj7", pent: "A, E, B minor pentatonics",
+      rh: [],
+      scales: ["Resolve the slip by ½-step", "C Lydian for lift"] },
     note: "For ii: minor pentatonic up a 3rd and again. For V: stack pentatonics chromatically. Any shape can slide ½-step up or down and resolve. <em>The dissonance is the path home.</em>"
   }
 ];
@@ -6988,17 +7033,34 @@ function renderIvi(idx) {
   const voicings = IVI_CHORD_VOICINGS[idx];
   const prog = document.getElementById('ivi-progression');
   const altList = arr => (arr && arr.length)
-    ? `<div class="pent-alts"><span class="alt-label">Also playable</span><ul>${arr.map(s => {
+    ? `<div class="pent-alts"><span class="alt-label">Scales · same notes in parentheses</span><ul>${arr.map(s => {
         const fam = { 'MM ': 'Melodic minor', 'HM ': 'Harmonic minor', 'HX ': 'Harmonic major', 'SY ': 'Symmetric', 'NJ ': 'NewJazz' }[s.slice(0, 3)];
         return fam ? `<li><span class="fam-tag">${fam}</span> ${s.slice(3)}</li>` : `<li>${s}</li>`;
       }).join('')}</ul></div>`
     : '';
+  // Left-hand grips from the simulator, voice-led across the slots it can read
+  const symList = [sub.ii, sub.v, sub.i].map(x => x.sim);
+  const simRows = [null, null, null];
+  try {
+    const okIdx = symList.map((x, i) => x ? i : -1).filter(i => i >= 0);
+    const rows = simulateProgression(okIdx.map(i => symList[i]).join(' '));
+    okIdx.forEach((slotI, k) => { if (rows[k] && !rows[k].error) simRows[slotI] = rows[k]; });
+  } catch (e) {}
+  const gripList = (x, i) => {
+    const items = [];
+    const r = simRows[i];
+    if (r) items.push(`<li><span class="fam-tag">LH</span> grip ${r.grip} · ${r.names.join(' ')} <span class="muted">— ${r.label.replace(' · added defining tone', ' + defining tone')}</span></li>`);
+    items.push(`<li><span class="fam-tag">RH</span> ${/pentatonic/.test(x.pent) && !/,/.test(x.pent) ? 'pentatonic grip · ' : ''}${x.pent}</li>`);
+    (x.rh || []).forEach(g => items.push(`<li><span class="fam-tag">RH</span> ${g}</li>`));
+    return `<div class="pent-alts nj-grips"><span class="alt-label">NewJazz hand grips</span><ul>${items.join('')}</ul></div>`;
+  };
   prog.innerHTML = `
     <div class="ivi-slot">
       <div class="role">ii</div>
       <div class="chord">${sub.ii.chord}</div>
       <div class="pent">${sub.ii.pent}</div>
       <div class="ivi-kb" data-slot="0"></div>
+      ${gripList(sub.ii, 0)}
       ${altList(sub.ii.scales)}
     </div>
     <div class="ivi-slot">
@@ -7006,6 +7068,7 @@ function renderIvi(idx) {
       <div class="chord">${sub.v.chord}</div>
       <div class="pent">${sub.v.pent}</div>
       <div class="ivi-kb" data-slot="1"></div>
+      ${gripList(sub.v, 1)}
       ${altList(sub.v.scales)}
     </div>
     <div class="ivi-slot">
@@ -7013,6 +7076,7 @@ function renderIvi(idx) {
       <div class="chord">${sub.i.chord}</div>
       <div class="pent">${sub.i.pent}</div>
       <div class="ivi-kb" data-slot="2"></div>
+      ${gripList(sub.i, 2)}
       ${altList(sub.i.scales)}
     </div>
   `;
@@ -7082,7 +7146,7 @@ const COLOR_LABEL = {
 const COLOR_SPELL = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
 function resolveColorNotes(str) {
   if (!str) return null;
-  const s = str.replace(/♭/g, 'b').replace(/♯/g, '#');
+  const s = str.replace(/\([^)]*\)/g, ' ').split(' — ')[0].replace(/♭/g, 'b').replace(/♯/g, '#');
   const toks = s.split(/[\s·,]+/).filter(Boolean);
   let root = null;
   for (const t of toks) {
@@ -13871,7 +13935,7 @@ const SIM_FLAT  = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B
 const SIM_SHARP = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
 
 function simClassify(sym) {
-  const normalized = sym.trim().replace(/♭/g, 'b').replace(/♯/g, '#').replace(/[∆△]/g, 'maj').replace(/ø7?/g, 'm7b5').replace(/6\/9/g, '69');
+  const normalized = sym.trim().replace(/\s+/g, '').replace(/(mi|min|-)(?=[A-Z0-9∆△]|$|M|Ma)/, 'm').replace(/m?(Ma|Maj|MA)(?=7|9|13)/, (x) => x[0] === 'm' ? 'mmaj' : 'maj').replace(/♭/g, 'b').replace(/♯/g, '#').replace(/[∆△]/g, 'maj').replace(/ø7?/g, 'm7b5').replace(/6\/9/g, '69');
   const m = normalized.match(/^([A-Ga-g][b#]?)([^/]*)(?:\/([A-Ga-g][b#]?))?$/);
   if (!m) return null;
   const rootName = m[1][0].toUpperCase() + m[1].slice(1);
@@ -13886,7 +13950,7 @@ function simClassify(sym) {
   else if (/^m(?!aj)/.test(q)) cat = 'min7';
   else if (/^(?:maj|M7|6)/.test(q) || q === '') cat = 'Mtonic';
   else cat = 'dom';
-  return {root:parsed.root, bass:parsed.bass, cat, q, sharp: /#/.test(rootName)};
+  return {root:parsed.root, bass:parsed.bass, cat, q, sharp: /#/.test(rootName), rootName, bassName: m[3] ? m[3][0].toUpperCase() + m[3].slice(1) : null};
 }
 function simVoicings(root, cat) {
   const out = [];
@@ -13911,6 +13975,18 @@ function simCost(prev, cand) {
   let s = 0;
   for (let i = 0; i < n; i++) s += Math.abs(A[Math.min(i, A.length - 1)] - B[Math.min(i, B.length - 1)]);
   return s;
+}
+const SIM_LET = 'CDEFGAB', SIM_NAT = [0, 2, 4, 5, 7, 9, 11];
+function simSpell(c, pc) {
+  const rn = c.rootName || 'C';
+  const li = SIM_LET.indexOf(rn[0].toUpperCase());
+  const d = ((pc - c.root) % 12 + 12) % 12;
+  const step = { 0: 0, 1: 1, 2: 1, 3: 2, 4: 2, 5: 3, 6: c.cat === 'm7b5' ? 4 : 3, 7: 4, 8: 5, 9: 5, 10: 6, 11: 6 }[d];
+  const L = SIM_LET[(li + step) % 7];
+  let acc = ((pc - SIM_NAT[SIM_LET.indexOf(L)]) % 12 + 12) % 12;
+  if (acc > 6) acc -= 12;
+  if (Math.abs(acc) > 1) return (c.sharp ? SIM_SHARP : SIM_FLAT)[pc];
+  return L + (acc === 1 ? '♯' : acc === -1 ? '♭' : '');
 }
 function simulateProgression(text) {
   const syms = text.split(/[\s,|]+/).filter(Boolean).slice(0, 16);
@@ -13943,12 +14019,14 @@ function simulateProgression(text) {
     if (!cands.length) return { sym: s, error: true };
     const best = cands.reduce((b, x) => simCost(prev, x) < simCost(prev, b) ? x : b, cands[0]);
     const moved = prev ? simCost(prev, best) : null;
+    const kept = prev ? best.notes.filter(n => prev.notes.some(p => p % 12 === n % 12)).length : null;
     prev = best;
-    const nm = p => (c.sharp ? SIM_SHARP : SIM_FLAT)[((p % 12) + 12) % 12];
+    // Spell each grip note by its degree over the chord root (F♯ in G, not G♭)
+    const nm = p => simSpell(c, ((p % 12) + 12) % 12);
     let bass = 36 + c.bass; if (bass > 47) bass -= 12;
     return { sym: s, cat: c.cat, label: (c.cat === 'Mtonic' ? (best.off === 4 ? 'major 13' : 'major 6/9') : c.cat === 'm7b5' ? 'half-diminished + 11' : c.cat === 'mtonic' && /^m(maj|M7)/.test(c.q) ? 'minor-major + 6/9' : SIM_LABEL[c.cat]) + (best.added.length ? ' · added defining tone' : ''), degrees: best.notes.map(n => ['1','♭9','9','♭3 / ♯9','3','11','♭5 / ♯11','5','♭13','13','♭7','7'][((n-c.root)%12+12)%12]).join(' · '),
              grip: best.grip, place: SIM_IVL[best.off], gripRootName: nm(best.gripRoot),
-             bass, bassName: nm(c.bass), notes: best.notes, names: best.notes.map(nm), moved };
+             bass, bassName: c.bassName ? c.bassName.replace('b', '♭').replace('#', '♯') : nm(c.bass), notes: best.notes, names: best.notes.map(nm), moved, kept };
   });
 }
 function renderSim(text) {
@@ -13960,6 +14038,7 @@ function renderSim(text) {
   rows.forEach(r => {
     const card = document.createElement('div');
     card.className = 'sim-card' + (r.error ? ' bad' : '');
+    card._sim = r;
     if (r.error) {
       card.innerHTML = `<div class="sim-head"><span class="sim-sym">${r.sym}</span></div>
         <p class="sim-why">Couldn't read that as a chord. Try forms like <em>Dm7</em>, <em>G7alt</em>, <em>Cmaj7</em>, <em>Am7b5</em>, <em>Cm6</em>, <em>Bbsus</em>.</p>`;
@@ -13972,7 +14051,7 @@ function renderSim(text) {
       </div>
       <div class="sim-meta">${r.gripRootName} — ${r.place} the chord root · <em>${r.label}</em></div>
       <div class="sim-notes"><span class="sim-bass">${r.bassName}</span>${r.names.map(n => `<span>${n}</span>`).join('')}</div>
-      <div class="sim-deg">${r.degrees}${r.moved != null ? ` <span class="sim-move">· ${r.moved} semitone${r.moved === 1 ? '' : 's'} of movement</span>` : ''}</div>
+      <div class="sim-deg">${r.degrees}${r.moved != null ? ` <span class="sim-move">· keeps ${r.kept} note${r.kept === 1 ? '' : 's'} · ${r.moved} semitone${r.moved === 1 ? '' : 's'} of movement</span>` : ''}</div>
       <div class="sim-kb"></div>`;
     box.appendChild(card);
     const highlighted = {};
@@ -13997,6 +14076,45 @@ function buildGripSim() {
     h.addEventListener('click', () => { input.value = h.dataset.q; run(); input.focus(); });
   });
   run();
+  // Play the whole progression, one chord per bar, lighting each card in turn
+  let simTimer = null;
+  const stop = () => {
+    if (simTimer) { clearTimeout(simTimer); simTimer = null; }
+    document.querySelectorAll('#sim-results .sim-card').forEach(c => c.classList.remove('now'));
+    const b = document.getElementById('sim-play');
+    if (b) b.innerHTML = '<span class="play-tri"></span>Play the progression';
+  };
+  const play = document.getElementById('sim-play');
+  const tempo = document.getElementById('sim-tempo');
+  const bpm = document.getElementById('sim-bpm');
+  if (tempo && bpm) tempo.addEventListener('input', () => { bpm.textContent = tempo.value; });
+  if (play) play.addEventListener('click', () => {
+    if (simTimer) { stop(); return; }
+    const cards = [...document.querySelectorAll('#sim-results .sim-card')].filter(c => c._sim && !c._sim.error);
+    if (!cards.length) return;
+    play.innerHTML = '<span class="play-tri"></span>Stop';
+    let i = 0;
+    const step = () => {
+      cards.forEach(c => c.classList.remove('now'));
+      if (i >= cards.length) {
+        const loop = document.getElementById('sim-loop');
+        if (loop && loop.checked) i = 0; else { stop(); return; }
+      }
+      const c = cards[i], r = c._sim;
+      c.classList.add('now');
+      const bar = 4 * 60000 / Number(tempo ? tempo.value : 72);
+      try { playChord([r.bass].concat(r.notes), 14, bar / 1000 * 0.95); } catch (e) {}
+      i++;
+      simTimer = setTimeout(step, bar);
+    };
+    step();
+  });
+  input.addEventListener('input', stop);
+  document.querySelectorAll('[data-sim-load]').forEach(b => b.addEventListener('click', () => {
+    input.value = b.dataset.simLoad; run();
+    const t = document.getElementById('newjazz-sim');
+    if (t) { const y = t.getBoundingClientRect().top + window.pageYOffset - 80; try { window.scrollTo({ top: y, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, y); } }
+  }));
 }
 
 //==============================================================================
@@ -14679,7 +14797,7 @@ function buildPaletteIndex() {
   // Lab data that only appears after a tab is clicked
   if (typeof IVI_SUBS !== 'undefined') {
     IVI_SUBS.forEach((sub, i) => {
-      const body = [sub.ii, sub.v, sub.i].map(x => x.chord + ' ' + x.pent + ' ' + (x.scales || []).join(' ')).join(' ') + ' ' + sub.note.replace(/<[^>]+>/g, '');
+      const body = [sub.ii, sub.v, sub.i].map(x => x.chord + ' ' + x.pent + ' ' + (x.rh || []).join(' ') + ' ' + (x.scales || []).join(' ')).join(' ') + ' ' + sub.note.replace(/<[^>]+>/g, '');
       push(sub.name, 'The ii–V–I Lab · tab', 'ivi', 4, clean(body.replace(/\b(MM|HM|HX|SY|NJ) /g, '')), () => {
         const tabs = document.querySelectorAll('#ivi-tabs .ivi-tab');
         if (tabs[i]) tabs[i].click();
