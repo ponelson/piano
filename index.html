@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Piano: Modes &amp; Movements v4.9">
-<title>Piano: Modes & Movements v4.9 — A Jazz Piano Library</title>
+<meta property="og:title" content="Piano: Modes &amp; Movements v4.14">
+<title>Piano: Modes & Movements v4.14 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -646,6 +646,14 @@
     background: var(--accent);
     color: var(--bg);
   }
+  .ch { color: var(--rouge); font-style: normal; }
+  .sc { color: var(--accent); }
+  .mode-pill .ca-sym { display: block; margin-top: 4px; font-family: var(--serif); font-size: 15px; color: var(--rouge); }
+  .mode-pill.active .ca-sym { color: var(--bg); }
+  .ca-tension.avoid { text-decoration: line-through; opacity: .6; }
+  .cf-fit { display: inline-block; margin: 0 6px 6px 0; padding: 3px 9px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 12.5px; color: var(--ink-2); }
+  .cf-fit.home { border-color: var(--accent); color: var(--accent); }
+  .cf-fit .fam { color: var(--ink-4); font-size: 11px; }
   .mode-pill .num {
     display: block;
     font-family: "JetBrains Mono", monospace;
@@ -1937,7 +1945,7 @@
 
   <!-- ============== HERO ============== -->
   <section class="hero">
-    <span class="eyebrow">A Jazz Piano Library · v4.9 · 13 October 2026, 11:00 PM ET · build 2026-10-14T03:00Z</span>
+    <span class="eyebrow">A Jazz Piano Library · v4.14 · 15 October 2026, 12:37 AM ET · build 2026-10-15T04:37Z</span>
     <h1>
       <span class="line">Eleven parent scales.</span>
       <span class="line">Seventy-seven modes.</span>
@@ -2004,29 +2012,81 @@
 
   <hr class="divider">
 
-  <!-- ============== MODE FINDER ============== -->
-  <section id="modefinder">
-    <div class="reveal" style="margin-bottom: 44px;">
-      <span class="eyebrow">Find a Mode</span>
-      <h2>Search by <em>sound or by name.</em></h2>
-      <p class="lede">Type the accidentals you hear and get every mode containing them, closest color first — enharmonics fold together, so <span class="pent-degree">♯4</span> and <span class="pent-degree">♭5</span> return the same thing. Or type a name and get its accidentals, its family, and exactly where it sits in that family. Names accept nicknames (<em>altered</em>, <em>acoustic</em>, <em>spanish</em>), a root (<em>F♯ dorian</em>), or a coordinate (<em>mode 4 of melodic minor</em>).</p>
+  <!-- ============== SPECIAL SCALES ============== -->
+  <section id="special">
+    <div class="reveal">
+      <span class="eyebrow">Special Scales</span>
+      <h2>Symmetry, color, <em>and pull.</em></h2>
+      <p class="lede" style="margin-bottom: 64px;">The diminished and whole-tone systems, the bebop scales, and the hexatonic colors — the tools that don't fit modal furniture.</p>
     </div>
 
-    <div class="reveal">
-      <div class="searchbar">
-        <input id="mode-search" type="text" placeholder="lydian dominant   —   or #4, b7   —   or F# dorian" autocomplete="off" spellcheck="false">
-        <button class="go" id="mode-search-go">Search</button>
+
+    <div class="grid-2 reveal">
+      <div class="card">
+        <h3>Half–Whole <em>Diminished</em></h3>
+        <div class="formula-line">1 · ♭2 · ♭3 · 3 · ♯4 · 5 · 6 · ♭7</div>
+        <div class="kb-slot" data-kb="scale-hwdim"></div>
+        <p class="desc" style="margin-top:18px">The native scale of dom7♭9, ♯9, ♯11, 13. Any V7 heading to a I∆.</p>
+        <ul class="usage">
+          <li>Symmetric — only three transpositions exist</li>
+          <li>Any dom7♭9 = diminished 7 with root on the 3rd (G7♭9 → B°7)</li>
+        </ul>
       </div>
-      <div class="search-hints" id="mode-hints">
-        <button class="search-hint" data-q="lydian dominant"><span class="lab">name</span>lydian dominant</button>
-        <button class="search-hint" data-q="altered"><span class="lab">nickname</span>altered</button>
-        <button class="search-hint" data-q="F# dorian"><span class="lab">root</span>F♯ dorian</button>
-        <button class="search-hint" data-q="mode 4 of melodic minor"><span class="lab">coordinate</span>mode 4 of melodic minor</button>
-        <button class="search-hint" data-q="#4 b7"><span class="lab">accidentals</span>♯4 ♭7</button>
-        <button class="search-hint" data-q="b5 b7"><span class="lab">accidentals</span>♭5 ♭7</button>
-        <button class="search-hint" data-q="b9 #9"><span class="lab">accidentals</span>♭9 ♯9</button>
+
+      <div class="card">
+        <h3>Whole–Half <em>Diminished</em></h3>
+        <div class="formula-line">1 · 2 · ♭3 · 4 · ♭5 · ♭6 · 6 · 7</div>
+        <div class="kb-slot" data-kb="scale-whdim"></div>
+        <p class="desc" style="margin-top:18px">Over dim7 chords directly.</p>
+        <ul class="usage">
+          <li>Sub the vi in a iii–vi with biii°7 (Em–A7 → Em–E♭°7)</li>
+          <li>Sub for dom7♭9 up a half step (G7♭9 → A♭°7)</li>
+        </ul>
       </div>
-      <div class="search-results" id="mode-results"></div>
+
+      <div class="card">
+        <h3>Whole <em>Tone</em></h3>
+        <div class="formula-line">1 · 2 · 3 · ♯4 · ♯5 · ♭7</div>
+        <div class="kb-slot" data-kb="scale-whole"></div>
+        <p class="desc" style="margin-top:18px">Only two whole-tone scales exist. Pure suspension.</p>
+        <ul class="usage">
+          <li>Over dom7♯11♭13 resolving to I∆7</li>
+          <li>Sit on it — let it drift. Resolves itself.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Hexatonic <em>Major</em></h3>
+        <div class="formula-line">1 · 2 · 3 · 4 · 5 · ♭6</div>
+        <div class="kb-slot" data-kb="scale-hexmaj"></div>
+        <p class="desc" style="margin-top:18px">First six tones of harmonic major. Santangelo's secret door.</p>
+        <ul class="usage">
+          <li><span class="ch">A♭7♯11 · G7alt · Cm∆7</span> with <span class="sc">B♭ · E♭ · G hex</span> — see <a href="#santangelo" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">James Santangelo</a></li>
+          <li>Implies: I+, ii7♭5, IIIalt, iv∆, V7♭9, VImaj7♭13, ♭VII7♯11, vii°7</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Hexatonic <em>Altered</em></h3>
+        <div class="formula-line">1 · ♭2 · ♭3 · 3 · ♭6 · ♭7</div>
+        <div class="kb-slot" data-kb="scale-hexalt"></div>
+        <p class="desc" style="margin-top:18px">Altered without the ♭5. The "V7alt hex" of choice.</p>
+        <ul class="usage">
+          <li>G7alt hex omits D♭</li>
+          <li>Pairs with altered pentatonic for layered tension</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Bebop <em>Dominant</em></h3>
+        <div class="formula-line">1 · 2 · 3 · 4 · 5 · 6 · ♭7 · 7</div>
+        <div class="kb-slot" data-kb="scale-bebop"></div>
+        <p class="desc" style="margin-top:18px">Eight-note scale tuned so chord tones land on downbeats. Over any dom7.</p>
+        <ul class="usage">
+          <li>Bebop Maj6: 1 2 3 4 5 ♯5 6 7 — over ∆7</li>
+          <li>Bebop m6: 1 2 ♭3 4 5 ♯5 6 7 — over m6 / m∆7</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -2224,6 +2284,548 @@
 
   <hr class="divider">
 
+  <!-- ============== CHORD ATLAS ============== -->
+  <section id="chordatlas">
+    <div class="atlas-header reveal">
+      <div class="text">
+        <span class="eyebrow">The Chord Atlas</span>
+        <h2>Every mode, <em>as a chord.</em></h2>
+        <p class="lede">The same parent scales and modes as The Atlas, stacked in thirds: the seventh chord each mode makes, the tensions it adds, and the ones to handle with care. Chord tones are in <span class="ch">red-orange</span>, tensions in <span class="sc">blue</span> — the colours the whole page uses for a chord and the scale over it.</p>
+      </div>
+      <div class="nowplaying">
+        Now showing
+        <span class="scale" id="ca-np">C∆7 · Ionian</span>
+      </div>
+    </div>
+    <div class="atlas-stage reveal">
+      <div class="atlas-controls">
+        <div class="control-block"><label>Parent System</label><select id="ca-parent"></select></div>
+        <div class="control-block"><label>Root</label><select id="ca-root"></select></div>
+      </div>
+      <div id="ca-kb"></div>
+      <div class="scale-readout" style="margin-top:18px;">
+        <div class="readout-card"><div class="h">Seventh chord</div><div class="v" id="ca-chord">C∆7</div></div>
+        <div class="readout-card"><div class="h">Chord tones · tensions</div><div class="v notes" id="ca-notes"></div></div>
+        <div class="readout-card"><div class="h">How it's used</div><div class="v" id="ca-use" style="font-size:15px;"></div></div>
+      </div>
+      <div class="mode-grid" id="ca-grid"></div>
+    </div>
+  </section>  <hr class="divider">
+
+  <!-- ============== MODE FINDER ============== -->
+  <section id="modefinder">
+    <div class="reveal" style="margin-bottom: 44px;">
+      <span class="eyebrow">Find a Mode</span>
+      <h2>Search by <em>sound or by name.</em></h2>
+      <p class="lede">Type the accidentals you hear and get every mode containing them, closest color first — enharmonics fold together, so <span class="pent-degree">♯4</span> and <span class="pent-degree">♭5</span> return the same thing. Or type a name and get its accidentals, its family, and exactly where it sits in that family. Names accept nicknames (<em>altered</em>, <em>acoustic</em>, <em>spanish</em>), a root (<em>F♯ dorian</em>), or a coordinate (<em>mode 4 of melodic minor</em>). Pentatonics, hexatonics and the special scales are searched too, by name or by notes.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="searchbar">
+        <input id="mode-search" type="text" placeholder="lydian dominant   —   or #4, b7   —   or minor pentatonic" autocomplete="off" spellcheck="false">
+        <button class="go" id="mode-search-go">Search</button>
+      </div>
+      <div class="search-hints" id="mode-hints">
+        <button class="search-hint" data-q="lydian dominant"><span class="lab">name</span>lydian dominant</button>
+        <button class="search-hint" data-q="altered"><span class="lab">nickname</span>altered</button>
+        <button class="search-hint" data-q="F# dorian"><span class="lab">root</span>F♯ dorian</button>
+        <button class="search-hint" data-q="mode 4 of melodic minor"><span class="lab">coordinate</span>mode 4 of melodic minor</button>
+        <button class="search-hint" data-q="#4 b7"><span class="lab">accidentals</span>♯4 ♭7</button>
+        <button class="search-hint" data-q="b5 b7"><span class="lab">accidentals</span>♭5 ♭7</button>
+        <button class="search-hint" data-q="b9 #9"><span class="lab">accidentals</span>♭9 ♯9</button>
+        <button class="search-hint" data-q="minor pentatonic"><span class="lab">pentatonic</span>minor pentatonic</button>
+        <button class="search-hint" data-q="hexatonic major"><span class="lab">hexatonic</span>hexatonic major</button>
+        <button class="search-hint" data-q="whole-half diminished"><span class="lab">special</span>whole–half diminished</button>
+        <button class="search-hint" data-q="b3 3 b7"><span class="lab">accidentals</span>♭3 3 ♭7</button>
+      </div>
+      <div class="search-results" id="mode-results"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== CHORD FINDER ============== -->
+  <section id="chordfinder">
+    <div class="reveal">
+      <span class="eyebrow">Find a Chord</span>
+      <h2>Search by <em>name or by notes.</em></h2>
+      <p class="lede">Type a chord symbol and get its notes, its formula and every scale that fits it, best fit first. Or type the notes you hear and get the chord's name — every name, since the same notes often spell more than one chord. Standard and NewJazz spellings both work (<em>Dm7♭5</em>, <em>Dmi7b5</em>, <em>CMa7</em>, <em>Cm∆7</em>). For the common chord types with each scale explained, see <a href="#bychord" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">What plays over what</a>, just below.</p>
+    </div>
+    <div class="reveal">
+      <div class="searchbar">
+        <input id="chord-search" type="text" placeholder="G7alt   —   or Dm7b5   —   or C E G Bb" autocomplete="off" spellcheck="false">
+        <button class="go" id="chord-search-go">Search</button>
+      </div>
+      <div class="search-hints" id="chord-hints">
+        <button class="search-hint" data-q="Dm7b5"><span class="lab">name</span>Dm7♭5</button>
+        <button class="search-hint" data-q="G7alt"><span class="lab">name</span>G7alt</button>
+        <button class="search-hint" data-q="Cmaj7#11"><span class="lab">name</span>C∆7♯11</button>
+        <button class="search-hint" data-q="CmMaj7"><span class="lab">NewJazz</span>CmMa7</button>
+        <button class="search-hint" data-q="E G B D"><span class="lab">notes</span>E G B D</button>
+        <button class="search-hint" data-q="B D F Ab"><span class="lab">notes</span>B D F A♭</button>
+        <button class="search-hint" data-q="F A C E G"><span class="lab">notes</span>F A C E G</button>
+      </div>
+      <div class="search-results" id="chord-results"></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== SCALES BY CHORD TYPE ============== -->
+  <section id="bychord">
+    <div class="reveal" style="margin-bottom: 40px;">
+      <span class="eyebrow">Scales by Chord Type</span>
+      <h2>What plays over <em>what.</em></h2>
+      <p class="lede">Every scale for each chord type, in C — the major-scale and blues options, then every <strong>melodic-minor</strong> and <strong>harmonic-minor</strong> mode that fits, each named with its parent, the <strong>harmonic-major</strong> and symmetric options from the NewJazz major and minor ii–V–i menus, then the pentatonics and hexatonics, including the NewJazz harmonic-minor hexatonic. For any other chord, search <a href="#chordfinder" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Find a Chord</a>, just above.</p>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>dominant 7</em> · G7</h3>
+    <h4 class="bc-fam reveal">Major scale, bebop &amp; blues</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">G Mixolydian</div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · 6 · ♭7</div>
+        <div class="kb-slot" data-kb="dom-mixo"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G bebop dominant</div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · 6 · ♭7 · 7</div>
+        <div class="kb-slot" data-kb="dom-bebop"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G minor blues <span class="muted">— 1 ♭3 4 ♯4 5 ♭7</span></div>
+        <div class="scale-formula">G · B♭ · C · D♭ · D · F</div>
+        <div class="kb-slot" data-kb="dom-blues1"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G major blues <span class="muted">— 1 2 ♭3 3 5 6</span></div>
+        <div class="scale-formula">G · A · B♭ · B · D · E</div>
+        <div class="kb-slot" data-kb="dom-blues2"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G half-whole (inverted) diminished <span class="muted">— for 7♭9 / ♯9 / ♯11 / 13</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 3 · ♯4 · 5 · 6 · ♭7</div>
+        <div class="kb-slot" data-kb="dom-hwdim"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G whole tone <span class="muted">— for 7♯11♭13 → I∆7</span></div>
+        <div class="scale-formula">1 · 2 · 3 · ♯4 · ♯5 · ♭7</div>
+        <div class="kb-slot" data-kb="dom-whole"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Melodic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">G Lydian dominant <span class="muted">— 4th mode of D melodic minor · 7♯11, secondary dominants, tritone subs</span></div>
+        <div class="scale-formula">1 · 2 · 3 · ♯4 · 5 · 6 · ♭7</div>
+        <div class="kb-slot" data-kb="dom-lyd"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G Mixolydian ♭6 <span class="muted">— Aeolian dominant · 5th mode of C melodic minor · 7♭13</span></div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · ♭6 · ♭7  ·  G · A · B · C · D · E♭ · F</div>
+        <div class="kb-slot" data-kb="bc-g-mixb6"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G altered <span class="muted">— 7th mode of A♭ melodic minor · V7alt, esp. resolving to minor</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 3 · ♭5 · ♭6 · ♭7</div>
+        <div class="kb-slot" data-kb="dom-altered"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G Dorian ♭2 <span class="muted">— 2nd mode of F melodic minor · 7sus♭9</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · 6 · ♭7  ·  G · A♭ · B♭ · C · D · E · F</div>
+        <div class="kb-slot" data-kb="bc-g-dorb2"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic major</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">G Mixolydian ♭2 <span class="muted">— 5th mode of C harmonic major · 7♭9 with a natural 13</span></div>
+        <div class="scale-formula">1 · ♭2 · 3 · 4 · 5 · 6 · ♭7  ·  G · A♭ · B · C · D · E · F</div>
+        <div class="kb-slot" data-kb="njm-g-mixb2"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G Phrygian ♭4 <span class="muted">— 3rd mode of E♭ harmonic major · 7♭9♯9♭13</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · 5 · ♭6 · ♭7  ·  G · A♭ · B♭ · C♭ · D · E♭ · F</div>
+        <div class="kb-slot" data-kb="njm-g-phrb4"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">G Phrygian dominant <span class="muted">— 5th mode of C harmonic minor · 7♭9♭13, the V of a minor key</span></div>
+        <div class="scale-formula">1 · ♭2 · 3 · 4 · 5 · ♭6 · ♭7  ·  G · A♭ · B · C · D · E♭ · F</div>
+        <div class="kb-slot" data-kb="bc-g-phrdom"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Pentatonics &amp; hexatonics</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">G hexatonic altered <span class="muted">— altered without the ♭5</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 3 · ♭6 · ♭7</div>
+        <div class="kb-slot" data-kb="dom-hexalt"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
+        <div class="scale-formula">over G: 4 · 5 · ♭13 · 1 · ♭9 · 3  ·  C · D · E♭ · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="bc-g-hmhex"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">A minor pentatonic <span class="muted">— on the 2nd</span></div>
+        <div class="scale-formula">A · C · D · E · G</div>
+        <div class="kb-slot" data-kb="dom-pent2"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">D Dorian pentatonic <span class="muted">— on the 5th, 6 instead of ♭7</span></div>
+        <div class="scale-formula">D · F · G · A · B</div>
+        <div class="kb-slot" data-kb="dom-pent5dor"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">B♭ minor pentatonic <span class="muted">— on the ♭3 of V, for G7alt</span></div>
+        <div class="scale-formula">B♭ · D♭ · E♭ · F · A♭</div>
+        <div class="kb-slot" data-kb="dom-pentb3alt"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">A♭ minor pentatonic <span class="muted">— on the ♭2 of V, for G7alt</span></div>
+        <div class="scale-formula">A♭ · C♭ · D♭ · E♭ · G♭</div>
+        <div class="kb-slot" data-kb="dom-pentb2alt"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">E♭ minor pentatonic <span class="muted">— on the ♭6 of V, for G7alt</span></div>
+        <div class="scale-formula">E♭ · G♭ · A♭ · B♭ · D♭</div>
+        <div class="kb-slot" data-kb="dom-pentb6alt"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">F altered pentatonic <span class="muted">— on the ♭7, for G7alt</span></div>
+        <div class="scale-formula">1 · ♭3 · 4 · ♭5 · ♭7  ·  F · A♭ · B♭ · B · E♭</div>
+        <div class="kb-slot" data-kb="dom-pentf-alt"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">D♭ altered pentatonic <span class="muted">— on the ♭5, for G7alt</span></div>
+        <div class="scale-formula">1 · ♭3 · 3 · ♭5 · ♭7  ·  D♭ · F♭ · F · G · B</div>
+        <div class="kb-slot" data-kb="dom-pentdb-alt"></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>sus♭9</em> · G7sus♭9</h3>
+    <h4 class="bc-fam reveal">Melodic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">G Dorian ♭2 <span class="muted">— 2nd mode of F melodic minor</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · 6 · ♭7  ·  G · A♭ · B♭ · C · D · E · F</div>
+        <div class="kb-slot" data-kb="bc-gsus-dorb2"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Hexatonic</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C hexatonic major <span class="muted">— Santangelo · over G: 11 · 5 · 13 · ♭7 · 1 · ♭9</span></div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · ♭6  ·  C · D · E · F · G · A♭</div>
+        <div class="kb-slot" data-kb="bc-gsus-chex"></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>minor 7</em> · Dm7</h3>
+    <h4 class="bc-fam reveal">Major scale</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Dorian</div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · 6 · ♭7</div>
+        <div class="kb-slot" data-kb="m7-dorian"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">D natural minor <span class="muted">— Aeolian · 6th mode of F major</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · ♭6 · ♭7  ·  D · E · F · G · A · B♭ · C</div>
+        <div class="kb-slot" data-kb="njM-d-aeo"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">D Phrygian <span class="muted">— 3rd mode of B♭ major</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · ♭6 · ♭7  ·  D · E♭ · F · G · A · B♭ · C</div>
+        <div class="kb-slot" data-kb="njM-d-phr"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Melodic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Dorian ♭2 <span class="muted">— 2nd mode of C melodic minor · darker, with a ♭9</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · 6 · ♭7  ·  D · E♭ · F · G · A · B · C</div>
+        <div class="kb-slot" data-kb="bc-d-dorb2"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">D melodic minor <span class="muted">— heard as Dm6 — its C♯ replaces the ♭7</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · 6 · 7  ·  D · E · F · G · A · B · C♯</div>
+        <div class="kb-slot" data-kb="bc-d-mm"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Dorian ♯4 <span class="muted">— 4th mode of A harmonic minor · m7 with a ♯11</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · ♯4 · 5 · 6 · ♭7  ·  D · E · F · G♯ · A · B · C</div>
+        <div class="kb-slot" data-kb="bc-d-dor4"></div>
+      </div>
+    <h4 class="bc-fam reveal">Harmonic major</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Phrygian ♭4 <span class="muted">— 3rd mode of B♭ harmonic major · the G♭ passes</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · 5 · ♭6 · ♭7  ·  D · E♭ · F · G♭ · A · B♭ · C</div>
+        <div class="kb-slot" data-kb="njM-d-phrb4"></div>
+      </div>
+    </div>
+    </div>
+    <h4 class="bc-fam reveal">Pentatonics</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D minor pentatonic <span class="muted">— on the root</span></div>
+        <div class="scale-formula">D · F · G · A · C</div>
+        <div class="kb-slot" data-kb="m7-pent1"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">E minor pentatonic <span class="muted">— on the 2nd</span></div>
+        <div class="scale-formula">E · G · A · B · D</div>
+        <div class="kb-slot" data-kb="m7-pent2"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">A minor pentatonic <span class="muted">— on the 5th</span></div>
+        <div class="scale-formula">A · C · D · E · G</div>
+        <div class="kb-slot" data-kb="m7-pent5"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">F♯ minor pentatonic <span class="muted">— modal interchange up a major 3rd (So What)</span></div>
+        <div class="scale-formula">F♯ · A · B · C♯ · E</div>
+        <div class="kb-slot" data-kb="m7-mod3up"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">B♭ minor pentatonic <span class="muted">— modal interchange down a major 3rd</span></div>
+        <div class="scale-formula">B♭ · D♭ · E♭ · F · A♭</div>
+        <div class="kb-slot" data-kb="m7-mod3dn"></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>major 7</em> · C∆7</h3>
+    <h4 class="bc-fam reveal">Major scale</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C Ionian</div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · 6 · 7  ·  C · D · E · F · G · A · B</div>
+        <div class="kb-slot" data-kb="bc-c-ion"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">C Lydian <span class="muted">— the ♯11 tonic</span></div>
+        <div class="scale-formula">1 · 2 · 3 · ♯4 · 5 · 6 · 7  ·  C · D · E · F♯ · G · A · B</div>
+        <div class="kb-slot" data-kb="bc-c-lyd"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Melodic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C Lydian augmented <span class="muted">— 3rd mode of A melodic minor · ∆7♯5 (raises the 5th)</span></div>
+        <div class="scale-formula">1 · 2 · 3 · ♯4 · ♯5 · 6 · 7  ·  C · D · E · F♯ · G♯ · A · B</div>
+        <div class="kb-slot" data-kb="bc-c-lydaug"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C Ionian ♯5 <span class="muted">— 3rd mode of A harmonic minor · ∆7♯5 (raises the 5th)</span></div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · ♯5 · 6 · 7  ·  C · D · E · F · G♯ · A · B</div>
+        <div class="kb-slot" data-kb="bc-c-ion5"></div>
+      </div>
+    <h4 class="bc-fam reveal">Harmonic major &amp; symmetric</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C harmonic major <span class="muted">— major with a ♭6</span></div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · ♭6 · 7  ·  C · D · E · F · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="njM-c-hmaj"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">C augmented <span class="muted">— symmetric · same six notes as over Cm∆7</span></div>
+        <div class="scale-formula">1 · ♭3 · 3 · 5 · ♭6 · 7  ·  C · E♭ · E · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="njm-c-aug"></div>
+      </div>
+    </div>
+      <div class="scale-card">
+        <div class="scale-name">C Lydian ♯2 <span class="muted">— 6th mode of E harmonic minor · ∆7♯9♯11</span></div>
+        <div class="scale-formula">1 · ♯2 · 3 · ♯4 · 5 · 6 · 7  ·  C · D♯ · E · F♯ · G · A · B</div>
+        <div class="kb-slot" data-kb="bc-c-lyd2"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Pentatonics</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">A minor pentatonic <span class="muted">— on the 6th · reads 6/9</span></div>
+        <div class="scale-formula">A · C · D · E · G</div>
+        <div class="kb-slot" data-kb="bc-c-amp"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">E minor pentatonic <span class="muted">— on the 3rd · reads ∆13</span></div>
+        <div class="scale-formula">E · G · A · B · D</div>
+        <div class="kb-slot" data-kb="bc-c-emp"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">B minor pentatonic <span class="muted">— on the 7th · the Lydian ♯11</span></div>
+        <div class="scale-formula">B · D · E · F♯ · A</div>
+        <div class="kb-slot" data-kb="bc-c-bmp"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G major pentatonic <span class="muted">— on the 5th</span></div>
+        <div class="scale-formula">G · A · B · D · E</div>
+        <div class="kb-slot" data-kb="bc-c-gmaj"></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>half-diminished</em> · Dm7♭5</h3>
+    <h4 class="bc-fam reveal">Major scale</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Locrian <span class="muted">— 7th mode of E♭ major</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · ♭5 · ♭6 · ♭7  ·  D · E♭ · F · G · A♭ · B♭ · C</div>
+        <div class="kb-slot" data-kb="bc-dø-loc"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Melodic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Locrian ♮2 <span class="muted">— 6th mode of F melodic minor</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · ♭5 · ♭6 · ♭7  ·  D · E · F · G · A♭ · B♭ · C</div>
+        <div class="kb-slot" data-kb="bc-dø-loc2"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">More melodic minor &amp; harmonic major</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Super Locrian <span class="muted">— 7th mode of E♭ melodic minor · the altered scale; G♭ passes</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · ♭5 · ♭6 · ♭7  ·  D · E♭ · F · G♭ · A♭ · B♭ · C</div>
+        <div class="kb-slot" data-kb="njm-d-sloc"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">D Dorian ♭5 <span class="muted">— 2nd mode of C harmonic major</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · ♭5 · 6 · ♭7  ·  D · E · F · G · A♭ · B · C</div>
+        <div class="kb-slot" data-kb="njm-d-dorb5"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">D Locrian ♮6 <span class="muted">— 2nd mode of C harmonic minor</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · ♭5 · 6 · ♭7  ·  D · E♭ · F · G · A♭ · B · C</div>
+        <div class="kb-slot" data-kb="bc-dø-loc6"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Pentatonics &amp; hexatonics</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">F minor 6 pentatonic <span class="muted">— on the ♭3 · over D: ♭3 · 11 · ♭5 · ♭7 · 1</span></div>
+        <div class="scale-formula">F · G · A♭ · C · D</div>
+        <div class="kb-slot" data-kb="bc-dø-fm6"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
+        <div class="scale-formula">C · D · E♭ · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="bc-dø-hmhex"></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>minor-major 7</em> · Cm∆7</h3>
+    <h4 class="bc-fam reveal">Melodic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C melodic minor <span class="muted">— the jazz-minor tonic</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · 6 · 7  ·  C · D · E♭ · F · G · A · B</div>
+        <div class="kb-slot" data-kb="bc-cm-mm"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic major &amp; symmetric</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C Lydian ♭3 <span class="muted">— 4th mode of G harmonic major</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · ♯4 · 5 · 6 · 7  ·  C · D · E♭ · F♯ · G · A · B</div>
+        <div class="kb-slot" data-kb="njm-c-lydb3"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">C augmented <span class="muted">— symmetric · holds both 3rds</span></div>
+        <div class="scale-formula">1 · ♭3 · 3 · 5 · ♭6 · 7  ·  C · E♭ · E · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="njm-c-aug"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C harmonic minor <span class="muted">— the classical-minor tonic</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · ♭6 · 7  ·  C · D · E♭ · F · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="bc-cm-hm"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Pentatonics &amp; hexatonics</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
+        <div class="scale-formula">1 · 2 · ♭3 · 5 · ♭6 · 7  ·  C · D · E♭ · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="bc-cm-hmhex"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">G hexatonic major <span class="muted">— Santangelo · over C: 5 · 13 · 7 · 1 · 9 · ♭3</span></div>
+        <div class="scale-formula">G · A · B · C · D · E♭</div>
+        <div class="kb-slot" data-kb="bc-cm-ghex"></div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-name">D minor pentatonic <span class="muted">— on the 2nd · 9 · 11 · 5 · 13 · 1</span></div>
+        <div class="scale-formula">D · F · G · A · C</div>
+        <div class="kb-slot" data-kb="bc-cm-dmp"></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>augmented major 7</em> · E♭∆7♯5</h3>
+    <p class="muted reveal" style="margin: 0 0 26px; font-size: 13px; max-width: 840px;">E♭ G B D — the III+ of C minor, and a rootless Cm∆9. This is the chord the NewJazz harmonic-minor lesson is played over; using the grips across the whole minor cadence is this page's extension.</p>
+    <h4 class="bc-fam reveal">Melodic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">E♭ Lydian augmented <span class="muted">— 3rd mode of C melodic minor</span></div>
+        <div class="scale-formula">1 · 2 · 3 · ♯4 · ♯5 · 6 · 7  ·  E♭ · F · G · A · B · C · D</div>
+        <div class="kb-slot" data-kb="bc-eb-lydaug"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">E♭ Ionian ♯5 <span class="muted">— 3rd mode of C harmonic minor</span></div>
+        <div class="scale-formula">1 · 2 · 3 · 4 · ♯5 · 6 · 7  ·  E♭ · F · G · A♭ · B · C · D</div>
+        <div class="kb-slot" data-kb="bc-eb-ion5"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Hexatonic</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
+        <div class="scale-formula">C · D · E♭ · G · A♭ · B</div>
+        <div class="kb-slot" data-kb="bc-eb-hmhex"></div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>diminished 7</em> · B°7</h3>
+    <h4 class="bc-fam reveal">Symmetric</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">B whole-half diminished</div>
+        <div class="scale-formula">1 · 2 · ♭3 · 4 · ♭5 · ♭6 · 𝄫7 · 7  ·  B · C♯ · D · E · F · G · A♭ · A♯</div>
+        <div class="kb-slot" data-kb="bc-b-whdim"></div>
+      </div>
+    </div>
+    <h4 class="bc-fam reveal">Harmonic minor</h4>
+    <div class="scale-grid reveal">
+      <div class="scale-card">
+        <div class="scale-name">B Ultra-Locrian <span class="muted">— 7th mode of C harmonic minor · the leading-tone °7 of C minor</span></div>
+        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · ♭5 · ♭6 · 𝄫7  ·  B · C · D · E♭ · F · G · A♭</div>
+        <div class="kb-slot" data-kb="bc-b-ultra"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <hr class="divider">
+
   <!-- ============== SANTANGELO HEXATONIC ============== -->
   <section id="santangelo">
     <div class="reveal" style="margin-bottom: 56px;">
@@ -2246,20 +2848,20 @@
         <tr>
           <th>Degree</th>
           <th>Chord</th>
-          <th>C hexatonic over…</th>
+          <th>Chord, with <span class="sc">C hexatonic</span></th>
           <th>Scale interpretation</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td class="chord">I</td><td class="name">I+ · Imaj7♭13</td><td class="name">C+ · C∆7♭13</td><td>Augmented or major-7-♭13 — the ♭6 is the tension</td></tr>
-        <tr><td class="chord">ii</td><td class="name">ii7♭5 · half-diminished</td><td class="name">Dm7♭5</td><td>Built off the 2nd degree</td></tr>
-        <tr><td class="chord">III</td><td class="name">III7♯9♯5</td><td class="name">E7♯9♯5 <span class="muted">(sort of)</span></td><td>Sort of — altered dominant flavor</td></tr>
-        <tr><td class="chord">iv</td><td class="name">iv-∆7 (melodic minor)</td><td class="name">Fm∆7</td><td>Minor major-7 on the 4th</td></tr>
-        <tr><td class="chord">v</td><td class="name">v7♭9 (Dorian ♭2)</td><td class="name">G7♭9</td><td>Dominant with the ♭9</td></tr>
-        <tr><td class="chord">V</td><td class="name">V7sus♭9 (Mixolydian ♭2)</td><td class="name">G7sus♭9</td><td>Suspended dominant with ♭9</td></tr>
-        <tr><td class="chord">vi</td><td class="name">vi-∆7♭13 (harmonic minor)</td><td class="name">A♭∆7♯5 <span class="muted">(sort of)</span></td><td>Sort of — harmonic minor flavor</td></tr>
-        <tr><td class="chord">♭VII</td><td class="name">♭VII7♯11 (lyd dom)</td><td class="name">B♭7♯11</td><td>The backdoor color — the hexatonic a whole step above</td></tr>
-        <tr><td class="chord">vii</td><td class="name">vii°7</td><td class="name">B°7</td><td>Diminished from the leading tone</td></tr>
+        <tr><td class="chord">I</td><td class="name">I+ · Imaj7♭13</td><td class="name"><span class="ch">C+ · C∆7♭13</span></td><td>Augmented or major-7-♭13 — the ♭6 is the tension</td></tr>
+        <tr><td class="chord">ii</td><td class="name">ii7♭5 · half-diminished</td><td class="name"><span class="ch">Dm7♭5</span></td><td>Built off the 2nd degree</td></tr>
+        <tr><td class="chord">III</td><td class="name">III7♯9♯5</td><td class="name"><span class="ch">E7♯9♯5</span> <span class="muted">(sort of)</span></td><td>Sort of — altered dominant flavor</td></tr>
+        <tr><td class="chord">iv</td><td class="name">iv-∆7 (melodic minor)</td><td class="name"><span class="ch">Fm∆7</span></td><td>Minor major-7 on the 4th</td></tr>
+        <tr><td class="chord">v</td><td class="name">v7♭9 (Dorian ♭2)</td><td class="name"><span class="ch">G7♭9</span></td><td>Dominant with the ♭9</td></tr>
+        <tr><td class="chord">V</td><td class="name">V7sus♭9 (Mixolydian ♭2)</td><td class="name"><span class="ch">G7sus♭9</span></td><td>Suspended dominant with ♭9</td></tr>
+        <tr><td class="chord">vi</td><td class="name">vi-∆7♭13 (harmonic minor)</td><td class="name"><span class="ch">A♭∆7♯5</span> <span class="muted">(sort of)</span></td><td>Sort of — harmonic minor flavor</td></tr>
+        <tr><td class="chord">♭VII</td><td class="name">♭VII7♯11 (lyd dom)</td><td class="name"><span class="ch">B♭7♯11</span></td><td>The backdoor color — the hexatonic a whole step above</td></tr>
+        <tr><td class="chord">vii</td><td class="name">vii°7</td><td class="name"><span class="ch">B°7</span></td><td>Diminished from the leading tone</td></tr>
       </tbody>
     </table>
     <p class="muted reveal" style="margin-top: 24px; font-size: 14px; line-height: 1.6; max-width: 760px;">So <strong style="color:var(--ink)">C hexatonic major (C D E F G A♭)</strong> sits over all of these at once: cleanly over Dm7♭5, Fm∆7, G7sus♭9, A♭∆7♯5 and B♭7♯11, and "sort of" over the altered-dominant and diminished readings. Any of the chords (like dom7♯9♯5) can work as a substitution.</p>
@@ -2268,26 +2870,30 @@
     <p class="lede reveal" style="margin-bottom: 26px; max-width: 840px;">The practical payoff: three hexatonics a fourth apart carry a whole minor ii–V–i, and each one reads as a different set of extensions over its chord.</p>
     <div class="grid-3 reveal">
       <div class="card">
-        <h3>B♭ hex <em>over A♭7♯11</em></h3>
+        <h3><span class="ch">A♭7♯11</span> <em>with</em> <span class="sc">B♭ hex</span></h3>
         <div class="kb-slot" data-kb="santang-bb"></div>
         <p class="desc" style="margin-top:16px">B♭ C D E♭ F G♭ reads <strong style="color:var(--ink)">9 · 3 · ♯11 · 5 · 13 · ♭7</strong> — a complete Lydian-dominant colour with no root in the hand.</p>
       </div>
       <div class="card">
-        <h3>E♭ hex <em>over G7alt</em></h3>
+        <h3><span class="ch">G7alt</span> <em>with</em> <span class="sc">E♭ hex</span></h3>
         <div class="kb-slot" data-kb="santang-eb"></div>
         <p class="desc" style="margin-top:16px">E♭ F G A♭ B♭ B reads <strong style="color:var(--ink)">♭13 · ♭7 · 1 · ♭9 · ♯9 · 3</strong> — six of the seven altered tones.</p>
       </div>
       <div class="card">
-        <h3>G hex <em>over Cm∆7</em></h3>
+        <h3><span class="ch">Cm∆7</span> <em>with</em> <span class="sc">G hex</span></h3>
         <div class="kb-slot" data-kb="santang-g"></div>
         <p class="desc" style="margin-top:16px">G A B C D E♭ reads <strong style="color:var(--ink)">5 · 13 · 7 · 1 · 9 · ♭3</strong> — the melodic-minor tonic, major 7th included.</p>
       </div>
     </div>
-    <div class="recipe reveal" style="margin-top:24px;">B♭ hex  →  E♭ hex  →  G hex
-     a fourth up, then a major third up
+    <div class="recipe reveal" style="margin-top:24px;"><span class="ch">A♭7♯11</span> with <span class="sc">B♭ hex</span>  →  <span class="ch">G7alt</span> with <span class="sc">E♭ hex</span>  →  <span class="ch">Cm∆7</span> with <span class="sc">G hex</span>
+     the hexatonics go up a fourth, then a major third
 The hand shape is identical each time; only where you put it changes.</div>
 
   </section>
+
+
+
+
 
   <hr class="divider">
 
@@ -2451,7 +3057,7 @@ Target D over G7:   E – C♯ – D</div>
         </tbody>
       </table>
       <div class="card">
-        <h3>C7 → F7 <em>resolution</em></h3>
+        <h3><span class="ch">C7</span> → <span class="sc">F7</span> <em>resolution</em></h3>
         <div class="kb-slot" data-kb="blues-guidetone"></div>
         <p class="desc" style="margin-top:18px">E → E♭ and B♭ → A, both down a half step. Going back F7 → C7, run it in reverse.</p>
       </div>
@@ -3480,7 +4086,7 @@ Leave out each grip's middle finger and the right hand outlines the Dorian chord
    grips 3 + 4   C D E♭ · F G A♭     <b>minor hexatonic</b>           C D E♭ F G A♭  (no 7th)
    all four                          <b>C harmonic minor</b>           C D E♭ F G A♭ B</div>
     <div class="kb-slot reveal" data-kb="njhm-all" style="margin-top:22px;"></div>
-<p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Also taught as one of the seven harmonic-minor modes, each a church mode with one note sharpened — the full set is <a href="#special-hm-modes" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The seven harmonic minor modes</a> (NewJazz: Locrian ♯6 for Locrian ♮6, Mixolydian ♯1 for Mixolydian ♭♭7). The triad-pair rule holds in every mode and key: F Ionian ♯5 has B♭ and A, C Phrygian dominant has D♭ and C — each pair sits just below that mode's augmented 2nd.</p>
+<p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Also taught as one of the seven harmonic-minor modes, each a church mode with one note sharpened — each one, as a chord with its tensions, is in <a href="#chordatlas" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The Chord Atlas</a> under Harmonic Minor (NewJazz: Locrian ♯6 for Locrian ♮6, Mixolydian ♯1 for Mixolydian ♭♭7). The triad-pair rule holds in every mode and key: F Ionian ♯5 has B♭ and A, C Phrygian dominant has D♭ and C — each pair sits just below that mode's augmented 2nd.</p>
 
     <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;"><strong style="color:var(--ink)">This page's extension, not a NewJazz lesson</strong> — the video uses the grips only over E♭∆7♯5. Why it travels: E♭∆7♯5 is a rootless Cm∆9, so the same four grips sit over the tonic of a minor key — and C harmonic minor also covers that key's Dm7♭5 (Locrian ♮6) and G7♭9♭13 (Phrygian dominant). Over the G7 the grips read 5 1 3 5, ♭13 ♭9 11, ♭13 5 11 and ♭9 1 ♭7. The cadence is set up as the <em>Harmonic minor · NewJazz</em> tab in the <a href="#ivi" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">ii–V–I Lab</a>, and the hexatonic appears under every chord it fits in <a href="#bychord" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">What plays over what</a>.</p>
 
@@ -4505,551 +5111,7 @@ Each new tonic is a major 3rd below the last — C, A♭, E, back to C.</div>
     </div>
   </section>
 
-  <hr class="divider">
 
-  <!-- ============== SPECIAL SCALES ============== -->
-  <section id="special">
-    <div class="reveal">
-      <span class="eyebrow">Special Scales</span>
-      <h2>Symmetry, color, <em>and pull.</em></h2>
-      <p class="lede" style="margin-bottom: 64px;">The diminished and whole-tone systems, the bebop scales, and the hexatonic colors — the tools that don't fit modal furniture.</p>
-    </div>
-
-    <h3 id="special-hm-modes" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The seven <em>harmonic minor</em> modes</h3>
-    <p class="lede reveal" style="margin-bottom: 26px; max-width: 840px;">Harmonic minor's modes are less familiar than melodic minor's, and the useful way in is by <strong>tonic chord</strong> — what each mode is the scale <em>for</em>. Three of the seven have common names; the rest are known by their alteration.</p>
-    <table class="study-table reveal">
-      <thead><tr><th>Mode</th><th>Also called</th><th>Tonic chord</th><th>Where it's used</th></tr></thead>
-      <tbody>
-        <tr><td class="name">Aeolian ♯7</td><td class="chord">Harmonic minor</td><td class="chord">min(∆7)</td><td>the tonic of a minor key</td></tr>
-        <tr><td class="name">Locrian ♮6</td><td class="chord">—</td><td class="chord">m7♭5</td><td>a iiø with a natural 6</td></tr>
-        <tr><td class="name">Ionian ♯5</td><td class="chord">Major ♯5</td><td class="chord">∆7♯5</td><td>an augmented tonic major</td></tr>
-        <tr><td class="name">Dorian ♯4</td><td class="chord">Ukrainian Dorian</td><td class="chord">m7</td><td>a minor chord wanting a ♯11</td></tr>
-        <tr><td class="name">Phrygian ♯3</td><td class="chord">Phrygian Dominant</td><td class="chord">7</td><td>the V of a minor key — the common one</td></tr>
-        <tr><td class="name">Lydian ♯2</td><td class="chord">—</td><td class="chord">∆7</td><td>a major chord with a ♯9 colour</td></tr>
-        <tr><td class="name">Mixolydian ♭♭7</td><td class="chord">Ultra-Locrian · altered ♭♭7</td><td class="chord">dim7</td><td>a diminished chord</td></tr>
-      </tbody>
-    </table>
-    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Each tonic chord is just 1–3–5–7 of its own mode, which is why the table is worth more than the scale spellings: find the chord on the page, and the mode is the scale for it. All seven are playable in the <a href="#atlas" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Atlas</a> and searchable by name or accidental in <a href="#modefinder" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Find a Mode</a>.</p>
-
-    <div class="grid-2 reveal">
-      <div class="card">
-        <h3>Half–Whole <em>Diminished</em></h3>
-        <div class="formula-line">1 · ♭2 · ♭3 · 3 · ♯4 · 5 · 6 · ♭7</div>
-        <div class="kb-slot" data-kb="scale-hwdim"></div>
-        <p class="desc" style="margin-top:18px">The native scale of dom7♭9, ♯9, ♯11, 13. Any V7 heading to a I∆.</p>
-        <ul class="usage">
-          <li>Symmetric — only three transpositions exist</li>
-          <li>Any dom7♭9 = diminished 7 with root on the 3rd (G7♭9 → B°7)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Whole–Half <em>Diminished</em></h3>
-        <div class="formula-line">1 · 2 · ♭3 · 4 · ♭5 · ♭6 · 6 · 7</div>
-        <div class="kb-slot" data-kb="scale-whdim"></div>
-        <p class="desc" style="margin-top:18px">Over dim7 chords directly.</p>
-        <ul class="usage">
-          <li>Sub the vi in a iii–vi with biii°7 (Em–A7 → Em–E♭°7)</li>
-          <li>Sub for dom7♭9 up a half step (G7♭9 → A♭°7)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Whole <em>Tone</em></h3>
-        <div class="formula-line">1 · 2 · 3 · ♯4 · ♯5 · ♭7</div>
-        <div class="kb-slot" data-kb="scale-whole"></div>
-        <p class="desc" style="margin-top:18px">Only two whole-tone scales exist. Pure suspension.</p>
-        <ul class="usage">
-          <li>Over dom7♯11♭13 resolving to I∆7</li>
-          <li>Sit on it — let it drift. Resolves itself.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Hexatonic <em>Major</em></h3>
-        <div class="formula-line">1 · 2 · 3 · 4 · 5 · ♭6</div>
-        <div class="kb-slot" data-kb="scale-hexmaj"></div>
-        <p class="desc" style="margin-top:18px">First six tones of harmonic major. Santangelo's secret door.</p>
-        <ul class="usage">
-          <li>B♭ / E♭ / G hex over a minor ii–V–i — see <a href="#santangelo" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">James Santangelo</a></li>
-          <li>Implies: I+, ii7♭5, IIIalt, iv∆, V7♭9, VImaj7♭13, ♭VII7♯11, vii°7</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Hexatonic <em>Altered</em></h3>
-        <div class="formula-line">1 · ♭2 · ♭3 · 3 · ♭6 · ♭7</div>
-        <div class="kb-slot" data-kb="scale-hexalt"></div>
-        <p class="desc" style="margin-top:18px">Altered without the ♭5. The "V7alt hex" of choice.</p>
-        <ul class="usage">
-          <li>G7alt hex omits D♭</li>
-          <li>Pairs with altered pentatonic for layered tension</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Bebop <em>Dominant</em></h3>
-        <div class="formula-line">1 · 2 · 3 · 4 · 5 · 6 · ♭7 · 7</div>
-        <div class="kb-slot" data-kb="scale-bebop"></div>
-        <p class="desc" style="margin-top:18px">Eight-note scale tuned so chord tones land on downbeats. Over any dom7.</p>
-        <ul class="usage">
-          <li>Bebop Maj6: 1 2 3 4 5 ♯5 6 7 — over ∆7</li>
-          <li>Bebop m6: 1 2 ♭3 4 5 ♯5 6 7 — over m6 / m∆7</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ============== SCALES BY CHORD TYPE ============== -->
-  <section id="bychord">
-    <div class="reveal" style="margin-bottom: 40px;">
-      <span class="eyebrow">Scales by Chord Type</span>
-      <h2>What plays over <em>what.</em></h2>
-      <p class="lede">Every scale for each chord type, in C — the major-scale and blues options, then every <strong>melodic-minor</strong> and <strong>harmonic-minor</strong> mode that fits, each named with its parent, the <strong>harmonic-major</strong> and symmetric options from the NewJazz major and minor ii–V–i menus, then the pentatonics and hexatonics, including the NewJazz harmonic-minor hexatonic.</p>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>dominant 7</em> · G7</h3>
-    <h4 class="bc-fam reveal">Major scale, bebop &amp; blues</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">G Mixolydian</div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · 6 · ♭7</div>
-        <div class="kb-slot" data-kb="dom-mixo"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G bebop dominant</div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · 6 · ♭7 · 7</div>
-        <div class="kb-slot" data-kb="dom-bebop"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G minor blues <span class="muted">— 1 ♭3 4 ♯4 5 ♭7</span></div>
-        <div class="scale-formula">G · B♭ · C · D♭ · D · F</div>
-        <div class="kb-slot" data-kb="dom-blues1"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G major blues <span class="muted">— 1 2 ♭3 3 5 6</span></div>
-        <div class="scale-formula">G · A · B♭ · B · D · E</div>
-        <div class="kb-slot" data-kb="dom-blues2"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G half-whole (inverted) diminished <span class="muted">— for 7♭9 / ♯9 / ♯11 / 13</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 3 · ♯4 · 5 · 6 · ♭7</div>
-        <div class="kb-slot" data-kb="dom-hwdim"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G whole tone <span class="muted">— for 7♯11♭13 → I∆7</span></div>
-        <div class="scale-formula">1 · 2 · 3 · ♯4 · ♯5 · ♭7</div>
-        <div class="kb-slot" data-kb="dom-whole"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Melodic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">G Lydian dominant <span class="muted">— 4th mode of D melodic minor · 7♯11, secondary dominants, tritone subs</span></div>
-        <div class="scale-formula">1 · 2 · 3 · ♯4 · 5 · 6 · ♭7</div>
-        <div class="kb-slot" data-kb="dom-lyd"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G Mixolydian ♭6 <span class="muted">— Aeolian dominant · 5th mode of C melodic minor · 7♭13</span></div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · ♭6 · ♭7  ·  G · A · B · C · D · E♭ · F</div>
-        <div class="kb-slot" data-kb="bc-g-mixb6"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G altered <span class="muted">— 7th mode of A♭ melodic minor · V7alt, esp. resolving to minor</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 3 · ♭5 · ♭6 · ♭7</div>
-        <div class="kb-slot" data-kb="dom-altered"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G Dorian ♭2 <span class="muted">— 2nd mode of F melodic minor · 7sus♭9</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · 6 · ♭7  ·  G · A♭ · B♭ · C · D · E · F</div>
-        <div class="kb-slot" data-kb="bc-g-dorb2"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic major</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">G Mixolydian ♭2 <span class="muted">— 5th mode of C harmonic major · 7♭9 with a natural 13</span></div>
-        <div class="scale-formula">1 · ♭2 · 3 · 4 · 5 · 6 · ♭7  ·  G · A♭ · B · C · D · E · F</div>
-        <div class="kb-slot" data-kb="njm-g-mixb2"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G Phrygian ♭4 <span class="muted">— 3rd mode of E♭ harmonic major · 7♭9♯9♭13</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · 5 · ♭6 · ♭7  ·  G · A♭ · B♭ · C♭ · D · E♭ · F</div>
-        <div class="kb-slot" data-kb="njm-g-phrb4"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">G Phrygian dominant <span class="muted">— 5th mode of C harmonic minor · 7♭9♭13, the V of a minor key</span></div>
-        <div class="scale-formula">1 · ♭2 · 3 · 4 · 5 · ♭6 · ♭7  ·  G · A♭ · B · C · D · E♭ · F</div>
-        <div class="kb-slot" data-kb="bc-g-phrdom"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Pentatonics &amp; hexatonics</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">G hexatonic altered <span class="muted">— altered without the ♭5</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 3 · ♭6 · ♭7</div>
-        <div class="kb-slot" data-kb="dom-hexalt"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
-        <div class="scale-formula">over G: 4 · 5 · ♭13 · 1 · ♭9 · 3  ·  C · D · E♭ · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="bc-g-hmhex"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">A minor pentatonic <span class="muted">— on the 2nd</span></div>
-        <div class="scale-formula">A · C · D · E · G</div>
-        <div class="kb-slot" data-kb="dom-pent2"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">D Dorian pentatonic <span class="muted">— on the 5th, 6 instead of ♭7</span></div>
-        <div class="scale-formula">D · F · G · A · B</div>
-        <div class="kb-slot" data-kb="dom-pent5dor"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">B♭ minor pentatonic <span class="muted">— on the ♭3 of V, for G7alt</span></div>
-        <div class="scale-formula">B♭ · D♭ · E♭ · F · A♭</div>
-        <div class="kb-slot" data-kb="dom-pentb3alt"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">A♭ minor pentatonic <span class="muted">— on the ♭2 of V, for G7alt</span></div>
-        <div class="scale-formula">A♭ · C♭ · D♭ · E♭ · G♭</div>
-        <div class="kb-slot" data-kb="dom-pentb2alt"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">E♭ minor pentatonic <span class="muted">— on the ♭6 of V, for G7alt</span></div>
-        <div class="scale-formula">E♭ · G♭ · A♭ · B♭ · D♭</div>
-        <div class="kb-slot" data-kb="dom-pentb6alt"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">F altered pentatonic <span class="muted">— on the ♭7, for G7alt</span></div>
-        <div class="scale-formula">1 · ♭3 · 4 · ♭5 · ♭7  ·  F · A♭ · B♭ · B · E♭</div>
-        <div class="kb-slot" data-kb="dom-pentf-alt"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">D♭ altered pentatonic <span class="muted">— on the ♭5, for G7alt</span></div>
-        <div class="scale-formula">1 · ♭3 · 3 · ♭5 · ♭7  ·  D♭ · F♭ · F · G · B</div>
-        <div class="kb-slot" data-kb="dom-pentdb-alt"></div>
-      </div>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>sus♭9</em> · G7sus♭9</h3>
-    <h4 class="bc-fam reveal">Melodic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">G Dorian ♭2 <span class="muted">— 2nd mode of F melodic minor</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · 6 · ♭7  ·  G · A♭ · B♭ · C · D · E · F</div>
-        <div class="kb-slot" data-kb="bc-gsus-dorb2"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Hexatonic</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C hexatonic major <span class="muted">— Santangelo · over G: 11 · 5 · 13 · ♭7 · 1 · ♭9</span></div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · ♭6  ·  C · D · E · F · G · A♭</div>
-        <div class="kb-slot" data-kb="bc-gsus-chex"></div>
-      </div>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>minor 7</em> · Dm7</h3>
-    <h4 class="bc-fam reveal">Major scale</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Dorian</div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · 6 · ♭7</div>
-        <div class="kb-slot" data-kb="m7-dorian"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">D natural minor <span class="muted">— Aeolian · 6th mode of F major</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · ♭6 · ♭7  ·  D · E · F · G · A · B♭ · C</div>
-        <div class="kb-slot" data-kb="njM-d-aeo"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">D Phrygian <span class="muted">— 3rd mode of B♭ major</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · ♭6 · ♭7  ·  D · E♭ · F · G · A · B♭ · C</div>
-        <div class="kb-slot" data-kb="njM-d-phr"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Melodic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Dorian ♭2 <span class="muted">— 2nd mode of C melodic minor · darker, with a ♭9</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · 5 · 6 · ♭7  ·  D · E♭ · F · G · A · B · C</div>
-        <div class="kb-slot" data-kb="bc-d-dorb2"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">D melodic minor <span class="muted">— heard as Dm6 — its C♯ replaces the ♭7</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · 6 · 7  ·  D · E · F · G · A · B · C♯</div>
-        <div class="kb-slot" data-kb="bc-d-mm"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Dorian ♯4 <span class="muted">— 4th mode of A harmonic minor · m7 with a ♯11</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · ♯4 · 5 · 6 · ♭7  ·  D · E · F · G♯ · A · B · C</div>
-        <div class="kb-slot" data-kb="bc-d-dor4"></div>
-      </div>
-    <h4 class="bc-fam reveal">Harmonic major</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Phrygian ♭4 <span class="muted">— 3rd mode of B♭ harmonic major · the G♭ passes</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · 5 · ♭6 · ♭7  ·  D · E♭ · F · G♭ · A · B♭ · C</div>
-        <div class="kb-slot" data-kb="njM-d-phrb4"></div>
-      </div>
-    </div>
-    </div>
-    <h4 class="bc-fam reveal">Pentatonics</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D minor pentatonic <span class="muted">— on the root</span></div>
-        <div class="scale-formula">D · F · G · A · C</div>
-        <div class="kb-slot" data-kb="m7-pent1"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">E minor pentatonic <span class="muted">— on the 2nd</span></div>
-        <div class="scale-formula">E · G · A · B · D</div>
-        <div class="kb-slot" data-kb="m7-pent2"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">A minor pentatonic <span class="muted">— on the 5th</span></div>
-        <div class="scale-formula">A · C · D · E · G</div>
-        <div class="kb-slot" data-kb="m7-pent5"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">F♯ minor pentatonic <span class="muted">— modal interchange up a major 3rd (So What)</span></div>
-        <div class="scale-formula">F♯ · A · B · C♯ · E</div>
-        <div class="kb-slot" data-kb="m7-mod3up"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">B♭ minor pentatonic <span class="muted">— modal interchange down a major 3rd</span></div>
-        <div class="scale-formula">B♭ · D♭ · E♭ · F · A♭</div>
-        <div class="kb-slot" data-kb="m7-mod3dn"></div>
-      </div>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>major 7</em> · C∆7</h3>
-    <h4 class="bc-fam reveal">Major scale</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C Ionian</div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · 6 · 7  ·  C · D · E · F · G · A · B</div>
-        <div class="kb-slot" data-kb="bc-c-ion"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">C Lydian <span class="muted">— the ♯11 tonic</span></div>
-        <div class="scale-formula">1 · 2 · 3 · ♯4 · 5 · 6 · 7  ·  C · D · E · F♯ · G · A · B</div>
-        <div class="kb-slot" data-kb="bc-c-lyd"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Melodic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C Lydian augmented <span class="muted">— 3rd mode of A melodic minor · ∆7♯5 (raises the 5th)</span></div>
-        <div class="scale-formula">1 · 2 · 3 · ♯4 · ♯5 · 6 · 7  ·  C · D · E · F♯ · G♯ · A · B</div>
-        <div class="kb-slot" data-kb="bc-c-lydaug"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C Ionian ♯5 <span class="muted">— 3rd mode of A harmonic minor · ∆7♯5 (raises the 5th)</span></div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · ♯5 · 6 · 7  ·  C · D · E · F · G♯ · A · B</div>
-        <div class="kb-slot" data-kb="bc-c-ion5"></div>
-      </div>
-    <h4 class="bc-fam reveal">Harmonic major &amp; symmetric</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C harmonic major <span class="muted">— major with a ♭6</span></div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · 5 · ♭6 · 7  ·  C · D · E · F · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="njM-c-hmaj"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">C augmented <span class="muted">— symmetric · same six notes as over Cm∆7</span></div>
-        <div class="scale-formula">1 · ♭3 · 3 · 5 · ♭6 · 7  ·  C · E♭ · E · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="njm-c-aug"></div>
-      </div>
-    </div>
-      <div class="scale-card">
-        <div class="scale-name">C Lydian ♯2 <span class="muted">— 6th mode of E harmonic minor · ∆7♯9♯11</span></div>
-        <div class="scale-formula">1 · ♯2 · 3 · ♯4 · 5 · 6 · 7  ·  C · D♯ · E · F♯ · G · A · B</div>
-        <div class="kb-slot" data-kb="bc-c-lyd2"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Pentatonics</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">A minor pentatonic <span class="muted">— on the 6th · reads 6/9</span></div>
-        <div class="scale-formula">A · C · D · E · G</div>
-        <div class="kb-slot" data-kb="bc-c-amp"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">E minor pentatonic <span class="muted">— on the 3rd · reads ∆13</span></div>
-        <div class="scale-formula">E · G · A · B · D</div>
-        <div class="kb-slot" data-kb="bc-c-emp"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">B minor pentatonic <span class="muted">— on the 7th · the Lydian ♯11</span></div>
-        <div class="scale-formula">B · D · E · F♯ · A</div>
-        <div class="kb-slot" data-kb="bc-c-bmp"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G major pentatonic <span class="muted">— on the 5th</span></div>
-        <div class="scale-formula">G · A · B · D · E</div>
-        <div class="kb-slot" data-kb="bc-c-gmaj"></div>
-      </div>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>half-diminished</em> · Dm7♭5</h3>
-    <h4 class="bc-fam reveal">Major scale</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Locrian <span class="muted">— 7th mode of E♭ major</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · ♭5 · ♭6 · ♭7  ·  D · E♭ · F · G · A♭ · B♭ · C</div>
-        <div class="kb-slot" data-kb="bc-dø-loc"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Melodic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Locrian ♮2 <span class="muted">— 6th mode of F melodic minor</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · ♭5 · ♭6 · ♭7  ·  D · E · F · G · A♭ · B♭ · C</div>
-        <div class="kb-slot" data-kb="bc-dø-loc2"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">More melodic minor &amp; harmonic major</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Super Locrian <span class="muted">— 7th mode of E♭ melodic minor · the altered scale; G♭ passes</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · ♭5 · ♭6 · ♭7  ·  D · E♭ · F · G♭ · A♭ · B♭ · C</div>
-        <div class="kb-slot" data-kb="njm-d-sloc"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">D Dorian ♭5 <span class="muted">— 2nd mode of C harmonic major</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · ♭5 · 6 · ♭7  ·  D · E · F · G · A♭ · B · C</div>
-        <div class="kb-slot" data-kb="njm-d-dorb5"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">D Locrian ♮6 <span class="muted">— 2nd mode of C harmonic minor</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · 4 · ♭5 · 6 · ♭7  ·  D · E♭ · F · G · A♭ · B · C</div>
-        <div class="kb-slot" data-kb="bc-dø-loc6"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Pentatonics &amp; hexatonics</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">F minor 6 pentatonic <span class="muted">— on the ♭3 · over D: ♭3 · 11 · ♭5 · ♭7 · 1</span></div>
-        <div class="scale-formula">F · G · A♭ · C · D</div>
-        <div class="kb-slot" data-kb="bc-dø-fm6"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
-        <div class="scale-formula">C · D · E♭ · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="bc-dø-hmhex"></div>
-      </div>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>minor-major 7</em> · Cm∆7</h3>
-    <h4 class="bc-fam reveal">Melodic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C melodic minor <span class="muted">— the jazz-minor tonic</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · 6 · 7  ·  C · D · E♭ · F · G · A · B</div>
-        <div class="kb-slot" data-kb="bc-cm-mm"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic major &amp; symmetric</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C Lydian ♭3 <span class="muted">— 4th mode of G harmonic major</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · ♯4 · 5 · 6 · 7  ·  C · D · E♭ · F♯ · G · A · B</div>
-        <div class="kb-slot" data-kb="njm-c-lydb3"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">C augmented <span class="muted">— symmetric · holds both 3rds</span></div>
-        <div class="scale-formula">1 · ♭3 · 3 · 5 · ♭6 · 7  ·  C · E♭ · E · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="njm-c-aug"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C harmonic minor <span class="muted">— the classical-minor tonic</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · 5 · ♭6 · 7  ·  C · D · E♭ · F · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="bc-cm-hm"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Pentatonics &amp; hexatonics</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
-        <div class="scale-formula">1 · 2 · ♭3 · 5 · ♭6 · 7  ·  C · D · E♭ · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="bc-cm-hmhex"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">G hexatonic major <span class="muted">— Santangelo · over C: 5 · 13 · 7 · 1 · 9 · ♭3</span></div>
-        <div class="scale-formula">G · A · B · C · D · E♭</div>
-        <div class="kb-slot" data-kb="bc-cm-ghex"></div>
-      </div>
-      <div class="scale-card">
-        <div class="scale-name">D minor pentatonic <span class="muted">— on the 2nd · 9 · 11 · 5 · 13 · 1</span></div>
-        <div class="scale-formula">D · F · G · A · C</div>
-        <div class="kb-slot" data-kb="bc-cm-dmp"></div>
-      </div>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>augmented major 7</em> · E♭∆7♯5</h3>
-    <p class="muted reveal" style="margin: 0 0 26px; font-size: 13px; max-width: 840px;">E♭ G B D — the III+ of C minor, and a rootless Cm∆9. This is the chord the NewJazz harmonic-minor lesson is played over; using the grips across the whole minor cadence is this page's extension.</p>
-    <h4 class="bc-fam reveal">Melodic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">E♭ Lydian augmented <span class="muted">— 3rd mode of C melodic minor</span></div>
-        <div class="scale-formula">1 · 2 · 3 · ♯4 · ♯5 · 6 · 7  ·  E♭ · F · G · A · B · C · D</div>
-        <div class="kb-slot" data-kb="bc-eb-lydaug"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">E♭ Ionian ♯5 <span class="muted">— 3rd mode of C harmonic minor</span></div>
-        <div class="scale-formula">1 · 2 · 3 · 4 · ♯5 · 6 · 7  ·  E♭ · F · G · A♭ · B · C · D</div>
-        <div class="kb-slot" data-kb="bc-eb-ion5"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Hexatonic</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">C harmonic-minor hexatonic <span class="muted">— see <a href="#newjazz-hm" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Harmonic minor</a> in NewJazz</span></div>
-        <div class="scale-formula">C · D · E♭ · G · A♭ · B</div>
-        <div class="kb-slot" data-kb="bc-eb-hmhex"></div>
-      </div>
-    </div>
-
-    <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>diminished 7</em> · B°7</h3>
-    <h4 class="bc-fam reveal">Symmetric</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">B whole-half diminished</div>
-        <div class="scale-formula">1 · 2 · ♭3 · 4 · ♭5 · ♭6 · 𝄫7 · 7  ·  B · C♯ · D · E · F · G · A♭ · A♯</div>
-        <div class="kb-slot" data-kb="bc-b-whdim"></div>
-      </div>
-    </div>
-    <h4 class="bc-fam reveal">Harmonic minor</h4>
-    <div class="scale-grid reveal">
-      <div class="scale-card">
-        <div class="scale-name">B Ultra-Locrian <span class="muted">— 7th mode of C harmonic minor · the leading-tone °7 of C minor</span></div>
-        <div class="scale-formula">1 · ♭2 · ♭3 · ♭4 · ♭5 · ♭6 · 𝄫7  ·  B · C · D · E♭ · F · G · A♭</div>
-        <div class="kb-slot" data-kb="bc-b-ultra"></div>
-      </div>
-    </div>
-  </section>
 
   <hr class="divider">
 
@@ -5069,7 +5131,7 @@ Each new tonic is a major 3rd below the last — C, A♭, E, back to C.</div>
         <h3>1 · Over <em>G7alt</em></h3>
         <div class="formula-line">A♭ B♭ C♭ E♭ F G</div>
         <div class="kb-slot" data-kb="hh-arp1"></div>
-        <p class="desc" style="margin-top:16px"><strong style="color:var(--ink)">E♭ hexatonic major</strong> — 1 2 3 4 5 ♭6 of E♭. Over G it reads <strong style="color:var(--ink)">♭9 ♯9 3 ♭13 ♭7 1</strong>: a complete altered dominant, and exactly the <a href="#santangelo" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Santangelo</a> move of E♭ hexatonic over G7alt.</p>
+        <p class="desc" style="margin-top:16px"><strong style="color:var(--ink)">E♭ hexatonic major</strong> — 1 2 3 4 5 ♭6 of E♭. Over G it reads <strong style="color:var(--ink)">♭9 ♯9 3 ♭13 ♭7 1</strong>: a complete altered dominant, and exactly the <a href="#santangelo" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Santangelo</a> move: <span class="ch">G7alt</span> with <span class="sc">E♭ hexatonic</span>.</p>
         <p class="desc" style="margin-top:10px"><em>The run:</em> A♭ B♭ C♭ E♭ F G upward, about a dozen times, then the same cell an octave up to G and down E♭ C♭ A♭ G F E♭.</p>
       </div>
       <div class="card">
@@ -5888,8 +5950,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div class="verstamp" style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v4.9 · build 2026-10-14T03:00Z · 13 October 2026, 11:00 PM ET<br>
-    supersedes v4.8 (build 2026-10-14T00:50Z) — NewJazz complete: the Dorian groundwork, three more modal playgrounds (several-octave mode, Dorian over a bass a half step up, chromatic pentatonics), worked soloing devices, a Rhythm and coordination sub-section and a Further NewJazz lessons list; the duplicate hexatonic sentence, bucket and Lab cohesion fixes; citation keys 2018-02, 2018-07 and 2018-11 split a/b
+    v4.14 · build 2026-10-15T04:37Z · 15 October 2026, 12:37 AM ET<br>
+    supersedes v4.13 (build 2026-10-15T01:27Z) — removed "The seven harmonic minor modes" from Special Scales (covered by The Atlas and The Chord Atlas; the NewJazz cross-link now points to The Chord Atlas); in the Blues, "C7 → F7 resolution" shows F7 in blue
   </div>
 </footer>
 
@@ -5904,9 +5966,11 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
       <div class="menu-group">
         <h4>Modes &amp; Scales</h4>
         <a href="#atlas">The Atlas</a>
-        <a href="#modefinder">Find a Mode</a>
-        <a href="#pentatonic">Pentatonics</a>
         <a href="#special">Special Scales</a>
+        <a href="#chordatlas">The Chord Atlas</a>
+        <a href="#modefinder">Find a Mode</a>
+        <a href="#chordfinder">Find a Chord</a>
+        <a href="#pentatonic">Pentatonics</a>
         <a href="#bychord">Scales by Chord Type</a>
       </div>
       <div class="menu-group">
@@ -6529,11 +6593,11 @@ const VOICING_PRESETS = {
                legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>B♭ — a whole step down</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A D F — only the G moved, down to F</span>' },
 
   // ---- SANTANGELO: the hexatonic chain ----
-  'santang-bb': { lh: [44], rh: [58, 60, 62, 63, 65, 66], stagger: 70, fromMidi: 42, toMidi: 68, label: 'Play B♭ hex over A♭7♯11',
+  'santang-bb': { lh: [44], rh: [58, 60, 62, 63, 65, 66], stagger: 70, fromMidi: 42, toMidi: 68, label: 'Play A♭7♯11 with B♭ hex',
                   legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A♭ — the chord</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B♭ C D E♭ F G♭ — reads 9 3 ♯11 5 13 ♭7</span>' },
-  'santang-eb': { lh: [43], rh: [63, 65, 67, 68, 70, 71], stagger: 70, fromMidi: 41, toMidi: 73, label: 'Play E♭ hex over G7alt',
+  'santang-eb': { lh: [43], rh: [63, 65, 67, 68, 70, 71], stagger: 70, fromMidi: 41, toMidi: 73, label: 'Play G7alt with E♭ hex',
                   legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G — the chord</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>E♭ F G A♭ B♭ B — reads ♭13 ♭7 1 ♭9 ♯9 3</span>' },
-  'santang-g':  { lh: [48], rh: [55, 57, 59, 60, 62, 63], stagger: 70, fromMidi: 46, toMidi: 65, label: 'Play G hex over Cm∆7',
+  'santang-g':  { lh: [48], rh: [55, 57, 59, 60, 62, 63], stagger: 70, fromMidi: 46, toMidi: 65, label: 'Play Cm∆7 with G hex',
                   legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>C — the chord</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G A B C D E♭ — reads 5 13 7 1 9 ♭3</span>' },
   // ---- NEWJAZZ: the major ii–V–I, voiced ----
   'njm-ii':   { lh: [41, 56, 60, 63, 67], rh: [], stagger: 26, fromMidi: 39, toMidi: 70, label: 'Play Fm9',
@@ -7694,14 +7758,31 @@ function nameSearchModes(raw) {
   return { hits: hits.slice(0, 10), root };
 }
 
+function nameSearchExtras(raw) {
+  let s = modeNorm(raw);
+  let root = null;
+  const rm = s.match(/^([a-g](?:#|b)?)\s+(.+)$/);
+  if (rm) { const r = parseRootNote(rm[1]); if (r) { root = r; s = rm[2]; } }
+  s = s.replace(/\s+scale$/, '');
+  const nm = x => modeNorm(x.name);
+  let hits = EXTRA_SCALES.filter(x => nm(x) === s || x.aliases.some(a => modeNorm(a) === s));
+  const exact = hits.length > 0;
+  if (!hits.length) hits = EXTRA_SCALES.filter(x => nm(x).startsWith(s) || nm(x).includes(s));
+  return { hits, root, exact };
+}
+function modeRank(m) { return m.extra ? 4 + m.order / 100 : (m.parentIdx < 4 ? m.parentIdx : 10 + m.parentIdx); }
 function searchModes(str) {
   const q = parseModeQuery(str);
   if (!q.isAccidental) {
+    const ex = nameSearchExtras(str);
+    if (ex.exact) return { hits: ex.hits, mode: 'name', root: ex.root, q: null };
     const r = nameSearchModes(str);
-    return { hits: r.hits, mode: 'name', root: r.root, alias: r.alias, q: null };
+    const exactMode = r.hits.length && r.hits.some(h => modeNorm(h.mode) === modeNorm(str.replace(/^\s*[A-Ga-g][#b♭♯]?\s+/, '')));
+    const hits = (r.alias || exactMode) ? r.hits : r.hits.concat(ex.hits).slice(0, 10);
+    return { hits, mode: 'name', root: r.root || ex.root, alias: r.alias, q: null };
   }
   const target = [...q.pcs];
-  const hits = MODE_INDEX
+  const hits = MODE_INDEX.concat(EXTRA_SCALES)
     .filter(m => target.every(pc => m.pcs.includes(pc)))
     .map(m => {
       const chars = m.pcs.filter(pc => !MODE_MAJOR.has(pc));
@@ -7709,8 +7790,8 @@ function searchModes(str) {
       const queryChars = target.filter(pc => new Set(chars).has(pc)).length;
       return { ...m, score: extraChars * 10 - queryChars };
     })
-    .sort((a, b) => a.score - b.score || a.parentIdx - b.parentIdx || a.degree - b.degree)
-    .slice(0, 10);
+    .sort((a, b) => a.score - b.score || modeRank(a) - modeRank(b) || (a.degree || 0) - (b.degree || 0))
+    .slice(0, 12);
   return { hits, mode: 'accidental', q };
 }
 
@@ -7720,12 +7801,13 @@ function renderModeResults(str) {
   box.innerHTML = '';
   if (!str.trim()) return;
   if (!hits.length) {
-    box.innerHTML = `<div class="result-empty">No mode matches <em>${str}</em>. Try accidentals like <em>#4 b7</em>, a name like <em>lydian dominant</em>, a nickname like <em>altered</em>, or <em>mode 4 of melodic minor</em>.</div>`;
+    box.innerHTML = `<div class="result-empty">No mode matches <em>${str}</em>. Try accidentals like <em>#4 b7</em>, a name like <em>lydian dominant</em>, a nickname like <em>altered</em>, <em>mode 4 of melodic minor</em>, or <em>minor pentatonic</em>.</div>`;
     return;
   }
   const qpcs = q && q.pcs ? q.pcs : new Set();
   const useRoot = root || parseRootNote('C');
   hits.forEach((m, idx) => {
+    if (m.extra) { renderExtraResult(box, m, idx, mode, qpcs, useRoot); return; }
     const card = document.createElement('div');
     card.className = 'result-card' + (idx === 0 ? ' primary' : '');
     const spelled = spellMode(m.pcs);
@@ -7773,6 +7855,35 @@ function renderModeResults(str) {
     card.querySelector('[data-mode-kb]').appendChild(kb);
   });
 }
+function renderExtraResult(box, m, idx, mode, qpcs, useRoot) {
+  const card = document.createElement('div');
+  card.className = 'result-card' + (idx === 0 ? ' primary' : '');
+  const formula = m.labels.map((l, i) => `<span class="deg${qpcs.has(m.pcs[i]) ? ' hit' : ''}">${l}</span>`).join('');
+  const notes = spellByLabels(useRoot, m.labels, m.pcs);
+  const notesHtml = notes.map((n, i) => `<span class="sn${i === 0 ? ' root' : ''}">${n.name}</span>`).join('');
+  const same = sameNoteScales(m.pcs, useRoot.pc);
+  const badge = idx === 0 ? `<span class="badge">${mode === 'name' ? 'match' : 'closest'}</span>` : '';
+  const where = { pentatonic: 'Pentatonics', special: 'Special Scales', blues: 'The Blues', 'newjazz-hm': 'Harmonic minor in NewJazz', bychord: 'What plays over what' }[m.link] || '';
+  card.innerHTML = `
+    <div class="result-head">
+      <div class="result-title">${notes[0].name} ${m.name}${badge}</div>
+      <div class="result-sub">${m.fam} · ${m.pcs.length} notes</div>
+    </div>
+    <div class="mf-row"><span class="mf-lab">Formula</span><div class="mf-val"><div class="result-formula" style="margin:0">${formula}</div></div></div>
+    <div class="mf-row"><span class="mf-lab">Notes</span><div class="mf-val scale-notes">${notesHtml}</div></div>
+    ${same.length ? `<div class="mf-row"><span class="mf-lab">Same notes</span><div class="mf-val">${same.join(' · ')}</div></div>` : ''}
+    ${where ? `<div class="mf-row"><span class="mf-lab">On this page</span><div class="mf-val"><a href="#${m.link}" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">${where}</a></div></div>` : ''}
+    <div class="ivi-kb" data-mode-kb="${idx}"></div>`;
+  box.appendChild(card);
+  const lowMidi = 60 + useRoot.pc;
+  const midis = m.pcs.map(pc => lowMidi + pc).concat([lowMidi + 12]);
+  const highlighted = {};
+  midis.forEach((mi, i) => { highlighted[mi] = (i === 0 || i === midis.length - 1) ? 'root' : 'in-scale'; });
+  card.querySelector('[data-mode-kb]').appendChild(createKeyboardBlock({
+    fromMidi: Math.min(59, lowMidi - 1), toMidi: Math.max(73, lowMidi + 13), highlighted,
+    whiteW: 17, whiteH: 60, playStagger: 90, playLabel: 'Play scale'
+  }));
+}
 function buildModeFinder() {
   const input = document.getElementById('mode-search');
   const go = document.getElementById('mode-search-go');
@@ -7783,6 +7894,354 @@ function buildModeFinder() {
   if (go) go.addEventListener('click', run);
   document.querySelectorAll('#mode-hints .search-hint').forEach(h => {
     h.addEventListener('click', () => { input.value = h.dataset.q; run(); input.focus(); });
+  });
+}
+
+
+//==============================================================================
+// SHARED — pentatonics, hexatonics and special scales (for Find a Mode / a Chord)
+//==============================================================================
+const EXTRA_SCALES = [
+  { name: 'Major Pentatonic', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,2,4,7,9], labels: ['1','2','3','5','6'], aliases: ['major pent','pentatonic major'] },
+  { name: 'Minor Pentatonic', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,3,5,7,10], labels: ['1','♭3','4','5','♭7'], aliases: ['minor pent','pentatonic minor','pentatonic'] },
+  { name: 'Dorian Pentatonic', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,3,5,7,9], labels: ['1','♭3','4','5','6'], aliases: [] },
+  { name: 'Dominant Pentatonic', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,2,4,7,10], labels: ['1','2','3','5','♭7'], aliases: [] },
+  { name: 'Altered Pentatonic', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,3,4,6,10], labels: ['1','♭3','3','♭5','♭7'], aliases: [] },
+  { name: 'Minor 6 (Coltrane) Pentatonic', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,2,3,7,9], labels: ['1','2','♭3','5','6'], aliases: ['coltrane pentatonic','m6 pentatonic','minor 6 pentatonic','minor six pentatonic'] },
+  { name: 'Pentatonic Blues I', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,3,4,7,9], labels: ['1','♭3','3','5','6'], aliases: [] },
+  { name: 'Pentatonic Blues IV', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,3,4,7,10], labels: ['1','♭3','3','5','♭7'], aliases: [] },
+  { name: 'Lydian Dominant Pentatonic', fam: 'Pentatonic', link: 'pentatonic', pcs: [0,4,6,9,10], labels: ['1','3','♯4','6','♭7'], aliases: [] },
+  { name: 'Blues Scale', fam: 'Hexatonic', link: 'pentatonic', pcs: [0,3,5,6,7,10], labels: ['1','♭3','4','♯4','5','♭7'], aliases: ['blues','minor blues','blues hexatonic'] },
+  { name: 'Major Blues', fam: 'Hexatonic', link: 'blues', pcs: [0,2,3,4,7,9], labels: ['1','2','♭3','3','5','6'], aliases: ['major blues scale'] },
+  { name: 'Minor Hexatonic', fam: 'Hexatonic', link: 'newjazz-hm', pcs: [0,2,3,5,7,8], labels: ['1','2','♭3','4','5','♭6'], aliases: [] },
+  { name: 'Harmonic-Minor Hexatonic', fam: 'Hexatonic', link: 'newjazz-hm', pcs: [0,2,3,7,8,11], labels: ['1','2','♭3','5','♭6','7'], aliases: ['harmonic minor hexatonic'] },
+  { name: 'Augmented', fam: 'Hexatonic', link: 'bychord', pcs: [0,3,4,7,8,11], labels: ['1','♭3','3','5','♭6','7'], aliases: ['augmented scale','symmetric augmented'] },
+  { name: 'Hexatonic Major', fam: 'Special Scale', link: 'special', pcs: [0,2,4,5,7,8], labels: ['1','2','3','4','5','♭6'], aliases: ['hex major','hexatonic','major hexatonic'] },
+  { name: 'Hexatonic Altered', fam: 'Special Scale', link: 'special', pcs: [0,1,3,4,8,10], labels: ['1','♭2','♭3','3','♭6','♭7'], aliases: ['hex altered','altered hexatonic'] },
+  { name: 'Whole Tone', fam: 'Special Scale', link: 'special', pcs: [0,2,4,6,8,10], labels: ['1','2','3','♯4','♯5','♭7'], aliases: ['wholetone','whole tone scale'] },
+  { name: 'Half–Whole Diminished', fam: 'Special Scale', link: 'special', pcs: [0,1,3,4,6,7,9,10], labels: ['1','♭2','♭3','3','♯4','5','6','♭7'], aliases: ['half whole','half whole diminished','dominant diminished','diminished','octatonic'] },
+  { name: 'Whole–Half Diminished', fam: 'Special Scale', link: 'special', pcs: [0,2,3,5,6,8,9,11], labels: ['1','2','♭3','4','♭5','♭6','6','7'], aliases: ['whole half','whole half diminished','diminished','octatonic'] },
+  { name: 'Bebop Dominant', fam: 'Special Scale', link: 'special', pcs: [0,2,4,5,7,9,10,11], labels: ['1','2','3','4','5','6','♭7','7'], aliases: ['bebop','bebop scale'] }
+];
+EXTRA_SCALES.forEach((x, i) => { x.extra = true; x.order = i; x.mode = x.name; });
+
+// Spell notes from degree labels (♭3, ♯4, 𝄫7, 9 …), letter-accurate for any scale size
+function spellByLabels(root, labels, pcs) {
+  const li = SPELL_LETTERS.indexOf(root.letter);
+  const degMap = { 9: 2, 11: 4, 13: 6 };
+  return labels.map((lab, i) => {
+    const mm = String(lab).match(/(\d+)$/);
+    let deg = mm ? parseInt(mm[1]) : i + 1;
+    deg = degMap[deg] || deg;
+    const letter = SPELL_LETTERS[(li + deg - 1) % 7];
+    const pc = ((root.pc + pcs[i]) % 12 + 12) % 12;
+    let acc = pc - SPELL_NAT[letter];
+    if (acc > 6) acc -= 12; if (acc < -6) acc += 12;
+    const sym = SPELL_ACC[String(acc)] !== undefined ? SPELL_ACC[String(acc)] : '';
+    return { name: letter + sym, pc };
+  });
+}
+function prettyModeName(m) {
+  return String(m).replace(/bb(\d)/g, '𝄫$1').replace(/b(\d)/g, '♭$1').replace(/#(\d)/g, '♯$1');
+}
+// Other scales with exactly the same notes, at another root
+function sameNoteScales(pcs, rootPc) {
+  const key = pcs.map(p => (p + rootPc) % 12).sort((a, b) => a - b).join(',');
+  const out = [];
+  EXTRA_SCALES.forEach(x => {
+    for (let r = 0; r < 12; r++) {
+      if (x.pcs.map(p => (p + r) % 12).sort((a, b) => a - b).join(',') === key) {
+        if (!(r === rootPc && x.pcs.join() === pcs.join())) out.push(PC_SPELL[r] + ' ' + x.name);
+      }
+    }
+  });
+  return [...new Set(out)];
+}
+
+//==============================================================================
+// THE CHORD ATLAS — every mode stacked in thirds
+//==============================================================================
+const TENSION_NAMES = { 2: { 1: '♭9', 2: '9', 3: '♯9' }, 4: { 4: '♭11', 5: '11', 6: '♯11' }, 6: { 8: '♭13', 9: '13', 10: '♯13' } };
+function stackedChordName(t3, t5, t7) {
+  if (t3 === 3 && t5 === 6 && t7 === 9) return '°7';
+  if (t3 === 3 && t5 === 6 && t7 === 10) return 'm7♭5';
+  let q;
+  if (t3 === 4) q = { 11: '∆7', 10: '7', 9: '6' }[t7];
+  else if (t3 === 3) q = { 11: 'm∆7', 10: 'm7', 9: 'm6' }[t7];
+  else if (t3 === 5 || t3 === 2) q = ({ 11: '∆7', 10: '7', 9: '6' }[t7] || '') + (t3 === 5 ? 'sus4' : 'sus2');
+  if (!q) q = (t3 === 3 ? 'm' : '') + '(' + FORMULA_MAP[t7] + ')';
+  if (t5 === 6) q += '♭5'; else if (t5 === 8) q += '♯5'; else if (t5 !== 7) q += '(' + FORMULA_MAP[t5] + ')';
+  return q;
+}
+// How each mode of the four jazz families is usually voiced and named
+const CHORD_USE = {
+  'Major': ['∆7 — ∆9, 6/9; the 11 is the avoid note', 'm7 — m9, m11, m13', 'm7 — usually voiced as 7sus4♭9; ♭9 and ♭13 sit a half step above chord tones', '∆7♯11 — ∆9♯11, ∆13♯11', '7 — 9, 13, 7sus4; the 11 is the avoid note', 'm7 — m9, m11, m7♭13', 'm7♭5 — with 11 and ♭13; the ♭9 is the avoid note'],
+  'Melodic Minor': ['m∆7 — m6, m6/9, m∆9', '7sus♭9 — the stacked chord is m7; heard as sus♭9 with 13', '∆7♯5 — ∆9♯5, with ♯11', '7♯11 — 9♯11, 13♯11', '7♭13 — 9♭13', 'm7♭5 — ø9, ø11, with ♭13', '7alt — ♭9 ♯9 ♯11 ♭13 (the stacked chord is m7♭5 on paper; the ♭4 is the 3rd)'],
+  'Harmonic Minor': ['m∆7 — m∆9, with ♭13', 'm7♭5 — ø with a natural 13', '∆7♯5 — ∆9♯5', 'm7♯11 — m9♯11, m13♯11', '7♭9♭13 — also 7sus♭9', '∆7♯9♯11 — with 13', '°7 — the leading-tone diminished'],
+  'Harmonic Major': ['∆7 — ∆9 with a ♭13', 'm7♭5 — ø with 9, 11 and 13', '7♭9♯9♭13 — the stacked chord is m7; the ♭4 is the 3rd', 'm∆7♯11 — m∆9♯11', '7♭9 — 7♭9 with 13', '∆7♯5♯9♯11', '°7 — with ♭9, 11, ♭13']
+};
+// The stacked chord can hide the jazz reading (altered: ♭4 = the 3rd); name it as played
+const CHORD_SYMBOL_OVERRIDE = {
+  'Major': { 3: '∆7♯11' },
+  'Melodic Minor': { 1: '7sus♭9', 3: '7♯11', 4: '7♭13', 6: '7alt' },
+  'Harmonic Minor': { 3: 'm7♯11', 4: '7♭9♭13', 5: '∆7♯9♯11' },
+  'Harmonic Major': { 0: '∆7♭13', 2: '7♭9♯9♭13', 3: 'm∆7♯11', 4: '7♭9', 5: '∆7♯5♯9' }
+};
+// Modes whose jazz chord isn't the plain stack of thirds: tones and tensions as played
+const CHORD_EXPLICIT = {
+  'Melodic Minor': {
+    1: { tones: [[0,'1'],[5,'4'],[7,'5'],[10,'♭7']], tensions: [[1,'♭9'],[9,'13']] },
+    6: { tones: [[0,'1'],[4,'3'],[10,'♭7']], tensions: [[1,'♭9'],[3,'♯9'],[6,'♯11'],[8,'♭13']] }
+  },
+  'Harmonic Major': {
+    2: { tones: [[0,'1'],[4,'3'],[7,'5'],[10,'♭7']], tensions: [[1,'♭9'],[3,'♯9'],[8,'♭13']] }
+  }
+};
+function chordOfMode(parentIdx, modeIdx, rootPc) {
+  const p = PARENTS[parentIdx];
+  const iv = rotateMode(p.intervals, modeIdx);
+  const root = parseRootNote(NOTE_NAMES[rootPc].replace('b', '♭')) || parseRootNote('C');
+  const spelled = spellScale(root, iv);
+  const stacked = stackedChordName(iv[2], iv[4], iv[6]);
+  const ov = CHORD_SYMBOL_OVERRIDE[p.short] && CHORD_SYMBOL_OVERRIDE[p.short][modeIdx];
+  const symbol = ov || stacked;
+  const tones = [0, 2, 4, 6].map(k => ({ pc: iv[k], name: spelled[k].name, deg: ['1', FORMULA_MAP[iv[2]], FORMULA_MAP[iv[4]], FORMULA_MAP[iv[6]]][[0, 2, 4, 6].indexOf(k)] }));
+  const tonePcs = [iv[0], iv[2], iv[4], iv[6]];
+  const dominant = tonePcs.includes(4) && tonePcs.includes(10);
+  const tensions = [1, 3, 5].map(k => {
+    const t = iv[k], label = (TENSION_NAMES[k + 1] || {})[t] || FORMULA_MAP[t];
+    const halfAbove = tonePcs.some(c => ((t - c) % 12 + 12) % 12 === 1);
+    const avoid = halfAbove && !(dominant && (t === 1 || t === 8));
+    return { pc: t, name: spelled[k].name, label, avoid };
+  });
+  const use = (CHORD_USE[p.short] && CHORD_USE[p.short][modeIdx]) || (stacked + ' — the mode stacked in thirds');
+  const ex = CHORD_EXPLICIT[p.short] && CHORD_EXPLICIT[p.short][modeIdx];
+  if (ex) {
+    const all = ex.tones.concat(ex.tensions);
+    const names = spellByLabels(root, all.map(x => x[1]), all.map(x => x[0]));
+    const tns = ex.tones.map((t, i) => ({ pc: t[0], name: names[i].name, deg: t[1] }));
+    const tts = ex.tensions.map((t, i) => ({ pc: t[0], name: names[ex.tones.length + i].name, label: t[1], avoid: false }));
+    return { symbol, stacked, rootName: root.letter + (SPELL_ACC[String(root.acc)] || ''), tones: tns, tensions: tts, use, modeName: prettyModeName(p.modes[modeIdx]), parent: p };
+  }
+  return { symbol, stacked, rootName: root.letter + (SPELL_ACC[String(root.acc)] || ''), tones, tensions, use, modeName: prettyModeName(p.modes[modeIdx]), parent: p };
+}
+const caState = { parentIdx: 0, modeIdx: 0, rootPitch: 0 };
+function renderChordAtlas() {
+  const c = chordOfMode(caState.parentIdx, caState.modeIdx, caState.rootPitch);
+  document.getElementById('ca-np').textContent = c.rootName + c.symbol + ' · ' + c.modeName;
+  document.getElementById('ca-chord').innerHTML = `<span class="ch">${c.rootName}${c.symbol}</span>` + (c.symbol !== c.stacked ? ` <span class="muted" style="font-size:13px">(stacked: ${c.rootName}${c.stacked})</span>` : '');
+  document.getElementById('ca-notes').innerHTML =
+    c.tones.map(t => `<span class="ch">${t.name}</span>`).join('  ') + '  ·  ' +
+    c.tensions.map(t => `<span class="sc ca-tension${t.avoid ? ' avoid' : ''}" title="${t.avoid ? 'avoid note: a half step above a chord tone' : ''}">${t.label}</span>`).join('  ');
+  document.getElementById('ca-use').innerHTML = c.use + (c.tensions.some(t => t.avoid) ? '<div class="muted" style="font-size:12px;margin-top:6px">Struck-through tensions sit a half step above a chord tone — avoid notes.</div>' : '');
+  const base = 48 + caState.rootPitch;
+  const highlighted = {}, chordMidis = [];
+  c.tones.forEach(t => { const m = base + t.pc; highlighted[m] = 'lh'; chordMidis.push(m); });
+  c.tensions.forEach(t => { if (!t.avoid) highlighted[base + 12 + t.pc] = 'rh'; });
+  const slot = document.getElementById('ca-kb');
+  slot.innerHTML = '';
+  const kb = createKeyboardBlock({
+    fromMidi: 48, toMidi: Math.max(83, base + 25), highlighted, whiteW: 20, whiteH: 74, playStagger: 60,
+    playLabel: 'Play with tensions',
+    legend: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>chord tones</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>available tensions</span>'
+  });
+  const b2 = document.createElement('button');
+  b2.className = 'kb-play';
+  b2.innerHTML = '<span class="play-tri"></span>Play the seventh chord';
+  b2.addEventListener('click', () => playChord(chordMidis, 40));
+  const ctr = kb.querySelector('.kb-controls'); ctr.insertBefore(b2, ctr.firstChild);
+  slot.appendChild(kb);
+  const g = document.getElementById('ca-grid');
+  g.innerHTML = '';
+  PARENTS[caState.parentIdx].modes.forEach((m, i) => {
+    const ci = chordOfMode(caState.parentIdx, i, caState.rootPitch);
+    const btn = document.createElement('button');
+    btn.className = 'mode-pill' + (i === caState.modeIdx ? ' active' : '');
+    btn.innerHTML = `<span class="num">Mode ${i + 1}</span>${prettyModeName(m)}<span class="ca-sym">${ci.symbol}</span>`;
+    btn.addEventListener('click', () => { caState.modeIdx = i; renderChordAtlas(); });
+    g.appendChild(btn);
+  });
+}
+function buildChordAtlas() {
+  const ps = document.getElementById('ca-parent'), rs = document.getElementById('ca-root');
+  if (!ps) return;
+  PARENTS.forEach((p, i) => { const o = document.createElement('option'); o.value = i; o.textContent = p.name; ps.appendChild(o); });
+  NOTE_NAMES.forEach((n, i) => { const o = document.createElement('option'); o.value = i; o.textContent = n.replace('b', '♭'); rs.appendChild(o); });
+  ps.addEventListener('change', e => { caState.parentIdx = +e.target.value; caState.modeIdx = 0; renderChordAtlas(); });
+  rs.addEventListener('change', e => { caState.rootPitch = +e.target.value; renderChordAtlas(); });
+  renderChordAtlas();
+}
+function showInChordAtlas(parentIdx, modeIdx, rootPc) {
+  caState.parentIdx = parentIdx; caState.modeIdx = modeIdx; caState.rootPitch = rootPc;
+  document.getElementById('ca-parent').value = parentIdx;
+  document.getElementById('ca-root').value = rootPc;
+  renderChordAtlas();
+  const t = document.getElementById('chordatlas');
+  const y = t.getBoundingClientRect().top + window.pageYOffset - 70;
+  try { window.scrollTo({ top: y, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, y); }
+}
+
+//==============================================================================
+// FIND A CHORD — by symbol or by notes
+//==============================================================================
+const CHORD_QUALITIES = [
+  ['', [0,4,7]], ['m', [0,3,7]], ['°', [0,3,6]], ['+', [0,4,8]], ['sus4', [0,5,7]], ['sus2', [0,2,7]],
+  ['6', [0,4,7,9]], ['m6', [0,3,7,9]], ['7', [0,4,7,10]], ['∆7', [0,4,7,11]], ['m7', [0,3,7,10]], ['m∆7', [0,3,7,11]],
+  ['m7♭5', [0,3,6,10]], ['°7', [0,3,6,9]], ['7♯5', [0,4,8,10]], ['∆7♯5', [0,4,8,11]], ['7♭5', [0,4,6,10]], ['7sus4', [0,5,7,10]],
+  ['6/9', [0,2,4,7,9]], ['m6/9', [0,2,3,7,9]], ['9', [0,2,4,7,10]], ['∆9', [0,2,4,7,11]], ['m9', [0,2,3,7,10]], ['m∆9', [0,2,3,7,11]],
+  ['7♭9', [0,1,4,7,10]], ['7♯9', [0,3,4,7,10]], ['7♯11', [0,4,6,7,10]], ['∆7♯11', [0,4,6,7,11]], ['7♭13', [0,4,7,8,10]],
+  ['9sus4', [0,2,5,7,10]], ['7sus♭9', [0,1,5,7,10]], ['m11', [0,2,3,5,7,10]], ['13', [0,2,4,7,9,10]], ['∆13', [0,2,4,7,9,11]],
+  ['m13', [0,2,3,5,7,9,10]], ['7alt', [0,1,3,4,8,10]], ['7♭9♭13', [0,1,4,7,8,10]], ['7♯9♯5', [0,3,4,8,10]], ['ø9', [0,2,3,6,10]],
+  ['9♯11', [0,2,4,6,7,10]], ['∆9♯11', [0,2,4,6,7,11]], ['13♯11', [0,2,4,6,7,9,10]], ['7♭9♯9', [0,1,3,4,7,10]], ['m7♯11', [0,3,6,7,10]]
+];
+const CHORD_DEG = (iv, set, q) => {
+  const has = x => set.includes(x);
+  const sharp5 = /♯5|\+/.test(q || '');
+  return { 0: '1', 1: '♭9', 2: has(4) || has(3) ? '9' : '2', 3: has(4) ? '♯9' : '♭3', 4: '3', 5: has(4) || has(3) ? '11' : '4',
+    6: has(7) ? '♯11' : '♭5', 7: '5', 8: sharp5 ? '♯5' : (has(7) || (has(10) && (has(6) || has(1) || has(3)))) ? '♭13' : '♯5', 9: (has(10) || has(11)) ? '13' : (has(6) && has(3) ? '𝄫7' : '6'), 10: '♭7', 11: '7' }[iv];
+};
+function normChordInput(str) {
+  return String(str).trim()
+    .replace(/♭/g, 'b').replace(/♯/g, '#').replace(/[∆△]/g, 'maj')
+    .replace(/^([A-G][b#]?)(mi|min|-)(?=[A-Z0-9(]|$|M|maj)/, '$1m')
+    .replace(/^([A-G][b#]?)m(Ma|MA|Maj|M)(?=7|9|11|13)/, '$1mmaj')
+    .replace(/^([A-G][b#]?)(Ma|MA|Maj|M)(?=7|9|11|13)/, '$1maj')
+    .replace(/\s+/g, '');
+}
+function chordNameFor(rootPc, set) {
+  const key = set.map(x => ((x - rootPc) % 12 + 12) % 12).sort((a, b) => a - b).join(',');
+  const q = CHORD_QUALITIES.find(([, iv]) => iv.slice().sort((a, b) => a - b).join(',') === key);
+  return q ? q[0] : null;
+}
+function identifyNotes(tokens) {
+  const roots = tokens.map(t => parseRootNote(t)).filter(Boolean);
+  if (roots.length < 3 || roots.length !== tokens.length) return null;
+  const pcs = [...new Set(roots.map(r => r.pc))];
+  const names = [];
+  roots.forEach(r => {
+    if (names.some(n => n.root.pc === r.pc)) return;
+    const q = chordNameFor(r.pc, pcs);
+    if (q != null) names.push({ root: r, q });
+  });
+  return { pcs, names, given: roots };
+}
+const CHORD_FAM_RANK = { 'Major': 0, 'Melodic Minor': 1, 'Harmonic Minor': 2, 'Harmonic Major': 3 };
+function scalesForChord(rootPc, ivSet) {
+  const tones = ivSet.map(x => x % 12);
+  const dominant = tones.includes(4) && tones.includes(10);
+  const fits = [];
+  const consider = (pcs, label, famLabel, rank, ref) => {
+    if (!tones.every(t => pcs.includes(t))) return;
+    const extra = pcs.filter(p => !tones.includes(p));
+    const avoid = extra.filter(p => tones.some(c => ((p - c) % 12 + 12) % 12 === 1) && !(dominant && (p === 1 || p === 8))).length;
+    fits.push({ label, famLabel, score: avoid * 10 + rank, avoid, ref, rare: rank >= 12 });
+  };
+  MODE_INDEX.forEach(m => {
+    const rank = CHORD_FAM_RANK[m.short] != null ? CHORD_FAM_RANK[m.short] : 12;
+    const pRoot = parentRootOf(m, rootPc);
+    consider(m.pcs, PC_SPELL[rootPc] + ' ' + prettyModeName(m.mode), (m.degree > 1 ? 'mode ' + m.degree + ' of ' + PC_SPELL[pRoot] + ' ' : '') + m.short, rank, { parentIdx: m.parentIdx, modeIdx: m.degree - 1 });
+  });
+  EXTRA_SCALES.forEach(x => consider(x.pcs, PC_SPELL[rootPc] + ' ' + x.name, x.fam, 4.5, null));
+  fits.sort((a, b) => a.score - b.score);
+  const main = fits.filter(f => !f.rare), rare = fits.filter(f => f.rare);
+  return (main.length >= 6 ? main : main.concat(rare)).slice(0, 12);
+}
+function renderChordResults(str) {
+  const box = document.getElementById('chord-results');
+  box.innerHTML = '';
+  if (!str.trim()) return;
+  const tokens = str.trim().split(/[\s,]+/).filter(Boolean);
+  let items = [];
+  const byNotes = tokens.length >= 3 ? identifyNotes(tokens) : null;
+  if (byNotes) {
+    if (!byNotes.names.length) {
+      box.innerHTML = `<div class="result-empty">These notes don't form a chord in the list (triads, sixths, sevenths and common extensions). Try fewer notes, or type a chord name.</div>`;
+      return;
+    }
+    items = byNotes.names.map(n => ({ root: n.root, q: n.q, iv: byNotes.pcs.map(p => ((p - n.root.pc) % 12 + 12) % 12).sort((a, b) => a - b) }));
+  } else {
+    const norm = normChordInput(str);
+    const m = norm.match(/^([A-G][b#]?)(.*)$/);
+    const ok = m && /^(maj|m|dim|aug|sus|alt|add|M|\+|o|[0-9]|b|#|\(|\)|,|\/|[A-G])*$/.test(m[2]);
+    const parsed = ok ? parseChordSymbol(norm) : null;
+    if (!parsed) {
+      box.innerHTML = `<div class="result-empty">No chord matches <em>${escHtml(str)}</em>. Try a symbol like <em>Dm7b5</em>, <em>G7alt</em> or <em>CMa7</em>, or three or more note names like <em>C E G Bb</em>.</div>`;
+      return;
+    }
+    const root = parseRootNote(m[1]);
+    const iv = [...new Set(parsed.iv.map(x => x % 12))].sort((a, b) => a - b);
+    items = [{ root, q: chordNameFor(root.pc, iv.map(x => (x + root.pc) % 12)) || prettyChord(m[2]), iv }];
+  }
+  items.forEach((it, idx) => {
+    const labels = it.iv.map(x => CHORD_DEG(x, it.iv, it.q));
+    const notes = spellByLabels(it.root, labels, it.iv);
+    const rootName = notes[0].name;
+    const same = [];
+    for (let r = 0; r < 12; r++) {
+      if (r === it.root.pc) continue;
+      const q = chordNameFor(r, it.iv.map(x => (x + it.root.pc) % 12));
+      if (q != null) same.push(PC_SPELL[r] + q);
+    }
+    const fits = scalesForChord(it.root.pc, it.iv);
+    const home = fits.find(f => f.ref && f.avoid === 0);
+    const card = document.createElement('div');
+    card.className = 'result-card' + (idx === 0 ? ' primary' : '');
+    card.innerHTML = `
+      <div class="result-head">
+        <div class="result-title"><span class="ch">${rootName}${it.q}</span>${idx === 0 ? `<span class="badge">${byNotes ? 'match' : 'chord'}</span>` : ''}</div>
+        <div class="result-sub">${it.iv.length} notes${byNotes && items.length > 1 ? ' · one of ' + items.length + ' names for these notes' : ''}</div>
+      </div>
+      <div class="mf-row"><span class="mf-lab">Formula</span><div class="mf-val"><div class="result-formula" style="margin:0">${labels.map(l => `<span class="deg">${l}</span>`).join('')}</div></div></div>
+      <div class="mf-row"><span class="mf-lab">Notes</span><div class="mf-val scale-notes">${notes.map((n, i) => `<span class="sn${i === 0 ? ' root' : ''}">${n.name}</span>`).join('')}</div></div>
+      ${same.length ? `<div class="mf-row"><span class="mf-lab">Same notes</span><div class="mf-val">${same.map(x => `<span class="ch">${x}</span>`).join(' · ')}</div></div>` : ''}
+      <div class="mf-row"><span class="mf-lab">Scales over it</span><div class="mf-val">${fits.map(f => `<span class="cf-fit${f === home ? ' home' : ''}"><span class="sc">${f.label}</span> <span class="fam">${f.famLabel}${f.avoid ? ' · ' + f.avoid + ' avoid' : ''}</span></span>`).join('')}</div></div>
+      ${home ? `<div class="mf-row"><span class="mf-lab"></span><div class="mf-val"><button class="kb-play" data-ca="1"><span class="play-tri"></span>Open ${escHtml(home.label)} in the Chord Atlas</button></div></div>` : ''}
+      <div class="ivi-kb" data-chord-kb="${idx}"></div>`;
+    box.appendChild(card);
+    const base = 48 + it.root.pc;
+    const highlighted = {};
+    it.iv.forEach(x => { highlighted[base + x] = 'lh'; });
+    card.querySelector('[data-chord-kb]').appendChild(createKeyboardBlock({
+      fromMidi: 48, toMidi: Math.max(72, base + 13), highlighted, whiteW: 17, whiteH: 60, playStagger: 40, playLabel: 'Play chord'
+    }));
+    const b = card.querySelector('[data-ca]');
+    if (b) b.addEventListener('click', () => showInChordAtlas(home.ref.parentIdx, home.ref.modeIdx, it.root.pc));
+  });
+}
+function buildChordFinder() {
+  const input = document.getElementById('chord-search');
+  if (!input) return;
+  const run = () => renderChordResults(input.value);
+  input.addEventListener('input', run);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+  const go = document.getElementById('chord-search-go');
+  if (go) go.addEventListener('click', run);
+  document.querySelectorAll('#chord-hints .search-hint').forEach(h => h.addEventListener('click', () => { input.value = h.dataset.q; run(); input.focus(); }));
+}
+
+//==============================================================================
+// CHORD COLOUR — chord symbols in headings take the chord colour
+//==============================================================================
+const CHORD_TOKEN = /^[A-G][♭♯]?(?:m|∆|ø|°|\+|maj|sus|alt|dim|aug|6|7|9|11|13)[0-9m∆ø°+♭♯()\/,susaltdimaugajd]*$/;
+function colourChordHeadings() {
+  document.querySelectorAll('main h3, main h4').forEach(h => {
+    if (h.closest('.search-results, .sim-results, #ivi-progression')) return;
+    const walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT, null);
+    const nodes = []; let n;
+    while ((n = walker.nextNode())) { if (!n.parentElement.closest('.ch, .sc, .nj-src')) nodes.push(n); }
+    nodes.forEach(node => {
+      const parts = node.nodeValue.split(/(\s+|→|·)/);
+      if (!parts.some(p => CHORD_TOKEN.test(p.replace(/[.,:;]+$/, '')))) return;
+      const frag = document.createDocumentFragment();
+      parts.forEach(p => {
+        const core = p.replace(/[.,:;]+$/, ''), tail = p.slice(core.length);
+        if (core && CHORD_TOKEN.test(core)) {
+          const sp = document.createElement('span'); sp.className = 'ch'; sp.textContent = core;
+          frag.appendChild(sp); if (tail) frag.appendChild(document.createTextNode(tail));
+        } else frag.appendChild(document.createTextNode(p));
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
   });
 }
 
@@ -15440,6 +15899,9 @@ document.addEventListener('DOMContentLoaded', () => {
   buildOutLab();
   buildReharmLab();
   buildModeFinder();
+  buildChordAtlas();
+  buildChordFinder();
+  colourChordHeadings();
   buildSubFinder();
   populateAllKeyboards();
   setupReveals();
