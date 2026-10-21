@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Piano: Modes &amp; Movements v6.2">
-<title>Piano: Modes & Movements v6.2 — A Jazz Piano Library</title>
+<meta property="og:title" content="Piano: Modes &amp; Movements v6.3">
+<title>Piano: Modes & Movements v6.3 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -416,10 +416,12 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: 10px;
-    padding: 4px 0;
-    scrollbar-width: none;
+    padding: 4px 0 10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
   }
-  .keyboard-wrap::-webkit-scrollbar { display: none; }
+  .keyboard-wrap::-webkit-scrollbar { height: 6px; }
+  .keyboard-wrap::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 3px; }
   .keyboard {
     display: block;
     margin: 0 auto;
@@ -489,6 +491,8 @@
     user-select: none;
     -webkit-user-select: none;
   }
+  /* v6.3: mini keyboards scale down to their box instead of hiding keys past the right edge */
+  .kb-scroll .mini-keyboard { max-width: 100%; height: auto; display: block; }
   .mk-white {
     fill: var(--key-white);
     stroke: var(--key-white-shadow);
@@ -1963,7 +1967,7 @@
 
   <!-- ============== HERO ============== -->
   <section class="hero">
-    <span class="eyebrow">A Jazz Piano Library · v6.2 · 20 October 2026, 4:04 PM ET · build 2026-10-20T20:04Z</span>
+    <span class="eyebrow">A Jazz Piano Library · v6.3 · 21 October 2026, 2:20 PM ET · build 2026-10-21T18:20Z</span>
     <h1>
       <span class="line">Eleven parent scales.</span>
       <span class="line">Seventy-seven modes.</span>
@@ -2128,6 +2132,7 @@
           <li>I∆7, ii7, vi7, VI∆7</li>
           <li>♭VII7♯11 (lydian dominant)</li>
           <li><span class="li-body">Voiced as a five-note set and its four rotations — one set for <span class="ch">B♭6/9</span>, <span class="ch">G–7</span>, <span class="ch">E♭∆7</span>, <span class="ch">C7sus</span> and <span class="ch">A♭∆7♯11</span>: see <a href="#comping-magic" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">the Magic Voicing System</a> in Comping</span></li>
+          <li><span class="li-body">Pentatonic triads skip a note twice — F A D, G C F, A D G, C F A, D G C up F major pentatonic — over <span class="ch">F</span>, <span class="ch">Dm7</span>, <span class="ch">B♭∆7</span>, <span class="ch">G7sus</span> and <span class="ch">E♭∆7♯11</span>; dyads skip one note, down E minor pentatonic with a turn, over Em – C∆ – A7sus – F∆. <span class="nj-src">(OS clip maness pentatonic chords · 00:00–00:46; OS clip maness warmup pentatonic dyad · 00:00–00:44)</span></span></li>
           <li><span class="li-body">On <span class="pent-degree">♭5</span> of dom7alt — G♭ major pentatonic over C7alt; over <span class="ch">E♭7</span> the same move gives A major pentatonic, the tritone sub’s own — A B C♯ E F♯ = ♯11 ♭13 ♭7 ♭9 ♯9. E minor pentatonic (E G A B D) is a different set. <span class="nj-src">(this page's reading)</span></span></li>
         </ul>
       </div>
@@ -2151,7 +2156,7 @@
         <p class="desc" style="margin-top:18px">Minor pentatonic with the 6th instead of the ♭7. The Dorian color, distilled.</p>
         <ul class="usage">
           <li>Over m7 — pure Dorian without the modal commitment of the full scale</li>
-          <li>Over dom7 — on the 5th degree (D Dorian pentatonic over G7) <span class="nj-src">(OS clip pentatonics · 00:30–00:35)</span></li>
+          <li><span class="li-body">Over dom7 — on the 5th degree (D Dorian pentatonic over G7) <span class="nj-src">(OS clip pentatonics · 00:30–00:35)</span></span></li>
         </ul>
       </div>
 
@@ -2301,6 +2306,7 @@
       </div>
 
     </div>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">The same idea through a whole song, Stevie Wonder’s “Overjoyed”, is under <a href="#bychord-stevie" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Over dominant 7</a> in Scales by Chord.</p>
   
     <h3 id="pentatonic-cells" class="reveal" style="margin: 64px 0 16px; font-style: italic;">Cells, <em>not scales</em></h3>
     <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Play the dominant pentatonic in four-note cells — 1 2 3 5, 2 3 5 ♭7, 3 5 ♭7 1 — then reorder and chain them, and slide the cells a half step up and back. <span class="nj-src">(NK 2020-09-17 · 02:09–07:03)</span></p>
@@ -2308,6 +2314,8 @@
 Chain three        1 2 3 5 | 3 2 ♭7 1 | 5 ♭7 1 2   — up and down the keyboard
 Side-slip          as on the Dominant Pentatonic card above</div>
     <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;">Three ways to stop it sounding like a scale: double-tap a note, pause, change direction mid-run. Fingering: in F, 1 2 3 1 3 | 1 2 3 1 3 (the jump from 3); on G♭ his own 1 2 3 4 | 1 2 3 4, because the F fingering is awkward there. <span class="nj-src">(NK 2022-09-04 · 02:33–10:07)</span></p>
+    <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;">Two zones for practising lines: C minor pentatonic over <span class="ch">Cm7</span> with the thumb on C (C E♭ F G), then with the thumb on G (G B♭ C E♭). Run each zone up and down, make melodies inside one zone, then move between the zones freely; fourths in the left hand. <span class="nj-src">(OS clip pentatonic lines · 00:05–00:56)</span></p>
+    <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;">A scale loop: F minor pentatonic five notes down, start one note higher and five down again, and so on back up — one seamless line; then over <span class="ch">Fm</span> – <span class="ch">A♭2</span> – <span class="ch">D♭2</span> – <span class="ch">B♭9sus</span> – <span class="ch">G♭∆7♯11</span>. <span class="nj-src">(OS clip maness warmup pentatonic exercise · 00:00–00:30)</span></p>
   </section>
 
   <hr class="divider">
@@ -2537,6 +2545,30 @@ Side-slip          as on the Dominant Pentatonic card above</div>
     </div>
 
     <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Over a whole progression, also the key's blues scale — G blues over G7 → C7, over I–VI–II–V and ii–V–I in G; B♭ blues over rhythm changes, the IV included. Its pull to the tonic is the tension, so resolve on purpose (Oscar Peterson's habit). <span class="nj-src">(NK 2023-05-04 · 00:50–09:32)</span></p>
+    <h4 id="bychord-arpeggios" class="bc-fam reveal">Three arpeggios on V</h4>
+    <p class="muted reveal" style="font-size: 13px; max-width: 840px;">Over <span class="ch">B♭7</span> → <span class="ch">E♭</span>, with B♭ held in the pedal: climb one of these, then resolve to I. Take each through all twelve keys. <span class="nj-src">(OS clip osj maness mysterious arpeggios · 00:22–01:14)</span></p>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Diminished</h3>
+        <div class="formula-line">B♭13(♯11 ♭9)</div>
+        <div class="kb-slot" data-kb="os-arp-dim"></div>
+        <p class="desc" style="margin-top:16px">LH A♭ B♭, RH B D E G — from the B♭ half-whole scale (he calls it A♭ whole-half).</p>
+      </div>
+      <div class="card">
+        <h3>Whole <em>tone</em></h3>
+        <div class="formula-line">B♭ whole tone</div>
+        <div class="kb-slot" data-kb="os-arp-wt"></div>
+        <p class="desc" style="margin-top:16px">LH G♭ A♭ B♭, all black keys; RH C D E, all white keys.</p>
+      </div>
+      <div class="card">
+        <h3>Altered</h3>
+        <div class="formula-line">B♭7alt</div>
+        <div class="kb-slot" data-kb="os-arp-alt"></div>
+        <p class="desc" style="margin-top:16px">LH D A♭ B (3, ♭7, ♭9); RH a G♭ triad, D♭ G♭ B♭. On the staff the line climbs on above the triad; those notes are not read here.</p>
+      </div>
+    </div>
+    <p id="bychord-stevie" class="muted reveal" style="margin-top: 26px; font-size: 13px; max-width: 840px;">Pentatonics under non-jazz chords — Stevie Wonder’s “Overjoyed”: B♭ minor pentatonic over <span class="ch">D♭</span>, the B♭ blues pentatonic (1 ♭3 4 ♭5 ♭7) over <span class="ch">C7</span>, E♭ minor pentatonic over <span class="ch">B</span>; in the verse G minor pentatonic over <span class="ch">E♭</span>, C minor over <span class="ch">Cm</span>, and F major or D minor pentatonic over the moo <span class="ch">F(2)/A</span>. Hear the pentatonic the song implies rather than reaching for ♯11, altered or diminished scales. <span class="nj-src">(OS clip Stevie Wonder Pentatonics · 00:50–07:10)</span></p>
+
     <h3 class="reveal" style="margin: 88px 0 12px; font-style: italic;">Over <em>sus♭9</em> · G7sus♭9</h3>
     <h4 class="bc-fam reveal">Melodic minor</h4>
     <div class="scale-grid reveal">
@@ -3158,6 +3190,11 @@ C7sus4 · G♭7 · F7   from above</div>
         <p class="desc" style="margin-top:18px">Coming <em>home</em> from the IV: minor it, add the ♭VII7, and B♭7's ♭7 (A♭) falls to G while its 3rd (D) sits under the C. Gospel's favorite return.</p>
       </div>
       <div class="card">
+        <h3>Oscar Peterson’s <em>dominant chain</em></h3>
+        <div class="formula-line">G7 → B7 – E7 – A7 – D7 → G</div>
+        <p class="desc" style="margin-top:18px">In a G blues, after the return to I: III7, VI7, II7, V7, each the dominant of the next, round to G. The ending goes D7 → A♭7(13) → G13(♯11 ♭9), a tritone-sub approach. <span class="nj-src">(OS clip osj oscarpeterson blues · 00:15–00:53)</span></p>
+      </div>
+      <div class="card">
         <h3>The <em>♯IV°7</em></h3>
         <div class="formula-line">F7 → F♯°7 → C7/G</div>
         <p class="desc" style="margin-top:18px">The bar-6 chord. F♯→G in the bass, E♭→E on top. It's also a rootless D7♭9 — which is why bar 6 can become a ii–V into the second half.</p>
@@ -3214,6 +3251,7 @@ C/G  A+7 | A♭13  G9      | Em7 A7  | D7♭5 G7♯9♯5</div>
       </div>
     </div>
 
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Emmet Cohen’s solo-blues left hand: legato and steady — octaves or rolled tenths with pedal — steady enough to send a text message while it runs, which frees the right hand. In B♭, I → IV in one bar from above via E (<span class="ch">E7</span>, or E7 – E♭7 – E° – B♭/F) or from below via D; and the church walk-up B♭ – Cm – C° – B♭/D. <span class="nj-src">(OS clip Emmett Cohen Blues · 00:00–07:52)</span></p>
     <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">Barry over the <em>embedded ii–V's</em></h3>
     <div class="reveal" style="max-width: 760px; margin-bottom: 16px;">
       <p class="desc" style="color:var(--ink-2); font-size:16px; line-height:1.55;">Each little ii–V is one dominant environment (see <a href="#barry" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rouge-line);">Barry Harris</a>). The minor chord is just the dominant's upper structure.</p>
@@ -3685,7 +3723,7 @@ B D♯ F♯ → A C E   → G B D   → F A♭ C → E♭ G B♭  → D♭ F♭ 
         <ul class="usage">
           <li>Over a V chord, with a pattern and starting center that fit it</li>
           <li>Four stops, all chord tones of the same °7</li>
-          <li>Also taught with a 7sus resolving to its ∆7 (<span class="ch">D♭7sus4</span> → <span class="ch">G♭∆7</span>), the pair moved round the circle of fourths, by tritones, or down in minor thirds <span class="nj-src">(OS clip openstudio2 · 00:00–01:21)</span></li>
+          <li><span class="li-body">Also taught with a 7sus resolving to its ∆7 (<span class="ch">D♭7sus4</span> → <span class="ch">G♭∆7</span>), the pair moved round the circle of fourths, by tritones, or down in minor thirds <span class="nj-src">(OS clip openstudio2 · 00:00–01:21)</span></span></li>
           <li>Pairs with the diminished material in Special Scales</li>
         </ul>
       </div>
@@ -4318,7 +4356,7 @@ Up the row in fifths, brighter; up in fourths, darker. Blend positions and you b
 Left hand: the C bass, or the same grip on the same positions — thinned to fewer notes low down.
 Block chords or arpeggios, in several octaves.</div>
     <div class="kb-slot reveal" data-kb="njp-ff" style="margin-top:22px;"></div>
-    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Also taught as an ostinato: C F G C in either hand, for hand independence rather than as a Dorian playground. <span class="nj-src">(NK 2021-03-25 · 02:25–09:46; NK 2021-04-01 · 03:35–05:13)</span></p>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Also taught as an ostinato: C F G C in either hand, for hand independence rather than as a Dorian playground — see <a href="#warmups-ostinato" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Ostinatos</a> in Warmups. <span class="nj-src">(NK 2021-03-25 · 02:25–09:46; NK 2021-04-01 · 03:35–05:13)</span></p>
 
     <h3 id="newjazz-golden" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The Locrian <em>golden trick</em></h3>
     <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Over C Dorian the minor-pentatonic grip sits on <strong>C, G and D</strong> — the row from the key note. To jazz it up, jump a minor 3rd to <strong>E♭</strong> and run the row from there: E♭, B♭, F spell C Locrian. Play mostly Dorian and visit Locrian now and then; keep running the Locrian row upward and it leads straight back into the Dorian row. <span class="nj-src">(NJ 2023-11a · 09:35; NJ 2024-09-30 · 01:24)</span></p>
@@ -5596,6 +5634,8 @@ ii–V–i in G minor   Aø7 (the C minor-6 set) – D7alt – Gm6/9</div>
         <tr><td class="name">tenths</td><td>1 in the pinky, ♭7 and ♭3 with the index and thumb</td></tr>
         <tr><td class="name">bass, then chord</td><td>slam a bass note, then a rootless voicing — or the chord in the right hand</td></tr>
         <tr><td class="name">follow or oppose</td><td>match the right hand's accents (Bill Evans), or keep a pattern of its own while the right hand runs</td></tr>
+        <tr><td class="name">inversions in the bass</td><td><span class="ch">D7/F♯</span> → <span class="ch">Gm</span> (3rd in the bass, a half step up) and <span class="ch">B♭7/F</span> → <span class="ch">E♭</span> (5th in the bass, a whole step down): two V–Is with a melodic bass line, from Nina Simone’s intro to “I Wish I Knew How It Would Feel to Be Free” <span class="nj-src">(OS clip Gospel of Nina · 01:57–03:36)</span></td></tr>
+        <tr><td class="name">drop 3</td><td>take a four-note voicing and drop the third note from the top an octave — a B♭ shape, and a D♭°7 shape that lands on B♭/F <span class="nj-src">(OS clip Gospel of Nina · 03:47–05:28)</span></td></tr>
       </tbody>
     </table></div>
     <div class="recipe reveal"><b>Walking, for one player.</b>  First a two-feel — a bass note every two beats: roots where chords change, chord tones or chromatic passing tones between.
@@ -5810,7 +5850,7 @@ Each new tonic is a major 3rd below the last — C, A♭, E, back to C.</div>
    A♭7     E♭ melodic minor         A♭ Lydian dominant
 
 <b>B♭ · E♭ · F</b> run through all three — the key's root, 4th and 5th never leave.</div>
-    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">How sure is the placement? The order of the runs in the transcription, the C it hears under the second one, and the key of B♭ all line up with bars 17–22 — the transcription caught no bass under the first and third runs, so those two chords are inferred from the form. The source screenshots labelled the same three collections <em>B♭sus4♭9/13</em>, <em>D7♭9/A</em> and <em>A♭6/♯11</em>, reading them against other roots. One correction from v3.7: that page said the second run had "no alteration" over D7♭9. Over a D it would leave out F♯, the chord's 3rd — the C bass is what makes it plain.</p>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">How sure is the placement? The order of the runs in the transcription, the C it hears under the second one, and the key of B♭ all line up with bars 17–22 — the transcription caught no bass under the first and third runs, so those two chords are inferred from the form. An earlier reading labelled the same three collections <em>B♭sus4♭9/13</em>, <em>D7♭9/A</em> and <em>A♭6/♯11</em>, reading them against other roots. One correction from v3.7: that page said the second run had "no alteration" over D7♭9. Over a D it would leave out F♯, the chord's 3rd — the C bass is what makes it plain.</p>
 
     <details class="ref reveal" style="margin-top: 40px;">
       <summary><h3>Other devices · <em>unverified</em></h3><span class="chev">+</span></summary>
@@ -6111,9 +6151,11 @@ end of an A section: the majors a half step above and below, then <span class="c
         <tr><td class="chord">C(add9)/E → F∆9 → D♭∆7 → E♭6</td><td>one melody note, C, on top throughout</td></tr>
         <tr><td class="chord">Cm11 → Fm11 → G13sus → A♭∆9 → Am11 → B♭13sus → E♭∆7♯5</td><td>the m11 with its 9 doubled on top</td></tr>
         <tr><td class="chord">F♯m11 → Bm11 → C♯m11 → D∆9 … D♭∆9 → F♯∆9♯11 → B∆7 → E∆</td><td>one m11 shape, then an all-major ending up in 4ths</td></tr>
+        <tr><td class="chord">Fm11 → Dm11 → A♭∆7(♯5) → G7♯9♭13</td><td>a Robert Glasper sound: the minor 11s are minor 9s with the 5 moved down to the 11; the V is voiced B D E♭ B♭ over G (3 5 ♭13 ♯9), E♭ and B♭ from an E♭ triad. The video also names a D♭ triad — D♭ + E♭ is the G7alt pair in <a href="#newjazz-triadpairs" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">the triad pairs</a> <span class="nj-src">(OS clip openstudio1 · 00:00–00:55)</span></td></tr>
       </tbody>
     </table></div>
     <div class="reveal" style="max-width: 640px; margin-top: 18px;"><div class="kb-slot" data-kb="nk-bbsus13"></div></div>
+    <div class="reveal" style="max-width: 640px; margin-top: 18px;"><div class="kb-slot" data-kb="os-glasper-v"></div></div>
     <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;">A way to invent your own: build two-chord cells — Am11 → Em11, E♭∆9 → A♭∆9 — then combine, reverse and swap them into four-chord progressions. Most of these use <a href="#upper-m11" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">One minor-11 shape, any root</a>. <span class="nj-src">(NK 2020-10-17 · 02:53–08:27)</span></p>
     <h3 id="reharm-journey" class="reveal" style="margin: 72px 0 16px; font-style: italic;">A whole tune as <em>a journey</em></h3>
     <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">"Christmas Time Is Here" reharmonized as a path from point A to point B rather than a chord for every melody note: start on the original chord, step off and come back, travel further, and finish somewhere new. <span class="nj-src">(NK 2020-12-24 · 01:11–14:43)</span></p>
@@ -6134,7 +6176,7 @@ end of an A section: the majors a half step above and below, then <span class="c
     <div class="reveal" style="margin-bottom: 56px;">
       <span class="eyebrow">Warmups</span>
       <h2>Warmups that <em>go somewhere.</em></h2>
-      <p class="lede">Seven drills that aren't finger exercises — each one is a harmonic idea you practise with your hands until it stops needing thought. All seven are steppable and transposable in the <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a>.</p>
+      <p class="lede">Sixteen drills that aren't finger exercises — each one is a harmonic idea you practise with your hands until it stops needing thought. Seven of them are steppable and transposable in the <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a>: the moo chord warmup, secondary dominant and diminished, the oblique warmup, Barry Harris, the Maness key change, secondary dominant to tritone sub, and the Mountain.</p>
     </div>
 
     <h3 id="warmups-moo" class="reveal" style="margin: 0 0 16px; font-style: italic;">The moo chord warmup</h3>
@@ -6168,12 +6210,20 @@ end of an A section: the majors a half step above and below, then <span class="c
    on E:   E∆7  ·  B(2)/D♯ ·  D∆7   ·  A(2)/C♯
    on F♯:  F♯∆7 ·  C♯(2)/E♯·  E∆7   ·  B(2)/D♯
    on A♭:  A♭∆7 ·  E♭(2)/G ·  G♭∆7  ·  D♭(2)/F
-   on B♭:  B♭∆7 ·  F(2)/A  ·  A♭∆7  ·  E♭(2)/G</div>
+   on B♭:  B♭∆7 ·  F(2)/A  ·  A♭∆7  ·  E♭(2)/G
+
+pass 2, a half step up:
+   on D♭:  D♭∆7 ·  A♭(2)/C ·  B∆7   ·  F♯(2)/A♯
+   on E♭:  E♭∆7 ·  B♭(2)/D ·  D♭∆7  ·  A♭(2)/C
+   on F:   F∆7  ·  C(2)/E  ·  E♭∆7  ·  B♭(2)/D
+   on G:   G∆7  ·  D(2)/F♯ ·  F∆7   ·  C(2)/E
+   on A:   A∆7  ·  E(2)/G♯ ·  G∆7   ·  D(2)/F♯
+   on B:   B∆7  ·  F♯(2)/A♯·  A∆7   ·  E(2)/G♯</div>
 
     <div class="invert-panel reveal" style="margin-top:26px;">
-      The cell climbs a whole step each time, so its six starting points are <em>C D E F♯ A♭ B♭</em> — the whole-tone scale. Twenty-four chords and you are back where you began, having passed through every key without once modulating in the ordinary sense.
+      The cell climbs a whole step each time, so its six starting points are <em>C D E F♯ A♭ B♭</em> — one whole-tone scale, six of the twelve keys. Then, as the video says, take the whole thing up a half step: the second pass starts on D♭ and covers the other six. <span class="nj-src">(OS clip moo chords · 00:00–00:31)</span>
     </div>
-    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Inside each cell the second ∆7 is a whole step <em>below</em> the first, and the next cell starts a whole step <em>above</em> — so the roots zigzag up a minor third and back down a whole step, netting the two-step climb. Full twenty-four-chord version in the exercise player as <em>Moo chord warmup</em>.</p>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Inside each cell the second ∆7 is a whole step <em>below</em> the first, and the next cell starts a whole step <em>above</em> — so the roots go down a whole step and then up a major third, a net climb of a whole step per cell. Both passes, forty-eight chords, are in the exercise player as <em>Moo chord warmup</em>.</p>
     <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">Also taught as a chromatic approach into I: <span class="ch">B♭13sus</span> → <span class="ch">G(add2)/B</span> → <span class="ch">C∆</span>, bass B♭ B C — after Lyle Mays: 1 2 5 over its own 3rd, resolving up. <span class="nj-src">(NK 2021-01-28 · 01:11–02:57; NK 2022-06-21 · 03:45–06:18)</span></p>
     <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">A Steely Dan <em>mu</em> needs the 2 and the 3 side by side; the spread form with the 3rd in the bass is the Open Studio <em>moo</em>. <span class="nj-src">(OS clip Moo Chords advanced · 00:00–00:45)</span></p>
 
@@ -6218,23 +6268,103 @@ bass:  C  C♯ C♯  D  D♯ D♯  E  E  E  F  F♯ F♯  G  G♯ G♯  A  B  B 
     <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;">Also taught in reverse: lower one note of a diminished seventh a half step and it becomes a dominant on that note — <span class="ch">F♯°7</span> → <span class="ch">B7/F♯</span>, in Fm → B7/F♯ → Gm → C7 → Fm. <span class="nj-src">(NK 2023-01-24 · 10:16–11:03)</span></p>
 
     <h3 id="os-oblique-full" class="reveal" style="margin:72px 0 16px;">Oblique warmup · <em>both hands together</em></h3>
-    <p class="lede reveal">Keep the right-hand outer octave in place while its middle voice moves with the bass. The major passage begins C–D–E–F in the bass, with E–F–G–A inside the C octave. Later, the outer notes shift to G. In minor, E♭, A♭ and B♭ darken the descent; A natural and B natural lead back through the dominant. <span class="nj-src">(OS clip oblique chord warmup · 00:04–00:26)</span></p>
-    <div class="table-scroll"><table class="study-table reveal"><thead><tr><th>Passage</th><th>LH bass</th><th>RH grip, low to high</th></tr></thead><tbody><tr><td>Major ascent</td><td>C3</td><td>C4 · E4 · C5</td></tr><tr><td>Major ascent</td><td>D3</td><td>C4 · F4 · C5</td></tr><tr><td>Major ascent</td><td>E3</td><td>C4 · G4 · C5</td></tr><tr><td>Major ascent</td><td>F3</td><td>C4 · A4 · C5</td></tr><tr><td>Minor ascent</td><td>D3</td><td>C4 · F4 · C5</td></tr><tr><td>Minor ascent</td><td>E♭3</td><td>C4 · G4 · C5</td></tr><tr><td>Minor ascent</td><td>F3</td><td>C4 · A♭4 · C5</td></tr><tr><td>Minor dominant</td><td>G2</td><td>G3 · B3 · G4</td></tr><tr><td>Minor landing</td><td>C3</td><td>G3 · E♭4 · G4</td></tr></tbody></table></div>
-    <p class="muted reveal">The exercise player’s <b>Oblique · full warmup</b> includes all supplied passages: eight major bars, eight minor bars, then the two low-C eighth notes and rests. Separate major and minor stages support focused practice. Eighth rests and ties are part of the performance; a tied continuation sustains without another attack. The second major pass lands on Cm to introduce the minor passage. Tempo is a practice setting; the screenshots establish pitches and note values, not an exact BPM.</p>
+    <p class="lede reveal">Hold the right hand’s outer octave; the bass and the right hand’s middle voice walk together in tenths. In major, over held C octaves the bass climbs C–D–E–F and comes back; then the octaves move to G and the walk goes down to G and back up to C. In minor the climb uses E♭ and A♭, goes down through B♭ and A♭, and comes back up through A♮ and B♮ — natural minor going down, melodic minor going up. <span class="nj-src">(OS clip oblique chord warmup · 00:04–00:26)</span></p>
+    <div class="grid-2 reveal">
+      <div class="card">
+        <h3>Major, <em>C held</em></h3>
+        <div class="formula-line">up to IV and back</div>
+        <div class="kb-slot" data-kb="obl-maj-c"></div>
+        <p class="desc" style="margin-top:16px">Bass and middle voice climb C–D–E–F in tenths under the held C octave, and come back.</p>
+      </div>
+      <div class="card">
+        <h3>Major, <em>G held</em></h3>
+        <div class="formula-line">down to V and back</div>
+        <div class="kb-slot" data-kb="obl-maj-g"></div>
+        <p class="desc" style="margin-top:16px">The octave moves to G; the walk goes down B–A–G and back up to B, then home to C.</p>
+      </div>
+      <div class="card">
+        <h3>Minor, <em>C held</em></h3>
+        <div class="formula-line">E♭ and A♭</div>
+        <div class="kb-slot" data-kb="obl-min-c"></div>
+        <p class="desc" style="margin-top:16px">The same climb in C minor: the middle voice runs E♭–F–G–A♭.</p>
+      </div>
+      <div class="card">
+        <h3>Minor, <em>G held</em></h3>
+        <div class="formula-line">down natural, up melodic</div>
+        <div class="kb-slot" data-kb="obl-min-g"></div>
+        <p class="desc" style="margin-top:16px">Down through B♭ and A♭ to G, then up through A♮ and B♮; C lands under the G octave with E♭ inside.</p>
+      </div>
+    </div>
+    <div class="table-scroll"><table class="study-table reveal" style="margin-top:26px;"><thead><tr><th>Passage</th><th>LH bass</th><th>RH middle voice</th><th>RH outer octave</th></tr></thead><tbody><tr><td>Major · C octave held</td><td>C3 D3 E3 F3 E3 D3 C3</td><td>E4 F4 G4 A4 G4 F4 E4</td><td>C4 · C5</td></tr><tr><td>Major · G octave held</td><td>B2 A2 G2 A2 B2</td><td>D4 C4 B3 C4 D4</td><td>G3 · G4</td></tr><tr><td>Major · home</td><td>C3</td><td>E4</td><td>C4 · C5</td></tr><tr><td>Minor · C octave held</td><td>C3 D3 E♭3 F3 E♭3 D3 C3</td><td>E♭4 F4 G4 A♭4 G4 F4 E♭4</td><td>C4 · C5</td></tr><tr><td>Minor · G octave held</td><td>B♭2 A♭2 G2 A♮2 B♮2</td><td>D4 C4 B♮3 C4 D4</td><td>G3 · G4</td></tr><tr><td>Minor · home</td><td>C3</td><td>E♭4</td><td>G3 · G4</td></tr></tbody></table></div>
+    <p class="muted reveal">The plain pass is in even notes: the major C on a whole note, the walk in quarters, B, G and the minor C on half notes. The video then plays the same notes again with syncopation — anticipations, rests on the downbeats, ties across the bar — and the major pass ends on C–E♭–C to tip into minor; the warmup closes on two low-C eighth notes. <span class="nj-src">(OS clip oblique chord warmup · 00:26–00:58)</span> Both passes are in the <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a> as <em>Oblique warmup</em>: the plain pass, the syncopated pass whole, and its major and minor halves.</p>
     <h3 id="os-barry-full" class="reveal" style="margin:72px 0 16px;">Barry Harris · <em>hold the frame</em></h3>
-    <p class="lede reveal">The left hand holds the chord root while the right hand holds its third in an octave. Between those anchors, both hands play the same moving line an octave apart: a four-note line taken from each screenshot. The sixth may be natural or flat depending on the frame; follow the displayed notes rather than imposing one pattern. Play four sixteenths per chord frame. Minor-seven frames begin on the flat seventh. Their next move varies across the supplied excerpts. The hardest version tours four keys a minor third apart — F, A♭, B, D — and back to F. <span class="nj-src">(OS clip barry harris warmup · 00:05–00:50)</span></p>
-    <div class="table-scroll"><table class="study-table reveal"><thead><tr><th>Screenshot</th><th>Chord pair</th><th>RH moving lines</th></tr></thead><tbody>
-    <tr><td>IMG_5072</td><td>F∆7 → Gm7</td><td>E–D–C♯–D · F–E–D♯–E</td></tr>
-    <tr><td>IMG_5073</td><td>Am7 → B♭m7</td><td>G–F–E–F · A♭–G–G♭–G</td></tr>
-    <tr><td>IMG_5074</td><td>A♭∆7 → B♭m7</td><td>G–F–E–F · A♭–G–G♭–G</td></tr>
-    <tr><td>IMG_5075</td><td>Cm7 → C♯m7</td><td>B♭–A♭–G–A♭ · B–A♯–A–A♯</td></tr>
-    <tr><td>IMG_5076</td><td>B∆7 → C♯m7</td><td>A♯–G♯–G–G♯ · B–A♯–A–A♯</td></tr>
-    <tr><td>IMG_5077</td><td>D♯m7 → Em7</td><td>C♯–B–A♯–B · D–C♯–C–C♯</td></tr>
-    <tr><td>IMG_5078</td><td>D∆7 → Em7</td><td>C♯–B–A♯–B · D–C♯–C–C♯</td></tr>
-    <tr><td>IMG_5079</td><td>F♯m7 → Gm7</td><td>E–D–C♯–D · F–E–D♯–E</td></tr>
-</tbody></table></div>
-    <p class="muted reveal">Each pair is separately steppable, playable, loopable and transposable under <b>Barry Harris · held frames</b>. The root and outer octave sustain for the whole four-sixteenth group; only the inner notes repeat. All sixteen supplied chord frames are included. The five new pairs also have a combined practice stage, followed by the IMG_5080 ending. The stills show separate excerpts, so their unseen connecting bars are not asserted as a continuous sequence.</p>
-    <p class="muted reveal"><b>Octave-shift ending · IMG_5080.</b> Hold LH F3–D4–E4 for 1½ beats. RH plays A4–D5–A5 and A5–D6–G6 as two eighth-note grips, then holds A6–D7–G7 for three beats under 8va. LH enters F1 on &amp;2 under 8ba, tied through the final half note. The player includes the octave changes and independent sustain lengths.</p>
+    <p class="lede reveal">The left hand holds the root, the right hand holds the 3rd in an octave, and between them both hands play the same four-note line an octave apart, four sixteenths to a chord. The line starts on the chord’s 7th, steps down to the next note of the scale, dips a half step and comes back. Where the scale’s 6th above the root is natural (I, ii, IV, V) that gives <strong>7–6–♭6–6</strong>; where it is flat (iii, vi, vii) it gives <strong>♭7–♭6–5–♭6</strong>. Same rule, two shapes. <span class="nj-src">(OS clip barry harris warmup · 00:05–00:29)</span></p>
+    <div class="recipe reveal">in F, up the scale:
+   F∆7  E D C♯ D     Gm7  F E E♭ E     Am7  G F E F      B♭∆7 A G G♭ G
+   C7   B♭ A A♭ A    Dm7  C B♭ A B♭    Eø7  D C B C      F∆7  (an octave up)</div>
+    <p class="lede reveal" style="margin-top:26px;">The hardest version tours four keys a minor third apart — F, A♭, B, D — and back to F. In each key it plays ii, I, ii, iii, and the iii slides up a half step to become the ii of the next key. So Am7 and A♭∆7 share one line, G–F–E–F: it is ♭7–♭6–5–♭6 of Am7 and 7–6–♭6–6 of A♭∆7. <span class="nj-src">(OS clip barry harris warmup · 00:36–00:52)</span></p>
+    <div class="recipe reveal">F:   F∆7 · Gm7 · Am7  →
+A♭:  B♭m7 · A♭∆7 · B♭m7 · Cm7  →
+B:   C♯m7 · B∆7 · C♯m7 · D♯m7  →
+D:   Em7 · D∆7 · Em7 · F♯m7  →
+F:   Gm7 · ending</div>
+    <div class="grid-3 reveal" style="margin-top:26px;">
+      <div class="card">
+        <h3>F∆7 <em>→ Gm7</em></h3>
+        <div class="formula-line">I → ii in F</div>
+        <div class="kb-slot" data-kb="barry-p1"></div>
+        <p class="desc" style="margin-top:16px">F∆7: E–D–C♯–D (7–6–♭6–6). Gm7: F–E–E♭–E (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>Am7 <em>→ B♭m7</em></h3>
+        <div class="formula-line">iii of F, up a half step to the ii of A♭</div>
+        <div class="kb-slot" data-kb="barry-p2"></div>
+        <p class="desc" style="margin-top:16px">Am7: G–F–E–F (♭7–♭6–5–♭6). B♭m7: A♭–G–G♭–G (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>A♭∆7 <em>→ B♭m7</em></h3>
+        <div class="formula-line">I → ii in A♭</div>
+        <div class="kb-slot" data-kb="barry-p3"></div>
+        <p class="desc" style="margin-top:16px">A♭∆7: G–F–E–F (7–6–♭6–6). B♭m7: A♭–G–G♭–G (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>Cm7 <em>→ C♯m7</em></h3>
+        <div class="formula-line">iii of A♭, up a half step to the ii of B</div>
+        <div class="kb-slot" data-kb="barry-p4"></div>
+        <p class="desc" style="margin-top:16px">Cm7: B♭–A♭–G–A♭ (♭7–♭6–5–♭6). C♯m7: B–A♯–A–A♯ (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>B∆7 <em>→ C♯m7</em></h3>
+        <div class="formula-line">I → ii in B</div>
+        <div class="kb-slot" data-kb="barry-p5"></div>
+        <p class="desc" style="margin-top:16px">B∆7: A♯–G♯–G–G♯ (7–6–♭6–6). C♯m7: B–A♯–A–A♯ (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>D♯m7 <em>→ Em7</em></h3>
+        <div class="formula-line">iii of B, up a half step to the ii of D</div>
+        <div class="kb-slot" data-kb="barry-p6"></div>
+        <p class="desc" style="margin-top:16px">D♯m7: C♯–B–A♯–B (♭7–♭6–5–♭6). Em7: D–C♯–C–C♯ (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>D∆7 <em>→ Em7</em></h3>
+        <div class="formula-line">I → ii in D</div>
+        <div class="kb-slot" data-kb="barry-p7"></div>
+        <p class="desc" style="margin-top:16px">D∆7: C♯–B–A♯–B (7–6–♭6–6). Em7: D–C♯–C–C♯ (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>F♯m7 <em>→ Gm7</em></h3>
+        <div class="formula-line">iii of D, up a half step to the ii of F</div>
+        <div class="kb-slot" data-kb="barry-p8"></div>
+        <p class="desc" style="margin-top:16px">F♯m7: E–D–C♯–D (♭7–♭6–5–♭6). Gm7: F–E–E♭–E (♭7–6–♭6–6).</p>
+      </div>
+      <div class="card">
+        <h3>The <em>ending</em></h3>
+        <div class="formula-line">octave shifts on F</div>
+        <div class="kb-slot" data-kb="barry-end"></div>
+        <p class="desc" style="margin-top:16px">LH holds F3–D4–E4 for a dotted quarter. RH plays A4–D5–A5 and A5–D6–G6 as eighths, then holds A6–D7–G7 under 8va; on the &amp; of 2 the LH drops to F1 under 8ba, tied to a half note. <span class="nj-src">(OS clip barry harris warmup · 00:52–00:55)</span></p>
+      </div>
+    </div>
+    <p class="muted reveal">Each keyboard shows the first chord of the pair — root and line in the left hand, the 3rd’s octave and the same line in the right — and plays both chords. In the <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">exercise player</a>, <em>Barry Harris warmup</em> has the diatonic run in F, each pair, the ending, and the whole tour with the ending. The root and outer octave sustain through each group of four; only the line repeats.</p>
     <h3 class="reveal" style="margin: 72px 0 16px; font-style: italic;">The other warmups</h3>
     <div class="grid-2 reveal" style="align-items:start;">
       <div class="card" id="warmups-keychange">
@@ -6264,14 +6394,29 @@ Result: C∆9 → A7♭13 → Dm9 → B7♭13   becomes   C∆9 → E♭9♯11 �
     </div>
   
     <h3 id="warmups-mountain" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The <em>Mountain</em></h3>
-    <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Climb the diatonic chords of C one rung higher each pass and walk back down, with a secondary dominant in front of every chord: unaltered dominants into the major chords, altered dominants into the minor ones. <span class="nj-src">(OS clip mountain secondary dominants · 00:00–00:51)</span></p>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Start on C. Each pass reaches one rung higher — ii, then iii, IV, V, vi — and walks back down the scale to C, with a secondary dominant in front of every chord: unaltered dominants into the major chords and into V, altered dominants into the minor ones. <span class="nj-src">(OS clip mountain secondary dominants · 00:00–00:51)</span></p>
     <div class="reveal">
       <div class="recipe"><span class="step">Step 1</span>  LH: 1-3 [ii7] → 1-7 [V7] → 1-3 [I∆7]
 <span class="step">Step 2</span>  RH: 7-9-5 [ii7] → 3-6-9 [V7] → 7-9-5 [I∆7]
-<span class="step">Full</span>    I∆7 → V7/vi → vi7 → V7/V → V7 → V7/IV → IV∆7 → V7/iii → iii7 → V7/ii → ii7 → V7 → I∆7
-Unaltered dominants → major.  Altered dominants → minor.</div>
-      <p class="muted" style="font-size:13px;margin:-6px 0 14px;">V7 moment in C — LH G–F (1, ♭7), RH B–E–A (3, 6, 9).</p>
-      <div class="kb-slot" data-kb="warmup-mountain"></div>
+<span class="step">Pass 1</span>  C – G7 – C
+<span class="step">Pass 2</span>  C – A7 – Dm7 – G7 – C
+<span class="step">Pass 3</span>  C – B7 – Em7 – A7 – Dm7 – G7 – C
+<span class="step">Pass 4</span>  C – C7 – F∆7 – B7 – Em7 – A7 – Dm7 – G7 – C
+<span class="step">Pass 5</span>  C – D7 – G7 – C7 – F∆7 – B7 – Em7 – A7 – Dm7 – G7 – C
+<span class="step">Pass 6</span>  C – E7 – Am7 – D7 – G7 – C7 – F∆7 – B7 – Em7 – A7 – Dm7 – G7 – C
+         = I∆7 → V7/vi → vi7 → V7/V → V7 → V7/IV → IV∆7 → V7/iii → iii7 → V7/ii → ii7 → V7 → I∆7
+Unaltered dominants (RH 3–6–9) → major and V.  Altered dominants (RH 3–♭13–♭9) → minor.
+On the iii chord the RH is 7–1–5: E D B, not the F♯ a 9 would need.</div>
+      <div class="grid-2" style="align-items:start;">
+        <div>
+          <p class="muted" style="font-size:13px;margin:0 0 14px;">V7 in C — LH G–F (1, ♭7), RH B–E–A (3, 6, 9).</p>
+          <div class="kb-slot" data-kb="warmup-mountain"></div>
+        </div>
+        <div>
+          <p class="muted" style="font-size:13px;margin:0 0 14px;">A7 into Dm7 — LH A–G (1, ♭7), RH C♯–F–B♭ (3, ♭13, ♭9).</p>
+          <div class="kb-slot" data-kb="warmup-mountain-alt"></div>
+        </div>
+      </div>
     </div>
 
     <h3 id="warmups-cg" class="reveal" style="margin: 72px 0 16px; font-style: italic;">C over G, <em>approached four ways</em></h3>
@@ -6281,7 +6426,40 @@ Unaltered dominants → major.  Altered dominants → minor.</div>
 <span class="step">Diatonic</span>      Dm7 – C/E – … up the scale – C/G – G7 – C
 <span class="step">6-diminished</span>  Fm/D – E°7 – Fm6 – C/G – G7 – C · Fm6/C – Fm6/A♭ – C/G – G7 – C
 <span class="step">From above</span>    A♭7/E♭ – D♭/F – A♭/G♭ – C/G – G7, ending on A♭∆9</div>
-    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">The from-above route is the most surprising: three chords that each slide down to the next bass note before the cadence lands. The 6-diminished pass borrows the minor iv, as in <a href="#barry" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">the Barry Harris section</a>.</p>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">The from-above route is the most surprising: the chords come down from A♭ while the bass climbs E♭–F–G♭ into the G of C/G, and the cadence lands. The 6-diminished pass borrows the minor iv, as in <a href="#barry" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">the Barry Harris section</a>.</p>
+
+    <h3 id="warmups-maness" class="reveal" style="margin: 72px 0 16px; font-style: italic;">More moo, <em>and two voicing drills</em></h3>
+    <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Short warmups that put the moo chord in front of other chords, and two that drill one voicing idea. The first and last are read from the staff; for the middle three the video shows only the bass line, so they are given as progressions without keyboards.</p>
+    <div class="grid-3 reveal" style="align-items:start;">
+      <div class="card">
+        <h3>Moo – V – I</h3>
+        <div class="formula-line">a moo before every secondary ii</div>
+        <div class="kb-slot" data-kb="os-muvi"></div>
+        <p class="desc" style="margin-top:16px">In C, drop 2 (LH root, RH 5 7 3) up the scale; then a secondary ii–V in front of each chord, skipping vii — Em7♭5 A7/C♯ Dm7, F♯m7♭5 B7/D♯ Em7 …; then, in front of each of those ii chords, a moo built on its own V with the 3rd in the bass a half step below: C∆7 · B(2)/D♯ · Em7♭5 · A7/C♯ · Dm7 · C♯(2)/E♯ · F♯m7♭5 … <span class="nj-src">(OS clip maness warmup mu-v-i · 00:00–00:55)</span></p>
+      </div>
+      <div class="card">
+        <h3>Moo before <em>each 7th</em></h3>
+        <div class="formula-line">down the diatonic sevenths</div>
+        <p class="desc" style="margin-top:16px">In C, the diatonic sevenths downward — I, vii, vi, v … — with a moo in front of each: the add-9 triad, in the Open Studio form drop 2 with the 3rd in the bass. Then re-invert the moo in the right hand, bottom note to the top, for contrary motion. <span class="nj-src">(OS clip maness warmup with moo chord · 00:00–00:55)</span></p>
+      </div>
+      <div class="card">
+        <h3>ii–V–I <em>with moo</em></h3>
+        <div class="formula-line">every inversion, in F</div>
+        <p class="desc" style="margin-top:16px">The ii–V–I in F in each inversion, with D7 placed around the Gm7; then every dominant seventh swapped for its moo, a triad add 9. <span class="nj-src">(OS clip maness warmup ii-v-i with moo · 00:00–00:46)</span></p>
+      </div>
+      <div class="card">
+        <h3>One phrase, <em>three structures</em></h3>
+        <div class="formula-line">F6 – Gm7 – A♭°7 – F6</div>
+        <p class="desc" style="margin-top:16px">In F, tonic, ii7, ♭III°7, tonic and back — in close voicings, then drop 2, then spread (RH 1 5 1 over the close structure in the LH). Round the cycle of fourths. <span class="nj-src">(OS clip maness warmup voicings · 00:00–00:46)</span></p>
+      </div>
+      <div class="card">
+        <h3>Locked-hands <em>D°7</em></h3>
+        <div class="formula-line">move only the outer octave</div>
+        <div class="kb-slot" data-kb="os-dim7-lock"></div>
+        <p class="desc" style="margin-top:16px">LH D, RH F A♭ B D. Move only the outer Ds up to the next note of C major, E, and back; the inner notes stay. Then the same on each inversion: F → G, A♭ → A, B → C. <span class="nj-src">(OS clip Diminished7 exercise · 00:12–00:45)</span></p>
+      </div>
+    </div>
+    <p class="muted reveal" style="margin-top: 18px; font-size: 13px; max-width: 840px;">For ballad arpeggios, skip root-position triads and sevenths: take a four-note voicing — E A B D, 3 13 7 9 of <span class="ch">C∆7</span> — and carry it across the octaves. Building your own is under <em>Making your own</em> in <a href="#reference" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Reference</a>. <span class="nj-src">(OS clip arpeggios · 00:05–00:37)</span></p>
 
     <h3 id="warmups-ostinato" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Ostinatos for <em>hand independence</em></h3>
     <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Put one hand on autopilot so the other is free. <span class="nj-src">(NK 2021-03-25 · 02:25–11:14; NK 2021-04-01 · 00:50–08:55)</span></p>
@@ -6293,13 +6471,15 @@ Unaltered dominants → major.  Altered dominants → minor.</div>
         <tr><td class="name">left hand 3</td><td>1 4 5 cells with "hops": 5 3 2 1, bring 5 up; at the top, hop the thumb</td></tr>
         <tr><td class="name">right hand 1</td><td>pinky G in quarters, thumb in eighths, fingers 2–3 on C–D on the sixteenths</td></tr>
         <tr><td class="name">right hand 2</td><td>C F G B♭ C under fingers 1–5: 5 4 3 2 1 2 3 4, rolling the forearm — compare <a href="#newjazz-rh" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">the 1 · 4 · 5 · 6 · 8 grip</a> in NewJazz</td></tr>
+        <tr><td class="name">right hand 3</td><td>the left hand’s “hops” pattern, moved to the right: 1 2 3 5, bring the thumb up, hop the pinky down — in C, 1 4 5 1, a Csus4 sound <span class="nj-src">(NK 2021-04-01 · 03:35–05:13)</span></td></tr>
         <tr><td class="name">right hand 4</td><td>C F A B♭ — a triad plus a half step, reshaped as you go</td></tr>
+        <tr><td class="name">right hand 5</td><td>fingers 5 3 1 3 1 3 1 3 5, rocking between pinky and thumb — G D G D … <span class="nj-src">(NK 2021-04-01 · 08:25–08:55)</span></td></tr>
       </tbody>
     </table></div>
     <div class="recipe reveal"><span class="step">1</span>  The ostinato alone with a metronome, until you can talk over it
 <span class="step">2</span>  The other hand in the same rhythm on an easy scale; then triplets, sixteenths
 <span class="step">3</span>  A melody over it; then improvise
-<span class="step">4</span>  Under a right-hand ostinato, change the harmony in the left: C, Cm, Dm, D7sus, D♭∆7♯11, G13sus, A♭
+<span class="step">4</span>  Under right-hand ostinato 3, change the harmony in the left: C, Cm, Dm, D7sus, D♭∆7♯11, G13sus, A♭
 <span class="step">5</span>  Improvise the ostinato itself</div>
     <h3 id="warmups-counterpoint" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Two-hand <em>counterpoint</em> drills</h3>
     <p class="lede reveal" style="margin-bottom: 24px; max-width: 840px;">Build the left hand until the right hand can talk over it. <span class="nj-src">(NK 2021-02-25 · 03:43–09:53; NK 2022-07-24 · 09:27–13:57)</span></p>
@@ -6387,7 +6567,7 @@ Unaltered dominants → major.  Altered dominants → minor.</div>
           <p style="margin: 0 0 10px;"><strong style="color:var(--ink)">The Mountain</strong> — secondary dominants up and down the scale: see <a href="#warmups-mountain" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The Mountain</a> in Warmups.</p>
           <p style="margin: 0 0 10px;"><strong style="color:var(--ink)">Maness key change</strong> — C → F in six stages: see <a href="#warmups-keychange" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Maness key change</a> in Warmups.</p>
           <p style="margin: 0 0 10px;"><strong style="color:var(--ink)">Secondary dominant to tritone sub</strong> — the drop-2 walk, then two alterations: see <a href="#warmups-tritone" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Secondary dominant to tritone sub</a> in Warmups.</p>
-          <p style="margin: 0 0 10px;"><strong style="color:var(--ink)">The moo chord warmup</strong> — ∆7 and the moo chord a fifth below, by whole steps: see <a href="#warmups-moo" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The moo chord warmup</a> in Warmups.</p>
+          <p style="margin: 0 0 10px;"><strong style="color:var(--ink)">The moo chord warmup</strong> — ∆7 and the moo chord a fifth below, round both whole-tone scales: see <a href="#warmups-moo" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The moo chord warmup</a> in Warmups.</p>
           <p style="margin: 0 0 10px;"><strong style="color:var(--ink)">Barry Harris · hold the frame</strong> — the 7–6–♭6–6 inner line: see <a href="#os-barry-full" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Barry Harris · hold the frame</a> in Warmups.</p>
           <p style="margin: 0 0 10px;"><strong style="color:var(--ink)">Oblique warmup</strong> — outer octave held, middle voice walking: see <a href="#os-oblique-full" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Oblique warmup</a> in Warmups.</p>
 
@@ -6941,7 +7121,7 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
         <tr><td class="chord">NK clip maj7 arpeggio</td><td class="name">maj7 arpeggio (undated clip)</td><td class="chord">—</td><td class="chord">KELLMAN: Licks and Exercises 1</td><td>Arpeggios &amp; Upper Structures</td></tr>
         <tr><td class="chord">NK clip tritone lick</td><td class="name">tritone lick (undated clip)</td><td class="chord">—</td><td class="chord">KELLMAN: Licks and Exercises 1</td><td>Arpeggios &amp; Upper Structures</td></tr>
         <tr><td class="chord">NK clip whole half dim arpeggio</td><td class="name">whole half dim arpeggio (undated clip)</td><td class="chord">—</td><td class="chord">KELLMAN: Licks and Exercises 1</td><td>Arpeggios &amp; Upper Structures</td></tr>
-        <tr><td class="chord">user description</td><td class="name">Your description of the bucket screenshot (IMG_4914)</td><td class="chord">—</td><td class="chord">—</td><td>A worked bucket: bass on D · F · G · A</td></tr>
+        <tr><td class="chord">user description</td><td class="name">Your description of a worked bucket</td><td class="chord">—</td><td class="chord">—</td><td>A worked bucket: bass on D · F · G · A</td></tr>
       </tbody>
     </table></div>
     <h3 id="sources-os" class="reveal" style="margin: 56px 0 16px; font-style: italic;">Open Studio <em>(OS)</em></h3>
@@ -6949,28 +7129,39 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
       <thead><tr><th>Key</th><th>Title</th><th>Teacher</th><th>Note</th><th>Cited in</th></tr></thead>
       <tbody>
         <tr><td class="chord">OS clip 6th Diminished Workout</td><td class="name">6th Diminished Scale Workout</td><td>Adam Maness</td><td class="chord">OpStlongform2</td><td>Two voices from one scale</td></tr>
+        <tr><td class="chord">OS clip arpeggios</td><td class="name">arpeggios</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>More moo, and two voicing drills</td></tr>
         <tr><td class="chord">OS clip artweplay coltrane changes</td><td class="name">artweplay coltrane changes</td><td>in the Open Studio export — not an Open Studio lesson; creator artweplay</td><td class="chord">opstIG2</td><td>Three destinations, connecting triads</td></tr>
         <tr><td class="chord">OS clip artweplay pentatonics</td><td class="name">artweplay pentatonics</td><td>in the Open Studio export — not an Open Studio lesson; creator artweplay</td><td class="chord">opstIG2</td><td>Pentatonics over every chord</td></tr>
         <tr><td class="chord">OS clip Barry Harris 6th Diminished Basics</td><td class="name">Barry Harris 6th Diminished: The Basics</td><td>Adam Maness</td><td class="chord">OpStlongform1</td><td>The sixth-diminished scales · Two different dominant collections — don't conflate them · Why the passing tone is there</td></tr>
-        <tr><td class="chord">OS clip barry harris warmup</td><td class="name">barry harris warmup</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>Barry Harris · hold the frame</td></tr>
+        <tr><td class="chord">OS clip barry harris warmup</td><td class="name">barry harris warmup</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>Barry Harris · hold the frame · The ending</td></tr>
         <tr><td class="chord">OS clip Bill Evans Chords</td><td class="name">Bill Evans Chords: Guided Practice Session with Adam Maness</td><td>Adam Maness</td><td class="chord">OpStlongform1</td><td>A triad over a dominant · A Bill Evans ending</td></tr>
         <tr><td class="chord">OS clip budpowell substitution</td><td class="name">budpowell substitution</td><td>Open Studio, presenter not named</td><td class="chord">opstIG2</td><td>iii–vi–ii–V → Powell tritone subs</td></tr>
         <tr><td class="chord">OS clip C over G warmup</td><td class="name">C over G warmup</td><td>Open Studio, presenter not named</td><td class="chord">opstIG2</td><td>C over G, approached four ways</td></tr>
         <tr><td class="chord">OS clip chord progressions</td><td class="name">chord progressions</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>Modal Interchange / Chromatic Mediants</td></tr>
         <tr><td class="chord">OS clip chromatic mediants</td><td class="name">chromatic mediants</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>Modal Interchange / Chromatic Mediants</td></tr>
         <tr><td class="chord">OS clip Crunchy Quartals</td><td class="name">What Are Crunchy Quartals?</td><td>Peter Martin</td><td class="chord">OpStlongform2</td><td>McCoy Tyner Quartals</td></tr>
+        <tr><td class="chord">OS clip Diminished7 exercise</td><td class="name">Diminished7 exercise</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>Locked-hands D°7</td></tr>
+        <tr><td class="chord">OS clip Emmett Cohen Blues</td><td class="name">Emmett Cohen Blues</td><td>Emmet Cohen</td><td class="chord">opstv Cohen Blues</td><td>Left hand: tenths and a walking line</td></tr>
+        <tr><td class="chord">OS clip Gospel of Nina</td><td class="name">The Gospel of Nina</td><td>Adam Maness</td><td class="chord">OpStlongform2</td><td>The left hand without a bassist</td></tr>
         <tr><td class="chord">OS clip I to IV</td><td class="name">I to IV</td><td>Open Studio, presenter not named</td><td class="chord">opstig4</td><td>Getting from I to IV</td></tr>
         <tr><td class="chord">OS clip I-IV reharmonizing</td><td class="name">I-IV reharmonizing</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>I → IV reharmonization, by stages</td></tr>
         <tr><td class="chord">OS clip ii-v-i</td><td class="name">ii-v-i</td><td>Open Studio, presenter not named</td><td class="chord">opstIG2</td><td>Dissonance formulas: out on purpose</td></tr>
         <tr><td class="chord">OS clip maness gospel</td><td class="name">maness gospel</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Approach chords, from a half step below</td></tr>
         <tr><td class="chord">OS clip maness hexatonic scale</td><td class="name">maness hexatonic scale</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Hexatonic Altered</td></tr>
+        <tr><td class="chord">OS clip maness pentatonic chords</td><td class="name">maness pentatonic chords</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Major Pentatonic</td></tr>
         <tr><td class="chord">OS clip maness root shell pretty</td><td class="name">maness root shell pretty</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Root, shell, pretty</td></tr>
         <tr><td class="chord">OS clip maness up m3</td><td class="name">maness up m3</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Modal Interchange / Chromatic Mediants</td></tr>
+        <tr><td class="chord">OS clip maness warmup ii-v-i with moo</td><td class="name">maness warmup ii-v-i with moo</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>ii–V–I with moo</td></tr>
         <tr><td class="chord">OS clip maness warmup keychange</td><td class="name">maness warmup keychange</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Maness key change</td></tr>
         <tr><td class="chord">OS clip maness warmup modal interchange1</td><td class="name">maness warmup modal interchange1</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Modal Interchange / Chromatic Mediants</td></tr>
         <tr><td class="chord">OS clip maness warmup modal interchange2</td><td class="name">maness warmup modal interchange2</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Minor 3rd above</td></tr>
+        <tr><td class="chord">OS clip maness warmup mu-v-i</td><td class="name">maness warmup mu-v-i</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Moo – V – I</td></tr>
+        <tr><td class="chord">OS clip maness warmup pentatonic dyad</td><td class="name">maness warmup pentatonic dyad</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Major Pentatonic</td></tr>
+        <tr><td class="chord">OS clip maness warmup pentatonic exercise</td><td class="name">maness warmup pentatonic exercise</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Cells, not scales</td></tr>
         <tr><td class="chord">OS clip maness warmup pentatonic voicings</td><td class="name">maness warmup pentatonic voicings</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Kellman's pentatonic cycle</td></tr>
         <tr><td class="chord">OS clip maness warmup spread voicings</td><td class="name">maness warmup spread voicings</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Tension over a static chord</td></tr>
+        <tr><td class="chord">OS clip maness warmup voicings</td><td class="name">maness warmup voicings</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>One phrase, three structures</td></tr>
+        <tr><td class="chord">OS clip maness warmup with moo chord</td><td class="name">maness warmup with moo chord</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>Moo before each 7th</td></tr>
         <tr><td class="chord">OS clip maness warmup with top note</td><td class="name">maness warmup with top note</td><td>Adam Maness</td><td class="chord">opstIG2</td><td>One melody note, a moving bass</td></tr>
         <tr><td class="chord">OS clip Modal interchange</td><td class="name">Modal interchange</td><td>Open Studio, presenter not named</td><td class="chord">opstig4</td><td>The flip</td></tr>
         <tr><td class="chord">OS clip moo chords</td><td class="name">moo chords</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>The moo chord warmup</td></tr>
@@ -6978,6 +7169,7 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
         <tr><td class="chord">OS clip mountain secondary dominants</td><td class="name">mountain secondary dominants</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>The Mountain · Secondary dominant</td></tr>
         <tr><td class="chord">OS clip oblique chord warmup</td><td class="name">oblique chord warmup</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>Oblique warmup · both hands together</td></tr>
         <tr><td class="chord">OS clip openstudio sunday scale</td><td class="name">openstudio sunday scale</td><td>Peter Martin</td><td class="chord">opstig3</td><td>Over major 7 · C∆7</td></tr>
+        <tr><td class="chord">OS clip openstudio1</td><td class="name">openstudio1</td><td>Open Studio, presenter not named</td><td class="chord">opstig4</td><td>Neo-soul progressions to play through</td></tr>
         <tr><td class="chord">OS clip openstudio2</td><td class="name">openstudio2</td><td>Open Studio, presenter not named</td><td class="chord">opstig4</td><td>Up in minor thirds · 4</td></tr>
         <tr><td class="chord">OS clip openstudioupperstructure</td><td class="name">openstudioupperstructure</td><td>Open Studio, presenter not named</td><td class="chord">opstig4</td><td>Triads over a plain bass</td></tr>
         <tr><td class="chord">OS clip OS gospel cliches</td><td class="name">OS gospel cliches</td><td>Open Studio, presenter not named</td><td class="chord">opstv Gospel1</td><td>The cliches, used sparingly</td></tr>
@@ -6987,9 +7179,12 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
         <tr><td class="chord">OS clip osj gospel hour</td><td class="name">osj gospel hour</td><td>Peter Martin</td><td class="chord">loose file · 1080p copy; the 720×576 ostv gospel 1hr (opstv Gospel3 youtube) is the same video</td><td>Over major 7 · C∆7 · Approach chords, from a half step below · One melody, three settings · One minor-11 shape, any root</td></tr>
         <tr><td class="chord">OS clip osj keeping note on top</td><td class="name">osj keeping note on top</td><td>Open Studio, presenter not named</td><td class="chord">loose file</td><td>One melody note, a moving bass</td></tr>
         <tr><td class="chord">OS clip osj maness beyond dorian</td><td class="name">osj maness beyond dorian</td><td>Adam Maness</td><td class="chord">loose file</td><td>Beyond Dorian</td></tr>
+        <tr><td class="chord">OS clip osj maness mysterious arpeggios</td><td class="name">osj maness mysterious arpeggios</td><td>Adam Maness</td><td class="chord">loose file</td><td>Over dominant 7 · G7</td></tr>
+        <tr><td class="chord">OS clip osj oscarpeterson blues</td><td class="name">osj oscarpeterson blues</td><td>Open Studio, presenter not named</td><td class="chord">loose file</td><td>Oscar Peterson’s dominant chain</td></tr>
         <tr><td class="chord">OS clip osj radiohead inlimbo</td><td class="name">osj radiohead inlimbo</td><td>Open Studio, presenter not named</td><td class="chord">opstig4</td><td>Modal Interchange / Chromatic Mediants</td></tr>
         <tr><td class="chord">OS clip osj sus chord triads</td><td class="name">osj sus chord triads</td><td>Open Studio, presenter not named</td><td class="chord">loose file</td><td>A triad over a dominant</td></tr>
         <tr><td class="chord">OS clip osj three chord structures</td><td class="name">osj three chord structures</td><td>Open Studio, presenter not named</td><td class="chord">loose file</td><td>Kellman's pentatonic cycle</td></tr>
+        <tr><td class="chord">OS clip pentatonic lines</td><td class="name">pentatonic lines</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>Cells, not scales</td></tr>
         <tr><td class="chord">OS clip pentatonics</td><td class="name">pentatonics</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>Dorian Pentatonic</td></tr>
         <tr><td class="chord">OS clip pentatonics more</td><td class="name">pentatonics more</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>Pentatonics over every chord</td></tr>
         <tr><td class="chord">OS clip perfect and plagal</td><td class="name">perfect and plagal</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>Perfect or plagal: by fifths or by fourths</td></tr>
@@ -6998,6 +7193,7 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
         <tr><td class="chord">OS clip secondary dominants and secondary diminished</td><td class="name">secondary dominants and secondary diminished</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>Secondary dominant and diminished · Secondary dominant to diminished</td></tr>
         <tr><td class="chord">OS clip slip and slide tritone</td><td class="name">slip and slide tritone</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>iii–vi–ii–V–I with extended tritone subs</td></tr>
         <tr><td class="chord">OS clip Stacking 4ths</td><td class="name">Stacking 4ths</td><td>Open Studio, presenter not named</td><td class="chord">opstig3</td><td>Perfect or plagal: by fifths or by fourths</td></tr>
+        <tr><td class="chord">OS clip Stevie Wonder Pentatonics</td><td class="name">Stevie Wonder’s Hidden Pentatonics</td><td>Peter Martin</td><td class="chord">opstv Martin Pentatonic Exercises</td><td>Over dominant 7 · G7</td></tr>
         <tr><td class="chord">OS clip Sugar Chords</td><td class="name">What Are Sugar Chords?</td><td>Adam Maness</td><td class="chord">OpStlongform1</td><td>Drop 3 · Mixing the structures: sugar chords</td></tr>
         <tr><td class="chord">OS clip target practice</td><td class="name">target practice</td><td>Open Studio, presenter not named</td><td class="chord">opstig4</td><td>Secondary dominant to tritone sub</td></tr>
         <tr><td class="chord">OS clip tritone sub warmup</td><td class="name">tritone sub warmup</td><td>Open Studio, presenter not named</td><td class="chord">opstIG1</td><td>Secondary dominant to tritone sub</td></tr>
@@ -7013,8 +7209,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div class="verstamp" style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v6.2 · build 2026-10-20T20:04Z · 20 October 2026, 4:04 PM ET<br>
-    supersedes v6.1 (build 2026-10-20T19:29Z) — approaches and cadences (a Bill Evans ending, target practice, more ways from I to IV, perfect or plagal and stacking fourths, the II dominant over the V’s bass, C over G in Warmups); Barry Harris two-voice harmonisation and contrary-motion practice; modal interchange (the flip, beyond Dorian, one progression three ways, chromatic-mediant triads, 7sus → ∆7 sequences)
+    v6.3 · build 2026-10-21T18:20Z · 21 October 2026, 2:20 PM ET<br>
+    supersedes v6.2 (build 2026-10-20T20:04Z) — keyboards scale to their box and trim to their notes; Warmups rebuilt from the Open Studio videos (Barry Harris rule, diatonic run and tour; oblique plain and syncopated passes; moo second pass; the Mountain’s six passes; ostinatos 3 and 5) with keyboards and matching exercise-player data; scales over chords (three arpeggios on V, Stevie Wonder pentatonics, pentatonic triads, zones and loop); blues and solo piano (Oscar Peterson’s chain, Emmet Cohen’s left hand, Nina Simone’s bass, a Glasper progression); five more warmups
   </div>
 </footer>
 
@@ -7451,8 +7647,24 @@ function createMiniKeyboard({
   return { svg, totalW };
 }
 
+// v6.3: trim a keyboard's range to its lit keys — snapped down to C or F, up to E or B, at least an
+// octave — unless the caller sets keepRange (step-through tools that need a stable range).
+function trimKbRange(opts) {
+  if (opts.keepRange) return opts;
+  const ks = Object.keys(opts.highlighted || {}).map(Number);
+  if (!ks.length) return opts;
+  const pc = m => ((m % 12) + 12) % 12;
+  let lo = Math.min(...ks), hi = Math.max(...ks);
+  while (pc(lo) !== 0 && pc(lo) !== 5) lo--;
+  const up = () => { while (pc(hi) !== 4 && pc(hi) !== 11) hi++; };
+  up();
+  while (hi - lo < 11) { hi++; up(); }
+  return Object.assign({}, opts, { fromMidi: lo, toMidi: hi });
+}
+
 function createKeyboardBlock(opts) {
-  // opts: fromMidi, toMidi, highlighted, whiteW, whiteH, playLabel, playStagger, legend
+  // opts: fromMidi, toMidi, highlighted, whiteW, whiteH, playLabel, playStagger, legend, keepRange
+  opts = trimKbRange(opts);
   const wrapper = document.createElement('div');
   wrapper.className = 'kb-block';
 
@@ -7980,14 +8192,66 @@ const VOICING_PRESETS = {
   'hh-3': { lh: [56, 60], rh: [63, 67, 74, 77], stagger: 35, fromMidi: 53, toMidi: 79, label: 'Play voicing' },
   'hh-4': { lh: [55, 59], rh: [65, 68, 73, 75], stagger: 70, fromMidi: 53, toMidi: 79, label: 'Play voicing' },
 
-  // WARMUPS
-  // Moo: C∆7 (7-3-5 / 1 in bass) = C E B  (RH B–E above, LH C); then G2/B = 2-5-1 with B in bass = B A D G
-  // Show first chord: C E B with C in bass
-  'warmup-moo':     { lh: [48], rh: [52, 59], stagger: 22, fromMidi: 47, toMidi: 71, label: 'Play C∆7' },
-  // Barry Harris: LH 1-7, RH 3-7-3 — LH C2 B2, RH E4 B4 E5
-  'warmup-barry':   { lh: [48, 59], rh: [64, 71, 76], stagger: 22, fromMidi: 47, toMidi: 79, label: 'Play voicing' },
-  // Oblique: LH D, RH C F C
-  'warmup-oblique': { lh: [50], rh: [60, 65, 72], stagger: 22, fromMidi: 48, toMidi: 76, label: 'Play voicing' },
+  // WARMUPS — v6.3: read from the OS videos; each plays its passage (runOnly hides the stacked-chord button)
+  'barry-p1': { lh: [41, 52, 50, 49], rh: [57, 64, 62, 61, 69], stagger: 22, fromMidi: 41, toMidi: 69, label: 'Play F∆7 → Gm7', runOnly: true, runDur: 0.3,
+               run: [0, 41, 0, 57, 0, 69, 0, 52, 0, 64, 160, 50, 160, 62, 320, 49, 320, 61, 480, 50, 480, 62, 640, 43, 640, 58, 640, 70, 640, 53, 640, 65, 800, 52, 800, 64, 960, 51, 960, 63, 1120, 52, 1120, 64],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F∆7: root F + line E–D–C♯–D</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then Gm7: F–E–E♭–E</span>' },
+  'barry-p2': { lh: [45, 55, 53, 52], rh: [60, 67, 65, 64, 72], stagger: 22, fromMidi: 45, toMidi: 72, label: 'Play Am7 → B♭m7', runOnly: true, runDur: 0.3,
+               run: [0, 45, 0, 60, 0, 72, 0, 55, 0, 67, 160, 53, 160, 65, 320, 52, 320, 64, 480, 53, 480, 65, 640, 46, 640, 61, 640, 73, 640, 56, 640, 68, 800, 55, 800, 67, 960, 54, 960, 66, 1120, 55, 1120, 67],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>Am7: root A + line G–F–E–F</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then B♭m7: A♭–G–G♭–G</span>' },
+  'barry-p3': { lh: [44, 55, 53, 52], rh: [60, 67, 65, 64, 72], stagger: 22, fromMidi: 44, toMidi: 72, label: 'Play A♭∆7 → B♭m7', runOnly: true, runDur: 0.3,
+               run: [0, 44, 0, 60, 0, 72, 0, 55, 0, 67, 160, 53, 160, 65, 320, 52, 320, 64, 480, 53, 480, 65, 640, 46, 640, 61, 640, 73, 640, 56, 640, 68, 800, 55, 800, 67, 960, 54, 960, 66, 1120, 55, 1120, 67],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A♭∆7: root A♭ + line G–F–E–F</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then B♭m7: A♭–G–G♭–G</span>' },
+  'barry-p4': { lh: [48, 58, 56, 55], rh: [63, 70, 68, 67, 75], stagger: 22, fromMidi: 48, toMidi: 75, label: 'Play Cm7 → C♯m7', runOnly: true, runDur: 0.3,
+               run: [0, 48, 0, 63, 0, 75, 0, 58, 0, 70, 160, 56, 160, 68, 320, 55, 320, 67, 480, 56, 480, 68, 640, 49, 640, 64, 640, 76, 640, 59, 640, 71, 800, 58, 800, 70, 960, 57, 960, 69, 1120, 58, 1120, 70],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>Cm7: root C + line B♭–A♭–G–A♭</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then C♯m7: B–A♯–A–A♯</span>' },
+  'barry-p5': { lh: [47, 58, 56, 55], rh: [63, 70, 68, 67, 75], stagger: 22, fromMidi: 47, toMidi: 75, label: 'Play B∆7 → C♯m7', runOnly: true, runDur: 0.3,
+               run: [0, 47, 0, 63, 0, 75, 0, 58, 0, 70, 160, 56, 160, 68, 320, 55, 320, 67, 480, 56, 480, 68, 640, 49, 640, 64, 640, 76, 640, 59, 640, 71, 800, 58, 800, 70, 960, 57, 960, 69, 1120, 58, 1120, 70],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>B∆7: root B + line A♯–G♯–G–G♯</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then C♯m7: B–A♯–A–A♯</span>' },
+  'barry-p6': { lh: [51, 61, 59, 58], rh: [66, 73, 71, 70, 78], stagger: 22, fromMidi: 51, toMidi: 78, label: 'Play D♯m7 → Em7', runOnly: true, runDur: 0.3,
+               run: [0, 51, 0, 66, 0, 78, 0, 61, 0, 73, 160, 59, 160, 71, 320, 58, 320, 70, 480, 59, 480, 71, 640, 52, 640, 67, 640, 79, 640, 62, 640, 74, 800, 61, 800, 73, 960, 60, 960, 72, 1120, 61, 1120, 73],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D♯m7: root D♯ + line C♯–B–A♯–B</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then Em7: D–C♯–C–C♯</span>' },
+  'barry-p7': { lh: [50, 61, 59, 58], rh: [66, 73, 71, 70, 78], stagger: 22, fromMidi: 50, toMidi: 78, label: 'Play D∆7 → Em7', runOnly: true, runDur: 0.3,
+               run: [0, 50, 0, 66, 0, 78, 0, 61, 0, 73, 160, 59, 160, 71, 320, 58, 320, 70, 480, 59, 480, 71, 640, 52, 640, 67, 640, 79, 640, 62, 640, 74, 800, 61, 800, 73, 960, 60, 960, 72, 1120, 61, 1120, 73],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D∆7: root D + line C♯–B–A♯–B</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then Em7: D–C♯–C–C♯</span>' },
+  'barry-p8': { lh: [54, 64, 62, 61], rh: [69, 76, 74, 73, 81], stagger: 22, fromMidi: 54, toMidi: 81, label: 'Play F♯m7 → Gm7', runOnly: true, runDur: 0.3,
+               run: [0, 54, 0, 69, 0, 81, 0, 64, 0, 76, 160, 62, 160, 74, 320, 61, 320, 73, 480, 62, 480, 74, 640, 55, 640, 70, 640, 82, 640, 65, 640, 77, 800, 64, 800, 76, 960, 63, 960, 75, 1120, 64, 1120, 76],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F♯m7: root F♯ + line E–D–C♯–D</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>3rd octave + the same line; then Gm7: F–E–E♭–E</span>' },
+  'barry-end': { lh: [53, 62, 64], rh: [69, 74, 81], stagger: 22, fromMidi: 29, toMidi: 103, label: 'Play the ending', runOnly: true, runDur: 0.6,
+               run: [0,53,0,62,0,64,0,69,0,74,0,81,300,81,300,86,300,91,600,93,600,98,600,103,750,29],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F3 D4 E4, then F1 (8ba)</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A4 D5 A5 → A5 D6 G6 → A6 D7 G7 (8va)</span>' },
+  'obl-maj-c': { lh: [48, 50, 52, 53], rh: [60, 64, 65, 67, 69, 72], stagger: 22, fromMidi: 48, toMidi: 72, label: 'Play the walk', runOnly: true, runDur: 0.4,
+               run: [0, 48, 0, 64, 0, 60, 0, 72, 420, 50, 420, 65, 420, 60, 420, 72, 840, 52, 840, 67, 840, 60, 840, 72, 1260, 53, 1260, 69, 1260, 60, 1260, 72, 1680, 52, 1680, 67, 1680, 60, 1680, 72, 2100, 50, 2100, 65, 2100, 60, 2100, 72, 2520, 48, 2520, 64, 2520, 60, 2520, 72],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>bass C D E F E D C</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C octave held · middle E F G A G F E</span>' },
+  'obl-maj-g': { lh: [43, 45, 47], rh: [55, 59, 60, 62, 67], stagger: 22, fromMidi: 43, toMidi: 67, label: 'Play the walk', runOnly: true, runDur: 0.4,
+               run: [0, 47, 0, 62, 0, 55, 0, 67, 420, 45, 420, 60, 420, 55, 420, 67, 840, 43, 840, 59, 840, 55, 840, 67, 1260, 45, 1260, 60, 1260, 55, 1260, 67, 1680, 47, 1680, 62, 1680, 55, 1680, 67],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>bass B A G A B</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G octave held · middle D C B C D</span>' },
+  'obl-min-c': { lh: [48, 50, 51, 53], rh: [60, 63, 65, 67, 68, 72], stagger: 22, fromMidi: 48, toMidi: 72, label: 'Play the walk', runOnly: true, runDur: 0.4,
+               run: [0, 48, 0, 63, 0, 60, 0, 72, 420, 50, 420, 65, 420, 60, 420, 72, 840, 51, 840, 67, 840, 60, 840, 72, 1260, 53, 1260, 68, 1260, 60, 1260, 72, 1680, 51, 1680, 67, 1680, 60, 1680, 72, 2100, 50, 2100, 65, 2100, 60, 2100, 72, 2520, 48, 2520, 63, 2520, 60, 2520, 72],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>bass C D E♭ F E♭ D C</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C octave held · middle E♭ F G A♭ G F E♭</span>' },
+  'obl-min-g': { lh: [43, 44, 45, 46, 47, 48], rh: [55, 59, 60, 62, 63, 67], stagger: 22, fromMidi: 43, toMidi: 67, label: 'Play the walk', runOnly: true, runDur: 0.4,
+               run: [0, 46, 0, 62, 0, 55, 0, 67, 420, 44, 420, 60, 420, 55, 420, 67, 840, 43, 840, 59, 840, 55, 840, 67, 1260, 45, 1260, 60, 1260, 55, 1260, 67, 1680, 47, 1680, 62, 1680, 55, 1680, 67, 2100, 48, 2100, 63, 2100, 55, 2100, 67],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>bass B♭ A♭ G A B C</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>G octave held · middle D C B C D E♭</span>' },
+  // v6.3 — #30 three arpeggios on B♭7 (each climbs, then resolves to E♭), #37, #38, #42
+  'os-arp-dim': { lh: [56, 58], rh: [71, 74, 76, 79], stagger: 60, fromMidi: 56, toMidi: 79, label: 'Play it, then E♭', runOnly: true, runDur: 0.5,
+               run: [0, 56, 130, 58, 260, 71, 390, 74, 520, 76, 650, 79, 980, 51, 980, 63, 980, 67, 980, 70],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A♭ B♭</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B D E G — ♭9 3 ♯11 13</span>' },
+  'os-arp-wt': { lh: [54, 56, 58], rh: [72, 74, 76], stagger: 60, fromMidi: 54, toMidi: 76, label: 'Play it, then E♭', runOnly: true, runDur: 0.5,
+               run: [0, 54, 130, 56, 260, 58, 390, 72, 520, 74, 650, 76, 980, 51, 980, 63, 980, 67, 980, 70],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G♭ A♭ B♭</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C D E</span>' },
+  'os-arp-alt': { lh: [50, 56, 59], rh: [73, 78, 82], stagger: 60, fromMidi: 50, toMidi: 82, label: 'Play it, then E♭', runOnly: true, runDur: 0.5,
+               run: [0, 50, 130, 56, 260, 59, 390, 73, 520, 78, 650, 82, 980, 51, 980, 63, 980, 67, 980, 70],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D A♭ B — 3 ♭7 ♭9</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>D♭ G♭ B♭ — a G♭ triad</span>' },
+  'os-glasper-v': { lh: [43], rh: [59, 62, 63, 70], stagger: 30, fromMidi: 41, toMidi: 72, label: 'Play G7♯9♭13',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>G</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B D E♭ B♭ — 3 5 ♭13 ♯9</span>' },
+  'os-muvi': { lh: [51], rh: [59, 61, 66], stagger: 25, fromMidi: 47, toMidi: 67, label: 'Play C∆7 to Dm7', runOnly: true, runDur: 0.5,
+               run: [0, 48, 0, 55, 0, 59, 0, 64, 520, 51, 520, 59, 520, 61, 520, 66, 1040, 52, 1040, 58, 1040, 62, 1040, 67, 1560, 49, 1560, 55, 1560, 57, 1560, 64, 2080, 50, 2080, 57, 2080, 60, 2080, 65],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D♯ — the 3rd, a half step under E</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>B C♯ F♯ — B(2), the V of Em7♭5</span>' },
+  'os-dim7-lock': { lh: [50], rh: [65, 68, 71, 74], stagger: 25, fromMidi: 48, toMidi: 79, label: 'Play the octave moves', runOnly: true, runDur: 0.45,
+               run: [0, 50, 0, 65, 0, 68, 0, 71, 0, 74, 520, 52, 520, 65, 520, 68, 520, 71, 520, 76, 1040, 50, 1040, 65, 1040, 68, 1040, 71, 1040, 74, 1560, 53, 1560, 68, 1560, 71, 1560, 74, 1560, 77, 2080, 55, 2080, 68, 2080, 71, 2080, 74, 2080, 79, 2600, 53, 2600, 68, 2600, 71, 2600, 74, 2600, 77],
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>D, then E and back</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>F A♭ B held · top D → E and back</span>' },
+  'warmup-mountain-alt': { lh: [45, 55], rh: [61, 65, 70], stagger: 25, fromMidi: 41, toMidi: 76, label: 'Play A7 altered',
+               legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>A G — 1, ♭7</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>C♯ F B♭ — 3, ♭13, ♭9: into Dm7</span>' },
 
   // SUS DESCENT (final iii-vi-ii-V step)
   // Bb13sus4 / A13sus4 / Ab13sus4 / G13sus4 — just show all 4 root-tones + suss above
@@ -8018,7 +8282,7 @@ const VOICING_PRESETS = {
   'mvs-bb-home':    { lh: [50, 55], rh: [60, 65, 70], stagger: 26, fromMidi: 46, toMidi: 74, label: 'Play the B♭ home voicing' },
   'os-g7s9b13':     { lh: [43, 53, 59, 63], rh: [75, 82, 87], stagger: 26, fromMidi: 41, toMidi: 89, label: 'Play G7♯9♭13 over G' },
   'ust-bv-min':     { lh: [48, 52, 58], rh: [66, 69, 73], stagger: 30, fromMidi: 47, toMidi: 76, label: 'Play F♯ min / C7' },
-  'warmup-mountain': { lh: [53, 55], rh: [59, 64, 69], stagger: 25, fromMidi: 47, toMidi: 76, label: 'Play V7 [G7]' },
+  'warmup-mountain': { lh: [43, 53], rh: [59, 64, 69], stagger: 25, fromMidi: 47, toMidi: 76, label: 'Play V7 [G7]' },
   // MANESS — Eb7 tritone-sub pivot: LH Eb, RH G Bb Db
   'warmup-maness':  { lh: [51], rh: [55, 58, 61], stagger: 25, fromMidi: 47, toMidi: 76, label: 'Play E♭7' },
   // TRITONE-SUB WARMUP — Eb9#11: LH Eb G (1, 3), RH Db F A (b7, 9, #11)
@@ -8146,13 +8410,14 @@ function buildVoicingKeyboard(preset) {
       b.innerHTML = '<span class="play-tri"></span>' + label;
       b.addEventListener('click', () => {
         const ev = preset.runBass != null ? [0, preset.runBass].concat(preset.run) : preset.run;
-        playRun(ev, speed, 0.22 * speed);
+        playRun(ev, speed, (preset.runDur || 0.22) * speed);
       });
       return b;
     };
     const after = btn.nextSibling;
-    btn.parentNode.insertBefore(mk('Play the run', 1), after);
+    btn.parentNode.insertBefore(mk(preset.runOnly ? preset.label : 'Play the run', 1), after);
     btn.parentNode.insertBefore(mk('Half speed', 2), after);
+    if (preset.runOnly) btn.remove();
   }
   return block;
 }
@@ -9777,24 +10042,72 @@ const EXERCISES = [
   {
     id: 'mountain',
     name: 'The Mountain',
-    blurb: 'Round the cycle of fifths, every chord preceded by its own dominant. Left hand takes the shell, right hand takes the colour — and the hand shape only ever has two forms.',
+    blurb: 'Start on C; each pass reaches one rung higher, then walks back down the scale to C, with every chord preceded by its own dominant. Unaltered dominants into the major chords and into V; altered dominants into the minor ones.',
     stages: [{
-      label: 'Full cycle',
-      caption: 'Minor and major sevenths: <b>LH 1–3, RH 7–9–5</b>. Dominants: <b>LH 1–♭7, RH 3–13–9</b>. Nothing else changes for thirteen chords.',
+      label: 'Six passes',
+      caption: 'C G7 C · then into ii, iii, IV, V and vi, each time walking back down. Major and minor sevenths: <b>LH 1–3, RH 7–9–5</b> (iii: <b>7–1–5</b>). Unaltered dominants: <b>LH 1–♭7, RH 3–13–9</b>. Altered dominants (into minor): <b>RH 3–♭13–♭9</b>.',
       steps: [
-        { root: 0,  q: '∆7',  lh: [0,4],  rh: [11,14,19], name: 'C∆7',  tag: 'I∆7' },
-        { root: 4,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'E7',   tag: 'V7/vi' },
-        { root: 9,  q: 'm7',  lh: [0,3],  rh: [10,14,19], name: 'Am7',  tag: 'vi7' },
-        { root: 2,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'D7',   tag: 'V7/V' },
-        { root: 7,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'G7',   tag: 'V7' },
-        { root: 0,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'C7',   tag: 'V7/IV' },
-        { root: 5,  q: '∆7',  lh: [0,4],  rh: [11,14,19], name: 'F∆7',  tag: 'IV∆7' },
-        { root: 11, q: '7',   lh: [0,10], rh: [4,9,14],   name: 'B7',   tag: 'V7/iii' },
-        { root: 4,  q: 'm7',  lh: [0,3],  rh: [10,14,19], name: 'Em7',  tag: 'iii7' },
-        { root: 9,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'A7',   tag: 'V7/ii' },
-        { root: 2,  q: 'm7',  lh: [0,3],  rh: [10,14,19], name: 'Dm7',  tag: 'ii7' },
-        { root: 7,  q: '7',   lh: [0,10], rh: [4,9,14],   name: 'G7',   tag: 'V7' },
-        { root: 0,  q: '∆7',  lh: [0,4],  rh: [11,14,19], name: 'C∆7',  tag: 'I∆7' }
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7 · pass 1' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' },
+        { root: 9, lh: [0,10], rh: [4,8,13], name: 'A7', tag: 'V7/ii · altered · pass 2' },
+        { root: 2, lh: [0,3], rh: [10,14,19], name: 'Dm7', tag: 'ii7' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' },
+        { root: 11, lh: [0,10], rh: [4,8,13], name: 'B7', tag: 'V7/iii · altered · pass 3' },
+        { root: 4, lh: [0,3], rh: [10,12,19], name: 'Em7', tag: 'iii7 · RH 7–1–5' },
+        { root: 9, lh: [0,10], rh: [4,8,13], name: 'A7', tag: 'V7/ii · altered' },
+        { root: 2, lh: [0,3], rh: [10,14,19], name: 'Dm7', tag: 'ii7' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' },
+        { root: 0, lh: [0,10], rh: [4,9,14], name: 'C7', tag: 'V7/IV · pass 4' },
+        { root: 5, lh: [0,4], rh: [11,14,19], name: 'F∆7', tag: 'IV∆7' },
+        { root: 11, lh: [0,10], rh: [4,8,13], name: 'B7', tag: 'V7/iii · altered' },
+        { root: 4, lh: [0,3], rh: [10,12,19], name: 'Em7', tag: 'iii7 · RH 7–1–5' },
+        { root: 9, lh: [0,10], rh: [4,8,13], name: 'A7', tag: 'V7/ii · altered' },
+        { root: 2, lh: [0,3], rh: [10,14,19], name: 'Dm7', tag: 'ii7' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' },
+        { root: 2, lh: [0,10], rh: [4,9,14], name: 'D7', tag: 'V7/V · pass 5' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,10], rh: [4,9,14], name: 'C7', tag: 'V7/IV' },
+        { root: 5, lh: [0,4], rh: [11,14,19], name: 'F∆7', tag: 'IV∆7' },
+        { root: 11, lh: [0,10], rh: [4,8,13], name: 'B7', tag: 'V7/iii · altered' },
+        { root: 4, lh: [0,3], rh: [10,12,19], name: 'Em7', tag: 'iii7 · RH 7–1–5' },
+        { root: 9, lh: [0,10], rh: [4,8,13], name: 'A7', tag: 'V7/ii · altered' },
+        { root: 2, lh: [0,3], rh: [10,14,19], name: 'Dm7', tag: 'ii7' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' },
+        { root: 4, lh: [0,10], rh: [4,8,13], name: 'E7', tag: 'V7/vi · altered · pass 6' },
+        { root: 9, lh: [0,3], rh: [10,14,19], name: 'Am7', tag: 'vi7' },
+        { root: 2, lh: [0,10], rh: [4,9,14], name: 'D7', tag: 'V7/V' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,10], rh: [4,9,14], name: 'C7', tag: 'V7/IV' },
+        { root: 5, lh: [0,4], rh: [11,14,19], name: 'F∆7', tag: 'IV∆7' },
+        { root: 11, lh: [0,10], rh: [4,8,13], name: 'B7', tag: 'V7/iii · altered' },
+        { root: 4, lh: [0,3], rh: [10,12,19], name: 'Em7', tag: 'iii7 · RH 7–1–5' },
+        { root: 9, lh: [0,10], rh: [4,8,13], name: 'A7', tag: 'V7/ii · altered' },
+        { root: 2, lh: [0,3], rh: [10,14,19], name: 'Dm7', tag: 'ii7' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' }
+      ]
+    }, {
+      label: 'Top pass only',
+      caption: 'The sixth pass: up to vi, then down vi–V–IV–iii–ii–V–I, a dominant in front of each.',
+      steps: [
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' },
+        { root: 4, lh: [0,10], rh: [4,8,13], name: 'E7', tag: 'V7/vi · altered' },
+        { root: 9, lh: [0,3], rh: [10,14,19], name: 'Am7', tag: 'vi7' },
+        { root: 2, lh: [0,10], rh: [4,9,14], name: 'D7', tag: 'V7/V' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,10], rh: [4,9,14], name: 'C7', tag: 'V7/IV' },
+        { root: 5, lh: [0,4], rh: [11,14,19], name: 'F∆7', tag: 'IV∆7' },
+        { root: 11, lh: [0,10], rh: [4,8,13], name: 'B7', tag: 'V7/iii · altered' },
+        { root: 4, lh: [0,3], rh: [10,12,19], name: 'Em7', tag: 'iii7 · RH 7–1–5' },
+        { root: 9, lh: [0,10], rh: [4,8,13], name: 'A7', tag: 'V7/ii · altered' },
+        { root: 2, lh: [0,3], rh: [10,14,19], name: 'Dm7', tag: 'ii7' },
+        { root: 7, lh: [0,10], rh: [4,9,14], name: 'G7', tag: 'V7' },
+        { root: 0, lh: [0,4], rh: [11,14,19], name: 'C∆7', tag: 'I∆7' }
       ]
     }]
   },
@@ -10004,46 +10317,128 @@ const EXERCISES = [
   {
     id: 'moo',
     name: 'Moo chord warmup',
-    blurb: 'A ∆7 with its 7th on the bottom of the right hand, answered by a 2–5–1 built on the chord a fifth below and voiced over that chord\'s 3rd. The pair then drops a whole step — and the whole four-chord cell climbs the whole-tone scale.',
+    blurb: 'A ∆7 with its 7th on the bottom of the right hand, answered by a 2–5–1 built on the chord a fifth below and voiced over that chord\'s 3rd. The pair then drops a whole step, and the next cell starts a major third higher. Six cells cover one whole-tone scale; then the whole thing goes up a half step for the other six keys.',
     stages: [{
-      label: 'Six cells, round the whole-tone scale',
-      caption: 'Each cell is <b>X∆7 · (X−5)(2)/3rd · (X−2)∆7 · (X−7)(2)/3rd</b>. Then the cell starts again a whole step up, so the six starting points are <b>C D E F♯ A♭ B♭</b> — the whole-tone scale — and twenty-four chords later you are home.',
+      label: 'Pass 1 · C D E F♯ A♭ B♭',
+      caption: 'Each cell is <b>X∆7 · (X−5)(2)/3rd · (X−2)∆7 · (X−7)(2)/3rd</b>. The roots go down a whole step, then up a major third, so the cells start on <b>C D E F♯ A♭ B♭</b> — one whole-tone scale, six of the twelve keys.',
       steps: [
-        { root:0, lh:[0], rh:[11,16,19], name:'C∆7', tag:'cell 1 · 7–3–5 over the root' },
+        { root:0, lh:[0], rh:[11,16,19], name:'C∆7', tag:'pass 1 · cell 1 · 7–3–5 over the root' },
         { root:0, lh:[11], rh:[21,26,31], name:'G(2)/B', tag:'2–5–1 over the 3rd' },
         { root:0, lh:[10], rh:[21,26,29], name:'B♭∆7', tag:'down a whole step' },
         { root:0, lh:[9], rh:[19,24,29], name:'F(2)/A', tag:'2–5–1 over the 3rd' },
-        { root:0, lh:[2], rh:[13,18,21], name:'D∆7', tag:'cell 2 · 7–3–5 over the root' },
-        { root:0, lh:[1], rh:[11,16,21], name:'A(2)/D♭', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[2], rh:[13,18,21], name:'D∆7', tag:'pass 1 · cell 2 · 7–3–5 over the root' },
+        { root:0, lh:[1], rh:[11,16,21], name:'A(2)/C♯', tag:'2–5–1 over the 3rd' },
         { root:0, lh:[0], rh:[11,16,19], name:'C∆7', tag:'down a whole step' },
         { root:0, lh:[11], rh:[21,26,31], name:'G(2)/B', tag:'2–5–1 over the 3rd' },
-        { root:0, lh:[4], rh:[15,20,23], name:'E∆7', tag:'cell 3 · 7–3–5 over the root' },
-        { root:0, lh:[3], rh:[13,18,23], name:'B(2)/E♭', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[4], rh:[15,20,23], name:'E∆7', tag:'pass 1 · cell 3 · 7–3–5 over the root' },
+        { root:0, lh:[3], rh:[13,18,23], name:'B(2)/D♯', tag:'2–5–1 over the 3rd' },
         { root:0, lh:[2], rh:[13,18,21], name:'D∆7', tag:'down a whole step' },
-        { root:0, lh:[1], rh:[11,16,21], name:'A(2)/D♭', tag:'2–5–1 over the 3rd' },
-        { root:0, lh:[6], rh:[17,22,25], name:'G♭∆7', tag:'cell 4 · 7–3–5 over the root' },
-        { root:0, lh:[5], rh:[15,20,25], name:'D♭(2)/F', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[1], rh:[11,16,21], name:'A(2)/C♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[6], rh:[17,22,25], name:'F♯∆7', tag:'pass 1 · cell 4 · 7–3–5 over the root' },
+        { root:0, lh:[5], rh:[15,20,25], name:'C♯(2)/E♯', tag:'2–5–1 over the 3rd' },
         { root:0, lh:[4], rh:[15,20,23], name:'E∆7', tag:'down a whole step' },
-        { root:0, lh:[3], rh:[13,18,23], name:'B(2)/E♭', tag:'2–5–1 over the 3rd' },
-        { root:0, lh:[8], rh:[19,24,27], name:'A♭∆7', tag:'cell 5 · 7–3–5 over the root' },
+        { root:0, lh:[3], rh:[13,18,23], name:'B(2)/D♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[8], rh:[19,24,27], name:'A♭∆7', tag:'pass 1 · cell 5 · 7–3–5 over the root' },
         { root:0, lh:[7], rh:[17,22,27], name:'E♭(2)/G', tag:'2–5–1 over the 3rd' },
         { root:0, lh:[6], rh:[17,22,25], name:'G♭∆7', tag:'down a whole step' },
         { root:0, lh:[5], rh:[15,20,25], name:'D♭(2)/F', tag:'2–5–1 over the 3rd' },
-        { root:0, lh:[10], rh:[21,26,29], name:'B♭∆7', tag:'cell 6 · 7–3–5 over the root' },
+        { root:0, lh:[10], rh:[21,26,29], name:'B♭∆7', tag:'pass 1 · cell 6 · 7–3–5 over the root' },
         { root:0, lh:[9], rh:[19,24,29], name:'F(2)/A', tag:'2–5–1 over the 3rd' },
         { root:0, lh:[8], rh:[19,24,27], name:'A♭∆7', tag:'down a whole step' },
         { root:0, lh:[7], rh:[17,22,27], name:'E♭(2)/G', tag:'2–5–1 over the 3rd' }
+      ]
+    }, {
+      label: 'Pass 2 · up a half step: D♭ E♭ F G A B',
+      caption: 'The same twenty-four chords a half step higher: the cells start on <b>D♭ E♭ F G A B</b>, the other whole-tone scale, which covers the remaining six keys.',
+      steps: [
+        { root:0, lh:[1], rh:[12,17,20], name:'D♭∆7', tag:'pass 2 · cell 1 · 7–3–5 over the root' },
+        { root:0, lh:[12], rh:[22,27,32], name:'A♭(2)/C', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[11], rh:[22,27,30], name:'B∆7', tag:'down a whole step' },
+        { root:0, lh:[10], rh:[20,25,30], name:'F♯(2)/A♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[3], rh:[14,19,22], name:'E♭∆7', tag:'pass 2 · cell 2 · 7–3–5 over the root' },
+        { root:0, lh:[2], rh:[12,17,22], name:'B♭(2)/D', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[1], rh:[12,17,20], name:'D♭∆7', tag:'down a whole step' },
+        { root:0, lh:[12], rh:[22,27,32], name:'A♭(2)/C', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[5], rh:[16,21,24], name:'F∆7', tag:'pass 2 · cell 3 · 7–3–5 over the root' },
+        { root:0, lh:[4], rh:[14,19,24], name:'C(2)/E', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[3], rh:[14,19,22], name:'E♭∆7', tag:'down a whole step' },
+        { root:0, lh:[2], rh:[12,17,22], name:'B♭(2)/D', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[7], rh:[18,23,26], name:'G∆7', tag:'pass 2 · cell 4 · 7–3–5 over the root' },
+        { root:0, lh:[6], rh:[16,21,26], name:'D(2)/F♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[5], rh:[16,21,24], name:'F∆7', tag:'down a whole step' },
+        { root:0, lh:[4], rh:[14,19,24], name:'C(2)/E', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[9], rh:[20,25,28], name:'A∆7', tag:'pass 2 · cell 5 · 7–3–5 over the root' },
+        { root:0, lh:[8], rh:[18,23,28], name:'E(2)/G♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[7], rh:[18,23,26], name:'G∆7', tag:'down a whole step' },
+        { root:0, lh:[6], rh:[16,21,26], name:'D(2)/F♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[11], rh:[22,27,30], name:'B∆7', tag:'pass 2 · cell 6 · 7–3–5 over the root' },
+        { root:0, lh:[10], rh:[20,25,30], name:'F♯(2)/A♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[9], rh:[20,25,28], name:'A∆7', tag:'down a whole step' },
+        { root:0, lh:[8], rh:[18,23,28], name:'E(2)/G♯', tag:'2–5–1 over the 3rd' }
+      ]
+    }, {
+      label: 'Both passes · all twelve keys',
+      caption: 'Pass 1, then pass 2: forty-eight chords, every major key once as a ∆7.',
+      steps: [
+        { root:0, lh:[0], rh:[11,16,19], name:'C∆7', tag:'pass 1 · cell 1 · 7–3–5 over the root' },
+        { root:0, lh:[11], rh:[21,26,31], name:'G(2)/B', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[10], rh:[21,26,29], name:'B♭∆7', tag:'down a whole step' },
+        { root:0, lh:[9], rh:[19,24,29], name:'F(2)/A', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[2], rh:[13,18,21], name:'D∆7', tag:'pass 1 · cell 2 · 7–3–5 over the root' },
+        { root:0, lh:[1], rh:[11,16,21], name:'A(2)/C♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[0], rh:[11,16,19], name:'C∆7', tag:'down a whole step' },
+        { root:0, lh:[11], rh:[21,26,31], name:'G(2)/B', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[4], rh:[15,20,23], name:'E∆7', tag:'pass 1 · cell 3 · 7–3–5 over the root' },
+        { root:0, lh:[3], rh:[13,18,23], name:'B(2)/D♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[2], rh:[13,18,21], name:'D∆7', tag:'down a whole step' },
+        { root:0, lh:[1], rh:[11,16,21], name:'A(2)/C♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[6], rh:[17,22,25], name:'F♯∆7', tag:'pass 1 · cell 4 · 7–3–5 over the root' },
+        { root:0, lh:[5], rh:[15,20,25], name:'C♯(2)/E♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[4], rh:[15,20,23], name:'E∆7', tag:'down a whole step' },
+        { root:0, lh:[3], rh:[13,18,23], name:'B(2)/D♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[8], rh:[19,24,27], name:'A♭∆7', tag:'pass 1 · cell 5 · 7–3–5 over the root' },
+        { root:0, lh:[7], rh:[17,22,27], name:'E♭(2)/G', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[6], rh:[17,22,25], name:'G♭∆7', tag:'down a whole step' },
+        { root:0, lh:[5], rh:[15,20,25], name:'D♭(2)/F', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[10], rh:[21,26,29], name:'B♭∆7', tag:'pass 1 · cell 6 · 7–3–5 over the root' },
+        { root:0, lh:[9], rh:[19,24,29], name:'F(2)/A', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[8], rh:[19,24,27], name:'A♭∆7', tag:'down a whole step' },
+        { root:0, lh:[7], rh:[17,22,27], name:'E♭(2)/G', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[1], rh:[12,17,20], name:'D♭∆7', tag:'pass 2 · cell 1 · 7–3–5 over the root' },
+        { root:0, lh:[12], rh:[22,27,32], name:'A♭(2)/C', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[11], rh:[22,27,30], name:'B∆7', tag:'down a whole step' },
+        { root:0, lh:[10], rh:[20,25,30], name:'F♯(2)/A♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[3], rh:[14,19,22], name:'E♭∆7', tag:'pass 2 · cell 2 · 7–3–5 over the root' },
+        { root:0, lh:[2], rh:[12,17,22], name:'B♭(2)/D', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[1], rh:[12,17,20], name:'D♭∆7', tag:'down a whole step' },
+        { root:0, lh:[12], rh:[22,27,32], name:'A♭(2)/C', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[5], rh:[16,21,24], name:'F∆7', tag:'pass 2 · cell 3 · 7–3–5 over the root' },
+        { root:0, lh:[4], rh:[14,19,24], name:'C(2)/E', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[3], rh:[14,19,22], name:'E♭∆7', tag:'down a whole step' },
+        { root:0, lh:[2], rh:[12,17,22], name:'B♭(2)/D', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[7], rh:[18,23,26], name:'G∆7', tag:'pass 2 · cell 4 · 7–3–5 over the root' },
+        { root:0, lh:[6], rh:[16,21,26], name:'D(2)/F♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[5], rh:[16,21,24], name:'F∆7', tag:'down a whole step' },
+        { root:0, lh:[4], rh:[14,19,24], name:'C(2)/E', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[9], rh:[20,25,28], name:'A∆7', tag:'pass 2 · cell 5 · 7–3–5 over the root' },
+        { root:0, lh:[8], rh:[18,23,28], name:'E(2)/G♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[7], rh:[18,23,26], name:'G∆7', tag:'down a whole step' },
+        { root:0, lh:[6], rh:[16,21,26], name:'D(2)/F♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[11], rh:[22,27,30], name:'B∆7', tag:'pass 2 · cell 6 · 7–3–5 over the root' },
+        { root:0, lh:[10], rh:[20,25,30], name:'F♯(2)/A♯', tag:'2–5–1 over the 3rd' },
+        { root:0, lh:[9], rh:[20,25,28], name:'A∆7', tag:'down a whole step' },
+        { root:0, lh:[8], rh:[18,23,28], name:'E(2)/G♯', tag:'2–5–1 over the 3rd' }
       ]
     }]
   },
   {
   "id": "barry",
-  "name": "Barry Harris · held frames",
-  "blurb": "Hold the LH bass and RH outer octave while the inner voices move together an octave apart. All sixteen supplied chord frames and the octave-shift ending are included, with separate excerpt stages and a combined practice sequence.",
+  "name": "Barry Harris warmup",
+  "blurb": "The left hand holds the root and the right hand holds the 3rd in an octave; between them both hands play the same four-note line an octave apart — the 7th steps down, dips a half step and comes back. Up the diatonic chords of F, then a tour of four keys a minor third apart, then the octave-shift ending. Read from the Open Studio video.",
   "stages": [
     {
-      "label": "F∆7 → Gm7",
-      "caption": "<b>F∆7 → Gm7</b> · IMG_5072. LH holds the chord root; RH holds the third in an octave. Move from the chord seventh to its natural sixth, then down a semitone and back. On minor-seven frames the starting seventh is flat, so the first move is a semitone; on major-seven frames it is a whole tone. Four sixteenths per frame; each frame lasts one beat. These are two-beat excerpts, not a complete continuous video transcription.",
+      "label": "Diatonic · up the sevenths of F",
+      "caption": "<b>F∆7 Gm7 Am7 B♭∆7 C7 Dm7 Eø7 F∆7.</b> Each chord’s 7th steps down to the next note of the scale, dips a half step and comes back. Where the scale’s 6th above the root is natural (I, ii, IV, V) that gives 7–6–♭6–6; where it is flat (iii, vi, vii) it gives ♭7–♭6–5–♭6. Four sixteenths per chord.",
       "steps": [
         {
           "root": 0,
@@ -10057,7 +10452,741 @@ const EXERCISES = [
             21
           ],
           "name": "F∆7",
-          "tag": "16th 1 · attack frame; hold bass and outer octave for one beat",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            5,
+            14
+          ],
+          "rh": [
+            9,
+            14,
+            21
+          ],
+          "name": "F∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            14
+          ],
+          "attackRh": [
+            14
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            5,
+            13
+          ],
+          "rh": [
+            9,
+            13,
+            21
+          ],
+          "name": "F∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            13
+          ],
+          "attackRh": [
+            13
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            5,
+            14
+          ],
+          "rh": [
+            9,
+            14,
+            21
+          ],
+          "name": "F∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            14
+          ],
+          "attackRh": [
+            14
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            17
+          ],
+          "rh": [
+            10,
+            17,
+            22
+          ],
+          "name": "Gm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            16
+          ],
+          "rh": [
+            10,
+            16,
+            22
+          ],
+          "name": "Gm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            16
+          ],
+          "attackRh": [
+            16
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            15
+          ],
+          "rh": [
+            10,
+            15,
+            22
+          ],
+          "name": "Gm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            15
+          ],
+          "attackRh": [
+            15
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            16
+          ],
+          "rh": [
+            10,
+            16,
+            22
+          ],
+          "name": "Gm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            16
+          ],
+          "attackRh": [
+            16
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            19
+          ],
+          "rh": [
+            12,
+            19,
+            24
+          ],
+          "name": "Am7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            17
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Am7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            17
+          ],
+          "attackRh": [
+            17
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            16
+          ],
+          "rh": [
+            12,
+            16,
+            24
+          ],
+          "name": "Am7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            16
+          ],
+          "attackRh": [
+            16
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            17
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Am7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            17
+          ],
+          "attackRh": [
+            17
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            21
+          ],
+          "rh": [
+            14,
+            21,
+            26
+          ],
+          "name": "B♭∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            19
+          ],
+          "rh": [
+            14,
+            19,
+            26
+          ],
+          "name": "B♭∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            19
+          ],
+          "attackRh": [
+            19
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            18
+          ],
+          "rh": [
+            14,
+            18,
+            26
+          ],
+          "name": "B♭∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            18
+          ],
+          "attackRh": [
+            18
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            19
+          ],
+          "rh": [
+            14,
+            19,
+            26
+          ],
+          "name": "B♭∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            19
+          ],
+          "attackRh": [
+            19
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            12,
+            22
+          ],
+          "rh": [
+            16,
+            22,
+            28
+          ],
+          "name": "C7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            12,
+            21
+          ],
+          "rh": [
+            16,
+            21,
+            28
+          ],
+          "name": "C7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            21
+          ],
+          "attackRh": [
+            21
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            12,
+            20
+          ],
+          "rh": [
+            16,
+            20,
+            28
+          ],
+          "name": "C7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            20
+          ],
+          "attackRh": [
+            20
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            12,
+            21
+          ],
+          "rh": [
+            16,
+            21,
+            28
+          ],
+          "name": "C7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            21
+          ],
+          "attackRh": [
+            21
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            14,
+            24
+          ],
+          "rh": [
+            17,
+            24,
+            29
+          ],
+          "name": "Dm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            14,
+            22
+          ],
+          "rh": [
+            17,
+            22,
+            29
+          ],
+          "name": "Dm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            22
+          ],
+          "attackRh": [
+            22
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            14,
+            21
+          ],
+          "rh": [
+            17,
+            21,
+            29
+          ],
+          "name": "Dm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            21
+          ],
+          "attackRh": [
+            21
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            14,
+            22
+          ],
+          "rh": [
+            17,
+            22,
+            29
+          ],
+          "name": "Dm7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            22
+          ],
+          "attackRh": [
+            22
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            16,
+            26
+          ],
+          "rh": [
+            19,
+            26,
+            31
+          ],
+          "name": "Eø7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            16,
+            24
+          ],
+          "rh": [
+            19,
+            24,
+            31
+          ],
+          "name": "Eø7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            24
+          ],
+          "attackRh": [
+            24
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            16,
+            23
+          ],
+          "rh": [
+            19,
+            23,
+            31
+          ],
+          "name": "Eø7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            23
+          ],
+          "attackRh": [
+            23
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            16,
+            24
+          ],
+          "rh": [
+            19,
+            24,
+            31
+          ],
+          "name": "Eø7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            24
+          ],
+          "attackRh": [
+            24
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            17,
+            28
+          ],
+          "rh": [
+            21,
+            28,
+            33
+          ],
+          "name": "F∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            17,
+            26
+          ],
+          "rh": [
+            21,
+            26,
+            33
+          ],
+          "name": "F∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 2 · only the inner voices attack",
+          "attackLh": [
+            26
+          ],
+          "attackRh": [
+            26
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            17,
+            25
+          ],
+          "rh": [
+            21,
+            25,
+            33
+          ],
+          "name": "F∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 3 · only the inner voices attack",
+          "attackLh": [
+            25
+          ],
+          "attackRh": [
+            25
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            17,
+            26
+          ],
+          "rh": [
+            21,
+            26,
+            33
+          ],
+          "name": "F∆7",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "tag": "16th 4 · only the inner voices attack",
+          "attackLh": [
+            26
+          ],
+          "attackRh": [
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "label": "F∆7 → Gm7",
+      "caption": "<b>F∆7 → Gm7</b> · I → ii in F. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. F∆7: E–D–C♯–D (7–6–♭6–6). Gm7: F–E–E♭–E (♭7–6–♭6–6).",
+      "steps": [
+        {
+          "root": 0,
+          "lh": [
+            5,
+            16
+          ],
+          "rh": [
+            9,
+            16,
+            21
+          ],
+          "name": "F∆7",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
           "beats": 0.25,
           "gateBeats": 0.25,
           "lhDur": [
@@ -10082,7 +11211,7 @@ const EXERCISES = [
             21
           ],
           "name": "F∆7",
-          "tag": "16th 2 · held frame; only the inner voices attack",
+          "tag": "16th 2 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10104,7 +11233,7 @@ const EXERCISES = [
             21
           ],
           "name": "F∆7",
-          "tag": "16th 3 · held frame; only the inner voices attack",
+          "tag": "16th 3 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10126,7 +11255,7 @@ const EXERCISES = [
             21
           ],
           "name": "F∆7",
-          "tag": "16th 4 · held frame; only the inner voices attack",
+          "tag": "16th 4 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10148,7 +11277,7 @@ const EXERCISES = [
             22
           ],
           "name": "Gm7",
-          "tag": "16th 1 · attack frame; hold bass and outer octave for one beat",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
           "beats": 0.25,
           "gateBeats": 0.25,
           "lhDur": [
@@ -10173,7 +11302,7 @@ const EXERCISES = [
             22
           ],
           "name": "Gm7",
-          "tag": "16th 2 · held frame; only the inner voices attack",
+          "tag": "16th 2 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10195,7 +11324,7 @@ const EXERCISES = [
             22
           ],
           "name": "Gm7",
-          "tag": "16th 3 · held frame; only the inner voices attack",
+          "tag": "16th 3 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10217,7 +11346,7 @@ const EXERCISES = [
             22
           ],
           "name": "Gm7",
-          "tag": "16th 4 · held frame; only the inner voices attack",
+          "tag": "16th 4 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10231,7 +11360,7 @@ const EXERCISES = [
     },
     {
       "label": "Am7 → B♭m7",
-      "caption": "<b>Am7 → B♭m7</b> · IMG_5073. LH holds the chord root; RH holds the third in an octave. Move from the chord seventh to its natural sixth, then down a semitone and back. On minor-seven frames the starting seventh is flat, so the first move is a semitone; on major-seven frames it is a whole tone. Four sixteenths per frame; each frame lasts one beat. These are two-beat excerpts, not a complete continuous video transcription.",
+      "caption": "<b>Am7 → B♭m7</b> · iii of F, up a half step to the ii of A♭. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. Am7: G–F–E–F (♭7–♭6–5–♭6). B♭m7: A♭–G–G♭–G (♭7–6–♭6–6).",
       "steps": [
         {
           "root": 0,
@@ -10245,7 +11374,7 @@ const EXERCISES = [
             24
           ],
           "name": "Am7",
-          "tag": "16th 1 · attack frame; hold bass and outer octave for one beat",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
           "beats": 0.25,
           "gateBeats": 0.25,
           "lhDur": [
@@ -10270,7 +11399,7 @@ const EXERCISES = [
             24
           ],
           "name": "Am7",
-          "tag": "16th 2 · held frame; only the inner voices attack",
+          "tag": "16th 2 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10292,7 +11421,7 @@ const EXERCISES = [
             24
           ],
           "name": "Am7",
-          "tag": "16th 3 · held frame; only the inner voices attack",
+          "tag": "16th 3 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10314,7 +11443,7 @@ const EXERCISES = [
             24
           ],
           "name": "Am7",
-          "tag": "16th 4 · held frame; only the inner voices attack",
+          "tag": "16th 4 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10336,7 +11465,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 1 · attack frame; hold bass and outer octave for one beat",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
           "beats": 0.25,
           "gateBeats": 0.25,
           "lhDur": [
@@ -10361,7 +11490,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 2 · held frame; only the inner voices attack",
+          "tag": "16th 2 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10383,7 +11512,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 3 · held frame; only the inner voices attack",
+          "tag": "16th 3 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10405,7 +11534,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 4 · held frame; only the inner voices attack",
+          "tag": "16th 4 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10419,7 +11548,7 @@ const EXERCISES = [
     },
     {
       "label": "A♭∆7 → B♭m7",
-      "caption": "<b>A♭∆7 → B♭m7</b> · IMG_5074. LH holds the chord root; RH holds the third in an octave. Move from the chord seventh to its natural sixth, then down a semitone and back. On minor-seven frames the starting seventh is flat, so the first move is a semitone; on major-seven frames it is a whole tone. Four sixteenths per frame; each frame lasts one beat. These are two-beat excerpts, not a complete continuous video transcription.",
+      "caption": "<b>A♭∆7 → B♭m7</b> · I → ii in A♭. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. A♭∆7: G–F–E–F (7–6–♭6–6). B♭m7: A♭–G–G♭–G (♭7–6–♭6–6).",
       "steps": [
         {
           "root": 0,
@@ -10433,7 +11562,7 @@ const EXERCISES = [
             24
           ],
           "name": "A♭∆7",
-          "tag": "16th 1 · attack frame; hold bass and outer octave for one beat",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
           "beats": 0.25,
           "gateBeats": 0.25,
           "lhDur": [
@@ -10458,7 +11587,7 @@ const EXERCISES = [
             24
           ],
           "name": "A♭∆7",
-          "tag": "16th 2 · held frame; only the inner voices attack",
+          "tag": "16th 2 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10480,7 +11609,7 @@ const EXERCISES = [
             24
           ],
           "name": "A♭∆7",
-          "tag": "16th 3 · held frame; only the inner voices attack",
+          "tag": "16th 3 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10502,7 +11631,7 @@ const EXERCISES = [
             24
           ],
           "name": "A♭∆7",
-          "tag": "16th 4 · held frame; only the inner voices attack",
+          "tag": "16th 4 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10524,7 +11653,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 1 · attack frame; hold bass and outer octave for one beat",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
           "beats": 0.25,
           "gateBeats": 0.25,
           "lhDur": [
@@ -10549,7 +11678,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 2 · held frame; only the inner voices attack",
+          "tag": "16th 2 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10571,7 +11700,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 3 · held frame; only the inner voices attack",
+          "tag": "16th 3 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10593,7 +11722,7 @@ const EXERCISES = [
             25
           ],
           "name": "B♭m7",
-          "tag": "16th 4 · held frame; only the inner voices attack",
+          "tag": "16th 4 · only the inner voices attack",
           "beats": 0.25,
           "gateBeats": 0.25,
           "attackLh": [
@@ -10607,7 +11736,7 @@ const EXERCISES = [
     },
     {
       "label": "Cm7 → C♯m7",
-      "caption": "<b>Cm7 → C♯m7</b> · IMG_5075. Moving RH line: B♭–A♭–G–A♭ · B–A♯–A–A♯. LH plays the same line one octave lower while the bass and RH outer octave hold for one beat. Accidentals carry through the source passage; the retained one-flat signature does not change these sounding pitches.",
+      "caption": "<b>Cm7 → C♯m7</b> · iii of A♭, up a half step to the ii of B. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. Cm7: B♭–A♭–G–A♭ (♭7–♭6–5–♭6). C♯m7: B–A♯–A–A♯ (♭7–6–♭6–6).",
       "steps": [
         {
           "root": 0,
@@ -10795,7 +11924,7 @@ const EXERCISES = [
     },
     {
       "label": "B∆7 → C♯m7",
-      "caption": "<b>B∆7 → C♯m7</b> · IMG_5076. Moving RH line: A♯–G♯–G–G♯ · B–A♯–A–A♯. LH plays the same line one octave lower while the bass and RH outer octave hold for one beat. Accidentals carry through the source passage; the retained one-flat signature does not change these sounding pitches.",
+      "caption": "<b>B∆7 → C♯m7</b> · I → ii in B. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. B∆7: A♯–G♯–G–G♯ (7–6–♭6–6). C♯m7: B–A♯–A–A♯ (♭7–6–♭6–6).",
       "steps": [
         {
           "root": 0,
@@ -10983,7 +12112,7 @@ const EXERCISES = [
     },
     {
       "label": "D♯m7 → Em7",
-      "caption": "<b>D♯m7 → Em7</b> · IMG_5077. Moving RH line: C♯–B–A♯–B · D–C♯–C–C♯. LH plays the same line one octave lower while the bass and RH outer octave hold for one beat. Accidentals carry through the source passage; the retained one-flat signature does not change these sounding pitches.",
+      "caption": "<b>D♯m7 → Em7</b> · iii of B, up a half step to the ii of D. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. D♯m7: C♯–B–A♯–B (♭7–♭6–5–♭6). Em7: D–C♯–C–C♯ (♭7–6–♭6–6).",
       "steps": [
         {
           "root": 0,
@@ -11171,7 +12300,7 @@ const EXERCISES = [
     },
     {
       "label": "D∆7 → Em7",
-      "caption": "<b>D∆7 → Em7</b> · IMG_5078. Moving RH line: C♯–B–A♯–B · D–C♯–C–C♯. LH plays the same line one octave lower while the bass and RH outer octave hold for one beat. Accidentals carry through the source passage; the retained one-flat signature does not change these sounding pitches.",
+      "caption": "<b>D∆7 → Em7</b> · I → ii in D. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. D∆7: C♯–B–A♯–B (7–6–♭6–6). Em7: D–C♯–C–C♯ (♭7–6–♭6–6).",
       "steps": [
         {
           "root": 0,
@@ -11359,7 +12488,7 @@ const EXERCISES = [
     },
     {
       "label": "F♯m7 → Gm7",
-      "caption": "<b>F♯m7 → Gm7</b> · IMG_5079. Moving RH line: E–D–C♯–D · F–E–D♯–E. LH plays the same line one octave lower while the bass and RH outer octave hold for one beat. Accidentals carry through the source passage; the retained one-flat signature does not change these sounding pitches.",
+      "caption": "<b>F♯m7 → Gm7</b> · iii of D, up a half step to the ii of F. LH holds the root, RH the 3rd in an octave; both hands play the line an octave apart. F♯m7: E–D–C♯–D (♭7–♭6–5–♭6). Gm7: F–E–E♭–E (♭7–6–♭6–6).",
       "steps": [
         {
           "root": 0,
@@ -11547,7 +12676,7 @@ const EXERCISES = [
     },
     {
       "label": "Ending · octave shifts",
-      "caption": "<b>IMG_5080 · four beats.</b> LH F3–D4–E4 holds for a dotted quarter. RH plays A4–D5–A5, then A5–D6–G6 as eighth notes, then sustains A6–D7–G7 for a dotted half under 8va. At beat &amp;2, LH moves to F1 under 8ba: an eighth tied to a half note. No tied or held voice is reattacked.",
+      "caption": "<b>Ending · four beats.</b> LH F3–D4–E4 holds for a dotted quarter. RH plays A4–D5–A5, then A5–D6–G6 as eighth notes, then holds A6–D7–G7 for a dotted half under 8va. On the &amp; of 2 the LH drops to F1 under 8ba: an eighth tied to a half note. No tied or held voice is played again.",
       "steps": [
         {
           "root": 0,
@@ -11562,7 +12691,7 @@ const EXERCISES = [
             33
           ],
           "name": "Closing voicing · F bass",
-          "tag": "IMG_5080 · first eighth; LH holds 1½ beats",
+          "tag": "ending · first eighth; LH holds 1½ beats",
           "beats": 0.5,
           "gateBeats": 0.5,
           "lhDur": [
@@ -11652,9 +12781,555 @@ const EXERCISES = [
       ]
     },
     {
-      "label": "New excerpts + ending",
-      "caption": "<b>Practice sequence · 14 beats.</b> The five newly supplied pairs in screenshot order, followed by IMG_5080’s ending. This joins the supplied excerpts for practice; unseen connecting measures are not reconstructed.",
+      "label": "Tour · F, A♭, B, D, F + ending",
+      "caption": "<b>Sixteen chords and the ending, in the video’s order.</b> In each key: ii, I, ii, iii — and the iii slides up a half step to become the ii of the key a minor third higher. F → A♭ → B → D → F.",
       "steps": [
+        {
+          "root": 0,
+          "lh": [
+            5,
+            16
+          ],
+          "rh": [
+            9,
+            16,
+            21
+          ],
+          "name": "F∆7",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            5,
+            14
+          ],
+          "rh": [
+            9,
+            14,
+            21
+          ],
+          "name": "F∆7",
+          "tag": "16th 2 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            14
+          ],
+          "attackRh": [
+            14
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            5,
+            13
+          ],
+          "rh": [
+            9,
+            13,
+            21
+          ],
+          "name": "F∆7",
+          "tag": "16th 3 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            13
+          ],
+          "attackRh": [
+            13
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            5,
+            14
+          ],
+          "rh": [
+            9,
+            14,
+            21
+          ],
+          "name": "F∆7",
+          "tag": "16th 4 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            14
+          ],
+          "attackRh": [
+            14
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            17
+          ],
+          "rh": [
+            10,
+            17,
+            22
+          ],
+          "name": "Gm7",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            16
+          ],
+          "rh": [
+            10,
+            16,
+            22
+          ],
+          "name": "Gm7",
+          "tag": "16th 2 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            16
+          ],
+          "attackRh": [
+            16
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            15
+          ],
+          "rh": [
+            10,
+            15,
+            22
+          ],
+          "name": "Gm7",
+          "tag": "16th 3 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            15
+          ],
+          "attackRh": [
+            15
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            7,
+            16
+          ],
+          "rh": [
+            10,
+            16,
+            22
+          ],
+          "name": "Gm7",
+          "tag": "16th 4 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            16
+          ],
+          "attackRh": [
+            16
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            19
+          ],
+          "rh": [
+            12,
+            19,
+            24
+          ],
+          "name": "Am7",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            17
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Am7",
+          "tag": "16th 2 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            17
+          ],
+          "attackRh": [
+            17
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            16
+          ],
+          "rh": [
+            12,
+            16,
+            24
+          ],
+          "name": "Am7",
+          "tag": "16th 3 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            16
+          ],
+          "attackRh": [
+            16
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            9,
+            17
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Am7",
+          "tag": "16th 4 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            17
+          ],
+          "attackRh": [
+            17
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            20
+          ],
+          "rh": [
+            13,
+            20,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            19
+          ],
+          "rh": [
+            13,
+            19,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 2 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            19
+          ],
+          "attackRh": [
+            19
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            18
+          ],
+          "rh": [
+            13,
+            18,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 3 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            18
+          ],
+          "attackRh": [
+            18
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            19
+          ],
+          "rh": [
+            13,
+            19,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 4 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            19
+          ],
+          "attackRh": [
+            19
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            8,
+            19
+          ],
+          "rh": [
+            12,
+            19,
+            24
+          ],
+          "name": "A♭∆7",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            8,
+            17
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "A♭∆7",
+          "tag": "16th 2 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            17
+          ],
+          "attackRh": [
+            17
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            8,
+            16
+          ],
+          "rh": [
+            12,
+            16,
+            24
+          ],
+          "name": "A♭∆7",
+          "tag": "16th 3 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            16
+          ],
+          "attackRh": [
+            16
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            8,
+            17
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "A♭∆7",
+          "tag": "16th 4 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            17
+          ],
+          "attackRh": [
+            17
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            20
+          ],
+          "rh": [
+            13,
+            20,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 1 · hold bass and outer octave for one beat",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "lhDur": [
+            1,
+            0.25
+          ],
+          "rhDur": [
+            1,
+            0.25,
+            1
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            19
+          ],
+          "rh": [
+            13,
+            19,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 2 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            19
+          ],
+          "attackRh": [
+            19
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            18
+          ],
+          "rh": [
+            13,
+            18,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 3 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            18
+          ],
+          "attackRh": [
+            18
+          ]
+        },
+        {
+          "root": 0,
+          "lh": [
+            10,
+            19
+          ],
+          "rh": [
+            13,
+            19,
+            25
+          ],
+          "name": "B♭m7",
+          "tag": "16th 4 · only the inner voices attack",
+          "beats": 0.25,
+          "gateBeats": 0.25,
+          "attackLh": [
+            19
+          ],
+          "attackRh": [
+            19
+          ]
+        },
         {
           "root": 0,
           "lh": [
@@ -12578,7 +14253,7 @@ const EXERCISES = [
             33
           ],
           "name": "Closing voicing · F bass",
-          "tag": "IMG_5080 · first eighth; LH holds 1½ beats",
+          "tag": "ending · first eighth; LH holds 1½ beats",
           "beats": 0.5,
           "gateBeats": 0.5,
           "lhDur": [
@@ -12671,12 +14346,506 @@ const EXERCISES = [
 },
   {
   "id": "oblique",
-  "name": "Oblique · full warmup",
-  "blurb": "Bass and right-hand middle voice move together; the right-hand outer octave stays fixed until the register changes. Complete major-to-minor passage from the supplied screenshots, with rests, syncopation, ties, and the two-note ending.",
+  "name": "Oblique warmup",
+  "blurb": "Hold the right hand’s outer octave while the bass and the right hand’s middle voice walk together in tenths. Read from the Open Studio video: a plain pass in even notes, then the same notes with syncopation, rests and ties, ending on two low-C eighth notes.",
   "stages": [
     {
-      "label": "Full · major → minor → ending",
-      "caption": "<b>17 bars in 4/4.</b> Eight major bars lead into eight minor bars and a one-bar ending. RH outer notes anchor C or G; LH and RH middle move together. Select a key to transpose every played note. Screenshots supply notes and rhythm; tempo is adjustable because still images do not establish it.",
+      "label": "Plain · major, then minor",
+      "caption": "<b>The first pass, as read from the staff.</b> Major: over held C octaves the bass walks C–D–E–F and back with the RH middle a tenth above; the octaves move to G for B–A–G–A–B; home to C. Minor: the same walk with E♭ and A♭, down through B♭–A♭–G, and up through A♮–B♮ to C under the G octave.",
+      "steps": [
+        {
+          "root": 0,
+          "lh": [
+            12
+          ],
+          "rh": [
+            12,
+            16,
+            24
+          ],
+          "name": "Bass: C",
+          "tag": "bar 1 · beat 1",
+          "beats": 4,
+          "gateBeats": 4,
+          "tieIn": false,
+          "bar": 1,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            14
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Bass: D",
+          "tag": "bar 2 · beat 1",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 2,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            16
+          ],
+          "rh": [
+            12,
+            19,
+            24
+          ],
+          "name": "Bass: E",
+          "tag": "bar 2 · beat 2",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 2,
+          "beat": "2"
+        },
+        {
+          "root": 0,
+          "lh": [
+            17
+          ],
+          "rh": [
+            12,
+            21,
+            24
+          ],
+          "name": "Bass: F",
+          "tag": "bar 2 · beat 3",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 2,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [
+            16
+          ],
+          "rh": [
+            12,
+            19,
+            24
+          ],
+          "name": "Bass: E",
+          "tag": "bar 2 · beat 4",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 2,
+          "beat": "4"
+        },
+        {
+          "root": 0,
+          "lh": [
+            14
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Bass: D",
+          "tag": "bar 3 · beat 1",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 3,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            12
+          ],
+          "rh": [
+            12,
+            16,
+            24
+          ],
+          "name": "Bass: C",
+          "tag": "bar 3 · beat 2",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 3,
+          "beat": "2"
+        },
+        {
+          "root": 0,
+          "lh": [
+            11
+          ],
+          "rh": [
+            7,
+            14,
+            19
+          ],
+          "name": "Bass: B",
+          "tag": "bar 3 · beat 3",
+          "beats": 2,
+          "gateBeats": 2,
+          "tieIn": false,
+          "bar": 3,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [
+            9
+          ],
+          "rh": [
+            7,
+            12,
+            19
+          ],
+          "name": "Bass: A",
+          "tag": "bar 4 · beat 1",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 4,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            7
+          ],
+          "rh": [
+            7,
+            11,
+            19
+          ],
+          "name": "Bass: G",
+          "tag": "bar 4 · beat 2",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 4,
+          "beat": "2"
+        },
+        {
+          "root": 0,
+          "lh": [
+            9
+          ],
+          "rh": [
+            7,
+            12,
+            19
+          ],
+          "name": "Bass: A",
+          "tag": "bar 4 · beat 3",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 4,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [
+            11
+          ],
+          "rh": [
+            7,
+            14,
+            19
+          ],
+          "name": "Bass: B",
+          "tag": "bar 4 · beat 4",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 4,
+          "beat": "4"
+        },
+        {
+          "root": 0,
+          "lh": [
+            12
+          ],
+          "rh": [
+            12,
+            16,
+            24
+          ],
+          "name": "Bass: C",
+          "tag": "bar 5 · beat 1",
+          "beats": 2,
+          "gateBeats": 2,
+          "tieIn": false,
+          "bar": 5,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [],
+          "rh": [],
+          "name": "Rest",
+          "tag": "bar 5 · beat 3",
+          "beats": 2,
+          "bar": 5,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [
+            12
+          ],
+          "rh": [
+            12,
+            15,
+            24
+          ],
+          "name": "Bass: C",
+          "tag": "bar 6 · beat 1",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 6,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            14
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Bass: D",
+          "tag": "bar 6 · beat 2",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 6,
+          "beat": "2"
+        },
+        {
+          "root": 0,
+          "lh": [
+            15
+          ],
+          "rh": [
+            12,
+            19,
+            24
+          ],
+          "name": "Bass: E♭",
+          "tag": "bar 6 · beat 3",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 6,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [
+            17
+          ],
+          "rh": [
+            12,
+            20,
+            24
+          ],
+          "name": "Bass: F",
+          "tag": "bar 6 · beat 4",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 6,
+          "beat": "4"
+        },
+        {
+          "root": 0,
+          "lh": [
+            15
+          ],
+          "rh": [
+            12,
+            19,
+            24
+          ],
+          "name": "Bass: E♭",
+          "tag": "bar 7 · beat 1",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 7,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            14
+          ],
+          "rh": [
+            12,
+            17,
+            24
+          ],
+          "name": "Bass: D",
+          "tag": "bar 7 · beat 2",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 7,
+          "beat": "2"
+        },
+        {
+          "root": 0,
+          "lh": [
+            12
+          ],
+          "rh": [
+            12,
+            15,
+            24
+          ],
+          "name": "Bass: C",
+          "tag": "bar 7 · beat 3",
+          "beats": 2,
+          "gateBeats": 2,
+          "tieIn": false,
+          "bar": 7,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [
+            10
+          ],
+          "rh": [
+            7,
+            14,
+            19
+          ],
+          "name": "Bass: B♭",
+          "tag": "bar 8 · beat 1",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 8,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            8
+          ],
+          "rh": [
+            7,
+            12,
+            19
+          ],
+          "name": "Bass: A♭",
+          "tag": "bar 8 · beat 2",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 8,
+          "beat": "2"
+        },
+        {
+          "root": 0,
+          "lh": [
+            7
+          ],
+          "rh": [
+            7,
+            11,
+            19
+          ],
+          "name": "Bass: G",
+          "tag": "bar 8 · beat 3",
+          "beats": 2,
+          "gateBeats": 2,
+          "tieIn": false,
+          "bar": 8,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [
+            9
+          ],
+          "rh": [
+            7,
+            12,
+            19
+          ],
+          "name": "Bass: A♮",
+          "tag": "bar 9 · beat 1",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 9,
+          "beat": "1"
+        },
+        {
+          "root": 0,
+          "lh": [
+            11
+          ],
+          "rh": [
+            7,
+            14,
+            19
+          ],
+          "name": "Bass: B♮",
+          "tag": "bar 9 · beat 2",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 9,
+          "beat": "2"
+        },
+        {
+          "root": 0,
+          "lh": [
+            12
+          ],
+          "rh": [
+            7,
+            15,
+            19
+          ],
+          "name": "Bass: C",
+          "tag": "bar 9 · beat 3",
+          "beats": 1,
+          "gateBeats": 1,
+          "tieIn": false,
+          "bar": 9,
+          "beat": "3"
+        },
+        {
+          "root": 0,
+          "lh": [],
+          "rh": [],
+          "name": "Rest",
+          "tag": "bar 9 · beat 4",
+          "beats": 1,
+          "bar": 9,
+          "beat": "4"
+        }
+      ]
+    },
+    {
+      "label": "Syncopated · major → minor → ending",
+      "caption": "<b>The second pass, 17 bars in 4/4.</b> The same notes as the plain pass, now off the beat: eight major bars, eight minor bars and a one-bar ending. RH outer notes anchor C or G; LH and RH middle move together. Rests and ties are part of it; a tied note sustains without another attack. Tempo is a practice setting.",
       "steps": [
         {
           "root": 0,
@@ -14195,7 +16364,7 @@ const EXERCISES = [
       ]
     },
     {
-      "label": "Major · 8 bars",
+      "label": "Syncopated · major",
       "caption": "<b>C major, then Cm on the last upbeat.</b> First pass: C–D–E–F / E–D–C / B–A–G / G–A–B–C. The second pass changes the rhythm and ends on C–E♭–C to introduce minor.",
       "steps": [
         {
@@ -14943,7 +17112,7 @@ const EXERCISES = [
       ]
     },
     {
-      "label": "Minor · 8 bars + ending",
+      "label": "Syncopated · minor + ending",
       "caption": "<b>C minor with a major dominant.</b> E♭, A♭ and B♭ color the descent; A♮ and B♮ return on the dominant ascent. The final tonic uses G–E♭–G over C. Tied entries sustain across the bar line.",
       "steps": [
         {
@@ -15764,6 +17933,7 @@ function renderExStep() {
   const lo = Math.min(...v.all, 36), hi = Math.max(...v.all, 72);
   kbBox.innerHTML = '';
   kbBox.appendChild(createKeyboardBlock({
+    keepRange: true,
     fromMidi: Math.min(lo - 2, 34), toMidi: Math.max(hi + 2, 76),
     highlighted, whiteW: 15, whiteH: 66, playStagger: 18,
     playLabel: 'Play this step',
