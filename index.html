@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Piano: Modes &amp; Movements v7.7">
-<title>Piano: Modes & Movements v7.7 — A Jazz Piano Library</title>
+<meta property="og:title" content="Piano: Modes &amp; Movements v7.8">
+<title>Piano: Modes & Movements v7.8 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -1959,6 +1959,8 @@
   .hl-file { cursor: pointer; }
   .hl-an-sum p { font-size: 14px; line-height: 1.6; color: var(--ink-2); margin: 0 0 10px; max-width: 900px; }
   .hl-an-chip { font-size: 12px; }
+  .hl-score { overflow-x: auto; max-width: 100%; min-height: 20px; }
+  .hl-score svg { max-width: none; }
   .hl-cells { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .hl-cell { display: grid; gap: 4px; min-width: 84px; padding: 8px 10px; text-align: left; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; color: var(--ink); font-family: var(--mono); }
   .hl-cell.on { border-color: var(--accent-deep); box-shadow: 0 0 0 1px var(--accent-deep); }
@@ -2020,7 +2022,7 @@
 
   <!-- ============== HERO ============== -->
   <section class="hero">
-    <span class="eyebrow">A Jazz Piano Library · v7.7 · 6 November 2026, 3:39 AM ET · build 2026-11-06T08:39Z</span>
+    <span class="eyebrow">A Jazz Piano Library · v7.8 · 6 November 2026, 6:52 AM ET · build 2026-11-06T11:52Z</span>
     <h1>
       <span class="line">Eleven parent scales.</span>
       <span class="line">Seventy-seven modes.</span>
@@ -2973,7 +2975,7 @@ Side-slip          as on the Dominant Pentatonic card above</div>
     <div class="reveal" style="margin-bottom: 40px;">
       <span class="eyebrow">Harmony Lab</span>
       <h2>From chord to chord, <em>by the smallest steps.</em></h2>
-      <p class="lede">Four tools for moving between chords, and an analyser. The Tonnetz lays out all twenty-four major and minor triads so that neighbours share two notes. The diatonic map walks a key’s chords by seconds, thirds and fourths. The Chopin trick lowers one note at a time. And the reharmonizer keeps a melody on top while you choose what goes under it.</p>
+      <p class="lede">Four tools for moving between chords, an analyser and a lead-sheet view. The Tonnetz lays out all twenty-four major and minor triads so that neighbours share two notes. The diatonic map walks a key’s chords by seconds, thirds and fourths. The Chopin trick lowers one note at a time. And the reharmonizer keeps a melody on top while you choose what goes under it.</p>
     </div>
 
     <h3 id="harmonylab-tonnetz" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The Tonnetz: <em>every triad, beside its neighbours</em></h3>
@@ -3076,6 +3078,16 @@ Side-slip          as on the Dominant Pentatonic card above</div>
         <button class="search-hint" id="hl-an-mine">Analyse my chords</button>
       </div>
       <div id="hl-an-out" class="hl-info"><p class="muted" style="font-size:13px;margin:0">Import a MIDI or MusicXML file in the reharmonizer, or assign some chords, then analyse.</p></div>
+    </div>
+    <h3 id="harmonylab-notation" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Notation: <em>chords above, scales below</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">The melody as a lead sheet, with each chord written above the staff where it starts and the scale for it written below. For an imported file it draws the stretch chosen in the reharmonizer (the track or part, “From note” and “Notes”), with the chords and scales from the analysis; for your own melody it uses the chords you assigned. The notation engine (OpenSheetMusicDisplay) loads the first time you use it, so it needs a connection.</p>
+    <div class="hl-panel reveal">
+      <div class="hl-row">
+        <button class="search-hint" id="hl-nt-file" disabled>Show the imported file</button>
+        <button class="search-hint" id="hl-nt-mine">Show my melody and chords</button>
+      </div>
+      <div id="hl-nt-msg" class="hl-head" style="display:block;margin-bottom:8px"></div>
+      <div id="hl-nt-score" class="hl-score"></div>
     </div>
   </section>
 
@@ -8127,8 +8139,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div class="verstamp" style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v7.7 · build 2026-11-06T08:39Z · 6 November 2026, 3:39 AM ET<br>
-    supersedes v7.6 (build 2026-11-06T08:16Z) — Harmony Lab › harmonic analysis: a chart (bar, chord, Roman numeral, function, scale, melody degrees) and notes on key and devices, for an imported MIDI or MusicXML file or for the chords assigned in the reharmonizer
+    v7.8 · build 2026-11-06T11:52Z · 6 November 2026, 6:52 AM ET<br>
+    supersedes v7.7 (build 2026-11-06T08:39Z) — Harmony Lab › notation: an imported MIDI or MusicXML melody (or your own) drawn as a lead sheet, chord above, scale below
   </div>
 </footer>
 
@@ -20894,7 +20906,7 @@ function parseMidi(buf) {
       const type = status & 0xf0, ch = status & 0x0f;
       if (status === 0xff) { const mt = dv.getUint8(q++); const l = vlq();
         if (mt === 0x03 && !name) { for (let k = 0; k < l; k++) name += String.fromCharCode(dv.getUint8(q + k)); }
-        if (mt === 0x58 && meta.bpb == null) meta.bpb = dv.getUint8(q) * 4 / Math.pow(2, dv.getUint8(q + 1));
+        if (mt === 0x58 && meta.bpb == null) { meta.tsNum = dv.getUint8(q); meta.tsDen = Math.pow(2, dv.getUint8(q + 1)); meta.bpb = meta.tsNum * 4 / meta.tsDen; }
         if (mt === 0x59 && meta.key == null) meta.key = { fifths: dv.getInt8(q), minor: dv.getUint8(q + 1) === 1 };
         q += l; status = 0; continue; }
       if (status === 0xf0 || status === 0xf7) { const l = vlq(); q += l; status = 0; continue; }
@@ -20912,7 +20924,7 @@ function parseMidi(buf) {
   }
   const all = [];
   tracks.forEach(t => t.notes.forEach(n => all.push({ at: n.t / tpq, dur: n.d / tpq, midi: n.p })));
-  return { tpq, bpb: meta.bpb || 4, keySig: meta.key || null, harmonies: [], all,
+  return { tpq, bpb: meta.bpb || 4, ts: [meta.tsNum || 4, meta.tsDen || 4], keySig: meta.key || null, harmonies: [], all,
     parts: tracks.map(t => { const ev = skyline(t.notes, tpq); return { name: t.name + ' · ' + ev.length + (ev.length === 1 ? ' note' : ' notes'), events: ev }; }) };
 }
 function skyline(notes, tpq) {
@@ -20920,7 +20932,7 @@ function skyline(notes, tpq) {
   const s = notes.slice().sort((a, b) => a.t - b.t || b.p - a.p);
   const ons = [];
   s.forEach(n => { const last = ons[ons.length - 1]; if (last && n.t - last.t <= tol) { if (n.p > last.p) { last.p = n.p; last.d = n.d; } } else ons.push({ t: n.t, p: n.p, d: n.d }); });
-  return ons.map((o, k) => { const next = ons[k + 1]; const ticks = next ? next.t - o.t : o.d; return { midi: o.p, at: o.t / tpq, beats: Math.max(0.25, Math.round(ticks / tpq * 4) / 4) }; });
+  return ons.map((o, k) => { const next = ons[k + 1]; const ticks = next ? next.t - o.t : o.d; return { midi: o.p, at: o.t / tpq, len: Math.min(o.d, ticks) / tpq, beats: Math.max(0.25, Math.round(ticks / tpq * 4) / 4) }; });
 }
 const XML_KIND = {
   'major': ['', [0,4,7]], 'minor': ['m', [0,3,7]], 'augmented': ['+', [0,4,8]], 'diminished': ['°', [0,3,6]],
@@ -20940,7 +20952,7 @@ function parseMusicXML(text) {
   const STEP = { C:0, D:2, E:4, F:5, G:7, A:9, B:11 };
   const val = (el, sel) => { const x = el.querySelector(sel); return x ? x.textContent.trim() : null; };
   const parts = [], all = [], harmonies = [];
-  let bpb = null, keySig = null;
+  let bpb = null, keySig = null, ts = null;
   doc.querySelectorAll('part').forEach((part, pi) => {
     let div = 1, t = 0, lastOn = 0; const ev = [];
     const voices = new Set([...part.querySelectorAll('note > voice')].map(v => v.textContent.trim()));
@@ -20951,7 +20963,7 @@ function parseMusicXML(text) {
         if (tag === 'attributes') {
           const d = val(el, 'divisions'); if (d) div = +d || 1;
           const bt = val(el, 'time > beats'), bty = val(el, 'time > beat-type');
-          if (bt && bty && bpb == null) bpb = (+bt.split('+').reduce((x, y) => +x + +y, 0)) * 4 / +bty;
+          if (bt && bty && bpb == null) { const nb = +bt.split('+').reduce((x, y) => +x + +y, 0); bpb = nb * 4 / +bty; ts = [nb, +bty]; }
           const f = val(el, 'key > fifths'); if (f != null && keySig == null) keySig = { fifths: +f, minor: val(el, 'key > mode') === 'minor' };
           return;
         }
@@ -20988,12 +21000,13 @@ function parseMusicXML(text) {
       });
     });
     const out = [];
-    ev.forEach(e => { if (e.rest) { if (out.length) out[out.length - 1].beats += e.beats; } else out.push({ midi: e.midi, at: e.at, beats: Math.max(0.25, Math.round(e.beats * 4) / 4) }); });
+    ev.forEach(e => { if (e.rest) { if (out.length) out[out.length - 1].beats += e.beats; } else out.push({ midi: e.midi, at: e.at, len: e.beats, beats: e.beats }); });
+    out.forEach(e => { e.beats = Math.max(0.25, Math.round(e.beats * 4) / 4); });
     if (out.length) parts.push({ name: (names[part.getAttribute('id')] || 'Part') + ' · ' + out.length + (out.length === 1 ? ' note' : ' notes'), events: out });
   });
   if (!parts.length) throw new Error('no pitched notes found');
   harmonies.sort((x, y) => x.at - y.at);
-  return { parts, all, harmonies, bpb: bpb || 4, keySig };
+  return { parts, all, harmonies, bpb: bpb || 4, ts: ts || [4, 4], keySig };
 }
 async function unzipEntry(buf, pick) {
   const dv = new DataView(buf);
@@ -21041,7 +21054,8 @@ async function rhImportFile(file) {
     else if (head[0] === 0x50 && head[1] === 0x4b) res = parseMusicXML(await unzipEntry(buf, null));
     else res = parseMusicXML(new TextDecoder().decode(buf));
     if (!res.parts.length) throw new Error('no pitched notes found');
-    rhImport = { file: file.name, parts: res.parts, all: res.all || [], harmonies: res.harmonies || [], bpb: res.bpb || 4, keySig: res.keySig || null };
+    rhImport = { file: file.name, parts: res.parts, all: res.all || [], harmonies: res.harmonies || [], bpb: res.bpb || 4, ts: res.ts || [4, 4], keySig: res.keySig || null };
+    document.getElementById('hl-nt-file').disabled = false;
     document.getElementById('hl-an-file').disabled = false;
     const sel = document.getElementById('hl-rh-part');
     sel.innerHTML = res.parts.map((p, i) => `<option value="${i}">${escHtml(p.name)}</option>`).join('');
@@ -21271,8 +21285,7 @@ function anRender(chords, key, meta) {
     seqTimers.push(setTimeout(() => out.querySelectorAll('.hl-an-chip').forEach(b => b.classList.remove('sounding')), t));
   });
 }
-function analyseImport() {
-  if (!rhImport) return;
+function computeImport() {
   const imp = rhImport;
   const fromSymbols = imp.harmonies.length > 0;
   const chords = fromSymbols ? chordsFromHarmonies(imp) : detectChords(imp);
@@ -21283,7 +21296,12 @@ function analyseImport() {
   if (last) tones.push({ midi: last.root, dur: (last.beats || 1) * 2 });
   const key = findKey(histOf(imp.all.concat(tones)), imp.keySig);
   const len = imp.all.reduce((m, n) => Math.max(m, n.at + n.dur), 0);
-  anRender(analyseChords(chords, key), key, { bpb: imp.bpb, keySig: imp.keySig, fromSymbols, len });
+  return { chords: analyseChords(chords, key), key, meta: { bpb: imp.bpb, keySig: imp.keySig, fromSymbols, len }, part };
+}
+function analyseImport() {
+  if (!rhImport) return;
+  const r = computeImport();
+  anRender(r.chords, r.key, r.meta);
 }
 function analyseMine() {
   const out = document.getElementById('hl-an-out');
@@ -21296,6 +21314,132 @@ function analyseMine() {
   anRender(res, key, { bpb: 4, byNote: true, len: 0 });
   out.querySelectorAll('tbody tr').forEach((tr, k) => tr.firstElementChild.textContent = idx[k] + 1);
 }
+
+
+// ---------------------------------------------------------------- NOTATION (lead sheet via OpenSheetMusicDisplay)
+const OSMD_URL = 'https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@2.2.1/build/opensheetmusicdisplay.min.js';
+let osmdLoad = null, osmdObj = null, ntLast = null;
+function loadOSMD() {
+  if (window.opensheetmusicdisplay) return Promise.resolve();
+  if (!osmdLoad) osmdLoad = new Promise((res, rej) => { const sc = document.createElement('script'); sc.src = OSMD_URL; sc.onload = res; sc.onerror = () => { osmdLoad = null; rej(new Error('the notation engine didn’t load — check the connection')); }; document.head.appendChild(sc); });
+  return osmdLoad;
+}
+const DUR_TYPES = [[4,'whole',0],[3,'half',1],[2,'half',0],[1.5,'quarter',1],[1,'quarter',0],[0.75,'eighth',1],[0.5,'eighth',0],[0.25,'16th',0]];
+function splitDur(d) { const out = []; let r = Math.round(d * 4) / 4; while (r > 0.001) { const t = DUR_TYPES.find(x => x[0] <= r + 1e-6) || DUR_TYPES[DUR_TYPES.length - 1]; out.push(t); r = Math.round((r - t[0]) * 4) / 4; } return out; }
+const FIFTHS_OF = { 0:0, 7:1, 2:2, 9:3, 4:4, 11:5, 6:6, 5:-1, 10:-2, 3:-3, 8:-4, 1:-5 };
+function pitchXmlChord(midi, c, flats) {
+  if (!c || c.root == null || !c.ivs) return pitchXml(midi, flats);
+  const deg = degName(md(midi - c.root), c.ivs);
+  const nm = spellRel(c.name, deg, md(midi));
+  const L = nm[0], acc = { '♭': -1, '♯': 1, '𝄫': -2, '𝄪': 2 }[nm.slice(1)] || 0;
+  const NAT = { C:0, D:2, E:4, F:5, G:7, A:9, B:11 }[L];
+  if (NAT == null) return pitchXml(midi, flats);
+  const oct = Math.round((midi - NAT - acc) / 12) - 1;
+  return `<pitch><step>${L}</step>${acc ? `<alter>${acc}</alter>` : ''}<octave>${oct}</octave></pitch>`;
+}
+function pitchXml(midi, flats) {
+  const pc = md(midi); const oct = Math.floor(midi / 12) - 1;
+  const S = flats ? [['C',0],['D',-1],['D',0],['E',-1],['E',0],['F',0],['G',-1],['G',0],['A',-1],['A',0],['B',-1],['B',0]] : [['C',0],['C',1],['D',0],['D',1],['E',0],['F',0],['F',1],['G',0],['G',1],['A',0],['A',1],['B',0]];
+  const [st, al] = S[pc];
+  return `<pitch><step>${st}</step>${al ? `<alter>${al}</alter>` : ''}<octave>${oct}</octave></pitch>`;
+}
+const xmlEsc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+function shortMode(m) { return m.replace('Phrygian dominant (♭9 ♭13)', 'Phryg. dominant').replace('whole–half diminished', 'whole–half dim.').replace('Lydian dominant', 'Lyd. dominant'); }
+const KIND_OF = { '': 'major', 'm': 'minor', '+': 'augmented', '°': 'diminished', '7': 'dominant', '∆7': 'major-seventh', 'm7': 'minor-seventh', '°7': 'diminished-seventh', 'm7♭5': 'half-diminished', 'm∆7': 'major-minor', 'm∆9': 'major-minor', '6': 'major-sixth', 'm6': 'minor-sixth', '9': 'dominant-ninth', '∆9': 'major-ninth', 'm9': 'minor-ninth', '11': 'dominant-11th', 'm11': 'minor-11th', '13': 'dominant-13th', '∆13': 'major-13th', 'm13': 'minor-13th', 'sus2': 'suspended-second', 'sus4': 'suspended-fourth' };
+function harmonyXml(c) {
+  const L = c.name.match(/^([A-G])([♭♯]?)(.*?)(?:\/([A-G])([♭♯]?))?$/);
+  if (!L) return '';
+  const alt = a => a === '♭' ? -1 : a === '♯' ? 1 : 0;
+  const q = L[3];
+  const kind = KIND_OF[q] || (/^m/.test(q) ? 'minor-seventh' : /sus/.test(q) ? 'suspended-fourth' : /∆|6\/9/.test(q) ? 'major-seventh' : /7|9|13|alt/.test(q) ? 'dominant' : 'major');
+  return `<harmony print-frame="no"><root><root-step>${L[1]}</root-step>${alt(L[2]) ? `<root-alter>${alt(L[2])}</root-alter>` : ''}</root><kind text="${xmlEsc(q)}" use-symbols="no">${kind}</kind>${L[4] ? `<bass><bass-step>${L[4]}</bass-step>${alt(L[5]) ? `<bass-alter>${alt(L[5])}</bass-alter>` : ''}</bass>` : ''}</harmony>`;
+}
+function buildLeadSheet({ events, chords, bpb, ts, key, title }) {
+  const q = x => Math.round(x * 4) / 4;
+  const ev = events.map(e => ({ midi: e.midi, at: q(e.at), len: q(e.len) })).sort((a, b) => a.at - b.at);
+  for (let i = 0; i < ev.length; i++) { const nx = ev[i + 1]; let l = Math.max(0.25, ev[i].len || 0.25); if (nx) l = Math.min(l, nx.at - ev[i].at); ev[i].len = Math.max(0.25, l); }
+  const t0 = ev.length ? Math.floor(ev[0].at / bpb) * bpb : 0;
+  const end = ev.length ? ev[ev.length - 1].at + ev[ev.length - 1].len : bpb;
+  const t1 = Math.ceil((end - t0) / bpb - 1e-6) * bpb + t0;
+  const items = []; let t = t0;
+  ev.forEach(e => { if (e.at > t + 1e-6) items.push({ rest: true, at: t, len: e.at - t }); items.push({ midi: e.midi, at: e.at, len: e.len }); t = e.at + e.len; });
+  if (t < t1 - 1e-6) items.push({ rest: true, at: t, len: t1 - t });
+  const cs = chords.filter(c => c.at >= t0 - 1e-6 && c.at < t1 - 1e-6).map(c => ({ ...c, at: q(c.at) }));
+  // cut points: bar lines and chord starts
+  const cuts = new Set(); for (let x = t0; x <= t1 + 1e-6; x += bpb) cuts.add(q(x)); cs.forEach(c => cuts.add(c.at));
+  const cutArr = [...cuts].sort((a, b) => a - b);
+  const pieces = [];
+  items.forEach(it => {
+    const pts = [it.at, ...cutArr.filter(x => x > it.at + 1e-6 && x < it.at + it.len - 1e-6), it.at + it.len];
+    for (let k = 0; k < pts.length - 1; k++) pieces.push({ rest: it.rest, midi: it.midi, s: pts[k], e: pts[k + 1], tieIn: k > 0, tieOut: k < pts.length - 2 });
+  });
+  const fifths = key.minor ? FIFTHS_OF[md(key.tonic + 3)] : FIFTHS_OF[key.tonic];
+  const flats = fifths < 0;
+  const avg = ev.reduce((s, e) => s + e.midi, 0) / Math.max(1, ev.length);
+  const clef = avg < 55 ? '<clef><sign>F</sign><line>4</line></clef>' : '<clef><sign>G</sign><line>2</line></clef>';
+  let xml = '', mnum = 1, pendingLyric = null;
+  for (let mStart = t0; mStart < t1 - 1e-6; mStart += bpb, mnum++) {
+    const mEnd = mStart + bpb;
+    xml += `<measure number="${mnum}">`;
+    if (mnum === 1) xml += `<attributes><divisions>4</divisions><key><fifths>${fifths}</fifths></key><time><beats>${ts[0]}</beats><beat-type>${ts[1]}</beat-type></time>${clef}</attributes>`;
+    pieces.filter(pc => pc.s >= mStart - 1e-6 && pc.s < mEnd - 1e-6).forEach(pc => {
+      const c = cs.find(x => Math.abs(x.at - pc.s) < 1e-6);
+      if (c) { xml += `<direction placement="above"><direction-type><words font-weight="bold" font-size="11">${xmlEsc(c.name)}</words></direction-type></direction>`; if (c.mode) pendingLyric = shortMode(c.mode); }
+      const durs = splitDur(pc.e - pc.s);
+      durs.forEach(([d, type, dot], k) => {
+        const tIn = !pc.rest && (k > 0 || pc.tieIn), tOut = !pc.rest && (k < durs.length - 1 || pc.tieOut);
+        let lyr = '';
+        if (!pc.rest && pendingLyric && k === 0) { lyr = `<lyric number="1" placement="below"><syllabic>single</syllabic><text>${xmlEsc(pendingLyric)}</text></lyric>`; pendingLyric = null; }
+        const cc = cs.filter(x => x.at <= pc.s + 1e-6).pop();
+        xml += '<note>' + (pc.rest ? '<rest/>' : pitchXmlChord(pc.midi, cc, flats)) + `<duration>${Math.round(d * 4)}</duration>`
+          + (tIn ? '<tie type="stop"/>' : '') + (tOut ? '<tie type="start"/>' : '')
+          + `<type>${type}</type>` + (dot ? '<dot/>' : '')
+          + (tIn || tOut ? '<notations>' + (tIn ? '<tied type="stop"/>' : '') + (tOut ? '<tied type="start"/>' : '') + '</notations>' : '') + lyr + '</note>';
+      });
+    });
+    xml += '</measure>';
+  }
+  return `<?xml version="1.0" encoding="UTF-8"?><score-partwise version="3.1"><work><work-title>${xmlEsc(title)}</work-title></work><part-list><score-part id="P1"><part-name>Melody</part-name></score-part></part-list><part id="P1">${xml}</part></score-partwise>`;
+}
+async function ntRender(spec) {
+  const box = document.getElementById('hl-nt-score'), msg = document.getElementById('hl-nt-msg');
+  ntLast = spec;
+  msg.textContent = 'Drawing the notation…';
+  try {
+    await loadOSMD();
+    const xml = buildLeadSheet(spec);
+    box.innerHTML = '';
+    const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#111';
+    osmdObj = new opensheetmusicdisplay.OpenSheetMusicDisplay(box, { autoResize: true, backend: 'svg', drawTitle: true, drawPartNames: false, drawMeasureNumbers: true, defaultColorMusic: ink, defaultColorLabel: ink, defaultColorTitle: ink });
+    await osmdObj.load(xml);
+    osmdObj.render();
+    msg.textContent = spec.note || '';
+  } catch (e) {
+    msg.textContent = 'Couldn’t draw the notation: ' + (e && e.message ? e.message : e) + '.';
+  }
+}
+function notationFile() {
+  if (!rhImport) return;
+  const r = computeImport();
+  const from = Math.max(1, +document.getElementById('hl-rh-from').value || 1);
+  const count = Math.max(1, Math.min(128, +document.getElementById('hl-rh-count').value || 32));
+  const evs = r.part.events.slice(from - 1, from - 1 + count);
+  if (!evs.length) return;
+  const a = evs[0].at, b = evs[evs.length - 1].at + (evs[evs.length - 1].len || 1);
+  const chords = r.chords.filter(c => c.at + c.beats > a + 1e-6 && c.at < b - 1e-6).map(c => ({ at: Math.max(c.at, Math.floor(a / r.meta.bpb) * r.meta.bpb), name: c.name, mode: c.mode, root: c.root, ivs: c.ivs }));
+  ntRender({ events: evs.map(e => ({ midi: e.midi, at: e.at, len: e.len != null ? e.len : e.beats })), chords, bpb: r.meta.bpb, ts: rhImport.ts || [4, 4], key: r.key, title: rhImport.file.replace(/\.[^.]+$/, '') + ' — chords above, scales below', note: `${keyName(r.key)} · notes ${from}–${from - 1 + evs.length} · ${r.meta.fromSymbols ? 'the file’s chord symbols' : 'chords read from the notes'}; scales from the analysis.` });
+}
+function notationMine() {
+  if (!rhMel.length) return;
+  const at = []; let t = 0; rhMel.forEach((m, i) => { at.push(t); t += rhBeats[i] || 1; });
+  const idx = rhMel.map((m, i) => i).filter(i => rhAsg[i]);
+  const chords = idx.map(i => ({ root: rhAsg[i].r, q: rhAsg[i].q, ivs: rhAsg[i].iv, at: at[i], beats: rhBeats[i] || 1, mel: [rhMel[i]], bass: null }));
+  const notes = rhMel.map((m, i) => ({ midi: m, dur: rhBeats[i] || 1 })).concat(chords.flatMap(c => c.ivs.map(x => ({ midi: md(c.root + x), dur: (c.beats || 1) * 0.5 }))));
+  const key = findKey(histOf(notes), rhImport ? rhImport.keySig : null);
+  analyseChords(chords, key);
+  ntRender({ events: rhMel.map((m, i) => ({ midi: m, at: at[i], len: rhBeats[i] || 1 })), chords: chords.map(c => ({ at: c.at, name: c.name, mode: c.mode, root: c.root, ivs: c.ivs })), bpb: rhImport ? rhImport.bpb : 4, ts: rhImport ? rhImport.ts : [4, 4], key, title: 'Melody — your chords above, scales below', note: `${keyName(key)} · ${idx.length ? idx.length + ' chord' + (idx.length === 1 ? '' : 's') + ' assigned' : 'no chords assigned yet — assign some in the reharmonizer'}.` });
+}
+new MutationObserver(() => { if (ntLast && osmdObj) ntRender(ntLast); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
 // ---------------------------------------------------------------- BUILD
 function buildHarmonyLab() {
@@ -21335,6 +21479,8 @@ function buildHarmonyLab() {
   ['hl-rh-part', 'hl-rh-from', 'hl-rh-count'].forEach(id => document.getElementById(id).addEventListener('change', rhImportShow));
   document.getElementById('hl-an-file').addEventListener('click', analyseImport);
   document.getElementById('hl-an-mine').addEventListener('click', analyseMine);
+  document.getElementById('hl-nt-file').addEventListener('click', notationFile);
+  document.getElementById('hl-nt-mine').addEventListener('click', notationMine);
   rhLoad('C4 F4 A4 F4 A4 G4 F4 D4 C4');
 }
 window.addEventListener('DOMContentLoaded', () => { try { buildHarmonyLab(); } catch (e) { console.error('Harmony Lab', e); } });
