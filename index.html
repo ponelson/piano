@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Piano: Modes &amp; Movements v7.4">
-<title>Piano: Modes & Movements v7.4 — A Jazz Piano Library</title>
+<meta property="og:title" content="Piano: Modes &amp; Movements v7.6">
+<title>Piano: Modes & Movements v7.6 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -1925,6 +1925,57 @@
   tr.gset-lit td { background: rgba(120, 160, 255, 0.14); }
   .grip-map { min-width: 960px; }
   .grip-map td { font-size: 13px; vertical-align: top; }
+
+  /* ---------- Harmony Lab ---------- */
+  .hl-panel { background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 20px 22px; margin-bottom: 8px; max-width: 100%; }
+  .hl-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+  .hl-lab { font-family: var(--mono); font-size: 12px; color: var(--ink-3); display: inline-flex; gap: 6px; align-items: center; }
+  .hl-select { font-family: var(--mono); font-size: 12px; color: var(--ink); background: var(--bg-2); border: 1px solid var(--line); border-radius: 8px; padding: 5px 8px; }
+  .search-hint.on { color: var(--accent-2); border-color: var(--accent-deep); }
+  .search-hint:disabled { opacity: .35; cursor: default; }
+  .hl-tz-wrap { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+  #hl-tz { display: block; width: 100%; min-width: 560px; height: auto; }
+  .tz-tri { stroke: var(--line-strong); stroke-width: 1; cursor: pointer; transition: fill .15s; }
+  .tz-maj { fill: var(--accent-wash); } .tz-min { fill: var(--rouge-wash); }
+  .tz-tri.tz-dia { stroke: var(--ink-3); stroke-width: 1.6; }
+  .tz-maj.tz-dia { fill: color-mix(in srgb, var(--accent) 22%, transparent); } .tz-min.tz-dia { fill: color-mix(in srgb, var(--rouge) 22%, transparent); }
+  .tz-tri.tz-nb { fill: color-mix(in srgb, var(--accent) 38%, transparent); }
+  .tz-tri.tz-sel { fill: color-mix(in srgb, var(--accent) 55%, transparent); }
+  .tz-tri.tz-last { fill: var(--accent); }
+  .tz-tri:hover { fill: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .tz-lab { font-family: var(--mono); font-size: 10.5px; fill: var(--ink-2); text-anchor: middle; pointer-events: none; }
+  .tz-lab.on { fill: var(--ink); font-weight: 600; }
+  .tz-badge { font-family: var(--mono); font-size: 9px; font-weight: 700; fill: var(--ink); text-anchor: middle; pointer-events: none; }
+  .tz-node { fill: var(--bg); stroke: var(--line-strong); pointer-events: none; }
+  .tz-nlab { font-family: var(--mono); font-size: 9px; fill: var(--ink-3); text-anchor: middle; pointer-events: none; }
+  .tz-line { fill: none; stroke: var(--rouge); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; opacity: .85; pointer-events: none; }
+  .hl-info { margin-top: 12px; }
+  .hl-ch-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 18px; align-items: start; }
+  @media (max-width: 760px) { .hl-ch-grid { grid-template-columns: 1fr; } }
+  .hl-name { font-family: var(--serif); font-style: italic; font-size: 26px; margin-bottom: 12px; }
+  .hl-voices { display: grid; gap: 6px; }
+  .hl-voice { display: flex; gap: 8px; align-items: center; }
+  .hl-vn { font-family: var(--mono); font-size: 14px; width: 2.6em; color: var(--ink); }
+  .hl-file { cursor: pointer; }
+  .hl-cells { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .hl-cell { display: grid; gap: 4px; min-width: 84px; padding: 8px 10px; text-align: left; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; cursor: pointer; color: var(--ink); font-family: var(--mono); }
+  .hl-cell.on { border-color: var(--accent-deep); box-shadow: 0 0 0 1px var(--accent-deep); }
+  .hl-cell.set .hl-cell-ch { color: var(--rouge); }
+  .hl-cell.sounding { background: var(--accent-wash); }
+  .hl-cell-n { font-size: 9px; color: var(--ink-4); letter-spacing: .12em; }
+  .hl-cell-ch { font-size: 12px; color: var(--ink-3); }
+  .hl-cell-m { font-family: var(--serif); font-size: 20px; }
+  .hl-pick { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .hl-head { font-family: var(--mono); font-size: 12px; color: var(--ink-2); margin-right: 6px; }
+  .hl-opts { max-height: 380px; overflow-y: auto; border: 1px solid var(--line); border-radius: 10px; }
+  .hl-opt { display: grid; grid-template-columns: 34px minmax(70px, 1fr) minmax(0, 2fr) auto auto; gap: 10px; align-items: center; padding: 7px 10px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12px; }
+  .hl-opt.on { background: var(--accent-wash); }
+  .hl-opt-name { color: var(--rouge); font-size: 14px; }
+  .hl-opt-notes { color: var(--ink-2); }
+  .hl-opt-fam { color: var(--ink-4); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+  .hl-opt-play, .hl-opt-use { font-family: var(--mono); font-size: 11px; border: 1px solid var(--line); background: var(--bg-2); color: var(--ink-2); border-radius: 6px; padding: 4px 8px; cursor: pointer; }
+  .hl-opt-use { color: var(--accent-2); border-color: var(--accent-deep); }
+  @media (max-width: 560px) { .hl-opt { grid-template-columns: 30px 1fr auto; } .hl-opt-notes, .hl-opt-fam { grid-column: 2 / 4; } }
 </style>
 </head>
 <body>
@@ -1967,7 +2018,7 @@
 
   <!-- ============== HERO ============== -->
   <section class="hero">
-    <span class="eyebrow">A Jazz Piano Library · v7.4 · 3 November 2026, 6:00 PM ET · build 2026-11-03T23:00Z</span>
+    <span class="eyebrow">A Jazz Piano Library · v7.6 · 6 November 2026, 3:16 AM ET · build 2026-11-06T08:16Z</span>
     <h1>
       <span class="line">Eleven parent scales.</span>
       <span class="line">Seventy-seven modes.</span>
@@ -2911,6 +2962,109 @@ Side-slip          as on the Dominant Pentatonic card above</div>
     </div>
   
     <p class="muted reveal" style="margin-top: 20px; font-size: 13px; max-width: 840px;">With a major 7th instead of the ♭♭7 — the diminished-major seventh — every note is still in the whole-half scale on the root; see <a href="#chordatlas-dimmaj7" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The diminished-major seventh</a> in Upper Structures.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ============== HARMONY LAB ============== -->
+  <section id="harmonylab">
+    <div class="reveal" style="margin-bottom: 40px;">
+      <span class="eyebrow">Harmony Lab</span>
+      <h2>From chord to chord, <em>by the smallest steps.</em></h2>
+      <p class="lede">Four tools for moving between chords. The Tonnetz lays out all twenty-four major and minor triads so that neighbours share two notes. The diatonic map walks a key’s chords by seconds, thirds and fourths. The Chopin trick lowers one note at a time. And the reharmonizer keeps a melody on top while you choose what goes under it.</p>
+    </div>
+
+    <h3 id="harmonylab-tonnetz" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The Tonnetz: <em>every triad, beside its neighbours</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">Notes sit on a lattice: fifths run left to right, major thirds up to the right, minor thirds down to the right. So every triangle is a triad — pointing up, major; pointing down, minor. Triangles that share an edge share two notes, and crossing an edge moves one note by a step: <strong>P</strong> (parallel) swaps <span class="ch">C</span> and <span class="ch">Cm</span>, <strong>R</strong> (relative) <span class="ch">C</span> and <span class="ch">Am</span>, <strong>L</strong> (leading-tone) <span class="ch">C</span> and <span class="ch">Em</span>. Tap a triangle to hear it; its three neighbours light up with their letters. Keep tapping to draw a path. The shaded triangles are the chosen key. The same lattice explains the moves in <a href="#mediants" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Chromatic Mediants</a>: an R or L step followed by a P step lands on a chromatic mediant — <span class="ch">C</span> → <span class="ch">Am</span> → <span class="ch">A</span>, or <span class="ch">C</span> → <span class="ch">Em</span> → <span class="ch">E</span>.</p>
+    <div class="hl-panel reveal">
+      <div class="hl-row">
+        <label class="hl-lab">Key <select id="hl-key" class="hl-select"></select></label>
+        <button class="search-hint" id="hl-tz-play">▶ Play the path</button>
+        <button class="search-hint" id="hl-tz-clear">Clear</button>
+      </div>
+      <div class="hl-tz-wrap"><svg id="hl-tz" role="img" aria-label="Tonnetz of the 24 major and minor triads"></svg></div>
+      <div id="hl-tz-info" class="hl-info"></div>
+    </div>
+
+    <h3 id="harmonylab-map" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The diatonic map: <em>seconds, thirds and fourths</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">A key’s seven chords, walked in three cycles — by seconds, by thirds or by fourths, up or down — each one starting and ending on the I. On the Tonnetz above, a move by a third crosses one edge (two notes stay), a move by a fourth or fifth meets at a corner (one note stays), and a move by a second shares no note at all; the diminished vii° is the one chord that isn’t a triangle. Choose a cycle to see its path, hear it, and read what each move keeps and changes. The layout follows a map of diatonic chord moves by Pur Pasteur (“Which Chord Sequences Produce Which Emotions”); his emotional labels aren’t reproduced, and the descriptions here are this page’s. <span class="nj-src">(user description)</span></p>
+    <div class="hl-panel reveal">
+      <div class="hl-row" id="hl-map-cycles">
+        <button class="search-hint" data-c="thirds-down">Thirds, down</button>
+        <button class="search-hint" data-c="thirds-up">Thirds, up</button>
+        <button class="search-hint" data-c="fourths-up">Fourths, up</button>
+        <button class="search-hint" data-c="fifths-up">Fifths, up</button>
+        <button class="search-hint" data-c="seconds-up">Seconds, up</button>
+        <button class="search-hint" data-c="seconds-down">Seconds, down</button>
+      </div>
+      <div id="hl-map-table"></div>
+    </div>
+
+    <h3 id="harmonylab-chopin" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The Chopin trick: <em>move one note a half step</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">Jeff Schneider’s name for it. Start from any triad and move one note — just one — by a half step, usually down; then do it again. Each move is the smallest change a chord can make, so the line always sounds connected, and it drifts into colours no rule would have chosen. His example starts from <span class="ch">G</span> over D: G falls to F♯ (<span class="ch">Bm</span>), D to C♯, F♯ to F, B to B♭ — five chords, four half steps, ending on <span class="ch">B♭m</span>. Tap ▼ beside a note to lower it; turn off “down only” to raise notes too. The names update as you go, marked “(no 5)” where the fifth is missing. <span class="nj-src">(user description)</span></p>
+    <div class="hl-panel reveal">
+      <div class="hl-row">
+        <label class="hl-lab">Start on <select id="hl-ch-root" class="hl-select"></select></label>
+        <select id="hl-ch-q" class="hl-select" aria-label="Chord quality">
+          <option value="M">major triad</option><option value="m">minor triad</option><option value="d">diminished triad</option><option value="a">augmented triad</option><option value="s4">sus4</option>
+          <option value="M7">∆7</option><option value="d7">7</option><option value="m7">m7</option>
+        </select>
+        <label class="hl-lab"><input type="checkbox" id="hl-ch-down" checked> down only</label>
+      </div>
+      <div class="hl-row">
+        <button class="search-hint" id="hl-ch-example">His example</button>
+        <button class="search-hint" id="hl-ch-random">Random step</button>
+        <button class="search-hint" id="hl-ch-undo">Undo</button>
+        <button class="search-hint" id="hl-ch-reset">Start again</button>
+        <button class="search-hint" id="hl-ch-play">▶ Play the chain</button>
+      </div>
+      <div class="hl-ch-grid">
+        <div>
+          <div id="hl-ch-name" class="hl-name"></div>
+          <div id="hl-ch-voices" class="hl-voices"></div>
+        </div>
+        <div id="hl-ch-kb"></div>
+      </div>
+      <div id="hl-ch-chain" class="hl-info" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center"></div>
+    </div>
+
+    <h3 id="harmonylab-reharm" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Keep the tune: <em>a reharmonizer</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">Type a melody with octaves — <span class="sc">C4 F4 A4 …</span> — load one, or import a MIDI or MusicXML file (.mid, .musicxml, .xml or compressed .mxl): the top line of the chosen track or part becomes the melody, with its rhythm, and you can pick which stretch of notes to work on. Then give each note a chord whose voicing keeps that note on top. The list shows every voicing that fits: the melody on top, up to three chord tones under it in the right hand, the root in the left. Filter by family or root, audition, assign, then play it through. The rule is the one in <a href="#reharm-keeptune" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Keep the tune, change what’s under it</a>: any chord that contains the melody note will do.</p>
+    <div class="hl-panel reveal">
+      <div class="searchbar">
+        <input id="hl-rh-input" type="text" placeholder="C4 F4 A4 F4 A4 G4 F4 D4 C4" autocomplete="off" spellcheck="false">
+        <button class="go" id="hl-rh-go">Load</button>
+      </div>
+      <div class="search-hints" id="hl-rh-presets">
+        <button class="search-hint" data-q="C4 F4 A4 F4 A4 G4 F4 D4 C4"><span class="lab">tune</span>Amazing Grace</button>
+        <button class="search-hint" data-q="G4 A4 G4 E4 G4 A4 G4 E4"><span class="lab">tune</span>Silent Night</button>
+        <button class="search-hint" data-q="C5 B4 A4 G4 F4 E4 D4 C4"><span class="lab">line</span>a falling scale</button>
+        <label class="search-hint hl-file"><span class="lab">file</span>Import MIDI or MusicXML<input type="file" id="hl-rh-file" accept=".mid,.midi,.musicxml,.xml,.mxl,audio/midi,application/vnd.recordare.musicxml+xml" hidden></label>
+      </div>
+      <div class="hl-row" id="hl-rh-impctl" hidden style="margin-top:12px">
+        <select id="hl-rh-part" class="hl-select" aria-label="Track or part"></select>
+        <label class="hl-lab">From note <input type="number" id="hl-rh-from" class="hl-select" value="1" min="1" style="width:5em"></label>
+        <label class="hl-lab">Notes <input type="number" id="hl-rh-count" class="hl-select" value="32" min="1" max="128" style="width:5em"></label>
+      </div>
+      <div id="hl-rh-imp" class="hl-head" style="display:block;margin-top:8px"></div>
+      <div id="hl-rh-cells" class="hl-cells"></div>
+      <div class="hl-row" style="margin-top:14px">
+        <button class="search-hint" id="hl-rh-play">▶ Play it through</button>
+        <button class="search-hint" id="hl-rh-stop">Stop</button>
+        <button class="search-hint" id="hl-rh-clear">Clear chords</button>
+        <label class="hl-lab">Tempo <input type="range" id="hl-rh-tempo" min="40" max="160" value="72"> <span id="hl-rh-bpm">72 bpm</span></label>
+      </div>
+      <div id="hl-rh-kb" style="margin-top:12px"></div>
+      <div class="hl-pick">
+        <div class="hl-row">
+          <span id="hl-rh-head" class="hl-head"></span>
+          <select id="hl-rh-fam" class="hl-select" aria-label="Chord family"><option value="all">All families</option><option>Major</option><option>Dominant</option><option>Minor</option><option>Sus</option><option>Half-diminished</option><option>Diminished</option></select>
+          <select id="hl-rh-root" class="hl-select" aria-label="Root"></select>
+          <button class="search-hint" id="hl-rh-surprise">Surprise me</button>
+        </div>
+        <div id="hl-rh-picker" class="hl-opts"></div>
+      </div>
+    </div>
   </section>
 
 
@@ -7961,8 +8115,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div class="verstamp" style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v7.4 · build 2026-11-03T23:00Z · 3 November 2026, 6:00 PM ET<br>
-    supersedes v7.3 (build 2026-11-03T06:15Z) — Gospel › The church progression: the III on the repeats named as both its chords, E7♯9♭13 under the C triad and E7♭9♭5 under the B♭ triad
+    v7.6 · build 2026-11-06T08:16Z · 6 November 2026, 3:16 AM ET<br>
+    supersedes v7.5 (build 2026-11-06T06:46Z) — Harmony Lab › reharmonizer imports MIDI and MusicXML (.mid, .musicxml, .xml, .mxl): the top line of a chosen track or part, with its rhythm
   </div>
 </footer>
 
@@ -7983,6 +8137,7 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
         <a href="#chordfinder">Find a Chord</a>
         <a href="#pentatonic">Pentatonics</a>
         <a href="#bychord">Scales by Chord Type</a>
+        <a href="#harmonylab">Harmony Lab</a>
       </div>
       <div class="menu-group">
         <h4>Systems</h4>
@@ -20325,5 +20480,565 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+// ==============================================================================
+// HARMONY LAB — Tonnetz, diatonic map, Chopin trick, reharmonizer
+// ==============================================================================
+(function () {
+const SP = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+const SPS = ['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];
+const md = (n) => ((n % 12) + 12) % 12;
+const triadPcs = (q, r) => q === 'M' ? [r, md(r + 4), md(r + 7)] : q === 'm' ? [r, md(r + 3), md(r + 7)] : [r, md(r + 3), md(r + 6)];
+const triadName = (q, r) => SPS[r] + (q === 'M' ? '' : q === 'm' ? 'm' : '°');
+function voiceNear(prev, pcs) {
+  // choose an inversion close to the previous chord (or around middle C)
+  let best = null, bestCost = 1e9;
+  for (let rot = 0; rot < pcs.length; rot++) {
+    const ord = pcs.slice(rot).concat(pcs.slice(0, rot));
+    for (let base = 52; base <= 64; base++) {
+      if (md(base) !== ord[0]) continue;
+      const v = [base];
+      for (let k = 1; k < ord.length; k++) { let n = v[k - 1] + 1; while (md(n) !== ord[k]) n++; v.push(n); }
+      const ref = prev && prev.length === v.length ? prev : [60, 64, 67].slice(0, v.length);
+      const cost = v.reduce((s, n, k) => s + Math.abs(n - ref[k]), 0);
+      if (cost < bestCost) { bestCost = cost; best = v; }
+    }
+  }
+  return best;
+}
+let seqTimers = [];
+function stopSeq() { seqTimers.forEach(clearTimeout); seqTimers = []; document.querySelectorAll('#harmonylab .sounding').forEach(e => e.classList.remove('sounding')); }
+function playSeq(chords, ms, onStep) {
+  stopSeq();
+  chords.forEach((c, k) => seqTimers.push(setTimeout(() => { playChord(c, 10, ms / 1000 * 1.6); if (onStep) onStep(k); }, k * ms)));
+  seqTimers.push(setTimeout(() => { if (onStep) onStep(-1); }, chords.length * ms));
+}
+
+// ---------------------------------------------------------------- TONNETZ
+const TZ = { s: 58, cols: 12, rows: 5, m: 22 };
+const tzInst = [];          // {id, q, r, cx, cy, i, j, up}
+let tzPath = [];            // instance ids
+let tzKey = 0;
+function tzXY(i, j) { const h = TZ.s * 0.866; return [TZ.m + TZ.s * (i + j / 2), TZ.m + (TZ.rows - j) * h]; }
+function tzBuild() {
+  const svg = document.getElementById('hl-tz');
+  if (!svg) return;
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = TZ.m * 2 + TZ.s * TZ.cols, H = TZ.m * 2 + TZ.rows * TZ.s * 0.866;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const inX = x => x >= TZ.m - 0.5 && x <= W - TZ.m + 0.5;
+  const gT = document.createElementNS(NS, 'g'), gN = document.createElementNS(NS, 'g');
+  for (let j = 0; j < TZ.rows; j++) for (let i = -TZ.rows; i <= TZ.cols; i++) {
+    [true, false].forEach(up => {
+      const vs = up ? [[i, j], [i + 1, j], [i, j + 1]] : [[i + 1, j], [i, j + 1], [i + 1, j + 1]];
+      const pts = vs.map(([a, b]) => tzXY(a, b));
+      if (!pts.every(([x]) => inX(x))) return;
+      const root = up ? md(7 * i + 4 * j) : md(7 * i + 4 * (j + 1));
+      const q = up ? 'M' : 'm';
+      const cx = pts.reduce((s, p) => s + p[0], 0) / 3, cy = pts.reduce((s, p) => s + p[1], 0) / 3;
+      const id = tzInst.length;
+      tzInst.push({ id, q, r: root, cx, cy, i, j, up });
+      const poly = document.createElementNS(NS, 'polygon');
+      poly.setAttribute('points', pts.map(p => p.join(',')).join(' '));
+      poly.setAttribute('class', 'tz-tri ' + (up ? 'tz-maj' : 'tz-min'));
+      poly.dataset.id = id;
+      const t = document.createElementNS(NS, 'title'); t.textContent = triadName(q, root) + ' — ' + triadPcs(q, root).map(p => SPS[p]).join(' ');
+      poly.appendChild(t);
+      poly.addEventListener('click', () => tzClick(id));
+      gT.appendChild(poly);
+      const lab = document.createElementNS(NS, 'text');
+      lab.setAttribute('x', cx); lab.setAttribute('y', cy + 4); lab.setAttribute('class', 'tz-lab'); lab.dataset.id = id;
+      lab.textContent = triadName(q, root);
+      gT.appendChild(lab);
+      const bd = document.createElementNS(NS, 'text');
+      bd.setAttribute('x', cx); bd.setAttribute('y', cy + (up ? 15 : -8)); bd.setAttribute('class', 'tz-badge'); bd.dataset.id = id;
+      gT.appendChild(bd);
+    });
+  }
+  for (let j = 0; j <= TZ.rows; j++) for (let i = -TZ.rows; i <= TZ.cols + 1; i++) {
+    const [x, y] = tzXY(i, j);
+    if (!inX(x)) continue;
+    const c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 10); c.setAttribute('class', 'tz-node');
+    const t = document.createElementNS(NS, 'text'); t.setAttribute('x', x); t.setAttribute('y', y + 3.5); t.setAttribute('class', 'tz-nlab'); t.textContent = SPS[md(7 * i + 4 * j)];
+    gN.appendChild(c); gN.appendChild(t);
+  }
+  const line = document.createElementNS(NS, 'polyline'); line.setAttribute('id', 'hl-tz-line'); line.setAttribute('class', 'tz-line');
+  svg.appendChild(gT); svg.appendChild(line); svg.appendChild(gN);
+  tzShade();
+}
+function diaTriads(k) {
+  return [[0,'M','I'],[2,'m','ii'],[4,'m','iii'],[5,'M','IV'],[7,'M','V'],[9,'m','vi'],[11,'d','vii°']].map(([o,q,rn]) => ({ q, r: md(k + o), rn }));
+}
+function tzShade() {
+  const dia = new Set(diaTriads(tzKey).filter(t => t.q !== 'd').map(t => t.q + t.r));
+  document.querySelectorAll('#hl-tz .tz-tri').forEach(p => {
+    const it = tzInst[+p.dataset.id];
+    p.classList.toggle('tz-dia', dia.has(it.q + it.r));
+  });
+}
+function relLabel(a, b) {
+  if (a.r === b.r && a.q !== b.q) return 'P';
+  if (a.q === 'M' && b.q === 'm') return md(b.r - a.r) === 9 ? 'R' : md(b.r - a.r) === 4 ? 'L' : '';
+  if (a.q === 'm' && b.q === 'M') return md(b.r - a.r) === 3 ? 'R' : md(b.r - a.r) === 8 ? 'L' : '';
+  return '';
+}
+function tzNeighbors(it) {
+  const find = (up, i, j) => tzInst.find(x => x.up === up && x.i === i && x.j === j);
+  return (it.up ? [find(false, it.i, it.j), find(false, it.i - 1, it.j), find(false, it.i, it.j - 1)]
+                : [find(true, it.i, it.j), find(true, it.i + 1, it.j), find(true, it.i, it.j + 1)]).filter(Boolean);
+}
+function tzRender() {
+  const sel = new Set(tzPath);
+  const last = tzPath.length ? tzInst[tzPath[tzPath.length - 1]] : null;
+  const nb = last ? tzNeighbors(last) : [];
+  document.querySelectorAll('#hl-tz .tz-tri').forEach(p => { const id = +p.dataset.id; p.classList.toggle('tz-sel', sel.has(id)); p.classList.toggle('tz-last', last && last.id === id); p.classList.toggle('tz-nb', nb.some(n => n.id === id)); });
+  document.querySelectorAll('#hl-tz .tz-lab').forEach(t => { const id = +t.dataset.id; t.classList.toggle('on', sel.has(id)); });
+  document.querySelectorAll('#hl-tz .tz-badge').forEach(t => { const id = +t.dataset.id; const n = nb.find(x => x.id === id); t.textContent = n ? relLabel(last, n) : ''; });
+  const line = document.getElementById('hl-tz-line');
+  if (line) line.setAttribute('points', tzPath.map(id => tzInst[id].cx + ',' + tzInst[id].cy).join(' '));
+  const info = document.getElementById('hl-tz-info');
+  if (!info) return;
+  if (!last) { info.innerHTML = '<p class="muted" style="font-size:13px;margin:0">Tap a triangle to hear it. Its three neighbours light up, marked P, R and L; tap one of them, or any other triangle, to keep going.</p>'; return; }
+  const chips = tzPath.map((id, k) => `<button class="chip" data-k="${k}">${triadName(tzInst[id].q, tzInst[id].r)}</button>`).join(' → ');
+  let move = '';
+  if (tzPath.length > 1) {
+    const a = tzInst[tzPath[tzPath.length - 2]], b = last;
+    const pa = triadPcs(a.q, a.r), pb = triadPcs(b.q, b.r);
+    const keep = pa.filter(p => pb.includes(p));
+    const rl = relLabel(a, b);
+    move = `<p style="margin:10px 0 0;font-size:14px;color:var(--ink-2)">Last move: <span class="ch">${triadName(a.q, a.r)}</span> → <span class="ch">${triadName(b.q, b.r)}</span> · ${keep.length ? 'keeps ' + keep.map(p => SPS[p]).join(' ') : 'no common note'}${rl ? ' · ' + {P:'P — parallel: the 3rd moves a half step', R:'R — relative: one note moves a whole step', L:'L — leading-tone: one note moves a half step'}[rl] : ''}.</p>`;
+  }
+  info.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">${chips}</div>${move}`;
+  info.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => { const it = tzInst[tzPath[+c.dataset.k]]; playChord(voiceNear(null, triadPcs(it.q, it.r)), 10); }));
+}
+function tzClick(id) {
+  const it = tzInst[id];
+  tzPath.push(id);
+  if (tzPath.length > 24) tzPath.shift();
+  playChord(voiceNear(null, triadPcs(it.q, it.r)), 10);
+  tzRender();
+}
+function tzNearest(q, r, from) {
+  const c = tzInst.filter(x => x.q === q && x.r === r);
+  if (!c.length) return null;
+  if (!from) { const mid = tzInst.reduce((s, x) => s + x.cx, 0) / tzInst.length; return c.reduce((a, b) => Math.abs(a.cx - mid) + a.cy * 0.2 < Math.abs(b.cx - mid) + b.cy * 0.2 ? a : b); }
+  return c.reduce((a, b) => Math.hypot(a.cx - from.cx, a.cy - from.cy) <= Math.hypot(b.cx - from.cx, b.cy - from.cy) ? a : b);
+}
+
+// ---------------------------------------------------------------- DIATONIC MAP
+const CYCLES = {
+  'thirds-down': { label: 'Thirds, down', steps: [0, 5, 3, 1, 6, 4, 2, 0] },
+  'thirds-up': { label: 'Thirds, up', steps: [0, 2, 4, 6, 1, 3, 5, 0] },
+  'fourths-up': { label: 'Fourths, up', steps: [0, 3, 6, 2, 5, 1, 4, 0] },
+  'fifths-up': { label: 'Fifths, up', steps: [0, 4, 1, 5, 2, 6, 3, 0] },
+  'seconds-up': { label: 'Seconds, up', steps: [0, 1, 2, 3, 4, 5, 6, 0] },
+  'seconds-down': { label: 'Seconds, down', steps: [0, 6, 5, 4, 3, 2, 1, 0] }
+};
+const FUNC = ['tonic', 'subdominant', 'tonic', 'subdominant', 'dominant', 'tonic', 'dominant'];
+let mapCycle = 'thirds-down';
+function describeMove(a, b, ai, bi) {
+  const pa = triadPcs(a.q, a.r), pb = triadPcs(b.q, b.r);
+  const keep = pa.filter(p => pb.includes(p));
+  const parts = [keep.length ? 'keeps ' + keep.map(p => SPS[p]).join(' ') : 'no common note — every voice moves'];
+  const qn = { M: 'major', m: 'minor', d: 'diminished' };
+  if (a.q !== b.q) {
+    let tone = '';
+    if (a.q === 'M' && b.q === 'm') tone = ', darker';
+    else if (a.q === 'm' && b.q === 'M') tone = ', brighter';
+    else if (b.q === 'd') tone = ', tenser';
+    else if (a.q === 'd') tone = ', the tension eases';
+    parts.push(qn[a.q] + ' → ' + qn[b.q] + tone);
+  }
+  parts.push(FUNC[ai] === FUNC[bi] ? FUNC[ai] + ' family' : FUNC[ai] + ' → ' + FUNC[bi]);
+  return parts.join(' · ');
+}
+function mapRender() {
+  const box = document.getElementById('hl-map-table');
+  if (!box) return;
+  const tri = diaTriads(tzKey);
+  const steps = CYCLES[mapCycle].steps;
+  let rows = '';
+  for (let k = 1; k < steps.length; k++) {
+    const a = tri[steps[k - 1]], b = tri[steps[k]];
+    rows += `<tr><td class="name">${a.rn} → ${b.rn}</td><td class="chord">${triadName(a.q, a.r)} → ${triadName(b.q, b.r)}</td><td>${describeMove(a, b, steps[k - 1], steps[k])}</td></tr>`;
+  }
+  box.innerHTML = `<div class="table-scroll"><table class="study-table"><thead><tr><th>Move</th><th>Chords</th><th>What it keeps and changes</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  document.querySelectorAll('#hl-map-cycles .search-hint').forEach(b => b.classList.toggle('on', b.dataset.c === mapCycle));
+}
+function mapShow(play) {
+  const tri = diaTriads(tzKey);
+  const steps = CYCLES[mapCycle].steps;
+  tzPath = [];
+  let prev = null;
+  steps.forEach(s => { const t = tri[s]; if (t.q === 'd') return; const it = tzNearest(t.q, t.r, prev); if (it) { tzPath.push(it.id); prev = it; } });
+  tzRender(); mapRender();
+  if (play) {
+    let v = null;
+    const chords = steps.map(s => { v = voiceNear(v, triadPcs(tri[s].q, tri[s].r)); return v; });
+    playSeq(chords, 900);
+  }
+}
+
+// ---------------------------------------------------------------- CHOPIN TRICK
+let chState = [];   // array of voice arrays (history)
+function chName(midis) {
+  const ms = [...midis].sort((a, b) => a - b);
+  const pcs = [...new Set(ms.map(md))];
+  const bass = md(ms[0]);
+  const out = [];
+  const order = [bass].concat(pcs.filter(p => p !== bass));
+  order.forEach(r => { const q = chordNameFor(r, pcs); if (q != null) out.push(SPS[r] + q + (r !== bass ? '/' + SPS[bass] : '')); });
+  if (!out.length) order.forEach(r => {
+    const f = md(r + 7);
+    if (pcs.includes(f)) return;
+    const q = chordNameFor(r, pcs.concat([f]));
+    if (q != null && q.length) out.push(SPS[r] + q + ' (no 5)' + (r !== bass ? '/' + SPS[bass] : ''));
+  });
+  return out.length ? out.slice(0, 2) : ['no common name'];
+}
+function chRender() {
+  const cur = chState[chState.length - 1];
+  const kb = document.getElementById('hl-ch-kb');
+  if (!kb) return;
+  const hl = {}; cur.forEach(m => hl[m] = 'rh');
+  kb.innerHTML = '';
+  kb.appendChild(createKeyboardBlock({ highlighted: hl, playLabel: 'Play', legend: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>' + cur.slice().sort((a,b)=>a-b).map(m => SPS[md(m)]).join(' ') + '</span>' }));
+  const names = chName(cur);
+  document.getElementById('hl-ch-name').innerHTML = names.map((n, i) => `<span class="ch" style="${i ? 'font-size:18px;opacity:.75' : ''}">${n}</span>`).join(' &nbsp;·&nbsp; ');
+  const down = document.getElementById('hl-ch-down').checked;
+  const vb = document.getElementById('hl-ch-voices');
+  const sorted = cur.map((m, k) => ({ m, k })).sort((a, b) => b.m - a.m);
+  vb.innerHTML = sorted.map(({ m, k }) => {
+    const free = d => !cur.some((x, kk) => kk !== k && x === m + d);
+    return `<div class="hl-voice"><span class="hl-vn">${SPS[md(m)]}</span>`
+      + `<button class="search-hint" data-k="${k}" data-d="-1" ${free(-1) ? '' : 'disabled'} aria-label="Lower ${SPS[md(m)]} a half step">▼ ${SPS[md(m - 1)]}</button>`
+      + (down ? '' : `<button class="search-hint" data-k="${k}" data-d="1" ${free(1) ? '' : 'disabled'} aria-label="Raise ${SPS[md(m)]} a half step">▲ ${SPS[md(m + 1)]}</button>`)
+      + '</div>';
+  }).join('');
+  vb.querySelectorAll('button').forEach(b => b.addEventListener('click', () => chMove(+b.dataset.k, +b.dataset.d)));
+  const chain = document.getElementById('hl-ch-chain');
+  chain.innerHTML = chState.map((v, i) => `<button class="chip" data-i="${i}">${chName(v)[0]}</button>`).join(' → ');
+  chain.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => { chState = chState.slice(0, +c.dataset.i + 1); chRender(); playChord(chState[chState.length - 1], 10); }));
+}
+function chMove(k, d) {
+  const cur = chState[chState.length - 1].slice();
+  cur[k] += d;
+  chState.push(cur);
+  playChord(cur, 10);
+  chRender();
+}
+function chStart() {
+  const r = +document.getElementById('hl-ch-root').value;
+  const q = document.getElementById('hl-ch-q').value;
+  const ivs = { M: [0,4,7], m: [0,3,7], d: [0,3,6], a: [0,4,8], s4: [0,5,7], M7: [0,4,7,11], d7: [0,4,7,10], m7: [0,3,7,10] }[q];
+  let base = 60 + r; if (base > 66) base -= 12;
+  chState = [ivs.map(x => base + x)];
+  chRender();
+}
+function chExample() {
+  const seq = [[62, 67, 71]];
+  [[1, -1], [0, -1], [1, -1], [2, -1]].forEach(([k, d]) => { const v = seq[seq.length - 1].slice(); v[k] += d; seq.push(v); });
+  chState = seq;
+  chRender();
+  playSeq(seq, 900);
+}
+function chRandom() {
+  const cur = chState[chState.length - 1];
+  const down = document.getElementById('hl-ch-down').checked;
+  for (let t = 0; t < 30; t++) {
+    const k = Math.floor(Math.random() * cur.length), d = down ? -1 : (Math.random() < 0.5 ? -1 : 1);
+    const v = cur.slice(); v[k] += d;
+    if (new Set(v).size !== v.length) continue;
+    if (chName(v)[0] === 'no common name' && t < 25) continue;
+    chState.push(v); playChord(v, 10); chRender(); return;
+  }
+}
+
+// ---------------------------------------------------------------- REHARMONIZER
+const RQ = [
+  ['Major','∆7',[0,4,7,11],[4,11,7]], ['Major','∆9',[0,2,4,7,11],[4,11,2,7]], ['Major','6/9',[0,2,4,7,9],[4,9,2,7]], ['Major','∆7♯11',[0,2,4,6,7,11],[4,11,6,2]],
+  ['Dominant','7',[0,4,7,10],[4,10,7]], ['Dominant','9',[0,2,4,7,10],[4,10,2,7]], ['Dominant','13',[0,2,4,9,10],[4,10,9,2]],
+  ['Dominant','7♭9',[0,1,4,7,10],[4,10,1,7]], ['Dominant','7♯9',[0,3,4,7,10],[4,10,3,7]], ['Dominant','9♯11',[0,2,4,6,10],[4,10,6,2]],
+  ['Dominant','7♭13',[0,4,8,10],[4,10,8]], ['Dominant','7alt',[0,1,3,4,8,10],[4,10,3,8,1]],
+  ['Sus','9sus4',[0,2,5,7,10],[5,10,2,7]], ['Sus','13sus',[0,2,5,9,10],[5,10,9,2]], ['Sus','7sus♭9',[0,1,5,7,10],[5,10,1,7]],
+  ['Minor','m7',[0,3,7,10],[3,10,7]], ['Minor','m9',[0,2,3,7,10],[3,10,2,7]], ['Minor','m11',[0,2,3,5,7,10],[3,10,5,2,7]],
+  ['Minor','m6/9',[0,2,3,7,9],[3,9,2,7]], ['Minor','m∆9',[0,2,3,7,11],[3,11,2,7]],
+  ['Half-diminished','m7♭5',[0,3,6,10],[3,10,6]], ['Half-diminished','m9♭5',[0,2,3,6,10],[3,10,6,2]],
+  ['Diminished','°7',[0,3,6,9],[3,6,9]]
+];
+const FAM_ORDER = ['Major','Dominant','Minor','Sus','Half-diminished','Diminished'];
+let rhMel = [], rhBeats = [], rhAsg = {}, rhSel = -1, rhImport = null;
+function rhParse(str) {
+  const out = [];
+  str.replace(/,/g, ' ').split(/\s+/).filter(Boolean).forEach(tok => {
+    const m = tok.match(/^([A-Ga-g])([#♯b♭]?)(-?\d)$/);
+    if (!m) return;
+    const pc = { C:0, D:2, E:4, F:5, G:7, A:9, B:11 }[m[1].toUpperCase()] + (/[#♯]/.test(m[2]) ? 1 : /[b♭]/.test(m[2]) ? -1 : 0);
+    out.push(12 * (+m[3] + 1) + pc);
+  });
+  return out;
+}
+const noteLabel = m => SP[md(m)] + '<sub>' + (Math.floor(m / 12) - 1) + '</sub>';
+function rhOptions(M) {
+  const opts = [], seen = new Set();
+  for (let r = 0; r < 12; r++) RQ.forEach(([fam, name, iv, pri]) => {
+    const rel = md(M - r);
+    if (!iv.includes(rel)) return;
+    const altish = /♭9|alt|°/.test(name);
+    const rh = [];
+    for (const x of pri.concat(iv)) {
+      if (rh.length >= 3) break;
+      if (x === rel || x === 0) continue;
+      let p = M - 1; while (md(p - r) !== x) p--;
+      if (M - p > 12 || rh.includes(p)) continue;
+      if (M - p === 1 && !altish) continue;
+      rh.push(p);
+    }
+    if (rh.length < 2) return;
+    let bass = 36 + r; if (bass > 47) bass -= 12;
+    const all = rh.concat([M]).sort((a, b) => a - b);
+    if (all[0] - bass < 5) bass -= 12;
+    const key = bass + ':' + all.join(',');
+    if (seen.has(key)) return; seen.add(key);
+    opts.push({ fam, name: SP[r] + name, r, lh: [bass], rh: all, deg: rel });
+  });
+  const degRank = d => [4,3,7,10,11,9,2,5,0].indexOf(d) < 0 ? 9 : [4,3,7,10,11,9,2,5,0].indexOf(d);
+  return opts.sort((a, b) => FAM_ORDER.indexOf(a.fam) - FAM_ORDER.indexOf(b.fam) || degRank(a.deg) - degRank(b.deg) || a.r - b.r);
+}
+function rhPlayCell(i) {
+  const o = rhAsg[i];
+  if (o) playChord(o.lh.concat(o.rh), 10, 1.6); else playNote(rhMel[i], 1.2);
+}
+function rhRenderCells() {
+  const box = document.getElementById('hl-rh-cells');
+  box.innerHTML = rhMel.map((m, i) => `<button class="hl-cell${i === rhSel ? ' on' : ''}${rhAsg[i] ? ' set' : ''}" data-i="${i}"><span class="hl-cell-n">${i + 1}</span><span class="hl-cell-ch">${rhAsg[i] ? rhAsg[i].name : '+ chord'}</span><span class="hl-cell-m">${noteLabel(m)}</span></button>`).join('');
+  box.querySelectorAll('.hl-cell').forEach(b => b.addEventListener('click', () => { rhSel = +b.dataset.i; rhRenderCells(); rhRenderPicker(); rhPlayCell(rhSel); }));
+}
+function rhKb(o, M) {
+  const kb = document.getElementById('hl-rh-kb'); kb.innerHTML = '';
+  const hl = {};
+  if (o) { o.lh.forEach(m => hl[m] = 'lh'); o.rh.forEach(m => hl[m] = 'rh'); } else hl[M] = 'rh';
+  const legend = o ? `<span class="kb-legend-item"><span class="kb-swatch lh"></span>${o.lh.map(m => SP[md(m)]).join(' ')}</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>${o.rh.map(m => SP[md(m)]).join(' ')} — melody on top</span>` : '<span class="kb-legend-item"><span class="kb-swatch rh"></span>the melody note</span>';
+  kb.appendChild(createKeyboardBlock({ highlighted: hl, playLabel: o ? 'Play ' + o.name : 'Play the note', legend }));
+}
+function rhRenderPicker() {
+  const box = document.getElementById('hl-rh-picker');
+  if (rhSel < 0 || rhSel >= rhMel.length) { box.innerHTML = ''; return; }
+  const M = rhMel[rhSel];
+  const fam = document.getElementById('hl-rh-fam').value, root = document.getElementById('hl-rh-root').value;
+  const all = rhOptions(M).filter(o => (fam === 'all' || o.fam === fam) && (root === 'any' || o.r === +root));
+  document.getElementById('hl-rh-head').innerHTML = `Note ${rhSel + 1} · top note ${noteLabel(M)} · ${all.length} voicing${all.length === 1 ? '' : 's'}`;
+  box.innerHTML = all.map((o, k) => `<div class="hl-opt${rhAsg[rhSel] && rhAsg[rhSel].name === o.name && rhAsg[rhSel].rh.join() === o.rh.join() ? ' on' : ''}"><button class="hl-opt-play" data-k="${k}" aria-label="Play ${o.name}">▶</button><span class="hl-opt-name">${o.name}</span><span class="hl-opt-notes">${o.lh.map(m => SP[md(m)]).join(' ')} | ${o.rh.map(m => SP[md(m)]).join(' ')}</span><span class="hl-opt-fam">${o.fam}</span><button class="hl-opt-use" data-k="${k}">Assign</button></div>`).join('') || '<p class="muted" style="font-size:13px">No voicing in this family and root keeps that note on top.</p>';
+  box.querySelectorAll('.hl-opt-play').forEach(b => b.addEventListener('click', () => { const o = all[+b.dataset.k]; playChord(o.lh.concat(o.rh), 10, 1.6); rhKb(o, M); }));
+  box.querySelectorAll('.hl-opt-use').forEach(b => b.addEventListener('click', () => { rhAssign(all[+b.dataset.k]); }));
+  document.getElementById('hl-rh-surprise').onclick = () => { if (all.length) rhAssign(all[Math.floor(Math.random() * all.length)]); };
+  rhKb(rhAsg[rhSel], M);
+}
+function rhAssign(o) {
+  rhAsg[rhSel] = o;
+  playChord(o.lh.concat(o.rh), 10, 1.6);
+  rhRenderCells(); rhRenderPicker();
+}
+function rhLoad(str, beats) {
+  rhMel = rhParse(str); rhBeats = beats && beats.length === rhMel.length ? beats : rhMel.map(() => 1);
+  rhAsg = {}; rhSel = rhMel.length ? 0 : -1;
+  document.getElementById('hl-rh-input').value = str;
+  rhRenderCells(); rhRenderPicker();
+}
+function rhPlayAll() {
+  const bpm = +document.getElementById('hl-rh-tempo').value;
+  const ms = 60000 / bpm;
+  stopSeq();
+  let t = 0;
+  rhMel.forEach((m, i) => { seqTimers.push(setTimeout(() => {
+    rhPlayCell(i);
+    document.querySelectorAll('#hl-rh-cells .hl-cell').forEach((b, k) => b.classList.toggle('sounding', k === i));
+  }, t)); t += (rhBeats[i] || 1) * ms; });
+  seqTimers.push(setTimeout(() => document.querySelectorAll('#hl-rh-cells .hl-cell').forEach(b => b.classList.remove('sounding')), t));
+}
+
+
+// ---------------------------------------------------------------- IMPORT: MIDI / MusicXML
+const NAME_SHARP = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const tokFor = m => NAME_SHARP[md(m)] + (Math.floor(m / 12) - 1);
+function parseMidi(buf) {
+  const dv = new DataView(buf); let p = 0;
+  const str = n => { let r = ''; for (let k = 0; k < n; k++) r += String.fromCharCode(dv.getUint8(p + k)); return r; };
+  if (str(4) !== 'MThd') throw new Error('not a standard MIDI file');
+  const hlen = dv.getUint32(4); const ntrks = dv.getUint16(10); let tpq = dv.getUint16(12);
+  if (tpq & 0x8000) tpq = 480;
+  p = 8 + hlen;
+  const tracks = [];
+  for (let tn = 0; tn < ntrks && p + 8 <= dv.byteLength; tn++) {
+    if (str(4) !== 'MTrk') break;
+    const len = dv.getUint32(p + 4); let q = p + 8; const end = Math.min(q + len, dv.byteLength);
+    let tick = 0, status = 0, name = '';
+    const open = {}, notes = [];
+    const vlq = () => { let v = 0, b; do { b = dv.getUint8(q++); v = (v << 7) | (b & 0x7f); } while (b & 0x80 && q < end); return v; };
+    while (q < end) {
+      tick += vlq();
+      let b = dv.getUint8(q);
+      if (b & 0x80) { status = b; q++; } else if (!status) break;
+      const type = status & 0xf0, ch = status & 0x0f;
+      if (status === 0xff) { const mt = dv.getUint8(q++); const l = vlq(); if (mt === 0x03 && !name) { for (let k = 0; k < l; k++) name += String.fromCharCode(dv.getUint8(q + k)); } q += l; status = 0; continue; }
+      if (status === 0xf0 || status === 0xf7) { const l = vlq(); q += l; status = 0; continue; }
+      if (type === 0x80 || type === 0x90) {
+        const pitch = dv.getUint8(q++), vel = dv.getUint8(q++); const key = ch + ':' + pitch;
+        if (type === 0x90 && vel > 0) { (open[key] = open[key] || []).push(notes.length); notes.push({ t: tick, d: 0, p: pitch, ch }); }
+        else if (open[key] && open[key].length) { const idx = open[key].shift(); notes[idx].d = tick - notes[idx].t; }
+      } else if (type === 0xc0 || type === 0xd0) q += 1;
+      else q += 2;
+    }
+    notes.forEach(n => { if (!n.d) n.d = tpq; });
+    const pitched = notes.filter(n => n.ch !== 9);
+    if (pitched.length) tracks.push({ name: name.trim() || 'Track ' + (tn + 1), notes: pitched });
+    p = end;
+  }
+  return { tpq, parts: tracks.map(t => { const ev = skyline(t.notes, tpq); return { name: t.name + ' · ' + ev.length + (ev.length === 1 ? ' note' : ' notes'), events: ev }; }) };
+}
+function skyline(notes, tpq) {
+  const tol = Math.max(1, tpq / 24);
+  const s = notes.slice().sort((a, b) => a.t - b.t || b.p - a.p);
+  const ons = [];
+  s.forEach(n => { const last = ons[ons.length - 1]; if (last && n.t - last.t <= tol) { if (n.p > last.p) { last.p = n.p; last.d = n.d; } } else ons.push({ t: n.t, p: n.p, d: n.d }); });
+  return ons.map((o, k) => { const next = ons[k + 1]; const ticks = next ? next.t - o.t : o.d; return { midi: o.p, beats: Math.max(0.25, Math.round(ticks / tpq * 4) / 4) }; });
+}
+function parseMusicXML(text) {
+  const doc = new DOMParser().parseFromString(text, 'application/xml');
+  if (doc.querySelector('parsererror')) throw new Error('could not read the MusicXML');
+  const names = {};
+  doc.querySelectorAll('score-part').forEach(sp => { const n = sp.querySelector('part-name'); names[sp.getAttribute('id')] = n ? n.textContent.trim() : sp.getAttribute('id'); });
+  const STEP = { C:0, D:2, E:4, F:5, G:7, A:9, B:11 };
+  const parts = [];
+  doc.querySelectorAll('part').forEach(part => {
+    let div = 1; const ev = []; let lastVoice = null;
+    const voices = new Set([...part.querySelectorAll('note > voice')].map(v => v.textContent.trim()));
+    const useVoice = voices.size ? [...voices].sort((a, b) => +a - +b)[0] : null;
+    part.querySelectorAll('measure').forEach(meas => {
+      [...meas.children].forEach(el => {
+        if (el.tagName === 'attributes') { const d = el.querySelector('divisions'); if (d) div = +d.textContent || 1; }
+        if (el.tagName !== 'note') return;
+        if (el.querySelector('grace, cue')) return;
+        const v = el.querySelector('voice'); if (useVoice && v && v.textContent.trim() !== useVoice) return;
+        const dur = (+((el.querySelector('duration') || {}).textContent) || 0) / div;
+        const isChord = !!el.querySelector('chord');
+        const pitch = el.querySelector('pitch');
+        if (!pitch) { if (!isChord) ev.push({ rest: true, beats: dur }); return; }
+        const midi = 12 * (+pitch.querySelector('octave').textContent + 1) + STEP[pitch.querySelector('step').textContent.trim()] + Math.round(+((pitch.querySelector('alter') || {}).textContent || 0));
+        const tieStop = [...el.querySelectorAll('tie')].some(t => t.getAttribute('type') === 'stop');
+        const prev = ev[ev.length - 1];
+        if (isChord && prev && !prev.rest) { if (midi > prev.midi) prev.midi = midi; return; }
+        if (tieStop && prev && !prev.rest && prev.midi === midi) { prev.beats += dur; return; }
+        ev.push({ midi, beats: dur });
+      });
+    });
+    // fold rests into the note before them
+    const out = [];
+    ev.forEach(e => { if (e.rest) { if (out.length) out[out.length - 1].beats += e.beats; } else out.push({ midi: e.midi, beats: Math.max(0.25, Math.round(e.beats * 4) / 4) }); });
+    if (out.length) parts.push({ name: (names[part.getAttribute('id')] || 'Part') + ' · ' + out.length + (out.length === 1 ? ' note' : ' notes'), events: out });
+  });
+  if (!parts.length) throw new Error('no pitched notes found');
+  return { parts };
+}
+async function unzipEntry(buf, pick) {
+  const dv = new DataView(buf);
+  let e = buf.byteLength - 22; while (e >= 0 && dv.getUint32(e, true) !== 0x06054b50) e--;
+  if (e < 0) throw new Error('not a zip file');
+  const n = dv.getUint16(e + 10, true); let p = dv.getUint32(e + 16, true);
+  const dec = new TextDecoder(); const entries = [];
+  for (let k = 0; k < n; k++) {
+    const method = dv.getUint16(p + 10, true), csize = dv.getUint32(p + 20, true), nlen = dv.getUint16(p + 28, true), xlen = dv.getUint16(p + 30, true), clen = dv.getUint16(p + 32, true), off = dv.getUint32(p + 42, true);
+    entries.push({ name: dec.decode(new Uint8Array(buf, p + 46, nlen)), method, csize, off });
+    p += 46 + nlen + xlen + clen;
+  }
+  const read = async ent => {
+    const lo = ent.off, start = lo + 30 + dv.getUint16(lo + 26, true) + dv.getUint16(lo + 28, true);
+    const data = new Uint8Array(buf, start, ent.csize);
+    if (ent.method === 0) return dec.decode(data);
+    if (typeof DecompressionStream === 'undefined') throw new Error('this browser can’t open .mxl — export uncompressed MusicXML instead');
+    const ds = new Response(new Blob([data]).stream().pipeThrough(new DecompressionStream('deflate-raw')));
+    return await ds.text();
+  };
+  const container = entries.find(x => x.name === 'META-INF/container.xml');
+  let target = null;
+  if (container) { const m = (await read(container)).match(/full-path="([^"]+)"/); if (m) target = entries.find(x => x.name === m[1]); }
+  if (!target) target = entries.find(x => /\.(musicxml|xml)$/i.test(x.name) && !/^META-INF/.test(x.name));
+  if (!target) throw new Error('no score inside the .mxl');
+  return await read(target);
+}
+function rhImportShow() {
+  if (!rhImport) return;
+  const part = rhImport.parts[+document.getElementById('hl-rh-part').value || 0];
+  const from = Math.max(1, +document.getElementById('hl-rh-from').value || 1);
+  const count = Math.max(1, Math.min(128, +document.getElementById('hl-rh-count').value || 32));
+  const ev = part.events.slice(from - 1, from - 1 + count);
+  document.getElementById('hl-rh-imp').textContent = `${rhImport.file}: notes ${from}–${from - 1 + ev.length} of ${part.events.length}`;
+  rhLoad(ev.map(e => tokFor(e.midi)).join(' '), ev.map(e => e.beats));
+}
+async function rhImportFile(file) {
+  const msg = document.getElementById('hl-rh-imp');
+  msg.textContent = 'Reading ' + file.name + '…';
+  try {
+    const buf = await file.arrayBuffer();
+    const head = new Uint8Array(buf.slice(0, 4));
+    let res;
+    if (head[0] === 0x4d && head[1] === 0x54 && head[2] === 0x68 && head[3] === 0x64) res = parseMidi(buf);
+    else if (head[0] === 0x50 && head[1] === 0x4b) res = parseMusicXML(await unzipEntry(buf, null));
+    else res = parseMusicXML(new TextDecoder().decode(buf));
+    if (!res.parts.length) throw new Error('no pitched notes found');
+    rhImport = { file: file.name, parts: res.parts };
+    const sel = document.getElementById('hl-rh-part');
+    sel.innerHTML = res.parts.map((p, i) => `<option value="${i}">${escHtml(p.name)}</option>`).join('');
+    document.getElementById('hl-rh-impctl').hidden = false;
+    sel.hidden = res.parts.length < 2;
+    document.getElementById('hl-rh-from').value = 1;
+    rhImportShow();
+  } catch (e) {
+    msg.textContent = 'Couldn’t read ' + file.name + ' — ' + (/MusicXML|zip|MIDI/.test(e.message) && !/^(no |this browser)/.test(e.message) ? 'it isn’t a MIDI or MusicXML file this page can open' : e.message) + '.';
+  }
+}
+
+// ---------------------------------------------------------------- BUILD
+function buildHarmonyLab() {
+  if (!document.getElementById('harmonylab')) return;
+  const keySel = document.getElementById('hl-key');
+  keySel.innerHTML = SP.map((n, i) => `<option value="${i}">${n} major</option>`).join('');
+  keySel.addEventListener('change', () => { tzKey = +keySel.value; tzShade(); if (tzPath.length) mapShow(false); else mapRender(); });
+  tzBuild(); tzRender(); mapRender();
+  document.getElementById('hl-tz-clear').addEventListener('click', () => { stopSeq(); tzPath = []; tzRender(); });
+  document.getElementById('hl-tz-play').addEventListener('click', () => {
+    let v = null; const chords = tzPath.map(id => { const it = tzInst[id]; v = voiceNear(v, triadPcs(it.q, it.r)); return v; });
+    if (chords.length) playSeq(chords, 800);
+  });
+  document.querySelectorAll('#hl-map-cycles .search-hint').forEach(b => b.addEventListener('click', () => { mapCycle = b.dataset.c; mapShow(true); }));
+  // Chopin
+  document.getElementById('hl-ch-root').innerHTML = SP.map((n, i) => `<option value="${i}"${i === 7 ? ' selected' : ''}>${n}</option>`).join('');
+  ['hl-ch-root', 'hl-ch-q'].forEach(id => document.getElementById(id).addEventListener('change', chStart));
+  document.getElementById('hl-ch-down').addEventListener('change', chRender);
+  document.getElementById('hl-ch-reset').addEventListener('click', chStart);
+  document.getElementById('hl-ch-undo').addEventListener('click', () => { if (chState.length > 1) { chState.pop(); chRender(); playChord(chState[chState.length - 1], 10); } });
+  document.getElementById('hl-ch-random').addEventListener('click', chRandom);
+  document.getElementById('hl-ch-example').addEventListener('click', chExample);
+  document.getElementById('hl-ch-play').addEventListener('click', () => playSeq(chState, 900));
+  chExample(); stopSeq();
+  // Reharmonizer
+  document.getElementById('hl-rh-root').innerHTML = '<option value="any">Any root</option>' + SP.map((n, i) => `<option value="${i}">${n}</option>`).join('');
+  ['hl-rh-fam', 'hl-rh-root'].forEach(id => document.getElementById(id).addEventListener('change', rhRenderPicker));
+  document.getElementById('hl-rh-go').addEventListener('click', () => rhLoad(document.getElementById('hl-rh-input').value));
+  document.getElementById('hl-rh-input').addEventListener('keydown', e => { if (e.key === 'Enter') rhLoad(e.target.value); });
+  document.querySelectorAll('#hl-rh-presets .search-hint').forEach(b => b.addEventListener('click', () => rhLoad(b.dataset.q)));
+  document.getElementById('hl-rh-play').addEventListener('click', rhPlayAll);
+  document.getElementById('hl-rh-stop').addEventListener('click', stopSeq);
+  document.getElementById('hl-rh-clear').addEventListener('click', () => { rhAsg = {}; rhRenderCells(); rhRenderPicker(); });
+  const tempo = document.getElementById('hl-rh-tempo');
+  tempo.addEventListener('input', () => document.getElementById('hl-rh-bpm').textContent = tempo.value + ' bpm');
+  document.getElementById('hl-rh-file').addEventListener('change', e => { const f = e.target.files && e.target.files[0]; if (f) rhImportFile(f); e.target.value = ''; });
+  ['hl-rh-part', 'hl-rh-from', 'hl-rh-count'].forEach(id => document.getElementById(id).addEventListener('change', rhImportShow));
+  rhLoad('C4 F4 A4 F4 A4 G4 F4 D4 C4');
+}
+window.addEventListener('DOMContentLoaded', () => { try { buildHarmonyLab(); } catch (e) { console.error('Harmony Lab', e); } });
+})();
+
+</script>
 </body>
 </html>
