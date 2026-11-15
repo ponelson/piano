@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta property="og:title" content="Piano: Modes &amp; Movements v7.8">
-<title>Piano: Modes & Movements v7.8 — A Jazz Piano Library</title>
+<meta property="og:title" content="Piano: Modes &amp; Movements v7.9">
+<title>Piano: Modes & Movements v7.9 — A Jazz Piano Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap" rel="stylesheet">
@@ -1957,6 +1957,11 @@
   .hl-voice { display: flex; gap: 8px; align-items: center; }
   .hl-vn { font-family: var(--mono); font-size: 14px; width: 2.6em; color: var(--ink); }
   .hl-file { cursor: pointer; }
+  .study-table .fb, .search-hint .fb { font-size: .86em; }
+  .fb { display: inline-flex; flex-direction: column; font-size: .7em; line-height: .92; vertical-align: -0.35em; margin-left: 1px; text-align: left; }
+  .fb1 { vertical-align: 0.45em; }
+  .bt-in td { color: var(--ink); }
+  .bt-cell-name .ch { font-size: 14px; }
   .hl-an-sum p { font-size: 14px; line-height: 1.6; color: var(--ink-2); margin: 0 0 10px; max-width: 900px; }
   .hl-an-chip { font-size: 12px; }
   .hl-score { overflow-x: auto; max-width: 100%; min-height: 20px; }
@@ -2022,7 +2027,7 @@
 
   <!-- ============== HERO ============== -->
   <section class="hero">
-    <span class="eyebrow">A Jazz Piano Library · v7.8 · 6 November 2026, 6:52 AM ET · build 2026-11-06T11:52Z</span>
+    <span class="eyebrow">A Jazz Piano Library · v7.9 · 15 November 2026, 9:31 AM ET · build 2026-11-15T14:31Z</span>
     <h1>
       <span class="line">Eleven parent scales.</span>
       <span class="line">Seventy-seven modes.</span>
@@ -2975,7 +2980,7 @@ Side-slip          as on the Dominant Pentatonic card above</div>
     <div class="reveal" style="margin-bottom: 40px;">
       <span class="eyebrow">Harmony Lab</span>
       <h2>From chord to chord, <em>by the smallest steps.</em></h2>
-      <p class="lede">Four tools for moving between chords, an analyser and a lead-sheet view. The Tonnetz lays out all twenty-four major and minor triads so that neighbours share two notes. The diatonic map walks a key’s chords by seconds, thirds and fourths. The Chopin trick lowers one note at a time. And the reharmonizer keeps a melody on top while you choose what goes under it.</p>
+      <p class="lede">Four tools for moving between chords, a guide to classical chord labels, an analyser and a lead-sheet view. The Tonnetz lays out all twenty-four major and minor triads so that neighbours share two notes. The diatonic map walks a key’s chords by seconds, thirds and fourths. The Chopin trick lowers one note at a time. And the reharmonizer keeps a melody on top while you choose what goes under it.</p>
     </div>
 
     <h3 id="harmonylab-tonnetz" class="reveal" style="margin: 72px 0 16px; font-style: italic;">The Tonnetz: <em>every triad, beside its neighbours</em></h3>
@@ -3069,6 +3074,37 @@ Side-slip          as on the Dominant Pentatonic card above</div>
         <div id="hl-rh-picker" class="hl-opts"></div>
       </div>
     </div>
+
+    <h3 id="harmonylab-figures" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Classical labels: <em>Roman numerals and figured bass</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">Classical analysis writes a chord as a Roman numeral for its root in the key — uppercase major, lowercase minor, ° diminished, ø half-diminished, + augmented — and small stacked numbers for <strong>which note is in the bass</strong>. The numbers are figured bass: intervals counted up from the bass note, shortened to the ones that tell the inversions apart. Jazz writes the same thing as a slash chord. The analysis chart below gives both.</p>
+    <div class="grid-2 reveal">
+      <div><div class="table-scroll"><table class="study-table">
+        <thead><tr><th>Triad · V in C</th><th>Full figure</th><th>Bass</th><th>Notes</th><th>Jazz</th></tr></thead>
+        <tbody>
+          <tr><td class="chord">V</td><td>5 / 3</td><td>root</td><td class="chord">G B D</td><td class="chord">G</td></tr>
+          <tr><td class="chord">V<span class="fb fb1"><span>6</span></span></td><td>6 / 3</td><td>3rd</td><td class="chord">B D G</td><td class="chord">G/B</td></tr>
+          <tr><td class="chord">V<span class="fb"><span>6</span><span>4</span></span></td><td>6 / 4</td><td>5th</td><td class="chord">D G B</td><td class="chord">G/D</td></tr>
+        </tbody></table></div></div>
+      <div><div class="table-scroll"><table class="study-table">
+        <thead><tr><th>Seventh · V7 in C</th><th>Full figure</th><th>Bass</th><th>Notes</th><th>Jazz</th></tr></thead>
+        <tbody>
+          <tr><td class="chord">V<span class="fb fb1"><span>7</span></span></td><td>7 / 5 / 3</td><td>root</td><td class="chord">G B D F</td><td class="chord">G7</td></tr>
+          <tr><td class="chord">V<span class="fb"><span>6</span><span>5</span></span></td><td>6 / 5 / 3</td><td>3rd</td><td class="chord">B D F G</td><td class="chord">G7/B</td></tr>
+          <tr><td class="chord">V<span class="fb"><span>4</span><span>3</span></span></td><td>6 / 4 / 3</td><td>5th</td><td class="chord">D F G B</td><td class="chord">G7/D</td></tr>
+          <tr><td class="chord">V<span class="fb"><span>4</span><span>2</span></span></td><td>6 / 4 / 2</td><td>7th</td><td class="chord">F G B D</td><td class="chord">G7/F</td></tr>
+        </tbody></table></div></div>
+    </div>
+    <div class="hl-panel reveal" style="margin-top:18px">
+      <div class="hl-row" id="hl-fb-btns">
+        <button class="search-hint" data-i="0">V</button><button class="search-hint" data-i="1">V<span class="fb fb1"><span>6</span></span></button><button class="search-hint" data-i="2">V<span class="fb"><span>6</span><span>4</span></span></button>
+        <button class="search-hint" data-i="3">V<span class="fb fb1"><span>7</span></span></button><button class="search-hint" data-i="4">V<span class="fb"><span>6</span><span>5</span></span></button><button class="search-hint" data-i="5">V<span class="fb"><span>4</span><span>3</span></span></button><button class="search-hint" data-i="6">V<span class="fb"><span>4</span><span>2</span></span></button>
+      </div>
+      <div id="hl-fb-line" class="hl-head" style="display:block;margin-bottom:8px"></div>
+      <div id="hl-fb-kb"></div>
+    </div>
+    <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;"><strong>Why those numbers:</strong> with B under a G triad, D is a 3rd above and G a 6th, so 6/3, shortened to 6; with D underneath, G is a 4th up and B a 6th, so 6/4. Seventh chords keep the numbers that place the 7th and the root. <strong>To remember them,</strong> count down: triads go (nothing), 6, 6-4; sevenths go 7, 6-5, 4-3, 4-2 (often just 2).</p>
+    <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;"><strong>The six-four is the special one.</strong> Classical harmony treats the second inversion as unstable and uses it three ways: the <em>cadential</em> six-four, I<span class="fb"><span>6</span><span>4</span></span> → V (C/G → G7 → C: the C and E are suspensions resolving to B and D, so many write it V<span class="fb"><span>6</span><span>4</span></span>–<span class="fb"><span>5</span><span>3</span></span>); the <em>passing</em> six-four, a bass walking through it (I → V<span class="fb"><span>6</span><span>4</span></span> → I<span class="fb fb1"><span>6</span></span>, C → G/D → C/E); and the <em>pedal</em> six-four over a held bass (I → IV<span class="fb"><span>6</span><span>4</span></span> → I, C → F/C → C).</p>
+    <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;"><strong>Other labels you’ll meet:</strong> V⁷/V, “five-seven of five”, a secondary dominant (D7 → G in C); vii°⁷ and viiø⁷, diminished and half-diminished sevenths on the 7th degree; N⁶, the Neapolitan (♭II in first inversion, D♭/F in C); It⁶, Fr⁶ and Ger⁶, the augmented-sixth chords. Jazz numerals (ii7, V7, I∆7) assume root position and write inversions as slash chords; <a href="#newjazz-grip67" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Grip 7</a> on F is V<span class="fb"><span>4</span><span>2</span></span> — G7/F.</p>
 
     <h3 id="harmonylab-analysis" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Harmonic analysis: <em>the chart and what it shows</em></h3>
     <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">Analyse an imported file or the chords you assigned above. The chart gives each chord with its bar, its Roman numeral in the key, its function, a scale to play over it and the melody notes it carries, as degrees of the chord. The notes under it name the key and pick out the devices: ii–Vs, secondary dominants, tritone substitutes, borrowed chords, passing diminished chords and anything chromatic. A file’s own chord symbols are used when MusicXML has them; otherwise the chords are read from all the notes, every half bar. Tap a chord to hear it, or play the changes through at the tempo above.</p>
@@ -4493,6 +4529,8 @@ B D♯ F♯ → A C E   → G B D   → F A♭ C → E♭ G B♭  → D♭ F♭ 
         <tr><td class="name">4a</td><td class="chord">1 · 4 · ♭7</td><td class="chord">C F B♭</td><td>Three notes in fourths — the 3 · 13 · 9 of a dominant a major 3rd below (A♭7)</td></tr>
         <tr><td class="name">4b</td><td class="chord">1 · 2 · 5</td><td class="chord">C D G</td><td>Grip 2a without its bottom note — the 9 · 3 · 13 of a dominant a whole step below (B♭7)</td></tr>
         <tr><td class="name">5</td><td class="chord">1 · ♭3 · 5 · ♭7</td><td class="chord">C E♭ G B♭</td><td>A m7 shape — the 3 · 5 · 7 · 9 of a major chord a major 3rd below (A♭∆9)</td></tr>
+        <tr><td class="name">6</td><td class="chord">1 · 2 · 5 · 7</td><td class="chord">C D G B</td><td>Grip 4b with the 7 on top — a ∆9 with no 3rd; over its 3rd it is the moo chord plus the 7</td></tr>
+        <tr><td class="name">7</td><td class="chord">1 · ♯4 · 6 · 9</td><td class="chord">C F♯ A D</td><td>A dominant 7th standing on its own 7th (D7/C) — the V⁴₂ shape</td></tr>
       </tbody>
     </table></div>
 
@@ -4653,6 +4691,66 @@ B D♯ F♯ → A C E   → G B D   → F A♭ C → E♭ G B♭  → D♭ F♭ 
       </div>
     </div>
     <p class="muted reveal" style="margin-top: 16px; font-size: 13px; max-width: 840px;">At B7 the chain uses 2a again, on A, which lifts the right hand back up; keeping the strict alternation instead gives B7 as 4a on D♯ (D♯ G♯ C♯) and E7 as 2a on D (D F♯ G♯ C♯).</p>
+
+    <h3 id="newjazz-grip67" class="reveal" style="margin: 72px 0 16px; font-style: italic;">Grips 6 and 7: <em>one shape, every bass note</em></h3>
+    <p class="lede reveal" style="margin-bottom: 22px; max-width: 840px;">Not NewJazz’s material. Three right-hand shapes on F, from a short video, each played over a series of bass notes — the same idea as <a href="#newjazz-grip2" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Grip 2</a>, where one grip gives four chord qualities. The first is Grip 2a; the other two are new to the grip table: <strong>Grip 6</strong>, 1 · 2 · 5 · 7 (F G C E), and <strong>Grip 7</strong>, 1 · ♯4 · 6 · 9 (F B D G) — a dominant 7th standing on its own 7th. Tap ▶ to hear each over its bass. <span class="nj-src">(user description)</span></p>
+    <div class="grid-3 reveal">
+      <div class="card">
+        <h3>Grip 2a <em>· F A B E</em></h3>
+        <div class="kb-slot" data-kb="nj-g2a-f"></div>
+        <p class="desc" style="margin-top:16px">1 · 3 · ♯4 · 7 on F — the NewJazz shape.</p>
+        <button class="search-hint" data-fac="F A B E" style="margin-top:8px">Every bass note in Find a Chord →</button>
+      </div>
+      <div class="card">
+        <h3>Grip 6 <em>· F G C E</em></h3>
+        <div class="kb-slot" data-kb="nj-g6-f"></div>
+        <p class="desc" style="margin-top:16px">1 · 2 · 5 · 7 on F: grip 4b (F G C) with the 7 on top.</p>
+        <button class="search-hint" data-fac="F G C E" style="margin-top:8px">Every bass note in Find a Chord →</button>
+      </div>
+      <div class="card">
+        <h3>Grip 7 <em>· F B D G</em></h3>
+        <div class="kb-slot" data-kb="nj-g7-f"></div>
+        <p class="desc" style="margin-top:16px">1 · ♯4 · 6 · 9 on F: the four notes of G7, with its 7th at the bottom.</p>
+        <button class="search-hint" data-fac="F B D G" style="margin-top:8px">Every bass note in Find a Chord →</button>
+      </div>
+    </div>
+    <h4 class="reveal" style="margin:28px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)">Grip 2a on F — F A B E</h4>
+    <div class="table-scroll reveal"><table class="study-table">
+      <thead><tr><th>Bass</th><th>Degrees, grip bottom to top</th><th>Chord</th><th>On the page</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="name">D</td><td class="chord">♭3 · 5 · 13 · 9</td><td><span class="ch">Dm6/9</span></td><td><a href="#newjazz-grip2" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Grip 2</a>: minor 6/9</td><td><button class="hl-opt-play" data-notes="38,53,57,59,64" aria-label="Play over D">▶</button></td></tr>
+        <tr><td class="name">G</td><td class="chord">♭7 · 9 · 3 · 13</td><td><span class="ch">G13</span></td><td><a href="#newjazz-grip2" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Grip 2</a>: dominant 13</td><td><button class="hl-opt-play" data-notes="43,53,57,59,64" aria-label="Play over G">▶</button></td></tr>
+        <tr><td class="name">D♭</td><td class="chord">3 · ♯5 · ♭7 · ♯9</td><td><span class="ch">D♭7♯9♯5</span> (altered)</td><td><a href="#newjazz-grip2" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Grip 2</a>: 7 altered</td><td><button class="hl-opt-play" data-notes="37,53,57,59,64" aria-label="Play over D♭">▶</button></td></tr>
+        <tr><td class="name">B</td><td class="chord">♭5 · ♭7 · 1 · 11</td><td><span class="ch">Bm7♭5sus4</span></td><td><a href="#newjazz-grip2" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Grip 2</a>: m7♭5 sus4</td><td><button class="hl-opt-play" data-notes="35,53,57,59,64" aria-label="Play over B">▶</button></td></tr>
+        <tr><td class="name">F</td><td class="chord">1 · 3 · ♯11 · 7</td><td><span class="ch">F∆7♯11</span> (no 5; also written F∆7♭5)</td><td>the grip table: “a ∆7♯11 shape”</td><td><button class="hl-opt-play" data-notes="41,53,57,59,64" aria-label="Play over F">▶</button></td></tr>
+      </tbody>
+    </table></div>
+    <h4 class="reveal" style="margin:28px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)">Grip 6 on F — F G C E</h4>
+    <div class="table-scroll reveal"><table class="study-table">
+      <thead><tr><th>Bass</th><th>Degrees, grip bottom to top</th><th>Chord</th><th>On the page</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="name">D</td><td class="chord">♭3 · 11 · ♭7 · 9</td><td><span class="ch">Dm11</span>, rootless</td><td>new as a shape; m11 is everywhere</td><td><button class="hl-opt-play" data-notes="38,65,67,72,76" aria-label="Play over D">▶</button></td></tr>
+        <tr><td class="name">F</td><td class="chord">1 · 9 · 5 · 7</td><td><span class="ch">F∆9</span> (no 3) = <span class="ch">C/F</span></td><td>new</td><td><button class="hl-opt-play" data-notes="41,65,67,72,76" aria-label="Play over F">▶</button></td></tr>
+        <tr><td class="name">A</td><td class="chord">♭13 · ♭7 · ♭3 · 5</td><td><span class="ch">F∆9/A</span></td><td>the <a href="#warmups-moo" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">moo chord</a> on F (F G C over A) with its 7 added</td><td><button class="hl-opt-play" data-notes="45,65,67,72,76" aria-label="Play over A">▶</button></td></tr>
+        <tr><td class="name">G</td><td class="chord">♭7 · 1 · 11 · 13</td><td><span class="ch">G13sus4</span> (no 9)</td><td>the 13sus, in a new voicing</td><td><button class="hl-opt-play" data-notes="43,65,67,72,76" aria-label="Play over G">▶</button></td></tr>
+        <tr><td class="name">B♭</td><td class="chord">5 · 13 · 9 · ♯11</td><td><span class="ch">B♭6/9♯11</span> (no 3) = <span class="ch">C/B♭</span>, Lydian</td><td>II major over the root — <a href="#upper-slash" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Triads over a plain bass</a></td><td><button class="hl-opt-play" data-notes="46,65,67,72,76" aria-label="Play over B♭">▶</button></td></tr>
+        <tr><td class="name">E</td><td class="chord">♭9 · ♭3 · ♭13 · 1</td><td><span class="ch">Em(♭9 ♭13)</span>, Phrygian</td><td>new</td><td><button class="hl-opt-play" data-notes="40,65,67,72,76" aria-label="Play over E">▶</button></td></tr>
+      </tbody>
+    </table></div>
+    <h4 class="reveal" style="margin:28px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)">Grip 7 on F — F B D G</h4>
+    <div class="table-scroll reveal"><table class="study-table">
+      <thead><tr><th>Bass</th><th>Degrees, grip bottom to top</th><th>Chord</th><th>On the page</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="name">G</td><td class="chord">♭7 · 3 · 5 · 1</td><td><span class="ch">G7</span> in third inversion</td><td><a href="#harmonylab-figures" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">V⁴₂</a> in classical labels</td><td><button class="hl-opt-play" data-notes="43,65,71,74,79" aria-label="Play over G">▶</button></td></tr>
+        <tr><td class="name">F</td><td class="chord">1 · ♯11 · 13 · 9</td><td><span class="ch">G/F</span> = <span class="ch">F6/9♯11</span> (no 3), Lydian</td><td>II major over the root — <a href="#upper-slash" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Triads over a plain bass</a></td><td><button class="hl-opt-play" data-notes="41,65,71,74,79" aria-label="Play over F">▶</button></td></tr>
+        <tr><td class="name">D♭</td><td class="chord">3 · ♭7 · ♭9 · ♯11</td><td><span class="ch">D♭7♭9♯11</span>, the tritone sub of G7</td><td>the ♭V triad — <a href="#upper-ust" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">A triad over a dominant</a></td><td><button class="hl-opt-play" data-notes="37,65,71,74,79" aria-label="Play over D♭">▶</button></td></tr>
+        <tr><td class="name">A♭</td><td class="chord">𝄫7 · ♭3 · ♭5 · 7</td><td><span class="ch">A♭°∆7</span></td><td><a href="#chordatlas-dimmaj7" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">The diminished-major seventh</a>: a dominant 7 a half step below the bass</td><td><button class="hl-opt-play" data-notes="44,65,71,74,79" aria-label="Play over A♭">▶</button></td></tr>
+        <tr><td class="name">E♭</td><td class="chord">9 · ♯5 · 7 · 3</td><td><span class="ch">E♭∆9♯5</span>, Lydian augmented</td><td>E7/C = C∆9♯5 in <a href="#upper-voicings" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-strong);">Voicings by chord type</a></td><td><button class="hl-opt-play" data-notes="39,65,71,74,79" aria-label="Play over E♭">▶</button></td></tr>
+        <tr><td class="name">C</td><td class="chord">11 · 7 · 9 · 5</td><td><span class="ch">C∆9sus4</span> = G7 over a tonic pedal</td><td>new</td><td><button class="hl-opt-play" data-notes="36,65,71,74,79" aria-label="Play over C">▶</button></td></tr>
+        <tr><td class="name">E</td><td class="chord">♭9 · 5 · ♭7 · ♭3</td><td><span class="ch">Em7♭9</span>, Phrygian</td><td>new</td><td><button class="hl-opt-play" data-notes="40,65,71,74,79" aria-label="Play over E">▶</button></td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted reveal" style="margin-top: 14px; font-size: 13px; max-width: 840px;">The rule under all three tables: a grip has no fixed name — the bass note decides it. Find a Chord now does this for any notes you type: under the usual results, “Put a bass under it” names the chord over each of the twelve bass notes.</p>
 
     <h3 id="newjazz-majgrips" class="reveal" style="margin: 72px 0 16px; font-style: italic;">ii–V–I in major: <em>Grip 1 → Grip 2 → Grip 3</em> <span class="nj-src">(NJ 2018-07a · 10:35)</span></h3>
     <div class="grid-3 reveal" style="margin-bottom: 26px;">
@@ -8139,8 +8237,8 @@ e.g., for C: borrow the ii–V of E♭ (Fm7 as ii, B♭7 as V)</div>
   Piano: Modes &amp; Movements · A Personal Library
   <div class="signature">"Where signal survives volume."</div>
   <div class="verstamp" style="margin-top:16px; font-size:10px; letter-spacing:0.18em; color:var(--ink-4);">
-    v7.8 · build 2026-11-06T11:52Z · 6 November 2026, 6:52 AM ET<br>
-    supersedes v7.7 (build 2026-11-06T08:39Z) — Harmony Lab › notation: an imported MIDI or MusicXML melody (or your own) drawn as a lead sheet, chord above, scale below
+    v7.9 · build 2026-11-15T14:31Z · 15 November 2026, 9:31 AM ET<br>
+    supersedes v7.8 (build 2026-11-06T11:52Z) — NewJazz › grips 6 and 7 (F G C E, F B D G) with Grip 2a on F, each over its bass notes; Find a Chord › “Put a bass under it” for any notes typed; Harmony Lab › classical labels (Roman numerals and figured bass), and the analysis chart now shows inversion figures
   </div>
 </footer>
 
@@ -8802,6 +8900,9 @@ const KB_PRESETS = {
 
 // LH/RH two-handed voicings & exercises
 const VOICING_PRESETS = {
+  'nj-g2a-f': { lh: [], rh: [53, 57, 59, 64], stagger: 22, label: 'Play grip 2a', legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>F A B E — 1 · 3 · ♯4 · 7</span>' },
+  'nj-g6-f': { lh: [], rh: [65, 67, 72, 76], stagger: 22, label: 'Play grip 6', legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>F G C E — 1 · 2 · 5 · 7</span>' },
+  'nj-g7-f': { lh: [], rh: [65, 71, 74, 79], stagger: 22, label: 'Play grip 7', legendOverride: '<span class="kb-legend-item"><span class="kb-swatch rh"></span>F B D G — 1 · ♯4 · 6 · 9</span>' },
   // ===== v7.2: Others (block chords, comping, stride, Booker, arpeggios) — pitches from the sources; octaves marked where the page chose them =====
   'pg-4w-f': { lh: [53], rh: [57, 60, 62, 65], stagger: 26, fromMidi: 51, toMidi: 66, label: 'Play four-way close, F on top',
       legendOverride: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>F</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>A C D F</span><span class="kb-legend-item">register is this page’s choice</span>' },
@@ -10837,7 +10938,8 @@ function renderChordResults(str) {
   const byNotes = tokens.length >= 3 ? identifyNotes(tokens) : null;
   if (byNotes) {
     if (!byNotes.names.length) {
-      box.innerHTML = `<div class="result-empty">These notes don't form a chord in the list (triads, sixths, sevenths and common extensions). Try fewer notes, or type a chord name.</div>`;
+      box.innerHTML = `<div class="result-empty">These notes aren’t one named chord by themselves — see what they become over each bass note below.</div>`;
+      box.appendChild(bassUnderCard(byNotes));
       return;
     }
     items = byNotes.names.map(n => ({ root: n.root, q: n.q, iv: byNotes.pcs.map(p => ((p - n.root.pc) % 12 + 12) % 12).sort((a, b) => a - b) }));
@@ -10889,6 +10991,60 @@ function renderChordResults(str) {
     const b = card.querySelector('[data-ca]');
     if (b) b.addEventListener('click', () => showInChordAtlas(home.ref.parentIdx, home.ref.modeIdx, it.root.pc));
   });
+  if (byNotes) box.appendChild(bassUnderCard(byNotes));
+}
+const BASS_Q = CHORD_QUALITIES.concat([
+  ['13sus4', [0,2,5,7,9,10]], ['6/9♯11', [0,2,4,6,7,9]], ['7♭9♯11', [0,1,4,6,7,10]], ['°∆7', [0,3,6,9,11]], ['∆9♯5', [0,2,4,8,11]],
+  ['∆9sus4', [0,2,5,7,11]], ['m7♭9', [0,1,3,7,10]], ['m6(11)', [0,3,5,7,9]], ['m7♭5sus4', [0,5,6,10]], ['m7♭13', [0,3,7,8,10]],
+  ['7♭9♭13', [0,1,4,7,8,10]], ['13♭9', [0,1,4,7,9,10]], ['m11♭5', [0,2,3,5,6,10]], ['m(♭9 ♭13)', [0,1,3,7,8]], ['(add11)', [0,4,5,7]]
+]);
+function nameOverBass(bass, pcs) {
+  const set = [...new Set(pcs.concat([bass]).map(p => ((p - bass) % 12 + 12) % 12))];
+  let best = null;
+  BASS_Q.forEach(([q, iv]) => {
+    const ivs = iv.map(x => x % 12);
+    if (!set.every(x => ivs.includes(x))) return;
+    const missing = ivs.filter(x => !set.includes(x));
+    const sus = /sus/.test(q);
+    const third = ivs.includes(4) ? 4 : ivs.includes(3) ? 3 : (sus && ivs.includes(5)) ? 5 : (sus && ivs.includes(2)) ? 2 : null;
+    const sev = ivs.find(x => x === 10 || x === 11) != null ? ivs.find(x => x === 10 || x === 11) : (q.includes('°7') ? 9 : null);
+    const no3 = third != null && missing.includes(third), no7 = sev != null && missing.includes(sev);
+    const score = missing.length + (no3 ? 5 : 0) + (no7 ? 3 : 0) + ivs.length * 0.01 + (sus ? 0.05 : 0);
+    if (no3 && sus) return;
+    if (score > 7) return;
+    if (!best || score < best.score) best = { q, ivs, score, label: q + (no3 ? (third === 3 ? ' (no ♭3)' : ' (no 3)') : '') + (no7 ? ' (no 7)' : '') };
+  });
+  return { set, best };
+}
+function bassUnderCard(byNotes) {
+  const pcs = byNotes.pcs;
+  const voicing = []; let prev = 52;
+  byNotes.given.forEach(r => { let m = prev + 1; while (((m % 12) + 12) % 12 !== r.pc) m++; voicing.push(m); prev = m; });
+  const rows = [];
+  for (let bass = 0; bass < 12; bass++) {
+    const { set, best } = nameOverBass(bass, pcs);
+    const all = [...new Set(pcs.concat([bass]))];
+    const also = [];
+    pcs.forEach(r => { if (r === bass) return; const q = chordNameFor(r, all); if (q != null) also.push(PC_SPELL[r] + q + '/' + PC_SPELL[bass]); });
+    const upper = pcs.filter(p => p !== bass);
+    if (upper.length >= 3 && upper.length < pcs.length + 1) upper.forEach(r => { const q = chordNameFor(r, upper); if (q != null) also.push(PC_SPELL[r] + q + '/' + PC_SPELL[bass]); });
+    const ivRef = best ? best.ivs : set;
+    const degs = voicing.map(m => CHORD_DEG(((m - bass) % 12 + 12) % 12, ivRef, best ? best.q : ''));
+    const fits = scalesForChord(bass, set);
+    rows.push({ bass, name: best ? PC_SPELL[bass] + best.label : '', score: best ? best.score : 99, also: [...new Set(also)].slice(0, 2), degs, scale: fits[0] ? fits[0].label : '', inGrip: pcs.includes(bass) });
+  }
+  rows.sort((a, b) => a.score - b.score || a.bass - b.bass);
+  const card = document.createElement('div');
+  card.className = 'result-card';
+  card.innerHTML = `
+    <div class="result-head"><div class="result-title">Put a bass under it</div>
+    <div class="result-sub">${byNotes.given.map(r => PC_SPELL[r.pc]).join(' ')} as a right-hand grip, over each of the twelve bass notes — a missing 5th or 9th goes unmentioned, a missing 3rd or 7th is marked</div></div>
+    <div class="table-scroll"><table class="study-table">
+      <thead><tr><th>Bass</th><th>Chord</th><th>Also</th><th>Degrees, grip bottom to top</th><th>Scale</th><th></th></tr></thead>
+      <tbody>${rows.map((r, i) => `<tr${r.inGrip ? ' class="bt-in"' : ''}><td class="name">${PC_SPELL[r.bass]}${r.inGrip ? ' <span class="fam" style="color:var(--ink-4)">in grip</span>' : ''}</td><td class="bt-cell-name">${r.name ? `<span class="ch">${r.name}</span>` : '<span style="color:var(--ink-4)">—</span>'}</td><td>${r.also.map(x => `<span class="ch">${x}</span>`).join(' · ')}</td><td class="chord">${r.degs.join(' · ')}</td><td>${r.scale ? `<span class="sc">${r.scale}</span>` : ''}</td><td><button class="hl-opt-play" data-bi="${i}" aria-label="Play over ${PC_SPELL[r.bass]}">▶</button></td></tr>`).join('')}</tbody>
+    </table></div>`;
+  card.querySelectorAll('[data-bi]').forEach(b => b.addEventListener('click', () => { const r = rows[+b.dataset.bi]; playChord([36 + r.bass].concat(voicing), 10, 1.6); }));
+  return card;
 }
 function buildChordFinder() {
   const input = document.getElementById('chord-search');
@@ -21112,6 +21268,23 @@ function famOf(ivs) {
   return 'maj';
 }
 const ROMAN = ['I','♭II','II','♭III','III','IV','♯IV','V','♭VI','VI','♭VII','VII'];
+function figureOf(c) {
+  if (c.bass == null || c.bass === c.root) return '';
+  const b = md(c.bass - c.root);
+  const seventh = c.ivs.some(x => x === 10 || x === 11) || (c.ivs.includes(9) && c.ivs.includes(6) && c.ivs.includes(3));
+  if (b === 3 || b === 4) return seventh ? '⁶₅' : '⁶';
+  if (b === 6 || b === 7 || b === 8) return seventh ? '⁴₃' : '⁶₄';
+  if (seventh && (b === 9 || b === 10 || b === 11)) return '⁴₂';
+  return '';
+}
+function addFigure(roman, c) {
+  const fig = figureOf(c); if (!fig) return roman;
+  const k = roman.indexOf('/'); let head = k < 0 ? roman : roman.slice(0, k); const tail = k < 0 ? '' : roman.slice(k);
+  if (/7$/.test(head)) head = head.slice(0, -1) + fig;
+  else if (/[IViv°+ø]$/.test(head)) head += fig;
+  else return roman;
+  return head + tail;
+}
 function romanOf(ch, key) {
   const rel = md(ch.root - key.tonic);
   let r = ROMAN[rel];
@@ -21184,6 +21357,7 @@ function analyseChords(chords, key) {
     }
     if ((fam === 'min' || fam === 'hdim') && nx && famOf(nx.ivs) === 'dom' && toNext === 5) { c.tags.push('ii'); nx._afterII = true; }
     c.melDeg = (c.mel || []).map(m => degName(md(m - c.root), c.ivs));
+    c.roman = addFigure(c.roman, c);
   });
   return chords;
 }
@@ -21486,6 +21660,44 @@ function buildHarmonyLab() {
 window.addEventListener('DOMContentLoaded', () => { try { buildHarmonyLab(); } catch (e) { console.error('Harmony Lab', e); } });
 })();
 
+</script>
+
+<script>
+(function () {
+  const FB = [
+    { l: 'V', n: [43, 47, 50], d: 'root position · bass G · 3 and 5 above it · jazz: G' },
+    { l: 'V⁶', n: [47, 50, 55], d: 'first inversion · bass B · 3 and 6 above it · jazz: G/B' },
+    { l: 'V⁶₄', n: [50, 55, 59], d: 'second inversion · bass D · 4 and 6 above it · jazz: G/D' },
+    { l: 'V⁷', n: [43, 47, 50, 53], d: 'root position · bass G · 3, 5, 7 above it · jazz: G7' },
+    { l: 'V⁶₅', n: [47, 50, 53, 55], d: 'first inversion · bass B · 3, 5, 6 above it · jazz: G7/B' },
+    { l: 'V⁴₃', n: [50, 53, 55, 59], d: 'second inversion · bass D · 3, 4, 6 above it · jazz: G7/D' },
+    { l: 'V⁴₂', n: [53, 55, 59, 62], d: 'third inversion · bass F · 2, 4, 6 above it · jazz: G7/F' }
+  ];
+  const NM = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+  function show(i, play) {
+    const f = FB[i], hl = {};
+    f.n.forEach((m, k) => hl[m] = k === 0 ? 'lh' : 'rh');
+    const box = document.getElementById('hl-fb-kb'); if (!box) return;
+    box.innerHTML = '';
+    box.appendChild(createKeyboardBlock({ highlighted: hl, playLabel: 'Play ' + f.l, legend: '<span class="kb-legend-item"><span class="kb-swatch lh"></span>bass: ' + NM[f.n[0] % 12] + '</span><span class="kb-legend-item"><span class="kb-swatch rh"></span>' + f.n.slice(1).map(m => NM[m % 12]).join(' ') + '</span>' }));
+    document.getElementById('hl-fb-line').textContent = f.l + ' in C — ' + f.d;
+    document.querySelectorAll('#hl-fb-btns .search-hint').forEach((b, k) => b.classList.toggle('on', k === i));
+    if (play) playChord(f.n, 40, 1.4);
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    try {
+      document.querySelectorAll('#hl-fb-btns .search-hint').forEach(b => b.addEventListener('click', () => show(+b.dataset.i, true)));
+      show(0, false);
+      document.querySelectorAll('button[data-notes]').forEach(b => b.addEventListener('click', () => playChord(b.dataset.notes.split(',').map(Number), 10, 1.6)));
+      document.querySelectorAll('button[data-fac]').forEach(b => b.addEventListener('click', () => {
+        const inp = document.getElementById('chord-search'); if (!inp) return;
+        inp.value = b.dataset.fac; renderChordResults(inp.value);
+        const t = document.getElementById('chordfinder'); const y = t.getBoundingClientRect().top + window.pageYOffset - 70;
+        try { window.scrollTo({ top: y, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, y); }
+      }));
+    } catch (e) { console.error('figures/grips', e); }
+  });
+})();
 </script>
 </body>
 </html>
